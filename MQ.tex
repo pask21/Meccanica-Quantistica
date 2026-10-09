@@ -202,8 +202,16 @@ che nel caso di uno stato puro $ \rho = \k{\psi} \b{\psi} $ diventa
 
 \chapter{Cinematica e dinamica}
 
+
+
+\section{Trasformazioni}
+Vogliamo capire come cambiano gli osservabili e gli stati (puri) a seguito di trasformazioni nello spazio e nel tempo. La fisica del sistema non 
+deve cambiare sotto rotazioni, traslazioni o se viene messo in moto a velocità costante, perciò deve esistere una relazione che le lega lo stato 
+$ k{\psi} $ allo stato trasformato $ \k{\psi'} $ e l'osservabile $ A $ con il trasformato $ A' $. Inoltre, devono essere conservate le distribuzioni 
+di probabilità $ \abs{ \bk{\phi | \psi}}^2 $, e le trasformazioni che hanno questa proprietà sono descritte dal seguente teorema.
+
 \begin{theorem}[ di Wigner ]
-  Ogni trasformazione dello spazio vettoriale $ \H $ in sé stesso che preserva il modulo del prodotto scalare $ \abs{\bk{\phi | \psi}} $ può essere 
+  Ogni trasformazione di uno spazio vettoriale $ \H $ in sé stesso che preserva il modulo del prodotto scalare $ \abs{\bk{\phi | \psi}} $ può essere 
   rappresentata con un operatore $ U $ o unitario o antiunitario.
 \end{theorem}
 
@@ -224,7 +232,26 @@ che è un elemento del duale $ \H^* $. Dunque abbiamo che
 \begin{align}
   \bk{U \phi | U \psi} = (\b{\phi} U^\dagger) (U \k{\psi}) = {\bk{\phi | U^\dagger U | \psi}}^* = \bk{\phi |\psi}^*.
 \end{align}
+Gli operatori antilineari possono descrivere trasformazioni discrete ma non trasformazioni continue, questo perché una trasformazione $ U(l) $ 
+con $ l $ parametro continuo può essere vista come una combinazione di altre trasformazioni ad esempio $ U(l) = U(l/2) U(l/2) $ e il prodotto 
+di due operatori antilineari è lineare perché si coniuga due volte, quindi a prescindere dal carattere di $ U(l/2) $ si ha che $ U(l) $ è lineare.
 
+Nel trasformare gli operatori si devono conservare gli autovalori e gli autovettori così da avere gli stessi valori possibili delle misure, infatti 
+abbiamo
+\begin{align}
+  A'\k{\phi'_n} = a_n \k{\phi'_n} 
+\end{align}
+e usando che $ \k{\phi'_n} = U \k{\phi_n} $ si ha
+\begin{align}
+  A' U \k{\phi_n } = a_n U\k{\phi_n} \implies U^{-1} A' U \k{\phi_n} = a_n \k{\phi_n}.
+\end{align}
+A questo punto per concludere che $ A = U^{-1} A' U $ ci basta osservare che $ (A - U^{-1} A' U )\k{\phi_n} = 0 $ vale per ogni vettore 
+del set completo $ \{\k{\phi_n}\} $ e quindi vale per ogni vettore. Invertendo si ottiene  
+\begin{align}
+  A = U A' U^{-1}.
+\end{align}
+
+Consideriamo una famiglia di operatori unitari $ U(s) $ che dipendono dal parametro continuo $ s $,
 
 
 
