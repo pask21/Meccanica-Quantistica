@@ -1,0 +1,233 @@
+\def \titolo {Meccanica Quantistica}
+
+\input{preambolo_MQ.tex}
+
+\begin{document}
+\frontmatter
+\maketitle
+\tableofcontents
+\cleardoublepage
+\markboth{}{}
+\mainmatter
+
+\chapter{Prerequisiti matematici}
+Dato un sistema ortonormale $ \{\k{\psi_n}\} $, la traccia di un operatore $ A $ è definita come 
+\begin{align}
+  \Tr A = \sum_{n} \b{\psi_n} A \k{\psi_n}
+\end{align}
+ed è indipendente dal sistema ortonormale scelto. Tale definizione nasce dal caso finito e si può estendere senza troppi problemi anche al caso infinito, 
+tuttavia in alcuni casi dovremo preoccuparci se la somma diverge o meno.
+
+
+\chapter{Formulazione della meccanica quantistica}
+
+\begin{postulate}[1]
+  A ogni variabile dinamica corrisponde un operatore lineare, e i possibili valori di tale variabile sono gli autovalori dell'operatore lineare associato.
+\end{postulate}
+
+\begin{postulate}[ 2 ]
+  A ogni stato corrisponde un unico \textit{operatore di stato}. Il valor medio di una variabile dinamica $\mathbf{R}$, rappresentata dall'operatore $ R $, 
+  nell'ensemble virtuale di eventi risultanti da una procedura di preparazione per lo stato, rappresentato dall'operatore $ \rho $, vale 
+  \begin{align}
+    \sca{\mathbf{R}} = \frac{\Tr(\rho R)}{\Tr \rho}.
+  \end{align}
+\end{postulate}
+
+Secondo l'interpretazione statistica, la teoria non predice il singolo esito ma le distribuzioni statistiche per una serie di preparazioni identiche. 
+Con questa interpretazione possiamo definire uno stato come ciò che fissa un determinato esito, quindi diremo che due preparazioni sono nello stesso stato 
+se per ogni variabile dinamica danno le stesse statistiche. In questo senso il postulato 2 ci dice che l'informazione che codifica uno stato è rappresentata 
+da un operatore lineare $ \rho $, ed è definito tramite la proprietà che applicato a un operatore $ R $ associato a una variabile dinamica, presa la traccia 
+ne restituisce la media sull'ensemble (moltiplicata per la traccia di $ \rho $).
+
+Possiamo imporre alcuni vincoli sulla media $ \sca{\mathbf{R}} $ in modo da ricavare delle proprietà dell'operatore di stato $ \rho $. 
+\begin{enumerate}
+  \item \textbf{Normalizzazione}: gli operatori $ \rho $ e $ c \rho $ con $ c \in \C $ danno le stesse medie dato che $ \Tr (c\rho) = c \Tr \rho $, per 
+  questo motivo possiamo imporre che $ \Tr \rho = 1 $, che corrisponde a scegliere $ \DS c = \frac1{\Tr\rho} $.
+  \item \textbf{Hermiticità}: consideriamo un osservabile a cui è associato un operatore $ P_u = \k{u} \b{u} $ che rappresenta un proiettore 
+  su un vettore $ \k{u} $ di norma 1. Dato che la media di una variabile dinamica deve essere reale (perché assume solo valori 
+  reali) allora lo deve essere anche $ \Tr (\rho P_u) = \sum_n \b{\psi_n} \rho \k{u} \bk{u|\psi_n} = \b{u} \rho \k{u} $, e siccome deve valere per ogni 
+  $ \k{u} $ allora si ha che $ \rho = \rho^\dagger $ per il lemma \ref{lem:}.
+  \item \textbf{Positività}: considerando ancora i proiettori, gli autovalori possibili sono $ 0 $ e $ 1 $, per tanto la media dell'osservabile 
+  deve essere positiva e quindi $ 0 \leq \sca{\mathbf{R}} = \b{u} \rho \k{u} $. Siccome deve valere per ogni $ \k{u} $ allora $ \rho \geq 0 $.
+\end{enumerate}
+Queste tre proprietà di un generico operatore di stato $ \rho $, come abbiamo visto, discendono solo da considerazioni sulle caratteristiche di una misura, 
+possiamo quindi riformulare il secondo postulato con il seguente.
+\begin{postulate}[ 2a ]
+  A ogni stato corrisponde un unico operatore di stato di traccia unitaria, hermitiano e non negativo.
+\end{postulate}
+Dove l'unicità è dovuta al fatto che dicevamo sopra cioè che se due preparazioni danno le stesse statistiche allora sono lo stesso stato. A questo punto 
+possiamo scambiare i ruoli e consideriamo come operatore di stato $ \rho = \k{\psi} \b{\psi} $ con $ \k{\psi} $ di norma unitaria, 
+il quale rispetta le tre condizioni del postulato 2a. Per un operatore $ R $ associato a un osservabile $ \mathbf{R} $ abbiamo che 
+\begin{align}
+  \sca{\mathbf{R}} = \Tr(\rho R) = \sum_{n} \bk{\phi_n|\psi} \b{\psi} R \k{\phi_n} = \b{\psi} R \k{\psi}
+\end{align}
+che deve essere reale per ogni $ \k{\psi} $ e quindi si ottiene che $ R = R^\dagger $. In questo modo possiamo ridefinire anche il postulato 1 con il 
+seguente.
+\begin{postulate}[ 1a ]
+  A ogni variabile dinamica corrisponde un operatore hermitiano i cui autovalori sono i possibili valori della variabile dinamica.
+\end{postulate}
+
+Dato che l'operatore di stato $ \rho $ è autoaggiunto per il teorema spettrale possiamo rappresentarlo come 
+\begin{align}
+  \rho = \sum_n \rho_n \k{\psi_n} \b{\psi_n}
+\end{align}
+con $ \k{\psi_n} $ la base degli autovettori e $ \rho_n $ i suoi autovalori (assunti discreti) che sono reali. Da questa rappresentazione deduciamo che 
+$ 1 = \Tr \rho = \sum_n \rho_n $, sono anche tutti non negativi dato che $ \b{\psi} \rho \k{\psi} \geq 0 $ per ogni $ \k{\psi} $. Combinando queste 
+proprietà si ottiene che 
+\begin{align}
+  0 \leq \rho_n \leq 1
+\end{align}
+e l'insieme di tutti gli operatori con queste caratteristiche forma un \textit{insieme convesso}, cioè che preso un insieme di operatori 
+$ \{\rho^{(i)}\} $ con tali proprietà allora anche $ \rho = \sum_{i} a_i \rho^{(i)} $ rispetta tali proprietà, a patto che $ \sum_i a_i = 1 $ e 
+$ 0 \leq a_i \leq 1 $.
+
+\section{Stati puri}
+
+\begin{definition}[  ]
+  Uno \textit{stato puro} è uno stato con un operatore di stato $ \rho $ della forma 
+  \begin{align}
+    \rho = \k{\psi} \b{\psi} 
+  \end{align}
+  dove $ \k{\psi} $ ha norma unitaria ed è detto \textit{vettore di stato}.
+\end{definition}
+
+In uno stato puro il valor medio di un osservabile $ \mathbf{R} $ è 
+\begin{align}
+  \mathbf{R} = \Tr\left( \k{\psi} \b{\psi} R \right) = \b{\psi} R \k{\psi}
+\end{align}
+e il vettore di stato non è unico infatti per ogni $ \alpha \in \R $ si ha che tutti i vettori di stato $ e^{i\alpha} \k{\psi} $ danno lo stesso stato 
+puro. Uno stato puro è quindi il proiettore sul vettore di stato (a meno di una fase) e quindi una caratterizzazione equivalente è che 
+\begin{align}
+  \rho^2 = \rho
+\end{align}
+che è necessaria per la definizione di stato puro ed è anche sufficiente perché gli autovalori $ \rho_n $ devono soddisfare $ \rho_n^2 = \rho_n $ quindi 
+possono essere solo $ 0,1 $. Per le caratteristiche degli operatori di stato deve essere che la somma degli autovalori è $ 1 $ e quindi l'unica possibilità 
+che $ \rho_\psi = 1 $ e tutti gli altri $ 0 $, con rappresentazione spettrale $ \rho = \sum_n \rho_n \k{\psi_n} \b{\psi_n} = \k{\psi} \b{\psi} $. 
+Una terza condizione equivalente è che 
+\begin{align}
+  \Tr \left( \rho^2 \right) = 1
+\end{align}
+che è necessaria per quello che abbiamo appena detto, per la sufficienza dato che $ 0 \leq \rho_n \leq 1 $ si ha $ \rho_n^2 \leq \rho_n $ ma allora 
+$ \Tr(\rho^2) \leq \Tr(\rho) = 1 $, abbiamo l'uguaglianza se $ \rho_n^2 = \rho_n $ e quindi è equivalente alla seconda caratterizzazione. Un'ulteriore 
+condizione è data dal seguente teorema.
+
+\begin{theorem}[  ]
+  Uno stato puro non può essere mai espresso come una combinazione convessa non banale di altri stati, mentre uno stato non puro può esserlo.
+\end{theorem}
+
+Il precedente teorema ci dice che gli unici stati che si possono esprimere come combinazione convessa sono gli stati non puri, mentre per gli stati puri 
+vale solo quella banale e cioè con se stessi. Ad esempio $ \rho = \lambda \rho_1 + (1 - \lambda) \rho_2 $ con $ \lambda \in (0,1) $ è necessariamente 
+uno stato non puro.
+
+\section{Distribuzioni di probabilità}
+
+Vogliamo ottenere la distribuzione dei valori dell'osservabile $ \mathbf{R} $ sull'ensemble, per farlo sfruttiamo una funzione ausiliaria $ F(\mathbf{R}) $ 
+con l'operatore associato $ F(R) $ costruito come
+\begin{align}
+  F(R) = \sum_{n} F(r_n) \k{\psi_n} \b{\psi_n}
+\end{align}
+in modo che gli autovettori siano conservati. Sia $ g(r)dr $ la probabilità che $ \mathbf{R} $ sia fra $ r $ e $ r + dr $, allora scriveremo che 
+\begin{align}
+  \sca{\mathbf{R}} &= \int_{-\infty}^{+\infty} r \, g(r) \,dr
+  \\
+  \sca{F(\mathbf{R})} &= \int_{-\infty}^{+\infty} F(r) \,g(r) \,dr
+\end{align}
+ma per il postulato 2 vale che $ \sca{F(\mathbf{R})} = \Tr(\rho F(R)) $ quindi scegliendo una opportuna $ F(R) $ possiamo ottenere la densità di 
+probabilità $ g(r) $. 
+
+\textbf{Spettro discreto}: sia $ R $ un operatore autoaggiunto con spettro discreto, possiamo rappresentarlo con i suoi autovalori $ r_n $ e in un sistema 
+di autovettori ortonormali $ \k{r_n} $ come 
+\begin{align}
+  R = \sum_n r_n \k{r_n} \b{r_n}.
+\end{align}
+Come funzione ausiliaria usiamo $ F(\mathbf{R}) = \theta(r - \mathbf{R}) $ e otteniamo 
+\begin{align}
+  \sca{\theta(r - \mathbf{R})} = \int_{-\infty}^{r} g(r') \,dr' = \Prob (\mathbf{R} < r \vert \rho)
+\end{align}
+mentre per il postulato 2 si ha che
+\begin{align}
+  \sca{\theta(r - \mathbf{R})} = \Tr\left[ \rho \,\theta(r - R) \right] = \Tr \left[ \rho \sum_n \theta(r - r_n) \k{r_n} \b{r_n} \right] 
+  = \sum_n \b{r_n} \rho \k{r_n} \theta(r - r_n)
+\end{align}
+dove abbiamo usato che il sistema $ \k{r_n} $ è ortonormale. Combinando le due espressioni si ottiene che 
+\begin{align}
+  g(r) &= \der{}{r} \Prob (\mathbf{R} < r \vert \rho) = \der{}{r} \sca{\theta(r - \mathbf{R})} = \der{}{r} \sum_n \b{r_n} \rho \k{r_n} \theta(r - r_n)
+  \\
+  &= \sum_n \b{r_n} \rho \k{r_n} \der{}{r} \theta(r - r_n) = \sum_n \b{r_n} \rho \k{r_n} \delta(r - r_n) 
+\end{align}
+dove si nota chiaramente che la densità di probabilità è $ 0 $ se $ r $ non è un autovalore, consistente con il postulato 1. Calcoliamo quindi la 
+probabilità che $ \mathbf{R} $ assuma il valore $ r $ nello stato $ \rho $:
+\begin{align}
+  \Prob(\mathbf{R} = r \vert \rho) &= \lim_{\eps \to 0} \left\{\Prob(\mathbf{R} < r + \eps \vert \rho) - \Prob(\mathbf{R} < r - \eps \vert \rho) \right\}
+  \\
+  &= \int_{r-\eps}^{r + \eps} g(r')\,dr' = \sum_n \b{r_n} \rho \k{r_n} \delta_{r,r_n}
+\end{align}
+dove $ \delta_{r,r_n} $ è la delta di Kronecker. Nel caso di uno stato puro $ \rho = \k{\psi} \b{\psi} $ e autovalori non degeneri la probabilità diventa 
+\begin{align}
+  \Prob(\mathbf{R} = r_n \vert \rho) = \bk{r_n|\psi} \bk{\psi|r_n} = \abs{\bk{r_n|\psi}}^2.
+\end{align}
+Se $ \mathbf{R} $ assume l'autovalore non degenere $ r_0 $ con probabilità $ 1 $ allora deve valere che $ \b{r_0} \rho \k{r_0} = 1 $, 
+ma per un qualsiasi stato vale che 
+\begin{align}
+  1 \geq \Tr\left( \rho^2 \right) = \sum_{m} \b{r_m} \rho^2 \k{r_m} = \sum_{n,m} \b{r_m} \rho \k{r_n} \b{r_n} \rho \k{r_m} 
+  = \sum_{n,m} \abs{\b{r_m} \rho \k{r_n}}^2
+\end{align}
+e tale somma è saturata dal termine $ \b{r_0} \rho \k{r_0} = 1 $ quindi $ \b{r_m} \rho \k{r_n} = 0 $ per ogni $ (m,n) \neq (0,0) $, ma allora l'unico stato 
+in cui $ \mathbf{R} $ assume $ r_0 $ è lo stato puro $ \rho = \k{r_0} \b{r_0} $. Uno stato di questo tipo è detto \textit{autostato} 
+dell'osservabile $ \mathbf{R} $.
+
+\textbf{Spettro continuo}: sia $ Q $ un operatore autoaggiunto associato all'osservabile $ \mathbf{Q} $ con spettro solo continuo, possiamo quindi 
+rappresentarlo come 
+\begin{align}
+  Q = \int q \k{q} \b{q} \,dq
+\end{align}
+dove i suoi autovettori $ \k{q} $ soddisfano la relazione di completezza $ \int \k{q} \b{q} \,dq = 1 $ e la relazione di ortogonalità 
+$ \bk{q'|q''} = \delta(q' - q'') $. Come per lo spettro discreto abbiamo che per $ F(\mathbf{Q}) = \theta(q - \mathbf{Q}) $ si ottiene 
+\begin{align}
+  \sca{\theta(r - \mathbf{Q})} = \int_{-\infty}^{r} g(q') \,dq' = \Prob (\mathbf{Q} < q \vert \rho)
+\end{align}
+che è la probabilità che l'osservabile $ \mathbf{Q} $ sia minore di $ q $ nello stato $ \rho $. Tuttavia per il secondo postulato ora abbiamo 
+\begin{align}
+  \sca{\theta(r - \mathbf{Q})} = \Tr \left[ \rho \, \theta(q - Q) \right] = \Tr\left[ \rho \int_{-\infty}^{q} q'\k{q'} \b{q'} \,dq' \right]
+  = \int_{-\infty}^{q} \b{q'}\rho \k{q'}\,dq'
+\end{align}
+e quindi la densità di probabilità $ g(q) $ vale 
+\begin{align}
+  g(q) = \der{}{q} \Prob(\mathbf{Q} < q | \rho) = \b{q} \rho \k{q}
+\end{align}
+che nel caso di uno stato puro $ \rho = \k{\psi} \b{\psi} $ diventa
+\begin{align}
+  g(q) = \bk{q | \psi} \bk{\psi | q} = \abs{\bk{q | \psi}}^2.
+\end{align}
+
+\chapter{Cinematica e dinamica}
+
+\begin{theorem}[ di Wigner ]
+  Ogni trasformazione dello spazio vettoriale $ \H $ in sé stesso che preserva il modulo del prodotto scalare $ \abs{\bk{\phi | \psi}} $ può essere 
+  rappresentata con un operatore $ U $ o unitario o antiunitario.
+\end{theorem}
+
+Nel caso che $ U $ sia unitario mostriamo che preserva effettivamente il prodotto scalare (non solo il suo modulo):
+\begin{align}
+  \bk{\phi' | \psi'} = \bk{U \phi | U \psi} = (\b{\phi} U^\dagger) \, (\k{U |\psi}) = \bk{\phi | U^\dagger U | \psi} = \bk{\phi | \psi}
+\end{align}
+dato che $ U^\dagger U = I $. Mentre se $ U $ è antiunitario, cioè antilineare e unitario, la mappa $\psi \mapsto \bk{\phi | U \psi}$ 
+è antilineare in $ \psi $ perché 
+\begin{align}
+  \bk{\phi | U(\alpha\, \psi)} = \alpha^* \bk{\phi | U\psi}
+\end{align}
+e quindi non è un funzionale lineare su $ \H $, perciò dobbiamo definire l'applicazione di $ U $ a $ \b{\phi} $ come 
+\begin{align}
+  (\b{\phi} U) \k{\psi} \coloneq \bk{\phi | U\psi }^*
+\end{align}
+che è un elemento del duale $ \H^* $. Dunque abbiamo che 
+\begin{align}
+  \bk{U \phi | U \psi} = (\b{\phi} U^\dagger) (U \k{\psi}) = {\bk{\phi | U^\dagger U | \psi}}^* = \bk{\phi |\psi}^*.
+\end{align}
+
+
+
+
+
+
+\end{document}
