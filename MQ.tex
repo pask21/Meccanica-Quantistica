@@ -207,7 +207,7 @@ che nel caso di uno stato puro $ \rho = \k{\psi} \b{\psi} $ diventa
 \section{Trasformazioni}
 Vogliamo capire come cambiano gli osservabili e gli stati (puri) a seguito di trasformazioni nello spazio e nel tempo. La fisica del sistema non 
 deve cambiare sotto rotazioni, traslazioni o se viene messo in moto a velocità costante, perciò deve esistere una relazione che le lega lo stato 
-$ k{\psi} $ allo stato trasformato $ \k{\psi'} $ e l'osservabile $ A $ con il trasformato $ A' $. Inoltre, devono essere conservate le distribuzioni 
+$ \k{\psi} $ allo stato trasformato $ \k{\psi'} $ e l'osservabile $ A $ con il trasformato $ A' $. Inoltre, devono essere conservate le distribuzioni 
 di probabilità $ \abs{ \bk{\phi | \psi}}^2 $, e le trasformazioni che hanno questa proprietà sono descritte dal seguente teorema.
 
 \begin{theorem}[ di Wigner ]
@@ -251,7 +251,246 @@ del set completo $ \{\k{\phi_n}\} $ e quindi vale per ogni vettore. Invertendo s
   A = U A' U^{-1}.
 \end{align}
 
-Consideriamo una famiglia di operatori unitari $ U(s) $ che dipendono dal parametro continuo $ s $,
+Consideriamo una famiglia di operatori unitari $ U(s) $ che dipendono dal parametro continuo $ s $ tali che $ U(0) = I $ e $ U(s_1 + s_2) = U(s_1) U(s_2) $.
+Per la continuità di $ s $ possiamo sviluppare attorno a $ s = 0 $ ottenendo
+\begin{align}
+  U(s) = I + \frac{dU}{ds}(s = 0) \, s + O(s^2)
+\end{align}
+e imponiamo la condizione di unitarietà moltiplicando per l'aggiunto 
+\begin{align}
+  U U^\dag = I + s \left[ \frac{dU}{ds} + \frac{dU^\dag}{ds} \right] \Bigg\vert_{s = 0} + O(s^2) 
+  \implies \frac{dU}{ds} \Bigg\vert_{s = 0} = - \frac{dU^\dag}{ds} \Bigg\vert_{s = 0}
+\end{align}
+che è risolta con un operatore autoaggiunto $ K $ tale che 
+\begin{align}
+  \frac{dU}{ds} \Bigg\vert_{s = 0} = i K, \quad K = K^\dag.
+\end{align}
+L'operatore $ K $ è detto \textit{generatore} della famiglia e dato che è indipendente da $ s $ ogni trasformazione finita può essere scritta in termini di 
+$ K $: consideriamo $ U(s_1 + s_2) = U(s_1) U(s_2) $ e derivando per $ s_2 $ si ha
+\begin{align}
+  \der{}{s_2} U(s_1 + s_2) \Bigg\vert_{s_2 = 0} = U(s_1) \frac{dU}{ds_2}\Bigg\vert_{s_2 = 0} = U(s_1) iK \implies U(s_1) = e^{iKs_1}
+\end{align}
+dove per risolvere l'equazione era necessaria la condizione iniziale $ U(0) = I $.
+
+\section{Gruppo di Galileo}
+
+In ambito non relativistico le trasformazioni di spazio e tempo sono descritte dalle trasformazioni di Galileo:
+\begin{align}
+  \v{x}' &= R \v{x} + \v{v} t + \v{a}
+  \\
+  t' &= t + s
+\end{align}
+dove $ R $ è una rotazione, $ \v{v} $ è la velocità, $ \v{a} $ è una traslazione spaziale e $ s $ una traslazione temporale. Due trasformazioni di questo 
+tipo non commutano fra loro, infatti siano $ \tau_1(R_1,\v{v}_1, \v{a}_1, s_1) $ e $ \tau_2(R_2,\v{v}_2, \v{a}_2, s_2) $ due trasformazioni di Galileo, 
+allora la trasformazione $ \tau_3 = \tau_2 \tau_1 $ porta a 
+\begin{align}
+  \v{x}_3 &= R_2 (R_1 \v{x}_1 + \v{v}_1 t_1 + \v{a}_1) + \v{v}_2 (t_1 + s_1) + \v{a}_2 
+  \\
+  t_3 &= t_1 + s_1 + s_2
+\end{align}
+e scambiando $ \tau_1 $ con $ \tau_2 $ si ottiene una trasformazione differente, quindi le trasformazioni di Galileo formano un gruppo non commutativo. 
+Dato che le leggi fisiche sono invarianti per questo tipo di trasformazioni, nella sezione precedente avevamo mostrato che per il teorema di Wigner deve 
+esistere un operatore unitario $ U(\tau) $ che codifica tali trasformazioni. Dato che $ \tau_2 \tau_1 $ e $ \tau_3 $ descrivono la stessa trasformazione 
+allora $ U(\tau_2\tau_1)\k{\psi} $ e $ U(\tau_3) $ devono descrivere lo stesso stato, tutta via non devono per forza coincidere ma possono differire di una 
+fase $ \omega $ che può dipendere da $ \tau_2, \tau_1 $, cioè
+\begin{align}
+  U(\tau_2\tau_1)\k{\psi} = e^{i\omega(\tau_2,\tau_1)} U(\tau_3) \k{\psi}.
+\end{align}
+Il gruppo ha dieci gradi di libertà cioè tre rotazionali, tre per la traslazione spaziale, tre per il boost di velocità e uno per la traslazione temporale, 
+dipende quindi da 10 parametri continui e quindi una trasformazione generica consiste di dieci operatori unitari, che espressi tramite i generatori diventa 
+\begin{align}
+  U(\tau) = \sum_{n = 1}^{10} e^{i K_n s_n}
+\end{align}
+dove gli $ s_n $ sono i parametri continui e $ K_n $ sono i generatori hermitiani. 
+
+Consideriamo due trasformazioni $ e^{i K_\nu s_\nu} $ e $ e^{iK_\mu s_\mu} $, con lo stesso parametro infinitesimo $ s_\nu = s_\mu = \eps $ e componiamole 
+insieme alle rispettive inverse nel seguente modo:
+\begin{align}
+  e^{i K_\mu \eps} e^{i K_\nu \eps} e^{-i K_\mu \eps}e^{-i K_\nu \eps} &= I + \eps^2 (K_\nu K_\mu - K_\mu K_\nu) + O(\eps^3) 
+  \\
+  &= I + \eps^2 [K_\nu,K_\mu] + O(\eps^3)
+\end{align}
+dove notiamo che il commutatore $ [K_\nu, K_\mu] $ misura quanto l'operazione sia diversa dall'identità. Siccome questa composizione deve essere ancora una 
+trasformazione di Galileo a meno di una fase, si deve esprimere come 
+\begin{align}
+  e^{i\omega} U = I + i \sum_{n = 1}^{10} s_n K_n + i \omega I
+\end{align}
+con gli 11 parametri $ \{\omega, s_n\} $ dell'ordine di $ \eps^2 $, confrontando le due espressioni otteniamo che 
+\begin{align}
+  [K_\nu, K_\mu] = i \sum_{\lambda = 1}^{10} c_{\nu \mu}^\lambda \,K_\lambda + i b_{\nu \mu} \,I
+\end{align}
+dove i coefficienti $ c_{\nu \mu}^\lambda $ dipendono dalle leggi di composizione di due trasformazioni di Galileo. In seguito calcoleremo le relazioni 
+di commutazione fra i vari generatori del gruppo, che conviene ridefinirli come $ \{-J_{\alpha} , -P_\alpha, G_\alpha, H\} $ con $ \alpha = 1,2,3 $. 
+I coefficienti $ b_{\nu \mu} $ li aggiungeremo successivamente, quindi ogni relazione di commutazione è da intendersi come a meno del coefficiente 
+$ b_{\nu \mu} $.
+
+È chiaro che le traslazioni spaziali commutano fra loro e con la traslazione temporale, con cui commutano anche le rotazioni quindi
+\begin{align}
+  [P_\alpha, P_\beta] &= O
+  \\
+  [P_\alpha, H] &= O
+  \\
+  [J_\alpha, H] &= O.
+\end{align}
+Commutano anche le traslazioni spaziali con i boost e i boost fra loro:
+\begin{align}
+  [P_\alpha, G_\beta] &= O
+  \\
+  [G_\alpha, G_\beta] &= O.
+\end{align}
+Le rotazioni lungo un asse commutano con i boost e le traslazioni lungo quell'asse quindi 
+\begin{align}
+  [J_\alpha, P_\alpha ] &= O
+  \\
+  [J_\alpha, G_\alpha ] &= O.
+\end{align}
+Per quanto riguarda il commutatore di un boost con una traslazione temporale calcoliamo il quadrivettore risultante da 
+$ e^{i\eps H} e^{i \eps G_1} e^{-i\eps H} e^{-i\eps G_1} $:
+\begin{align}
+  (x_1, t) \to (x_1 - \eps t , t) \to (x_1 - \eps t, t - \eps) \to (x_1 - \eps t + \eps (t - \eps),  t - \eps) \to (x_1 - \eps^2, t )
+\end{align} 
+dove le componenti $ x_2, x_3 $ sono state omesse perché costanti. Abbiamo ottenuto quindi una traslazione in $ x_1 $ di $ -\eps^2 $, siccome 
+le relazioni di commutazione erano tutte a meno di un multiplo dell'identità possiamo scrivere che 
+\begin{align}
+  [G_\alpha, H] = i P_\alpha
+\end{align}
+e notiamo che i segni con cui avevamo definito i generatori infinitesimi erano proprio per semplificare i segni di queste relazioni. 
+Allo stesso modo quindi tramite calcolo esplicito si ottengono gli ultimi commutatori:
+\begin{align}
+  [J_\alpha, J_\beta] &= i \eps_{\alpha \beta \gamma} J_\gamma
+  \\
+  [J_\alpha, G_\beta] &= i \eps_{\alpha \beta \gamma} G_\gamma
+  \\
+  [J_\alpha, P_\beta] &= i \eps_{\alpha \beta \gamma} P_\gamma
+\end{align}
+
+Adesso che abbiamo trovato tutti i coefficienti $ c_{\nu \mu}^\lambda $ possiamo occuparci dei $ b_{\nu \mu} $ cioè del multiplo dell'identità che avevamo 
+tralasciato in ogni commutatore. Per farlo usiamo due fatti:
+\begin{enumerate}
+  \item tutti i commutatori sono antisimmetrici cioè $ [K_\alpha, K_\beta] = - [K_\beta, K_\alpha ] $, che implica inoltre che ogni generatore commuta con 
+  sé stesso;
+  \item vale l'identità di Jacobi e cioè 
+  \begin{align}
+    [[A,B], C] + [[B,C],A] + [[C, B],A] = 0.
+  \end{align}
+\end{enumerate}
+Osserviamo che un multiplo dell'identità all'interno di un commutatore sparisce perché
+\begin{align}
+  [A + c I, B] = [A, B] + c [I, B] = [A, B]
+\end{align}
+dato che ogni operatore commuta con l'identità. Sia $ X $ un generatore fra $ P, G $, usando l'identità di Jacobi calcoliamo 
+\begin{align}
+  (\pm i)[X_\alpha, X_\gamma] = [[J_\beta, X_\gamma], X_\beta] &= [[X_\beta, X_\gamma], J_\beta] + [[J_\beta, X_\beta], X_\gamma]
+  \\
+  &= [O, J_\beta] + [O, X_\gamma] = O
+\end{align} 
+dove abbiamo usato le regole di commutazione con le rotazioni per esprime $ X_\alpha $. Quindi abbiamo ottenuto che due generatori dello stesso tipo 
+$ P, G $ con indice diverso commutano fra loro con fase nulla. Valutiamo ora 
+\begin{align}
+  (\pm i)[P_\alpha, H] = [[J_\beta, P_\gamma], H] &= [[H, P_\gamma], J_\beta] + [[J_\beta, H], P_\gamma]
+  \\
+  &= [O, J_\beta] + [O, P_\gamma] = O
+\end{align}
+e allo stesso modo 
+\begin{align}
+  (\pm i)[J_\alpha, H] = [[J_\beta, J_\gamma], H] &= [[H, J_\gamma], J_\beta] + [[J_\beta, H], J_\gamma]
+  \\
+  &= [O, J_\beta] + [O, J_\gamma] = O.
+\end{align}
+Per quanto riguarda il commutatore fra due rotazioni imponiamo l'antisimmetria:
+\begin{align}
+  [J_\alpha, J_\beta] = i \eps_{\alpha \beta \gamma} J_\gamma + i b_{\alpha \beta} I = -[J_\beta, J_\alpha]
+\end{align}
+che per essere rispettata deve valere $ b_{\alpha \beta} = - b_{\beta \alpha} $, quindi la matrice $ 3\times3 $ costituita dai $ b_{\alpha \beta} $ 
+deve essere antisimmetrica, quindi con $ 3 $ gradi di libertà. Per questo motivo possiamo esprimerla tramite 
+$ b_{\alpha \beta} = \eps_{\alpha \beta \gamma} b_\gamma $, il commutatore diventa 
+\begin{align}
+  [J_\alpha, J_\beta] = i \eps_{\alpha \beta \gamma} (J_\gamma + b_\gamma I)
+\end{align}
+e a questo punto possiamo ridefinire i generatori delle rotazioni come $ J_i = J_i + b_i I $, in modo da non cambiare il membro di sinistra 
+e ottenere 
+\begin{align}
+  [J_\alpha, J_\beta] = i \eps_{\alpha \beta \gamma} J_\gamma.
+\end{align}
+La sostituzione che abbiamo fatto equivale nella trasformazione finita a 
+$ U(R_\alpha) = e^{- i \theta J_\alpha} \to e^{-i b_\alpha \theta} e^{- i \theta J_\alpha} $ che cambia lo stato $ \k{\psi} $ soltanto di una fase e quindi 
+è perfettamente lecita. 
+Consideriamo il commutatore 
+\begin{align}
+  [[J_1, J_2], G_3] &= [[G_3, J_2], J_1]  + [[J_1, G_3], J_2]
+  \\
+  i[J_3, G_3] &= -i [G_1, J_1] -i [G_2, J_2]
+  \\
+  [J_3, G_3] &= +[J_1, G_1] +[J_2, G_2]
+\end{align}
+che è una equazione del tipo $ X_3 = X_1 + X_2 $, ma dato che possiamo permutare ciclicamente gli assi valgono anche le equazioni $ X_2 = X_3 + X_1 $ e 
+$ X_1 = X_2 + X_3 $, e la soluzione al sistema è banale, quindi 
+\begin{align}
+  [J_\alpha, G_\alpha] = O.
+\end{align}
+Per due indici generici scriviamo 
+\begin{align}
+  [[J_3, J_1], G_3] &= [[G_3, J_1], J_3]  + [[J_3, G_3], J_1]
+  \\
+  i[J_2, G_3] &= i[G_2, J_3] + [O, J_1] = i[G_2, J_3]
+\end{align}
+e quindi vale l'antisimmetria cioè
+\begin{align}
+  [J_\alpha, G_\beta] = - [J_\beta,G_\alpha]
+\end{align}
+ma allora proprio come abbiamo fatto prima, i coefficienti $ b_{\alpha \beta} $ sono antisimmetrici e ridefinendo $ G_\alpha + b_\alpha I \to G_\alpha $ 
+si ha
+\begin{align}
+  [J_\alpha, G_\beta] = i \eps_{\alpha \beta \gamma} G_\gamma.
+\end{align}
+Con gli stessi passaggi si ottiene anche che 
+\begin{align}
+  [J_\alpha, P_\beta] = i \eps_{\alpha \beta \gamma} P_\gamma, 
+\end{align}
+che possiamo usare per calcolare il commutatore fra $ G_\alpha $ e $ H $:
+\begin{align}
+  [[J_1, G_2], H] &= [[H, G_2], J_1] + [[J_1, H], G_2]
+  \\
+  i[G_3, H] &= -i[P_2, J_1] + O 
+  \\
+  &= - P_3 
+\end{align}
+e quindi 
+\begin{align}
+  [G_\alpha, H] = i P_\alpha.
+\end{align}
+Infine rimangono i commutatori fra $ G $ e $ P $ che calcoliamo come 
+\begin{align}
+  [[J_1, G_2], P_1] &= [[P_1, G_2], J_1] + [[J_1, P_1], G_2]
+  \\
+  i[G_3, P_1] &= O + O 
+\end{align}
+e quindi $ [G_\alpha, P_\beta] = O $ per $ \alpha \neq \beta $, mentre 
+\begin{align}
+  [[J_1, G_2], P_3] &= [[P_3, G_2], J_1] + [[J_1, P_3], G_2]
+  \\
+  i[G_3, P_3] &= O -i [P_2, G_2]
+\end{align}
+dove abbiamo usato il risultato appena ricavato del commutatore fra $ G_\alpha, P_\beta $. Notiamo che abbiamo trovato un commutatore il cui multiplo 
+dell'identità non è nullo e non può essere ridefinito, indichiamo tale quantità con $ M \coloneq [G_\alpha, P_\alpha] $ e così il commutatore vale 
+\begin{align}
+  [G_\alpha, P_\alpha] = i \delta_{\alpha \beta} M I
+\end{align}
+dove $ M $ è reale perché deriva dalla fase. Di seguito riportiamo tutte le relazioni di commutazione che abbiamo ricavato.
+\begin{table}[h]
+  \centering
+  \caption{}
+  \begin{tabular}{lcl}
+    $ [P_\alpha, P_\beta] = 0 $                           & $ [J_\alpha, J_\beta] = i \eps_{\alpha \beta \gamma} J_\gamma $ & $ [P_\alpha, H] = 0 $ \\
+    $ [G_\alpha, G_\beta] = 0 $                          & $ [J_\alpha, P_\beta] = i \eps_{\alpha \beta \gamma} P_\gamma $ & $ [G_\alpha, H] = i P_\alpha $ \\
+    $ [G_\alpha, P_\beta] = i \delta_{\alpha \beta} M I $ & $ [J_\alpha, G_\beta] = i \eps_{\alpha \beta \gamma} G_\gamma $ & $ [J_\alpha, H] = 0 $ 
+  \end{tabular}
+\end{table}
+
+\section{Operatori delle variabili dinamiche}
+
+
+
 
 
 
