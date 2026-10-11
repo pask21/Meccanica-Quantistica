@@ -489,8 +489,24 @@ dove $ M $ è reale perché deriva dalla fase. Di seguito riportiamo tutte le re
 
 \section{Operatori delle variabili dinamiche}
 
-
-
+La dinamica di una particella libera è invariante sotto trasformazioni di Galileo e questo è sufficiente per determinare gli operatori associati alle 
+quantità dinamiche. Dato che lo spazio è continuo, l'operatore posizione deve avere uno spettro continuo e quindi $ \mathbf{Q} = (Q_1, Q_2, Q_3) $ 
+è definito come 
+\begin{align}
+  Q_\alpha \k{\v{x}} = x_\alpha \k{\v{x}}.
+\end{align}
+Notiamo che le 3 componenti dell'operatore posizione commutano fra loro e infatti hanno un set di autovettori comune. Per quanto riguarda 
+l'operatore velocità lo definiamo come 
+\begin{align}
+  \sca{\v{V}} = \frac{d}{dt} \sca{\v{Q}}
+\end{align}
+per ogni stato, cioè il suo valore d'aspettazione è la derivata del valore d'aspettazione dell'operatore posizione. Consideriamo uno stato 
+puro dipendente dal tempo $ \k{\psi(t)} $, allora 
+\begin{align}
+  \bk{\psi(t) | \v{V} | \psi(t)} &= \frac{d}{dt} \bk{\psi(t) | \v{Q} | \psi(t)} 
+  \\
+  &= \left\{\frac{d}{dt} \b{\psi(t)}\right\} \v{Q} \k{\psi(t)} + \b{\psi(t)} \v{Q} \left\{\frac{d}{dt} \k{\psi(t)}\right\}
+\end{align}
 
 
 
