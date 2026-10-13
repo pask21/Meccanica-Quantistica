@@ -641,7 +641,30 @@ con $ \v{J} $ il momento angolare, tuttavia $ M $ non è identificata e non si p
 dire che $ M $ sta alla massa come $ \v{P} $ sta al momento, $ H $ all'energia e $ \v{J} $ al momento angolare. Più avanti mostreremo 
 come $ M^{-1} = \hbar $ ovvero la costante di Planck $ h $ divisa per $ 2\pi $. 
 
-\textbf{Particella con spin}.
+\textbf{Particella con spin}. Trattiamo ora il caso in cui la particella libera abbia un grado di libertà interno, ovvero indipendente dai gradi di 
+libertà del centro di massa. Il set di operatori $ \{\v{Q}, \v{P}\} $ non è più irriducibile perché potrebbe esserci un operatore che è funzione del 
+grado di libertà interno e che commuta con entrambi. Chiamiamo \textit{Spin} tale grado di libertà interno e lo definiamo come un contributo al 
+momento angolare così il generatore delle rotazioni diventa 
+\begin{align}
+  \v{J} = \v{Q\times P} + \v{S}
+\end{align}
+con $ [\v{Q}, \v{S}] = [\v{P}, \v{S}] = 0 $. Affinché $ \v{J} $ generi ancora le rotazioni, deve soddisfare le sue relazioni di commutazione cioè 
+$ [J_\alpha, J_\beta] = i \eps_{\alpha \beta \gamma} J_\gamma $, dato che $ \v{Q \times P} $ le soddisfa già deve valere che 
+\begin{align}
+  [S_\alpha, S_\beta] = i \eps_{\alpha \beta \gamma} S_\gamma.
+\end{align}
+Mostriamo che $ \v{S} $ è un 3-vettore facendo il commutatore con $ \v{J} $:
+\begin{align}
+  [J_\alpha, S_\beta] = [(\v{Q\times P})_\alpha,S_\beta] + [S_\alpha, S_\beta] 
+  = [\eps_{\alpha \beta \gamma} Q_\beta P_\gamma , S_\beta] + i \eps_{\alpha \beta \gamma} S_\gamma = i\eps_{\alpha \beta \gamma}S_\gamma
+\end{align}
+e quindi trasforma sotto rotazioni proprio come un 3-vettore. Per quanto riguarda l'operatore $ \v{G} - M\v{Q} $ risolve ancora le relazioni di 
+commutazione con $ \v{Q} $ e $ \v{P} $, tuttavia potrebbe essere una funzione di $ \v{S} $, ma l'unico 3-vettore funzione di $ \v{S} $ è 
+un multiplo di $ \v{S} $ stesso, dato che $ \v{S \times S} = i\v{S} $. Per tanto $ \v{G} = M\v{Q} + c\v{S} $, ma per le relazioni di commutazione 
+$ [G_\alpha,G_\beta] = 0 $ si ha che $ c = 0 $ e quindi $ \v{G} = M\v{Q} $. Il resto delle relazioni trovate nel caso di una particella senza gradi di 
+libertà interni sono ancora valide, tranne che adesso $ E_0 $ potrebbe essere una funzione di $ \v{S} $ dato che $ [\v{J}, H] = 0 $ e quindi 
+$ [\v{S}, E_0] = 0 $, e l'unico caso possibile è che $ E_0 \propto \v{S\cdot S} $.
+
 
 
 
