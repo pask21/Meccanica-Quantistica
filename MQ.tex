@@ -501,12 +501,147 @@ l'operatore velocità lo definiamo come
   \sca{\v{V}} = \frac{d}{dt} \sca{\v{Q}}
 \end{align}
 per ogni stato, cioè il suo valore d'aspettazione è la derivata del valore d'aspettazione dell'operatore posizione. Consideriamo uno stato 
-puro dipendente dal tempo $ \k{\psi(t)} $, allora 
+puro dipendente dal tempo $ \k{\psi(t)} $, allora il valore d'aspettazione $ \sc{\v{V}} $ vale 
 \begin{align}
   \bk{\psi(t) | \v{V} | \psi(t)} &= \frac{d}{dt} \bk{\psi(t) | \v{Q} | \psi(t)} 
   \\
-  &= \left\{\frac{d}{dt} \b{\psi(t)}\right\} \v{Q} \k{\psi(t)} + \b{\psi(t)} \v{Q} \left\{\frac{d}{dt} \k{\psi(t)}\right\}
+  &= \left\{\frac{d}{dt} \b{\psi(t)}\right\} \v{Q} \k{\psi(t)} + \b{\psi(t)} \v{Q} \left\{\frac{d}{dt} \k{\psi(t)}\right\}.
 \end{align}
+Per andare oltre dobbiamo sapere come evolve nel tempo uno stato $ \k{\psi(t)} $, per farlo usiamo il generatore dell'evoluzione temporale $ H $:
+per una traslazione nel tempo $ t \to t' = t + s $ si ha
+\begin{align}
+  \k{\psi(t)} \to e^{i H s} \k{\psi(t)} = \k{\psi(t - s)}
+\end{align}
+che per $ s = t $ diventa $  \k{\psi(t)} = e^{ -i H t} \k{\psi(0)} $ che rispetta 
+\begin{align}
+  \frac{d}{dt} \k{\psi(t)} = - i H \k{\psi(t)}.
+\end{align}
+Applicandola al valore di aspettazione $ \sc{\v{V}} $ otteniamo
+\begin{align}
+  \bk{\psi(t) | \v{V} | \psi(t)} = i\b{\psi(t)} H^\dag \v{Q} \k{\psi(t)} - i \b{\psi(t)} \v{Q} H\k{\psi(t)} = i \bk{\psi(t) | [H, \v{Q}] |\psi(t)}
+\end{align}
+dove abbiamo usato che $ H $ è autoaggiunto, quindi possiamo definire l'operatore velocità come 
+\begin{align}
+  \v{V} = i [H, \v{Q}].
+\end{align}
+
+La traslazione $ \v{x} \to  \v{x}' = \v{x} + \v{a} $ si esprime come 
+\begin{align}
+  \k{\v{x}} \to \k{\v{x}'} = e^{-i \v{a} \cdot \v{P} } \k{\v{x}} = \k{\v{x} + \v{a}}
+\end{align}
+e l'operatore posizione trasformato sta al vettore trasformato come l'operatore originale sta al vettore originale, per questo 
+\begin{align}
+  \v{Q'} = e^{-i \v{a \cdot P}} \v{Q} e^{i \v{a \cdot P}} = \v{Q} - i [\v{a \cdot P}, \v{Q}] + O(a^2)
+\end{align}
+dove abbiamo sviluppato al primo ordine in $ a $. Inoltre vale che 
+\begin{align}
+  Q'_\alpha \k{\v{x+a}} = Q'_\alpha \k{\v{x'}} = x_\alpha \k{\v{x'}} = x_\alpha \k{\v{x + a}}
+\end{align}
+e quindi si ottiene la relazione 
+\begin{align}
+  \v{Q'} = \v{Q} - \v{a}I.
+\end{align}
+Confrontandola con lo sviluppo al prim'ordine si ottiene la relazione di commutazione $ i[a_\alpha P_\alpha, Q_\alpha] = a_\alpha I $, che si 
+generalizza in 
+\begin{align}
+  [Q_\alpha, P_\beta] = i\delta_{\alpha \beta} I.
+\end{align}
+
+Una rotazione di un angolo $ \theta $ infinitesimo $ \v{x} \to \v{x'} = \v{x} + \theta\vers{n} \times \v{x} $, lo stato trasforma come 
+\begin{align}
+  \k{\v{x}} \to \k{\v{x}}' = e^{-i \theta \vers{n} \cdot \v{J}}\k{\v{x}} = \k{\v{x'}}
+\end{align}
+mentre l'operatore posizione trasformato vale 
+\begin{align}
+  Q_\alpha \to Q'_\alpha = e^{- i \theta \vers{n} \cdot \v{J}} Q_\alpha e^{ i \theta \vers{n} \cdot \v{J}} 
+  = Q_\alpha - i \theta[ \vers{n} \cdot \v{J}, Q_\alpha] + O(\theta^2).
+\end{align}
+Applicando l'operatore posizione allo stato trasformato otteniamo 
+\begin{align}
+  Q_\alpha \k{\v{x'}} = x'_\alpha \k{\v{x'}} = (\v{x} + \theta\vers{n} \times \v{x})_\alpha \k{\v{x'}} 
+  = (\v{Q'} + \theta \vers{n} \times \v{Q'})_\alpha \k{\v{x'}}
+\end{align}
+che diventa un uguaglianza fra operatori dato che $ \k{\v{x'}} = \k{\v{x}}' $ forma un set completo. Confrontando con lo sviluppo al prim'ordine si ottiene 
+\begin{align}
+  [ \vers{n} \cdot \v{J}, Q_\alpha] = -i (\vers{n} \times \v{Q})_\alpha
+\end{align}
+che può essere riscritta facendo il prodotto scalare con un versore $ \vers{u} $ cioè 
+$ [ \vers{n} \cdot \v{J}, \vers{u} \cdot \v{Q}] = i (\vers{n} \times \vers{u}) \cdot \v{Q} $ che diventa 
+\begin{align}
+  [J_\alpha, Q_\beta] = i \eps_{\alpha \beta \gamma} Q_\gamma
+\end{align}
+e notiamo che da questa relazione deriva che $ \v{Q} $ è un 3-vettore, proprio perché trasforma in questo modo.
+Per quanto riguarda il generatore $ \v{G} $, trasla le velocità come $ \v{P} $ trasla le coordinate. Per un boost istantaneo a $ t = 0 $ i due sistemi 
+di riferimento coincidono e quindi la posizione è la stessa, per questo 
+\begin{align}
+  [G_\alpha, Q_\beta] = 0.
+\end{align}
+L'operatore velocità trasformato si scrive come 
+\begin{align}
+  \v{V} \to \v{V'} = e^{i \v{v} \cdot \v{G}} \v{V} e^{-i \v{v} \cdot \v{G}} = \v{V} + i[\v{v\cdot G}, \v{V}] +O(v^2)
+\end{align}
+e dall'analogia con l'operatore posizione abbiamo anche che
+\begin{align}
+  \v{V'} = \v{V} -\v{v} I
+\end{align}
+perciò la relazione di commutazione vale 
+\begin{align}
+  [G_\alpha, V_\beta] = i \delta_{\alpha \beta} I.
+\end{align}
+
+\textbf{Particella libera senza gradi di libertà interni}.
+In questo caso il set di operatori $ \{\v{Q}, \v{P}\} $ forma un set irriducibile e autoaggiunto pertanto possiamo applicare il lemma di Schur e quindi 
+ogni operatore che commuta con il set deve essere un multiplo dell'identità. Consideriamo l'operatore $ \v{G} - M\v{Q} $, commuta sia 
+con $ \v{Q} $ che con $ \v{V} $ e quindi deve essere un multiplo dell'identità. In componenti si ha
+\begin{align}
+  G_\alpha = M Q_\alpha + c_\alpha I
+\end{align}
+ma per le relazioni di commutazione fra $ \v{G}, \v{Q} $ e $ \v{J} $ segue che $ c_\alpha = 0 $, perché $ \v{G} - M\v{Q} $ deve essere un 3-vettore 
+mentre l'identità commuta con $ \v{J} $ e quindi è uno scalare. Dunque per una particella senza gradi di libertà interni vale 
+\begin{align}
+  G_\alpha = M Q_\alpha.
+\end{align}
+Consideriamo adesso l'operatore $ \v{Q \times P} $, tramite calcolo diretto si verifica che soddisfa le relazioni di commutazione per $ \v{J} $ con gli 
+altri generatori e con $ \v{Q} $, inoltre l'operatore $ \v{J} - \v{Q\times P} $ commuta sia con $ \v{Q} $ che con $ \v{P} $ per tanto per il lemma di 
+Schur si ha che 
+\begin{align}
+  J_\alpha = (\v{Q\times P})_\alpha + c_\alpha I
+\end{align}
+ma allo stesso modo di prima deve essere che $ c_\alpha = 0 $ dato che $ \v{J} $ e $ \v{Q\times P} $ sono 3-vettori, e quindi 
+\begin{align}
+  \v{J} = \v{Q\times P}.
+\end{align}
+Per trovare l'operatore $ H $ in termini di dell'operatore posizione usiamo la relazione ricavata per $ \v{G} $ e quindi 
+\begin{align}
+  [Q_\alpha, H] = \frac{i}{M} P_\alpha,
+\end{align}
+mostriamo che una soluzione è $ H = \v{P\cdot P}/2M $:
+\begin{align}
+  \frac{1}{2M}[Q_\alpha,\v{P\cdot P} ] = \frac1{2M} \sum_\beta \left\{ \vphantom{\int} [Q_\alpha, P_\beta] P_\beta + P_\beta [Q_\alpha, P_\beta] \right\} 
+  = \frac1{2M} \sum_\beta \left\{ \vphantom{\int} 2 i\delta_{\alpha \beta} P_\beta  \right\} = \frac{i}{M} P_\alpha.
+\end{align}
+Nella soluzione trovata i commutatori non vedono i multipli dell'identità per tanto una soluzione più generale è 
+\begin{align}
+  H = \frac{\v{P\cdot P}}{2M} + E_0
+\end{align}
+dove $ E_0 \propto I $. Con questo risultato possiamo trovare anche l'operatore $ \v{V} $ usando 
+\begin{align}
+  \v{V} = i[H, \v{Q}] = \frac{\v{P}}{M}
+\end{align}
+e quindi abbiamo ottenuto tutti i generatori in termini degli operatori $ \v{Q} $ e $ \v{V} $ cioè 
+\begin{align}
+  \v{P} &= M \v{V}
+  \\
+  H &= \frac{M \v{V\cdot V}}{2} + E_0
+  \\
+  \v{J} &= \v{Q} \times M \v{V}.
+\end{align}
+Se $ M $ fosse la massa della particella, in analogia con il caso classico potremmo identificare con $ \v{P} $ il momento, con $ H $ l'energia e 
+con $ \v{J} $ il momento angolare, tuttavia $ M $ non è identificata e non si può trovare un valore senza degli esperimenti, quindi possiamo soltanto 
+dire che $ M $ sta alla massa come $ \v{P} $ sta al momento, $ H $ all'energia e $ \v{J} $ al momento angolare. Più avanti mostreremo 
+come $ M^{-1} = \hbar $ ovvero la costante di Planck $ h $ divisa per $ 2\pi $. 
+
+\textbf{Particella con spin}.
 
 
 
