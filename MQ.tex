@@ -707,11 +707,11 @@ che derivata porta a
 \begin{align}
   \frac{d\rho(t)}{dt} = -\frac{i}{\hbar} [H(t), \rho(t)]
 \end{align}
-e queste relazioni sono in generale valide anche per stati non puri. Il valor medio di un osservabile $ \v{R} $ nello stato $ \rho(t) $ vale 
+e queste relazioni sono in generale valide anche per stati non puri. Il valor medio di un osservabile $ R $ nello stato $ \rho(t) $ vale 
 \begin{align}
-  \sc{\v{R}} = \Tr \left[ \rho(t) R \right] &= \Tr\left[ U(t,t_0) \rho(t_0) U^\dag(t,t_0) R  \right] \label{eq: media di un osservabile Schrödinger}
+  \sc{R} = \Tr \left[ \rho(t) R \right] &= \Tr\left[ U(t,t_0) \rho(t_0) U^\dag(t,t_0) R  \right] \label{eq: media di un osservabile Schrödinger}
   \\
-  &= \Tr\left[\rho(t_0) U^\dag(t,t_0) R U(t,t_0) \right] 
+  &= \Tr\left[\rho(t_0) U^\dag(t,t_0) R U(t,t_0) \right] \label{eq: media di un osservabile Heisenberg}
 \end{align}
 dove abbiamo usato l'invarianza della traccia sotto permutazione ciclica. Notiamo che da queste due scritture nascono due interpretazioni diverse:
 il primo approccio cioè la \eqref{eq: media di un osservabile Schrödinger} è quello di Schrödinger dove l'evoluzione temporale è codificata 
@@ -719,10 +719,76 @@ nell'operatore di stato dipendente dal tempo. Le equazioni del moto per l'operat
 \begin{align}
   \frac{d\rho(t)}{dt} = -\frac{i}{\hbar} [H(t), \rho(t)], \qquad \frac{d}{dt} \k{\psi(t)} = - \frac{i}\hbar H(t) \k{\psi(t)}.
 \end{align}
+Il secondo approccio è quello di Heisenberg che codifica l'evoluzione temporale nell'operatore associato all'osservabile, infatti nella 
+\eqref{eq: media di un osservabile Schrödinger} condensa gli ultimi tre termini in 
+\begin{align}
+  R_H (t) = U^\dag(t,t_0) R U(t,t_0)
+\end{align}
+che è detto \textit{operatore di Heisenberg} (corrispondente all'operatore di Schrödinger) in modo che la media si interpreti come 
+\begin{align}
+  \sc{R} = \Tr\left[ \vphantom{a^b}\rho_0 R_H(t) \right].
+\end{align}
+Derivando si ottiene 
+\begin{align}
+  \frac{d R_H(t)}{dt} &= \frac{i}\hbar \left( U^\dag H R U - U^\dag R H U \right) + U^\dag \der{R}{t}\, U 
+  \\
+  &= \frac{i}\hbar [H_H, R_H] + \left( \der{R}{t} \right)_H
+\end{align}
+che è detta \textit{equazione del moto di Heisenberg}, dove abbiamo definito $ H_H $ e $ (\partial_t R)_H $ come 
+\begin{align}
+  H_H = U^\dag H U,\qquad \left( \der{U}{t} \right)_H =  U^\dag \der{R}{t} \, U 
+\end{align}
+dove l'ultimo termine è nullo nel caso $ R $ non dipenda esplicitamente dal tempo.
 
+Calcoliamo la derivata rispetto al tempo del valore di aspettazione di un osservabile $ R $: per Schrödinger si ha
+\begin{gather}
+  \frac{d \sc{R}}{dt} = \Tr\left[ \der{\rho}{t} R + \rho \der{R}{t} \right] = \Tr\left[ -\frac{i}\hbar [H, \rho] R + \rho \der{R}{t} \right]
+  \\
+  = \Tr\left[ \frac{i}\hbar \rho[H, R] + \rho \der{R}{t} \right]
+\end{gather}
+dove abbiamo usato l'invarianza della traccia sotto permutazione ciclica. Per quanto riguarda Heisenberg si ottiene
+\begin{align}
+  \frac{d \sc{R}}{dt} = \Tr\left[ \rho_0 \der{R_H}{t} \right] = \Tr \left[ \frac{i}\hbar \rho_0[H_H, R_H] + \rho_0\left( \der{R}{t} \right)_H \right].
+\end{align}
+Nel caso di uno stato puro, con $ \k{\psi_0} $ il vettore di stato al tempo $ t_0 $, il valore d'aspettazione per Schrödinger si scrive
+\begin{align}
+  \sc{R} = \bk{\psi(t) | R | \psi(t) }
+\end{align}
+ma dato che $ \k{\psi(t)} = U(t,t_0) \k{\psi_0} $ allora 
+\begin{align}
+  \sc{R} = \bk{\psi_0 | U^\dag R U | \psi_0} = \bk{\psi_0 | R_H(t) | \psi_0}
+\end{align}
+e quindi l'interpretazione di Schrödinger e di Heisenberg sono equivalenti. Lo stesso vale per la derivata dell'osservabile $ \dot{\sc{R}} $.
 
+\section{Simmetrie e leggi di conservazione}
+D'ora in poi chiameremo il generatore dell'evoluzione temporale $ H $ come \textit{operatore hamiltoniano}, in analogia con il caso classico.
+Consideriamo una trasformazione unitaria di un gruppo a parametro continuo $ U(s) = e^{i s K} $ dove $ K $ è il generatore hermitiano, se l'hamiltoniana 
+è invariante sotto tale trasformazione cioè 
+\begin{align}
+  U(s) H U^{-1}(s) = H
+\end{align}
+allora tale trasformazione è una simmetria del sistema. Data l'unitarietà di $ U(s) $, tale è equivalente a $ [H, U(s)] = 0 $, che sviluppando al primo 
+ordine si ottiene 
+\begin{align}
+  [H, K] = 0.
+\end{align}
+Se un osservabile indipendente dal tempo commuta con l'hamiltoniana allora il suo valore d'aspettazione è una costante del moto perché
+\begin{align}
+  \frac{d\sc{K}}{dt} = \frac{i}\hbar \sc{[H, K]} = 0, 
+\end{align}
+inoltre la sua distribuzione di probabilità è indipendente dal tempo. Ad esempio se $ H $ è invariante per traslazioni spaziali allora il momento è una 
+costante del moto.
 
-
+Consideriamo $ H $ indipendente dal tempo, sia lo stato iniziale di un sistema $ \k{\psi(0)} = \k{E_n} $ un autovettore dell'hamiltoniana, cioè 
+$ H\k{E_n} = E_n \k{E_n} $, allora la soluzione all'equazione del moto è 
+\begin{align}
+  \k{\psi(t)} = e^{-i E_n t/\hbar} \k{E_n}.
+\end{align}
+Questo significa che per un qualsiasi osservabile vale che 
+\begin{align}
+  \sc{R} = \bk{\psi(t) | R | \psi(t)} = \bk{ E_n | R | E_n}
+\end{align}
+ed è indipendente dal tempo. Tali stati autovettori dell'operatore hamiltoniano sono detti \textit{stati stazionari}.
 
 
 \end{document}
