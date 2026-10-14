@@ -666,6 +666,61 @@ libertà interni sono ancora valide, tranne che adesso $ E_0 $ potrebbe essere u
 $ [\v{S}, E_0] = 0 $, e l'unico caso possibile è che $ E_0 \propto \v{S\cdot S} $.
 
 
+\section{Equazioni del moto}
+È conveniente ridefinire tutti i generatori che abbiamo definito dividendo per $ \hbar $, cioè 
+$ M \to M/\hbar, \v{P} \to \v{P}/\hbar, \v{J} \to \v{J}/\hbar, H \to H/\hbar, \v{G} \to \v{G}/\hbar $. In questo modo possiamo davvero identificare $ M $ 
+con la massa e il resto delle quantità come il loro analogo classico.
+ 
+Tramite il generatore dell'evoluzione temporale $ H $ avevamo ricavato che per uno stato puro valeva 
+\begin{align}
+  \frac{d}{dt} \k{\psi(t)} = - \frac{i}{\hbar} H \k{\psi(t)}
+\end{align}
+e una soluzione con condizione iniziale $ \k{\psi(t_0)} $ è 
+\begin{align}
+  \k{\psi(t)} = U(t, t_0) \k{\psi(t_0)}.
+\end{align}
+Adesso consideriamo il caso in cui il sistema non sia più invariante sotto trasformazioni temporali, quindi la trasformazione temporale $ U(t,t_0) $ non è 
+più una trasformazione di Galileo. Tuttavia rispetta comunque la proprietà di composizione $ U(t_2, t_1)U(t_1,t_0) = U(t_2,t_0) $ 
+inoltre dato che l'evoluzione temporale deve conservare le probabilità e il tempo è un parametro continuo, per il teorema di Wigner $ U(t,t_0) $ è 
+unitario. Il generatore $ H(t) $ è definito come 
+\begin{align}
+  H(t) \coloneq i \hbar \der{}{s}U(s,t)_{s = t}
+\end{align}
+per tanto derivando la legge di composizione si ottiene che anche $ U(t,t_0) $ rispetta l'equazione differenziale
+\begin{align} \label{eq: relazione fra H e U}
+  \der{}{t} U(t,t_0) = -\frac{i}{\hbar} H(t) U(t,t_0) 
+\end{align}
+con la condizione iniziale $ U(t_0,t_0) = 1 $. Inoltre dato che 
+\begin{align}
+  0 = \der{}{t} (U^\dag U) = \frac{i}{\hbar} ( U^\dag H^\dag U - U^\dag H U)
+\end{align}
+da cui segue che $ H(t) $ è hermitiano. Per $ H $ indipendente dal tempo, l'operatore $ U $ si scrive come 
+\begin{align}
+  U(t,t_0) = e^{ - i (t - t_0) \frac{H}{\hbar}} 
+\end{align}
+mentre per $ H(t) $ generico non è sempre possibile trovare una soluzione all'equazione differenziale \eqref{eq: relazione fra H e U} in forma chiusa.
+Consideriamo lo stato puro $ \rho(t) = \k{\psi(t)} \b{\psi(t)} $ e scriviamolo in termini dell'evoluzione temporale:
+\begin{align}
+  \rho(t) = \k{\psi(t)} \b{\psi(t)} = U(t,t_0)\k{\psi(t_0)} \b{\psi(t)} U^\dag(t,t_0) = U(t,t_0) \rho(t_0) U^\dag(t,t_0) 
+\end{align}
+che derivata porta a 
+\begin{align}
+  \frac{d\rho(t)}{dt} = -\frac{i}{\hbar} [H(t), \rho(t)]
+\end{align}
+e queste relazioni sono in generale valide anche per stati non puri. Il valor medio di un osservabile $ \v{R} $ nello stato $ \rho(t) $ vale 
+\begin{align}
+  \sc{\v{R}} = \Tr \left[ \rho(t) R \right] &= \Tr\left[ U(t,t_0) \rho(t_0) U^\dag(t,t_0) R  \right] \label{eq: media di un osservabile Schrödinger}
+  \\
+  &= \Tr\left[\rho(t_0) U^\dag(t,t_0) R U(t,t_0) \right] 
+\end{align}
+dove abbiamo usato l'invarianza della traccia sotto permutazione ciclica. Notiamo che da queste due scritture nascono due interpretazioni diverse:
+il primo approccio cioè la \eqref{eq: media di un osservabile Schrödinger} è quello di Schrödinger dove l'evoluzione temporale è codificata 
+nell'operatore di stato dipendente dal tempo. Le equazioni del moto per l'operatore di stato e per il vettore di stato sono rispettivamente:
+\begin{align}
+  \frac{d\rho(t)}{dt} = -\frac{i}{\hbar} [H(t), \rho(t)], \qquad \frac{d}{dt} \k{\psi(t)} = - \frac{i}\hbar H(t) \k{\psi(t)}.
+\end{align}
+
+
 
 
 
