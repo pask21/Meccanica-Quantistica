@@ -252,11 +252,21 @@ patterns
 
 % --- bra ---
 \renewcommand{\b}[1]{
+  \langle #1 \vert
+}
+
+% --- bra-2 ---
+\newcommand{\ba}[1]{
   \left< #1 \right|
 }
 
 % --- ket ---
 \renewcommand{\k}[1]{
+  \vert #1 \rangle
+}
+
+% --- ket-2 ---
+\newcommand{\ka}[1]{
   \left| #1 \right>
 }
 
@@ -265,7 +275,7 @@ patterns
 %   \left< #1 \vert #2 \right>
 % }
 
-% --- bracket-2 ---
+% --- bracket ---
 \newcommand{\bk}[1]{
   \langle #1 \rangle
 }

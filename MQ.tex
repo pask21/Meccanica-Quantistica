@@ -790,5 +790,65 @@ Questo significa che per un qualsiasi osservabile vale che
 \end{align}
 ed è indipendente dal tempo. Tali stati autovettori dell'operatore hamiltoniano sono detti \textit{stati stazionari}.
 
+\chapter{Rappresentazione in coordinate}
+
+Per rappresentare in coordinate lo spazio vettoriale $ \H $ la scelta più ovvia è quella degli autovettori dell'operatore posizione cioè 
+$ \k{\v{x}} $. Dato che sono una base continua, invece di avere dei coefficienti $ c_i = \bk{u_i | \psi} $ la proiezione di un vettore sul set completo 
+diventa una funzione di variabile continua cioè $ \bk{\v{x} | \psi} = \psi(\v{x}) $. Dire che le funzioni $ \psi(\v{x}) $ formano lo spazio vettoriale 
+$ \H $ o dire che ne sono una sua rappresentazione in coordinate è equivalente.
+
+L'azione di un operatore $ A $ sulla funzione $ \psi(\v{x}) $ è definita come $ A \psi(\v{x}) = \bk{\v{x} | A | \psi} $, ad esempio l'operatore posizione 
+agisce come $ Q_\alpha \psi(\v{x}) = x_\alpha \psi(\v{x}) $ con $ \alpha = 1,2,3 $. L'azione dell'operatore momento era definita come 
+\begin{align}
+  e^{- i \v{a\cdot P} /\hbar } \k{\v{x}} = \k{\v{x + a}}
+\end{align}
+ma allora rappresentando in coordinate si ha 
+\begin{gather}
+  \bk{\v{x + a} | \psi} = \b{\v{x}} e^{i\v{a\cdot P} /\hbar } \k{\psi} = \b{\v{x}}\left(  I + \frac{i}\hbar \v{a\cdot P} + O(a^2)\right) \k{\psi} 
+  \\
+  = \psi(\v{x}) + \frac{i}\hbar \v{a\cdot P} \, \psi(\v{x}) + O(a^2)
+\end{gather}.
+Se confrontiamo questa espressione con lo sviluppo in Taylor della funzione $ \psi(\v{x}) $ cioè 
+\begin{align}
+  \psi(\v{x + a}) =  \psi(\v{x}) + \v{a} \cdot \nabla \psi(\v{x}) + O(a^2)
+\end{align}
+si ottiene che l'operatore momento corrisponde a 
+\begin{align}
+  \v{P} = - i \hbar \nabla, \qquad P_\alpha = -i \hbar \der{}{x_\alpha}
+\end{align}
+dove l'ultima espressione è nel caso di coordinate cartesiane. In questo modo l'operatore cinetico (cioè l'hamiltoniana in assenza di potenziali) 
+si scrive come 
+\begin{align}
+  H = \frac{ \v{P \cdot P}}{2M} = - \frac{\hbar^2}{2M} \nabla^2.
+\end{align}
+Nel caso di un potenziale esterno $ W(\v{x}) $ l'operatore hamiltoniano diventa $ H = -\hbar^2 \nabla^2/2M + W(\v{x}) $, e così possiamo scrivere 
+l'equazione del moto per un vettore di stato $ \k{\Psi(t)} $ rappresentato in coordinate: 
+\begin{align}
+  \left[ -\frac{\hbar^2}{2M} \nabla^2 + W(\v{x}) \right] \Psi(\v{x}, t) = i \hbar \der{}{t}\Psi(\v{x}, t) 
+\end{align}
+che è nota come \textit{equazione d'onda di Schrödinger}. Il fatto che sia una equazione d'onda è fuorviante per l'interpretazione di $ \Psi(\v{x}, t) $:
+numerosi esperimenti hanno mostrato che $ \Psi(\v{x}, t) $ non è una onda "fisica", cioè non si propaga nello spazio tridimensionale. Bensì 
+l'interpretazione corretta è che sia una onda di probabilità con valore puramente statistico, dove la distribuzione è data da 
+\begin{align}
+  \abs{\bk{\v{x} | \psi(t)}}^2 = \abs{ \Psi(\v{x}, t)}^2.
+\end{align}
+Per un sistema composto da $ N $ particelle, la base di coordinato sono gli autovettori comuni dei rispettivi operatori posizione 
+$ \v{Q}^{(1)}, \dots, \v{Q}^{(N)} $, cioè $ \k{\v{x}^{(1)}, \dots, \v{x}^{(N)}} = \k{\v{x}^{(1)}} \otimes \dots \otimes \k{\v{x}^{(N)}} $ dove il simbolo 
+$ \otimes $ indica il prodotto di Kronocker, definito come $ A\otimes B \k{a,b} = A\k{a} \otimes B \k{b} $. Il vettore di stato del sistema si scrive come 
+\begin{align}
+  \bk{\v{x}^{(1)}, \dots, \v{x}^{(N)} | \Psi} = \Psi(\v{x}^{(1)}, \dots, \v{x}^{(N)})
+\end{align}
+e l'equazione del moto deve comprendere oltre ai potenziali delle signole particelle anche i potenziali di interazione quindi l'equazione di Schrödinger 
+diventa 
+\begin{align}
+  \left[ \sum_{n = 1}^N -\frac{\hbar^2}{2M_n} \nabla_n^2 + W(\v{x}^{(n)}) + V(\v{x}^{(1)}, \dots, \v{x}^{(N)}) \right] 
+  \Psi(\v{x}^{(1)}, \dots, \v{x}^{(N)}) = i \hbar \der{}{t} \Psi(\v{x}^{(1)}, \dots, \v{x}^{(N)}).
+\end{align}
+
+
+
+
+
+
 
 \end{document}
