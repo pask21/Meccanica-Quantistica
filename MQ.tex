@@ -119,6 +119,34 @@ Il precedente teorema ci dice che gli unici stati che si possono esprimere come 
 vale solo quella banale e cioè con se stessi. Ad esempio $ \rho = \lambda \rho_1 + (1 - \lambda) \rho_2 $ con $ \lambda \in (0,1) $ è necessariamente 
 uno stato non puro.
 
+Gli stati puri sono una rappresentazione matematica degli operatori di proiezione, infatti un proiettore è definito con la seguente.
+\begin{definition}[ Proiettore ]
+  Un operatore $ \Pi\in \L(\H)$ è un proiettore se è autoaggiunto e idempotente, cioè 
+  \begin{align}
+    \Pi^2 = \Pi, \quad \Pi = \Pi^\dag.
+  \end{align}
+\end{definition}
+Gli autovalori possibili sono $ 0 $ e $ 1 $, di conseguenza si definisce il supporto di un proiettore 
+come l'insieme degli autovettori relativi all'autovalore $ 1 $, mentre il kernel come l'insieme degli autovettori relativi a $ 0 $, quindi 
+\begin{align}
+  \supp \Pi = \{\k{e_j} : \Pi \k{e_j} = \k{e_j}\}, \quad \Ker \Pi = \{\k{e_j} : \Pi \k{e_j} = 0 \}.
+\end{align}
+Ne segue che lo spazio di Hilbert si decompone in somma diretta del supporto e del kernel di un proiettore: 
+\begin{align}
+  \H = \supp \Pi \oplus \Ker \Pi.
+\end{align}
+Il rango di un proiettore è la dimensione del suo supporto $ \rank \Pi = \dim (\supp \Pi) $. Diamo anche la definizione di proiettori ortogonali, cioè 
+se la loro composizione è nulla $ \Pi_1 \Pi_2 = 0 $, e quella di proiettori ortonormali:
+\begin{align}
+  \Pi_k \Pi_l = \delta_{kl} \Pi_k.
+\end{align}
+In questo modo un set di proiettori ortonormali tali che la somma dei ranghi è uguale alla dimensione dello spazio di Hilbert è anche completo cioè 
+\begin{align}
+  \sum_{k} \Pi_k = I.
+\end{align}
+
+
+
 \section{Distribuzioni di probabilità}
 
 Vogliamo ottenere la distribuzione dei valori dell'osservabile $ \mathbf{R} $ sull'ensemble, per farlo sfruttiamo una funzione ausiliaria $ F(\mathbf{R}) $ 
@@ -792,6 +820,8 @@ ed è indipendente dal tempo. Tali stati autovettori dell'operatore hamiltoniano
 
 \chapter{Rappresentazione in coordinate}
 
+\section{Equazione d'onda di Schrödinger}
+
 Per rappresentare in coordinate lo spazio vettoriale $ \H $ la scelta più ovvia è quella degli autovettori dell'operatore posizione cioè 
 $ \k{\v{x}} $. Dato che sono una base continua, invece di avere dei coefficienti $ c_i = \bk{u_i | \psi} $ la proiezione di un vettore sul set completo 
 diventa una funzione di variabile continua cioè $ \bk{\v{x} | \psi} = \psi(\v{x}) $. Dire che le funzioni $ \psi(\v{x}) $ formano lo spazio vettoriale 
@@ -806,8 +836,8 @@ ma allora rappresentando in coordinate si ha
 \begin{gather}
   \bk{\v{x + a} | \psi} = \b{\v{x}} e^{i\v{a\cdot P} /\hbar } \k{\psi} = \b{\v{x}}\left(  I + \frac{i}\hbar \v{a\cdot P} + O(a^2)\right) \k{\psi} 
   \\
-  = \psi(\v{x}) + \frac{i}\hbar \v{a\cdot P} \, \psi(\v{x}) + O(a^2)
-\end{gather}.
+  = \psi(\v{x}) + \frac{i}\hbar \v{a\cdot P} \, \psi(\v{x}) + O(a^2).
+\end{gather}
 Se confrontiamo questa espressione con lo sviluppo in Taylor della funzione $ \psi(\v{x}) $ cioè 
 \begin{align}
   \psi(\v{x + a}) =  \psi(\v{x}) + \v{a} \cdot \nabla \psi(\v{x}) + O(a^2)
@@ -845,7 +875,109 @@ diventa
   \Psi(\v{x}^{(1)}, \dots, \v{x}^{(N)}) = i \hbar \der{}{t} \Psi(\v{x}^{(1)}, \dots, \v{x}^{(N)}).
 \end{align}
 
+\section{Trasformazioni di Galileo dell'equazione di Schrödinger}
 
+La densità di probabilità deve essere mantenuta costante passando da un sistema di riferimento a un altro, questo per garantire che non ci siano 
+osservatori privilegiati. La regola di Born quindi ci impone che 
+\begin{align}
+  \abs{\Psi(\v{x}, t)}^2 = \abs{\Psi'(\v{x}', t')}^2
+\end{align}
+e quindi le due funzioni d'onda possono differire al massimo di una fase cioè 
+\begin{align}
+  \Psi(\v{x}, t) = e^{if} \Psi'(\v{x}', t')
+\end{align}
+con $ f $ una funzione reale delle coordinate. Gli operatori differenziali in un sistema di riferimento $ F' $, ottenuto tramite boost lungo l'asse $ x $ 
+dal sistema $ F $, diventano 
+\begin{align}
+  \der{}{x'} = \der{}{x}, \qquad \der{}{t'} = \der{}{t} + v \der{}{x}
+\end{align}
+e così possiamo riscrivere l'equazione di Schrödinger del sistema $ F' $ 
+\begin{align}
+  -\frac{\hbar^2}{2M} \der[2]{}{x'} \Psi'(x', t') + W'(x',t') \Psi'(x', t') = i \hbar \der{}{t'} \Psi'(x', t')
+\end{align}
+in termini del sistema $ F $:
+\begin{align}
+  -\frac{\hbar^2}{2M} \der[2]{}{x} \left( e^{i f} \Psi(x, t) \right) + W(x,t) \left( e^{i f}\Psi(x, t) \right) 
+  = i \hbar \left[ \der{}{t} + v \der{}{x} \right] \left( e^{i f} \Psi(x, t) \right).
+\end{align}
+Questa equazione è equivalente a quella di Schrödinger nel sistema $ F $ solo se i termini contenenti la fase $ f $ si annullano, questo significa che la 
+fase deve rispettare le seguenti condizioni:
+\begin{gather}
+  \frac{\hbar}{M} \der{f}{x} - v = 0
+  \\
+  \der[2]{f}{x} = 0
+  \\
+  \frac{\hbar}{2M} \left( \der{f}{x} \right)^2 - v \der{f}{x} - \der{f}{t} = 0.
+\end{gather}
+La soluzione a questo sistema è unica a meno di una costante ed è data da 
+\begin{align}
+  f(x, t) = \frac{Mvx - \frac12 Mv^2 t}\hbar
+\end{align}
+
+\section{Autofunzioni dell'hamiltoniana}
+
+Consideriamo il caso di una particella libera, vogliamo trovare gli stati per cui vale $ H\k{\Psi} = E \k{\Psi} $ con $ E $ autovalore relativo allo stato 
+$ \k{\Psi} $. Rappresentando in coordinate l'equazione agli autovettori diventa 
+\begin{align}
+  -\frac{\hbar^2}{2M} \nabla^2 \Psi(\v{x}) = E \Psi(\v{x})
+\end{align}
+si tratta quindi dell'equazione di Helmholtz per l'operatore 
+\begin{align}
+  \left[ \nabla^2 + \frac{2 E M}{\hbar^2} \right] \Psi(\v{x}) = 0.
+\end{align}
+In base a quale sistema di coordinate scegliamo, per separazione delle variabili si ottengono diverse famiglie di soluzioni particolari. In coordinate 
+cartesiane un set di soluzioni è costituito da 
+\begin{align}
+  \Psi_\v{k} = e^{i \v{k \cdot x}} \quad \textnormal{con}\; \v{k}^2 = \frac{2 E M}{\hbar^2} 
+\end{align}
+mentre in coordinate sferiche le soluzioni sono scrivibili in termini delle armoniche sferiche $ Y_{l}^{m}(\theta, \varphi) $. Entrambe queste soluzioni 
+non sono a quadrato sommabile, infatti se proviamo a imporre la condizione di normalizzazione della probabilità $ \int\abs{\Psi}^2 d^3 x = 1 $ tale 
+integrale diverge. Questo dimostra l'utilità dello spazio $ \Omega^\times $.
+
+\section{Autofunzioni dell'impulso}
+
+Nella precedente sezione abbiamo usato la rappresntazione in coordinate tramite gli autovettori dell'operatore posizione, vogliamo ora usare la 
+rappresentazione tramite autovettori dell'operatore impulso, quindi $ P_\alpha \k{\v{p}} = p_\alpha\k{\v{p}} $. Dato che lo spettro è continuo la 
+condizione di ortonormalità degli autovettori si scrive 
+\begin{align}
+  \bk{\v{p} | \v{p'}} = \delta(\v{p - p'})
+\end{align}
+dove si nota che sono autovettori generalizzati di norma infinita. Per trovare la relazione che lega gli autovettori dell'operatore posizione con quelli 
+dell'operatore impulso calcoliamo $ \bk{\v{x} | \v{p}} $ tramite la rappresentazione $ \v{P} = -i \hbar \nabla $:
+\begin{align}
+  -i \hbar \nabla \bk{\v{x}|\v{p}} = -i \hbar \bk{\v{x} | \nabla |\v{p}} = \bk{\v{x} | \v{P} | \v{p}} = \v{p} \bk{\v{x} | \v{p}}
+\end{align}
+che ha come soluzione 
+\begin{align}
+  \bk{\v{x | p}} = C e^{i \v{p \cdot x}/\hbar}
+\end{align}
+con $ C $ una costante che dipende dall'autovalore $ \v{p} $. Per determinarla imponiamo la condizione di ortonormalità ($ \v{p} = \hbar \v{k}$):
+\begin{align}
+  \delta(\v{p - p'}) &= \bk{\v{p|p'}} = \int \bk{\v{p | x}} \bk{\v{x | p'}} \,d^3x = C^*(\v{p}) C(\v{p'}) \int e^{i (\v{p' - p})\cdot \v{x} /\hbar}\,d^3x 
+  \\
+  &= C^*(\v{k}) C(\v{k'}) \F^{-1}\left[ 1 \right]_{\left(\v{k' - k} \right)} = C^*(\v{k}) C(\v{k'}) (2\pi)^3 \delta(\v{k' - k})
+\end{align}
+dove $ \F^{-1} $ è la trasformata di Fourier. Concludiamo quindi che $ C = (2 \pi \hbar)^{-3/2} $ e quindi 
+\begin{align}
+  \bk{\v{x | \hbar k}} = (2 \pi \hbar)^{-3/2} e^{i \v{k \cdot x}}.
+\end{align}
+Grazie a questo risultato possiamo scrivere la rappresentazione in coordinate rispetto all'impulso uno stato $ \k{\Psi} $:
+\begin{align}
+  \bk{\v{p} | \Psi} &= \int \bk{\v{p} | \v{x}} \bk{\v{x} | \Psi} \,d^3x = (2 \pi \hbar)^{-3/2} \int e^{ - i \v{k \cdot x}} \Psi(\v{x}) \,d^3x 
+  \\
+  &= \hbar^{-3/2} \F[\Psi](\v{k}) = \hbar^{-3/2} \Phi(\v{k})
+\end{align}
+dove $ \Phi(\v{k}) $ è la trasformata di Fourier della funzione $ \Psi(\v{x}) $. In questa rappresentazione l'operatore impulso è per definizione 
+diagonale, mentre l'operatore posizione diventa 
+\begin{align}
+  \bk{\v{p} | Q_\alpha |\Psi} &=  \bk{\v{p} | x_\alpha \Psi} =  (2 \pi \hbar)^{-3/2} \int e^{ - i \v{k \cdot x}} x_\alpha \Psi(\v{x}) \,d^3x
+  \\
+  &= \hbar^{-3/2} \F\left[ x_\alpha \Psi(\v{x}) \right](\v{k}) = \hbar^{-3/2}\, i \der{\Phi(\v{k})}{k_\alpha} = i \der{}{k_\alpha} \bk{\v{p} | \Psi}
+\end{align}
+pertanto possiamo scrivere che 
+\begin{align}
+  Q_\alpha = i \der{}{k_\alpha} = i \hbar \der{}{p_\alpha}.
+\end{align}
 
 
 
