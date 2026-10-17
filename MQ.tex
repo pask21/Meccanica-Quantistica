@@ -914,6 +914,42 @@ La soluzione a questo sistema è unica a meno di una costante ed è data da
   f(x, t) = \frac{Mvx - \frac12 Mv^2 t}\hbar
 \end{align}
 
+
+\section{Flusso di probabilità}
+
+Per una singola particella, la probabilità che si trovi all'interno di una regione $ \Omega $ è data da 
+\begin{align}
+  \Prob( \v{Q} \in \Omega | \Psi(t)) = \int_\Omega \abs{\Psi(\v{x}, t)}^2 \, d^3x
+\end{align}
+possiamo quindi calcolare come varia nel tempo questa probabilità a volume fissato. L'equazione di Scrödinger ci dà 
+$ \partial_t \Psi = i \hbar \nabla^2 \Psi /2M $ e quindi 
+\begin{align}
+  \der{}{t} \int_\Omega \Psi^* \Psi \, d^3x &= \int_\Omega \Psi^* \der{\Psi}{t} + \Psi \der{\Psi^*}{t} \, d^3x 
+  = \frac{i\hbar}{2M} \int_\Omega \Psi^* \nabla^2 \Psi - \Psi \nabla^2 \Psi \, d^3x 
+  \\
+  &= \frac{i\hbar}{2M} \int_\Omega \nabla \cdot \left( \Psi^* \nabla \Psi - \Psi \nabla \Psi \right) \, d^3x 
+\end{align}
+dove abbiamo riconosciuto la divergenza del campo vettoriale 
+\begin{align}
+  -\frac{i\hbar}{2M} \left( \Psi^* \nabla \Psi - \Psi \nabla \Psi \right) \eqcolon \v{J}(\v{x}, t).
+\end{align}
+Siccome le uguaglianze sono valide per un $ \Omega $ arbitrario, allora necessariamente devono essere uguali gli integrandi per cui 
+\begin{align}
+  \der{}{t} \abs{\Psi}^2 + \nabla\cdot\mathbf{ J } = 0
+\end{align}
+dove notiamo la forma di una equazione di continuità fra la densità di probabilità e quello che possiamo definire come il 
+\textit{vettore del flusso di probabilità}, e tramite il teorema della divergenza si ottiene 
+\begin{align}
+  \der{}{t} \int_\Omega \abs{\Psi}^2 \, d^3x = - \oint_{\partial \Omega} \v{J} \cdot d\v{S}.
+\end{align}
+Il flusso di probabilità si può esprimere in termini dell'operatore velocità che per una particella libera ricordiamo che è legato all'impulso come 
+$ \v{V} = \v{P}/M  = - i \hbar \nabla/M $, allora si ha che 
+\begin{align}
+  \v{J} = -\frac{i\hbar}{2M} \left( \Psi^* \nabla \Psi - \Psi \nabla \Psi \right) = \frac\hbar{M}\text{Im}(\Psi^* \nabla \Psi) 
+  = \text{Im}( i \Psi^* \v{V} \Psi) = \text{Re}(\Psi^* \v{V} \Psi).
+\end{align}
+
+
 \section{Autofunzioni dell'hamiltoniana}
 
 Consideriamo il caso di una particella libera, vogliamo trovare gli stati per cui vale $ H\k{\Psi} = E \k{\Psi} $ con $ E $ autovalore relativo allo stato 
