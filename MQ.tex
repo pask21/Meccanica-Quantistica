@@ -1015,7 +1015,74 @@ pertanto possiamo scrivere che
   Q_\alpha = i \der{}{k_\alpha} = i \hbar \der{}{p_\alpha}.
 \end{align}
 
+\section{Principio di indeterminazione}
 
+Vogliamo studiare la varianza delle distribuzioni di probabilità associate agli osservabili, che è definita come 
+\begin{align}
+  \Delta_A^2 = \sca{ (A - \sc{A})^2 } = \sca{ A^2 - 2A \sc{A} + \sc{A}^2 } = \sc{A^2} - \sc{A}^2.
+\end{align}
+Definendo l'operatore $ A_s = A - \sc{A} $ allora la varianza dell'osservabile $ A $ nello stato $ \rho $ si esprime come 
+\begin{align}
+  \Delta_A^2 = \Tr\left[ \rho A_s^2\right] = \bk{\psi | A_s^2 |\psi}
+\end{align}
+dove l'ultima uguaglianza si ha solo per uno stato puro $ \rho = \k{\psi} \b{\psi} $. Per qualsiasi operatore vale la proprietà 
+\begin{align}
+  \Tr\left[ \rho T T^\dag \right] \geq 0
+\end{align}
+e si mostra sfruttando che $ TT^\dag $ è semipositivo perché
+\begin{align}
+  \bk{\psi | TT^\dag | \psi} = \norm{T^\dag \psi}^2 \geq 0
+\end{align}
+e quindi nella base degli autovettori di $ \rho $ si ha
+\begin{align}
+  \Tr\left[ \rho TT^\dag \right] = \sum_{n} \bk{n | \rho TT^\dag | n} = \sum_n \lambda_n \bk{n | TT^\dag | n}  \geq 0
+\end{align}
+dove $ \lambda_n $ sono gli autovalori di $ \rho $, reali e positivi perché hermitiano e positivo. 
+Siano $ A $ e $ B $ due osservabili che non commutano, cioè 
+\begin{align}
+  [A,B] = i C
+\end{align}
+dove la $ i $ serve per avere che $ C = C^\dag $ (perché $ A $ e $ B $ sono hermitiani), vogliamo sapere quali sono le implicazioni di questa proprietà 
+sulle varianze delle due distribuzioni associate. Consideriamo $ T = A_s + i \omega B_s $ e $ T^\dag = A_s - i\omega B_s $ dove $ \omega $ è un parametro 
+reale, allora la disuguaglianza precedente diventa 
+\begin{align}
+  \Tr\left[ \rho TT^\dag \right] &= \Tr\left[ \rho (A_s^2 - i\omega A_s B_s + i \omega B_s A_s + \omega^2 B_s^2) \right] 
+  \\
+  &= \Tr\left[ \rho A_s^2 \right] - i \omega \Tr \left\{ \phb\rho [A_s,B_s] \right\} + \omega^2 \Tr\left[ \rho B_s^2 \right] \geq 0
+\end{align}
+e per ottenere la forma più forte di questa disuguaglianza minimizziamo $ \omega $ nella forma quadratica che abbiamo ottenuto. Dato che 
+$ [A_s, B_s] = [A, B] = i C $ il minimo si ha per 
+\begin{align}
+  \omega_{\text{min}} = -\frac{\Tr\left[\phb \rho C \right]}{2\Tr\left[\phb  \rho B_s^2 \right]}
+\end{align}
+e la disguaglianza per tale $ \omega_{\text{min}} $ vale 
+\begin{align}
+  \Tr\left[ \rho A_s^2 \right] + \frac{\left( \phb \Tr\left[ \rho C \right] \right)^2}{2 \Tr\left[ \rho B_s^2 \right]} 
+  + \frac{\left(\phb \Tr\left[ \rho C \right] \right)^2}{4 \Tr\left[ \rho B_s^2 \right]} \geq 0 
+  \implies \Tr\left[ \rho A_s^2 \right] \Tr\left[ \rho B_s^2 \right] \geq \frac{\left( \Tr\left[ \rho C \right] \right)^2}4
+\end{align}
+che riscritta per le varianze e per le deviazioni standard è
+\begin{align}
+  \Delta_A^2 \, \Delta_B^2 \geq \frac{\sc{C}^2}4 \implies \Delta_A \, \Delta_B \geq \frac{\abs{\sc{C}}}2.
+\end{align}
+Tale risultato esprime come due distribuzioni statistiche relative a due osservabili che non commutano (e con $ \sc{C} \neq 0 $) siano affette 
+da un principio di incertezza sulla dispersione delle distribuzioni nello stesso stato. Questo principio non si manifesta sulle singole misure ma 
+soltanto sulle distribuzioni statistiche.
+
+Per gli operatori posizione e impulso il commutatore vale $ [Q_\alpha, P_\beta] = i \hbar \delta_{\alpha \beta} $ quindi la disuguaglianza per 
+la stessa componente di impulso e posizione vale 
+\begin{align}
+  \Delta_Q \, \Delta_P \geq \frac\hbar2
+\end{align}
+nota come \textit{principio di indeterminazione di Heisenberg}. 
+
+Un altro commutatore non nullo è quello fra le componenti del momento angolare cioè $ [J_\alpha, J_\beta] = i \hbar \eps_{\alpha \beta \gamma} J_\gamma $, 
+e quindi le deviazioni standard delle distribuzioni di due componenti diverse del momento angolare rispettano 
+\begin{align}
+  \Delta_{J_\alpha} \, \Delta_{J_\beta} \geq \frac\hbar2 \abs{\sc{J_\gamma}}
+\end{align}
+e lo stesso vale per le componenti dello Spin. Per quanto riguarda quest'ultimo, è il motivo per cui l'esperimento di Stern-Gerlach fornisce 
+i risulati controintuitivi che abbiamo discusso.
 
 
 
