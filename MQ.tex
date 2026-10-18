@@ -1084,6 +1084,72 @@ e quindi le deviazioni standard delle distribuzioni di due componenti diverse de
 e lo stesso vale per le componenti dello Spin. Per quanto riguarda quest'ultimo, è il motivo per cui l'esperimento di Stern-Gerlach fornisce 
 i risulati controintuitivi che abbiamo discusso.
 
+\chapter{Oscillatore armonico}
+
+L'oscillatore armonico presenta un operatore hamiltoniano formato dal termine cinetico e da un potenziale quadratico, cioè
+\begin{align}
+  H = \frac{P^2}{2M} + \frac{M\omega^2}2 Q^2
+\end{align}
+dove $ P $ è l'operatore momento e $ Q $ l'operatore posizione.
+
+\section{Soluzione algebrica}
+
+Riscriviamo l'operatore hamiltoniano con degli operatori adimensionali $ p $ e $ q $ definiti come 
+\begin{align}
+  q = \sqrt{\frac{M\omega}\hbar} \, Q, \qquad p = \sqrt{\frac1{M\hbar\omega}} \, P
+\end{align}
+così che l'hamiltoniana diventi 
+\begin{align}
+  H = \frac{\hbar \omega}2 \left( p^2 + q^2 \right).
+\end{align}
+Inolte definiamo anche un operatore $ a $ e il suo aggiunto $ a^\dag $ in modo che 
+\begin{align}
+  a = \frac{q + ip}{\sqrt2}, \qquad a^\dag = \frac{q - ip}{\sqrt2}
+\end{align}
+che grazie alla relazione di commutazione $ [Q, P ] = i \hbar $ (per il caso unidimensionale) si ha  
+\begin{align}
+  [a, a^\dag] = 1
+\end{align}
+e in termini di questi operatori $ H $ diventa 
+\begin{align}
+  H = \frac{\hbar \omega}2 \left( aa^\dag + a^\dag a \right) = {\hbar \omega} \left( aa^\dag -\frac12 \right) 
+  = {\hbar \omega} \left( a^\dag a + \frac12 \right).
+\end{align}
+Con l'hamiltoniana in questa forma, il problema di trovare gli autovalori di $ H $ si riduce a studiare l'operatore hermitiano $ N = a^\dag a $, 
+notiamo inoltre che $ N $ deve condividere lo spettro $ H $ anche perché $ [H, N] = 0 $. Per trovare gli autovettori $ \k{\nu} $ di $ N $ calcoliamo 
+prima le relazioni di commutazione $ [N,a] $ e $ [N, a^\dag] $, tramite la formula 
+\begin{align}
+  [AB,C] = A[B,C] + [A,C] B
+\end{align}
+si ha che 
+\begin{align}
+  [N, a] &= [a^\dag, a] a = - a
+  \\
+  [N, a^\dag] &= a^\dag [a, a^\dag] = a^\dag.
+\end{align}
+Rislolviamo quindi $ N\k{\nu} = \nu \k{\nu} $ con $ \bk{\nu | \nu} \neq 0 $:
+\begin{align}
+  Na\k{\nu} = \left( a N - a \right) \k{\nu} = (\nu - 1) a\k{\nu}
+\end{align}
+per tanto $ a\k{\nu} $ è autovettore di $ N $ con autovalore $ \nu - 1 $. La norma quadra di tale autovettore vale 
+\begin{align}
+  (a\k{\nu}, a\k{\nu}) = \bk{\nu | a^\dag a| \nu} = \bk{\nu | N | \nu} = \nu \bk{\nu |\nu} \geq 0
+\end{align}
+e dato che deve essere semipositiva allora gli autovalori rispettano $ \nu \geq 0 $. Iterando l'operatore $ a $ si ottiene una sequenza di autevettori 
+con autovalori $ \nu - 1, \nu - 2, \dots $ che termina necessariamente con $ \nu = 0 $ dato che $ a \k{0} = 0 $. Lo stesso procedimento ma con 
+l'operatore $ a^\dag $ porta a 
+\begin{align}
+  N a^\dag \k{\nu} = \left( a^\dag N + a^\dag \right) \k{\nu} = \left( \nu + 1 \right) a^\dag \k{\nu}
+\end{align}
+e quindi $ a^\dag \k{\nu} $ è autovettore di $ N $ con autovalore $ \nu + 1 $, inoltre $ a^\dag\k{\nu} $ non può essere il vettore nullo perché la sua norma 
+quadra vale 
+\begin{align}
+  (a^\dag \k{\nu}, a^\dag \k{\nu}) = \bk{\nu | a a^\dag | \nu} = \bk{\nu | aa^\dag + a^\dag a - a^\dag a| \nu } = \bk{\nu | N + 1 | \nu}= (\nu + 1) \bk{\nu | \nu}
+\end{align}
+e dato che $ \nu \geq 0 $ non si può annullare, per ciò anche $ \k{\nu} \neq 0 $.
+
+
+
 
 
 \end{document}
