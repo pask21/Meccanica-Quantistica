@@ -1098,7 +1098,7 @@ Riscriviamo l'operatore hamiltoniano con degli operatori adimensionali $ p $ e $
 \begin{align}
   q = \sqrt{\frac{M\omega}\hbar} \, Q, \qquad p = \sqrt{\frac1{M\hbar\omega}} \, P
 \end{align}
-così che l'hamiltoniana diventi 
+i quali soddisfano $ [q, p] = [Q, P/\hbar] = i $, e l'hamiltoniana diventa
 \begin{align}
   H = \frac{\hbar \omega}2 \left( p^2 + q^2 \right).
 \end{align}
@@ -1115,7 +1115,10 @@ e in termini di questi operatori $ H $ diventa
   H = \frac{\hbar \omega}2 \left( aa^\dag + a^\dag a \right) = {\hbar \omega} \left( aa^\dag -\frac12 \right) 
   = {\hbar \omega} \left( a^\dag a + \frac12 \right).
 \end{align}
-Con l'hamiltoniana in questa forma, il problema di trovare gli autovalori di $ H $ si riduce a studiare l'operatore hermitiano $ N = a^\dag a $, 
+Con l'hamiltoniana in questa forma, il problema di trovare gli autovalori di $ H $ si riduce a studiare l'operatore hermitiano 
+\begin{align}
+  N = a^\dag a,
+\end{align}
 notiamo inoltre che $ N $ deve condividere lo spettro $ H $ anche perché $ [H, N] = 0 $. Per trovare gli autovettori $ \k{\nu} $ di $ N $ calcoliamo 
 prima le relazioni di commutazione $ [N,a] $ e $ [N, a^\dag] $, tramite la formula 
 \begin{align}
@@ -1148,8 +1151,42 @@ quadra vale
 \end{align}
 e dato che $ \nu \geq 0 $ non si può annullare, per ciò anche $ \k{\nu} \neq 0 $.
 
+Grazie ai due operatori $ a, a^\dag $ abbiamo trovato che lo spettro di $ N $ e quindi anche di $ H $ è discreto con autovalori 
+\begin{align}
+  \nu \in \mathbb{N} \cup \{0\} = \mathbb{N}_0
+\end{align}
+che ridefiniamo quindi con $ \nu = n $. Il vettore $ a^\dag \k{n} $ è proporzionale all'autovettore $ \k{n + 1} $ dato che corrisponde all'autovalore 
+$ n+1 $ perciò possiamo scrivere $ a^\dag \k{n} = C_n \k{n+1} $ e per determinare $ C_n $ ci basta considerare la norma:
+\begin{align}
+  \abs{C_n}^2 \bk{n+1|n+1} = \bk{n | a a^\dag | n } = n+1
+\end{align}
+e quindi $ \abs{C_n} = \sqrt{n+1} $. Dato che la fase degli autovettori di $ N $ è arbitraria possiamo sceglierla in modo che $ C_n $ sia reale pertanto 
+\begin{align}
+  a^\dag \k{n} = \sqrt{n+1}\, \k{n+1} \implies \k{n} = \frac1{\sqrt{n!}} (a^\dag)^n \k{0}.
+\end{align}
+Possiamo calcolare gli elementi di matrice di entrambi gli operatori e cioè 
+\begin{align}
+  \bk{n' | a^\dag | n} = \sqrt{n+1}\, \bk{n' | n+1} = \sqrt{n+1} \,\delta_{n', n+1}
+\end{align}
+mentre per $ a $ possiamo trasporre gli elementi di $ a^\dag $ ovvero 
+\begin{align}
+  \bk{n' | a | n} = \sqrt{n' + 1} \, \bk{n | n' + 1} = \sqrt{n' + 1} \, \delta_{n, n'+1} = \sqrt{n} \, \delta_{n - 1, n'}
+\end{align}
+da cui segue che l'azione di $ a $ su un autovettore $ \k{n} $ vale 
+\begin{align}
+  a \k{n} = \sqrt{n} \, \k{n - 1} \quad n \neq 0, \qquad a\k{0} = 0.
+\end{align}
+Di conseguenza l'operatore $ N $ agisce come 
+\begin{align}
+  N \k{n} = a^\dag a\k{n} =  \sqrt{n} \, a^\dag\k{n - 1} = n \k{n}, \qquad N \k{0} = 0
+\end{align}
+e quindi possiamo scrivere gli autovalori dell'hamiltoniana dell'oscillatore armonico cioè
+\begin{align}
+  H \k{n} = {\hbar \omega} \left( N + \frac12 \right)\k{n} = {\hbar \omega} \left( n + \frac12 \right) \k{n} \eqcolon E_n \k{n}
+\end{align}
+con $ n = 0, 1, 2, \dots $. 
 
 
-
+\section{Soluzione analitica}
 
 \end{document}
