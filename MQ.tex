@@ -1184,9 +1184,25 @@ e quindi possiamo scrivere gli autovalori dell'hamiltoniana dell'oscillatore arm
 \begin{align}
   H \k{n} = {\hbar \omega} \left( N + \frac12 \right)\k{n} = {\hbar \omega} \left( n + \frac12 \right) \k{n} \eqcolon E_n \k{n}
 \end{align}
-con $ n = 0, 1, 2, \dots $. 
+con $ n = 0, 1, 2, \dots $. Da ciò che abbiamo ricavato traiamo varie conclusioni. Lo spettro dell'energia e quindi i valori 
+possibili delle misure sono discreti ed equispaziati di $ \hbar \omega $, da cui deriva la tesi dei \textit{quanti} di energia. 
+Il valore minimo dell'energia non è $ 0 $, come previsto dalla teoria classica in caso di punto materiale fermo nell'origine, ma è $ {\hbar \omega}/2 $.
 
 
 \section{Soluzione analitica}
+
+Nella rappresentazione in coordinate rispetto alla posizione l'equazione $ H\k{\psi} = E \k{\psi} $ diventa 
+\begin{align}
+  -\frac{\hbar^2}{2M} \frac{d^2 \psi(x)}{dx^2} + \frac{M \omega^2}2 x^2 \psi(x) = E \psi(x).
+\end{align}
+Per trattare questa equazione differenziale definiamo la coordinata e l'autovalore adimensionale $ q, \lambda $:
+\begin{align}
+  q = \sqrt{\frac{M\omega}{\hbar}} \,x, \qquad \lambda = \frac{2E}{\hbar \omega}
+\end{align}
+e indicando con $ \psi(x) = u (q) $ l'equazione agli autovalori diventa 
+\begin{align}
+  \frac{d^2 u}{dq^2} + \left( \lambda - q^2 \right) u = 0.
+\end{align}
+
 
 \end{document}
