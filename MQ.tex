@@ -1199,10 +1199,48 @@ Per trattare questa equazione differenziale definiamo la coordinata e l'autovalo
 \begin{align}
   q = \sqrt{\frac{M\omega}{\hbar}} \,x, \qquad \lambda = \frac{2E}{\hbar \omega}
 \end{align}
-e indicando con $ \psi(x) = u (q) $ l'equazione agli autovalori diventa 
+dove notiamo che l'unica lunghezza costruibile con le grandezze in gioco è $ x_0 = \sqrt{\hbar/M\omega} $ perciò $ q = x/x_0 $ era l'unica scelta 
+possibile. Indicando con $ \psi(x) = u (q) $ l'equazione agli autovalori diventa 
 \begin{align}
-  \frac{d^2 u}{dq^2} + \left( \lambda - q^2 \right) u = 0.
+  \frac{d^2 u}{dq^2} + \left( \lambda - q^2 \right) u = 0
 \end{align}
+e osserviamo che asintoticamente per $ \lambda - q^2 \sim q^2 $ si ottiene come soluzione gli esponenziali $ e^{q^2 /2} $ e $ e^{-q^2 /2} $, tuttavia la 
+prima soluzione diverge e quindi non appartiene allo spazio di Hilbert esteso. Questa osservazione ci motiva a cercare soluzioni della forma 
+\begin{align}
+  u(q) = H(q) e^{-{q^2}/2}
+\end{align}
+dato che asintoticamente dobbiamo avere il comportanto di una gaussiana. Fattorizzando nell'equazione la gaussiana si ottiene un'equazione per $ H(q) $:
+\begin{align}
+  H'' - 2 q H' + \left( \lambda - 1 \right) H = 0
+\end{align}
+che è nota come \textit{equazione di Hermite}. Questa equazione differenziale è a coefficienti regolari infatti $ -2q $ è un monomio e $ \lambda - 1 $ 
+è una costante, per tanto la soluzione è una funzione intera (analitica su tutto $ \C $) e quindi esprimibile come serie di potenze:
+\begin{align}
+  H(q) = \sum_{n = 0}^\infty a_n q^n.
+\end{align}
+Inserendo la serie di potenze nell'equazione di Hermite si ottiene 
+\begin{align}
+  2 a_2 + (\lambda - 1)a_0 + \sum_{n = 1}^\infty q^n \left[ \phb a_{n+2} (n+2)(n+1) - 2 a_n n + (\lambda -1)a_n  \right]  = 0
+\end{align}
+e richiedendo che sia nulla per ogni potenza $ q^n $ si ottiene la relazione fra i coefficienti 
+\begin{align}
+  a_{n+2} = \frac{2n + 1 - \lambda}{(n+2) (n+1)} a_n \quad \text{con} \; n \geq 0.
+\end{align}
+La serie risultante da questi coefficienti è convergente come si può vedere dal rapporto $ a_{n+2}/a_{n} \to \frac2n < 1 $ tuttavia questa soluzione è 
+asintoticamente un esponenziale del tipo $ e^{q^2} $ che era proprio la soluzione che avevamo già scartato. Quindi l'unico modo per avere una soluzione 
+che non diverga è che la serie termini quindi avere 
+\begin{align}
+  \lambda = 2N + 1
+\end{align}
+per un qualche $ N \in \mathbb{N}_0 $, ma questo termina soltanto i coefficienti della stessa parità di $ N $, questo perché la relazione fra 
+i coefficienti lega $ a_{n+2} $ ad $ a_n $ per cui si ottiene due catene indipendenti per i termini pari che iniziano con $ a_0 $ e per quelli 
+dispari che iniziano con $ a_1 $. Quindi scegliendo per $ N $ pari dobbiamo scegliere $ a_1 = 0 $, mentre per $ N $ dispari si sceglie $ a_0 = 0 $ e 
+così $ H_N(q) $ è un polinomio di grado finito $ N $. Avendo trovato i possibili valori di $ \lambda $ allora abbiamo anche gli autovalori dell'energia:
+\begin{align}
+  E_N = \hbar\omega \,\frac{\lambda(N)}2 = \hbar \omega \left( N + \frac12 \right) \quad \text{con} \; N \in \mathbb{N}_0
+\end{align}
+che sono proprio quelli che avevamo trovato nella soluzione algebrica.
+
 
 
 \end{document}
