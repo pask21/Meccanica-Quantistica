@@ -129,7 +129,7 @@ Gli stati puri sono una rappresentazione matematica degli operatori di proiezion
 Gli autovalori possibili sono $ 0 $ e $ 1 $, di conseguenza si definisce il supporto di un proiettore 
 come l'insieme degli autovettori relativi all'autovalore $ 1 $, mentre il kernel come l'insieme degli autovettori relativi a $ 0 $, quindi 
 \begin{align}
-  \supp \Pi = \{\k{e_j} : \Pi \k{e_j} = \k{e_j}\}, \quad \Ker \Pi = \{\k{e_j} : \Pi \k{e_j} = 0 \}.
+  \supp \Pi = \left\{ \phb \k{e_j} : \Pi \k{e_j} = \k{e_j}\right\}, \quad \Ker \Pi = \left\{ \phb \k{e_j} : \Pi \k{e_j} = 0 \right\}.
 \end{align}
 Ne segue che lo spazio di Hilbert si decompone in somma diretta del supporto e del kernel di un proiettore: 
 \begin{align}
@@ -227,6 +227,47 @@ che nel caso di uno stato puro $ \rho = \k{\psi} \b{\psi} $ diventa
 \begin{align}
   g(q) = \bk{q | \psi} \bk{\psi | q} = \abs{\bk{q | \psi}}^2.
 \end{align}
+
+\section{Matrici densità}
+
+Nella meccanica classica la definizione di stato del sistema era legata alle misure in modo biunivoco, cioè uno stato era identificato dalle misure 
+cioè corrispondeva a una certa posizione, velocità, \dots E valeva anche il viceversa per cui noto lo stato di un sistema allora erano noti anche i 
+valori delle quantità cinematiche e dinamiche cioè le misure. In meccanica quantistica questa corrispondenza non è più vera, infatti dato che si 
+tratta di una teoria che fornisce distribuzioni statistiche, a un dato stato devono corrispondere necessariamente più valori possibili delle misure,
+ma questo ci porta al problema di definire che cosa sia uno stato. Diciamo che uno stato è un processo di preparazione sperimentale determinato e quindi 
+riproducibile. 
+
+Abbiamo già mostrato come gli stati puri siano della forma $ \rho = \k{\psi} \b{\psi} $ cioè dei proiettori sul vettore $ \k{\psi} $, consideriamo 
+quindi una sorgente reale che produce un ensemble di stati $ E = \{p_j; \k{\psi_j} \in \H\} $ dove $ p_j $ è la probabilità che la macchina produca lo 
+stato $ \k{\psi_j} $. Vogliamo testare (misurare) gli outcome della sorgente su un insieme di misure proiettive (pure) $ \{\Pi_k\}_{k = 1, \dots, d'} $,
+allora la probabilità che di ottenere il valore $ k $ nel test è data da 
+\begin{gather}
+  P(k | E) = \sum_{j} p_j P(k | \psi_j) = \sum_{j} p_j \bk{\psi_j | \Pi_k | \psi_j} = \sum_{j} p_j \Tr\left[ \phb \k{\psi_j}\b{\psi_j} \Pi_k \right] 
+  \\
+  = \Tr \left[ \textstyle \sum_j p_j \k{\psi_j} \b{\psi_j} \Pi_k \right] = \Tr\left[ \phb \rho \Pi_k \right]
+\end{gather}
+dove $ \rho = \sum_{j} p_j \k{\psi_j} \b{\psi_j} $. Si tratta quindi di una combinazione convessa degli stati puri $ \k{\psi_j} \b{\psi_j} $, dato 
+che $ 0 \leq p_j \leq 1 $ e $ \sum_j p_j = 1 $, quindi come se fosse uno stato "medio" sull'ensemble di stati prodotti dalla sorgente reale. Due ensemble 
+$ E_1 = \{p_j; \k{\psi_j} \in \H\} $ e $ E_2 = \{q_j; \k{\varphi_j} \in \H\} $ che hanno la stessa media 
+$ \rho = \sum_{j} p_j \k{\psi_j} \b{\psi_j} = \sum_{j} q_j \k{\varphi_j} \b{\varphi_j} $, non sono distinguibili tramite misure. Lo stato $ \rho $ che 
+abbiamo ottenuto è detto \textit{matrice densità}, e mantiene ancora alcune proprietà degli stati puri ad esempio 
+\begin{align}
+  \rho^\dag = \rho \quad \Tr \rho = \sum_j p_j = 1, \quad \rho \geq 0,
+\end{align}
+tuttavia non vale in generale che $ \rho^2 = \rho $, infatti se valesse allora $ \rho $ sarebbe ancora un proiettore e quindi è il caso in cui 
+$ p_j = 1 $ per una certa $ j $ e tutte le altre probabilità sono nulle perciò $ \rho = \k{\psi_j} \b{\psi_j} $. Definitamo lo spazio degli operatori di 
+stato $ \sigma(\H) $ come 
+\begin{align}
+  \sigma(\H) = \left\{ \rho \in \L(\H) : \Tr \rho = 1, \rho \geq 0 \right\}
+\end{align}
+dove non è necessario richiedere l'hermiticità perché è una conseguenza della linearità e della semipositività. Lo spazio $ \sigma(\H) $ non è uno spazio 
+vettoriale, questo perché basterebbe moltiplicare per uno scalare per uscire dalle condizioni, tuttavia è chiuso per combinazione convessa.
+
+
+
+
+
+
 
 \chapter{Cinematica e dinamica}
 
@@ -1223,7 +1264,7 @@ Inserendo la serie di potenze nell'equazione di Hermite si ottiene
   2 a_2 + (\lambda - 1)a_0 + \sum_{n = 1}^\infty q^n \left[ \phb a_{n+2} (n+2)(n+1) - 2 a_n n + (\lambda -1)a_n  \right]  = 0
 \end{align}
 e richiedendo che sia nulla per ogni potenza $ q^n $ si ottiene la relazione fra i coefficienti 
-\begin{align}
+\begin{align} \label{eq: ricorsiva per coefficienti dei polinomi di Hermite}
   a_{n+2} = \frac{2n + 1 - \lambda}{(n+2) (n+1)} a_n \quad \text{con} \; n \geq 0.
 \end{align}
 La serie risultante da questi coefficienti è convergente come si può vedere dal rapporto $ a_{n+2}/a_{n} \to \frac2n < 1 $ tuttavia questa soluzione è 
@@ -1240,6 +1281,31 @@ così $ H_N(q) $ è un polinomio di grado finito $ N $. Avendo trovato i possibi
   E_N = \hbar\omega \,\frac{\lambda(N)}2 = \hbar \omega \left( N + \frac12 \right) \quad \text{con} \; N \in \mathbb{N}_0
 \end{align}
 che sono proprio quelli che avevamo trovato nella soluzione algebrica.
+
+Abbiamo mostrato quindi che l'insieme dei polinomi che risolvono l'equazione ricorsiva \eqref{eq: ricorsiva per coefficienti dei polinomi di Hermite} 
+hanno un solo parametro libero, che seleziona la catena con la parità di $ N $, sostituendo $ \lambda = 2N +1 $ nell'equazione di Hermite otteniamo 
+\begin{align}
+  H'' - 2qH' + 2N H = 0.
+\end{align}
+Le soluzioni a questa equazione sono date dai \textit{polinomi di Hermite} (nella catena della parità di $ N $) e dato che possono differire per una 
+costante si sceglie il termine $ a_N = 2^N $, che porta alla forma chiusa 
+\begin{align}
+  H_N(q) = N!\sum_{k = 0}^{\lfloor N/2 \rfloor} \frac{ (-1)^k (2q)^{N - 2k} }{k! (N - 2k)!}.
+\end{align}
+Esiste una forma più comoda che permette di ricavarsi il polinomio di Hermite $ N $-esimo ed è tramite la funzione generatrice $ G(q, s) $:
+\begin{align}
+  G(q,s) = e^{(-s^2 + 2sq)} = \sum_{N = 0}^\infty \frac{H_N(q)}{N!} s^N
+\end{align}
+ovvero i polinomi di Hermite sono i coefficienti dello sviluppo in Taylor di $ G(q,s) $ in $ s = 0 $, per tanto si ottengono come 
+\begin{align}
+  H_N(q) = \frac{d^N}{ds^N} \left. \phB G(q,s) \right|_{s=0} = e^{q^2} \frac{d^N}{ds^N}  \left. e^{- (s - q)^2} \right|_{s=0}.
+  % = (-1)^N e^{q^2}  \frac{d^N}{dq^N}  \left. e^{}
+\end{align}
+
+\chapter{Sistemi interagenti}
+
+Voglia studiare come si può descrivere un sistema composto da due (o più) sottosistemi $ A $ e $ B $. Ciascuno dei due sistemi avrà il proprio spazio 
+di Hilbert con i proprio operatori 
 
 
 
