@@ -240,7 +240,7 @@ riproducibile.
 Abbiamo già mostrato come gli stati puri siano della forma $ \rho = \k{\psi} \b{\psi} $ cioè dei proiettori sul vettore $ \k{\psi} $, consideriamo 
 quindi una sorgente reale che produce un ensemble di stati $ E = \{p_j; \k{\psi_j} \in \H\} $ dove $ p_j $ è la probabilità che la macchina produca lo 
 stato $ \k{\psi_j} $. Vogliamo testare (misurare) gli outcome della sorgente su un insieme di misure proiettive (pure) $ \{\Pi_k\}_{k = 1, \dots, d'} $,
-allora la probabilità che di ottenere il valore $ k $ nel test è data da 
+allora la probabilità di ottenere il valore $ k $ nel test è data da 
 \begin{gather}
   P(k | E) = \sum_{j} p_j P(k | \psi_j) = \sum_{j} p_j \bk{\psi_j | \Pi_k | \psi_j} = \sum_{j} p_j \Tr\left[ \phb \k{\psi_j}\b{\psi_j} \Pi_k \right] 
   \\
@@ -263,6 +263,48 @@ stato $ \sigma(\H) $ come
 dove non è necessario richiedere l'hermiticità perché è una conseguenza della linearità e della semipositività. Lo spazio $ \sigma(\H) $ non è uno spazio 
 vettoriale, questo perché basterebbe moltiplicare per uno scalare per uscire dalle condizioni, tuttavia è chiuso per combinazione convessa.
 
+In generale vale che $ \rho^2 \leq \rho $ inteso nel senso della media su un vettore cioè $ \bk{\psi | \rho^2 | \psi} \leq \bk{\psi | \rho | \psi} $ e 
+questo si vede facilmente diagonalizzando e considerando gli autovalori che essendo $ 0 \leq \lambda_j \leq 1 $ allora $ \lambda_j^2 \leq \lambda_j $. 
+Questo significa che possiamo prendere la traccia $ \Tr \rho^2 $ come una sorta di "misura di purezza", infatti 
+\begin{align}
+  \Tr \rho^2 \leq 1, \, = \text{ solo se } \rho \text{ è puro}
+\end{align}
+e questa traccia è limitata anche inferiormente dalla dimensione dello spazio di Hilbert $ d $ infatti vale 
+\begin{align}
+  \frac1d \leq \Tr \rho^2 \leq 1
+\end{align}
+dove per $ d \to \infty $ si ottiene $ 0 $ come limite inferiore. Questa disuguaglianza ha un significato fisico preciso: se lo stato puro indica 
+la certezza nel determinare un particolare stato (ovvero che se esiste una misura con esiti possibili o $ 0 $ o $ 1 $) allora per $ \Tr \rho^2 = 1/d $ 
+indica lo stato di ignoranza massima in cui tutti i test sono equiprobabili con risultato $ 1/d $. In questo caso $ rho $ vale 
+\begin{align}
+  \rho = \sum_j \frac1d \k{\psi_j} \b{\psi_j} = \frac{I}d
+\end{align}
+e quindi lo stato identico è quello più misto possibile.
+
+\section{Probabilità condizionata}
+
+Consideriamo uno stato descritto da una matrice densità $ \rho $ e un apparato di misurazione che può eseguire test su un insieme 
+$ \{\Pi_k\}_{k = 1, \dots, d'} $. Quello che mostreremo è come cambia la descrizione dello stato finale in base a quante informazioni ho 
+sull'apparato sperimentale, cosa che non è una novità della meccanica quantistica ma solo probabilità condizionata. 
+Supponiamo che la sorgente reale produca un ensemble di stati $ E = \{p_j ; \k{\psi_j}\} $ e che $ \rho $ ne sia la media, perciò se viene prodotto lo 
+stato $ \k{\psi_j} $ e la macchina fa la misura ottenendo l'esito $ k $-esimo, allora lo stato finale è 
+\begin{align}
+  \k{\psi_j} \xlongrightarrow[k]{} \frac{\Pi_k \k{\psi_j}}{\sqrt{P(k|\psi_j)}} 
+  = \frac{\Pi_k \k{\psi_j}}{\sqrt{\bk{\psi_j | \Pi_k | \psi_j}}} = \k{\psi_{jk}}
+\end{align}
+
+Livello A: supponiamo di non conoscere l'esito della misura, allora lo stato finale del sistema è descritto dall'ensemble 
+$ E'= \{p_j P(k|\psi_j); \k{\psi_{jk}}\} $ e quindi la matrice densità che lo descrive è
+\begin{align}
+  \rho' = \sum_{j,k} p_j P(k | \psi_j) \cdot \frac{\Pi_k \k{\psi_j} \b{\psi_j} \Pi_k }{P(k|\psi_j)} 
+  = \sum_k \Pi_k \left( \sum_j p_j \k{\psi_j} \b{\psi_j} \right) \Pi_k = \sum_k \Pi_k \rho \Pi_k.
+\end{align}
+
+Livello B: conosciamo l'esito $ k $ della misura, allora lo stato finale è descritto dall'ensemble $ E'' = \{p_j; \k{\psi_{jk}}\} $ descritto dalla 
+matrice densità 
+\begin{align}
+  \rho'' = \sum_j p_j \k{\psi_{jk}} \b{\psi_{jk}} = \sum_j p_j \frac{\Pi_k \k{\psi_j} \b{\psi_j} \Pi_k }{P(k|\psi_j)}.
+\end{align}
 
 
 
