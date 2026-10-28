@@ -306,14 +306,7 @@ matrice densità
   \rho'' = \sum_j p_j \k{\psi_{jk}} \b{\psi_{jk}} = \sum_j p_j \frac{\Pi_k \k{\psi_j} \b{\psi_j} \Pi_k }{P(k|\psi_j)}.
 \end{align}
 
-
-
-
-
-
 \chapter{Cinematica e dinamica}
-
-
 
 \section{Trasformazioni}
 Vogliamo capire come cambiano gli osservabili e gli stati (puri) a seguito di trasformazioni nello spazio e nel tempo. La fisica del sistema non 
@@ -945,7 +938,7 @@ l'interpretazione corretta è che sia una onda di probabilità con valore purame
 \begin{align}
   \abs{\bk{\v{x} | \psi(t)}}^2 = \abs{ \Psi(\v{x}, t)}^2.
 \end{align}
-Per un sistema composto da $ N $ particelle, la base di coordinato sono gli autovettori comuni dei rispettivi operatori posizione 
+Per un sistema composto da $ N $ particelle, la base di coordinate sono gli autovettori comuni dei rispettivi operatori posizione 
 $ \v{Q}^{(1)}, \dots, \v{Q}^{(N)} $, cioè $ \k{\v{x}^{(1)}, \dots, \v{x}^{(N)}} = \k{\v{x}^{(1)}} \otimes \dots \otimes \k{\v{x}^{(N)}} $ dove il simbolo 
 $ \otimes $ indica il prodotto di Kronocker, definito come $ A\otimes B \k{a,b} = A\k{a} \otimes B \k{b} $. Il vettore di stato del sistema si scrive come 
 \begin{align}
@@ -1346,8 +1339,74 @@ ovvero i polinomi di Hermite sono i coefficienti dello sviluppo in Taylor di $ G
 
 \chapter{Sistemi interagenti}
 
-Voglia studiare come si può descrivere un sistema composto da due (o più) sottosistemi $ A $ e $ B $. Ciascuno dei due sistemi avrà il proprio spazio 
-di Hilbert con i proprio operatori 
+\section{Base composta}
+
+Vogliamo studiare come si può descrivere un sistema composto da due (o più) sottosistemi $ A $ e $ B $. Ciascuno dei due sistemi avrà il proprio spazio 
+di Hilbert con i proprio operatori quindi $ \{\H_A, A_i\} $ e $ \{\H_B, B_i\} $. Lo spazio prodotto si indica con $ \H = \H_A \otimes \H_B $ 
+di dimensione $ d_A d_B $ e prese due basi $ \k{a_i} $ per $ \H_A $ e $ \k{b_i} $ per $ \H_B $ allora la base composta per $ \H $ è data da 
+\begin{align}
+  \{\k{a_i} \otimes \k{b_j}\}_{i,j} = \{\k{a_i} \k{b_j}\}_{i,j} = \{\k{a_i,b_j}\}_{i,j}.
+\end{align}
+Gli operatori agiscono ognuno sul suo spazio di Hilbert cioè $ A \otimes B \k{a,b} = A \k{a} \otimes B \k{b} $, mentre se prendiamo due 
+stati $ \k{\psi} = \sum_i \alpha_i \k{a_i} $ e $ \k{\phi} = \sum_i \beta_i \k{b_i} $ allora lo stato del sistema composto è 
+\begin{align}
+  \k{\psi,\phi} = \k{\psi} \otimes \k{\phi} = \sum_{i=1}^{d_A} \sum_{j = 1}^{d_B} \alpha_i\beta_j \k{a_i} \otimes \k{b_j}.
+\end{align}
+Ordiniamo la base composta come segue
+\begin{align}
+  \{\k{a_1b_1}, \k{a_1,b_2}, \dots , \k{a_1b_{d_B}}, \k{a_2b_1}, \dots, \k{a_{d_A}b_{d_B}}\},
+\end{align}
+in questo modo la matrice formata dai coefficienti $ \alpha_i \beta_j $ si scrive 
+\begin{align}
+  \gamma = 
+  \begin{pmatrix}
+    \alpha_1 (\beta_1 & \beta_2 & \dots & \beta_{d_B}) \\
+    \alpha_2 (\beta_1 & \beta_2 & \dots & \beta_{d_B}) \\
+     & & \vdots & & \\
+    \alpha_{d_A} (\beta_1 & \beta_2 & \dots & \beta_{d_B}) 
+  \end{pmatrix}
+\end{align}
+che ha $ \rank (\gamma) = 1 $ dato che le righe (e le colonne) sono tutte multiple della prima. Dato che il rango è invariante cambio di base, 
+questa è una condizione necessaria affinché uno stato di $ \H $ sia fattorizzabile come prodotto di due stati $ \k{\psi} \otimes \k{\phi} $ di 
+$ \H_A $ e $ \H_B $. È anche sufficiente infatti presa una matrice di rango $ 1 $ allora per mosse di Gauss (che equivalgono a un cambio base) 
+si può ottenere una matrice con una sola riga di elementi $ c_{i_0 1}, \dots, c_{i_0 d_B} $, per cui esiste un 
+$ \alpha $ tale che $ c_{ij} = \alpha_{i_0} \beta_j $, 
+imponendo per le righe nulle $ \alpha_i = 0 $ otteniamo $ c_{ij} = \alpha_i \beta_j $ e quindi 
+\begin{align}
+  \k{\psi_{AB}} &= \sum_{i=1}^{d_A} \sum_{j = 1}^{d_B} c_{ij} \k{a_i} \otimes \k{b_j} 
+  = \sum_{i=1}^{d_A} \sum_{j = 1}^{d_B} \alpha_i \beta_j \k{a_i} \otimes \k{b_j} 
+  \\
+  &= \left( \sum_{i=1}^{d_A} \alpha_i \k{a_i} \right) \otimes \left( \sum_{j = 1}^{d_B} \beta_j \k{b_j} \right) = \k{\psi} \otimes \k{\phi}.
+\end{align}
+Per tanto possiamo riassumere quanto detto nella seguente:
+\begin{align}
+  \k{\psi_{AB}} \; \text{è fattorizzabile} \iff c_{ij} \; \text{ha rango 1}.
+\end{align}
+\begin{example}
+  Consideriamo due Qbit con la base composta $ \{\k{00}, \k{01}, \k{10}, \k{11}\} $, e gli stati
+  \begin{align}
+    \k{\psi_1} = \frac{\k{01} + \k{11}}{\sqrt{2}}, \qquad \k{\psi_2} = \frac{\k{00} + \k{11}}{\sqrt{2}}.
+  \end{align}
+  Le due matrici associate sono 
+  \begin{align}
+    M_{\psi_1} = \frac1{\sqrt{2}}
+    \begin{pmatrix}
+      0 & 1 \\
+      0 & 1 
+    \end{pmatrix}
+    \qquad     M_{\psi_2} = \frac1{\sqrt{2}}
+    \begin{pmatrix}
+      1 & 0 \\
+      0 & 1 
+    \end{pmatrix}
+  \end{align}
+  dalle quali riconosciamo subito che $ \k{\psi_2} $ non è fattorizzabile, mentre $ \k{\psi_1} $ sì infatti 
+  \begin{align}
+    \k{\psi_1} = \frac{(\k{0} + \k{1}) \otimes \k{1}}{\sqrt{2}}.
+  \end{align}
+\end{example}
+
+
 
 
 
