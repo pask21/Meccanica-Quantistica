@@ -1347,8 +1347,14 @@ di dimensione $ d_A d_B $ e prese due basi $ \k{a_i} $ per $ \H_A $ e $ \k{b_i} 
 \begin{align}
   \{\k{a_i} \otimes \k{b_j}\}_{i,j} = \{\k{a_i} \k{b_j}\}_{i,j} = \{\k{a_i,b_j}\}_{i,j}.
 \end{align}
-Gli operatori agiscono ognuno sul suo spazio di Hilbert cioè $ A \otimes B \k{a,b} = A \k{a} \otimes B \k{b} $, mentre se prendiamo due 
-stati $ \k{\psi} = \sum_i \alpha_i \k{a_i} $ e $ \k{\phi} = \sum_i \beta_i \k{b_i} $ allora lo stato del sistema composto è 
+Gli argomenti dell'operazione $ \otimes $ sono posizionali, cioè se lo spazio prodotto è inidicato con $ \H_A \otimes \H_B $ allora il vettore a sinistra 
+sarà sempre un elemento di $ \H_A $ e il vettore a destra di $ \H_B $. Gli operatori agiscono ognuno sul suo spazio di Hilbert 
+cioè $ A \otimes B \k{a,b} = A \k{a} \otimes B \k{b} $ mentre il prodotto scalare si estende come 
+\begin{align}
+  \left( \phb \b{\alpha} \otimes \b{\beta} \right) \left( \phb \k{\gamma} \otimes \k{\delta} \right) = \bk{\alpha | \gamma} \cdot \bk{\beta | \delta}.
+\end{align}
+
+Presi due stati $ \k{\psi} = \sum_i \alpha_i \k{a_i} $ e $ \k{\phi} = \sum_i \beta_i \k{b_i} $ allora lo stato del sistema composto è 
 \begin{align}
   \k{\psi,\phi} = \k{\psi} \otimes \k{\phi} = \sum_{i=1}^{d_A} \sum_{j = 1}^{d_B} \alpha_i\beta_j \k{a_i} \otimes \k{b_j}.
 \end{align}
@@ -1405,6 +1411,39 @@ Per tanto possiamo riassumere quanto detto nella seguente:
     \k{\psi_1} = \frac{(\k{0} + \k{1}) \otimes \k{1}}{\sqrt{2}}.
   \end{align}
 \end{example}
+
+Diremo che uno stato nello spazio composto $ \H = \H_A \otimes \H_B $ è \textit{entangled} se non è fattorizzabile in un prodotto di uno stato in $ \H_A $ 
+e di uno stato in $ \H_B $, ovvero $ \rank c \geq 2 $.
+
+\section{Matrici densità ridotte}
+
+In un sistema composto da due sottosistemi $ \H_A \otimes \H_B $ deve essere possibile eseguire una misura soltanto su uno dei due, questo anche se 
+lo stato è entangled. Fare una misura solo sul sottosistema $ \H_A $ significa applicare l'operatore $ A \otimes I_B $ questo perché se lo stato è 
+fattorizzabile allora 
+\begin{align}
+  \left(\phb A \otimes I_B \right) \left(\phb \k{a} \otimes \k{b} \right) = A\k{a} \otimes \k{b}.
+\end{align}
+
+Richiamiamo la definizione di matrice densità: dato un ensemble di stati $ E = \{p_i; \k{\psi_i}\} $ allora il valore di aspettazione di un osservabile è 
+\begin{align}
+  \sc{O} = \sum_i p_i \bk{\psi_i | O | \psi_i} = \sum_i p_i \Tr \left[ \k{\psi_i} \b{\psi} O \right] 
+  = \Tr \left[ \phb \textstyle \sum_i p_i \k{\psi_i} \b{\psi_i} O\right] = \Tr \left[ \rho O \right]
+\end{align}
+con $ \rho \in \sigma(\H) $. Consideriamo uno stato $ \k{\psi} \in \H_A \otimes \H_B $ scritto rispetto alla base 
+\begin{align}
+  \k{\psi} = \sum_{ij} c_{ij} \k{a_i b_j} \implies \b{\psi} = \sum_{ij} c_{ij}^* \b{a_i b_j}
+\end{align}
+allora il valore d'aspettazione di un osservabile $ O = A \otimes I_B $ vale 
+\begin{align}
+  \bk{\psi | O | \psi} &= \left( \sum_{ij} c_{ij}^* \b{a_i b_j} \right) \left( \sum_{kl}c_{kl} A \otimes I_B \k{a_k b_l} \right) 
+  \\
+  &= \left( \sum_{ij} c_{ij}^* \b{a_i b_j} \right) \left( \sum_{k l} c_{kl} A \k{a_k} \otimes \k{b_l} \right) 
+  = \sum_{ijkl} c_{ij}^* c_{kl} \bk{a_i | A | a_k} \bk{b_j | b_l} 
+  \\
+  &= \sum_{ijkl} c_{ij}^* c_{kl} \bk{a_i | A | a_k} \delta_{jl} = \sum_{ijk}  c_{ij}^* c_{kj} \bk{a_i | A | a_k}
+\end{align}
+
+
 
 
 
