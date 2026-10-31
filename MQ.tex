@@ -256,11 +256,11 @@ abbiamo ottenuto è detto \textit{matrice densità}, e mantiene ancora alcune pr
 \end{align}
 tuttavia non vale in generale che $ \rho^2 = \rho $, infatti se valesse allora $ \rho $ sarebbe ancora un proiettore e quindi è il caso in cui 
 $ p_j = 1 $ per una certa $ j $ e tutte le altre probabilità sono nulle perciò $ \rho = \k{\psi_j} \b{\psi_j} $. Definitamo lo spazio degli operatori di 
-stato $ \sigma(\H) $ come 
+stato $ \S(\H) $ come 
 \begin{align}
-  \sigma(\H) = \left\{ \rho \in \L(\H) : \Tr \rho = 1, \rho \geq 0 \right\}
+  \S(\H) = \left\{ \rho \in \L(\H) : \Tr \rho = 1, \rho \geq 0 \right\}
 \end{align}
-dove non è necessario richiedere l'hermiticità perché è una conseguenza della linearità e della semipositività. Lo spazio $ \sigma(\H) $ non è uno spazio 
+dove non è necessario richiedere l'hermiticità perché è una conseguenza della linearità e della semipositività. Lo spazio $ \S(\H) $ non è uno spazio 
 vettoriale, questo perché basterebbe moltiplicare per uno scalare per uscire dalle condizioni, tuttavia è chiuso per combinazione convessa.
 
 In generale vale che $ \rho^2 \leq \rho $ inteso nel senso della media su un vettore cioè $ \bk{\psi | \rho^2 | \psi} \leq \bk{\psi | \rho | \psi} $ e 
@@ -1351,7 +1351,11 @@ Gli argomenti dell'operazione $ \otimes $ sono posizionali, cioè se lo spazio p
 sarà sempre un elemento di $ \H_A $ e il vettore a destra di $ \H_B $. Gli operatori agiscono ognuno sul suo spazio di Hilbert 
 cioè $ A \otimes B \k{a,b} = A \k{a} \otimes B \k{b} $ mentre il prodotto scalare si estende come 
 \begin{align}
-  \left( \phb \b{\alpha} \otimes \b{\beta} \right) \left( \phb \k{\gamma} \otimes \k{\delta} \right) = \bk{\alpha | \gamma} \cdot \bk{\beta | \delta}.
+  \left( \phb \b{\alpha} \otimes \b{\beta} \right) \left( \phb \k{\gamma} \otimes \k{\delta} \right) = \bk{\alpha | \gamma} \cdot \bk{\beta | \delta},
+\end{align}
+e infine il prodotto esterno diventa 
+\begin{align}
+  \k{\alpha, \beta} \b{\gamma, \delta} = \k{\alpha} \b{\gamma} \otimes \k{\beta} \b{\delta}
 \end{align}
 
 Presi due stati $ \k{\psi} = \sum_i \alpha_i \k{a_i} $ e $ \k{\phi} = \sum_i \beta_i \k{b_i} $ allora lo stato del sistema composto è 
@@ -1429,20 +1433,51 @@ Richiamiamo la definizione di matrice densità: dato un ensemble di stati $ E = 
   \sc{O} = \sum_i p_i \bk{\psi_i | O | \psi_i} = \sum_i p_i \Tr \left[ \k{\psi_i} \b{\psi} O \right] 
   = \Tr \left[ \phb \textstyle \sum_i p_i \k{\psi_i} \b{\psi_i} O\right] = \Tr \left[ \rho O \right]
 \end{align}
-con $ \rho \in \sigma(\H) $. Consideriamo uno stato $ \k{\psi} \in \H_A \otimes \H_B $ scritto rispetto alla base 
+con $ \rho \in \S(\H) $. Consideriamo uno stato $ \k{\psi} \in \H_A \otimes \H_B $ scritto rispetto alla base 
 \begin{align}
   \k{\psi} = \sum_{ij} c_{ij} \k{a_i b_j} \implies \b{\psi} = \sum_{ij} c_{ij}^* \b{a_i b_j}
 \end{align}
-allora il valore d'aspettazione di un osservabile $ O = A \otimes I_B $ vale 
+allora la matrice densità associata $ \rho = \k{\psi} \b{\psi} $ si scrive nella base composta come 
+\begin{align}
+  \rho = \sum_{ijkl} c_{kl} c_{ij}^* \k{a_k b_l} \b{a_i b_j} = \sum_{ijkl} \rho_{ijkl} \k{a_k b_l} \b{a_i b_j} = 
+\end{align}
+Calcoliamo il valore d'aspettazione di un osservabile $ O = A \otimes I_B $ che consiste in una misura sul sistema $ A $ senza eseguire nulla su $ B $:
 \begin{align}
   \bk{\psi | O | \psi} &= \left( \sum_{ij} c_{ij}^* \b{a_i b_j} \right) \left( \sum_{kl}c_{kl} A \otimes I_B \k{a_k b_l} \right) 
   \\
   &= \left( \sum_{ij} c_{ij}^* \b{a_i b_j} \right) \left( \sum_{k l} c_{kl} A \k{a_k} \otimes \k{b_l} \right) 
-  = \sum_{ijkl} c_{ij}^* c_{kl} \bk{a_i | A | a_k} \bk{b_j | b_l} 
+  = \sum_{ijkl} c_{kl} c_{ij}^*\bk{a_i | A | a_k} \bk{b_j | b_l} 
   \\
-  &= \sum_{ijkl} c_{ij}^* c_{kl} \bk{a_i | A | a_k} \delta_{jl} = \sum_{ijk}  c_{ij}^* c_{kj} \bk{a_i | A | a_k}
+  &= \sum_{ijkl} \rho_{klij} \bk{a_i | A | a_k} \delta_{jl} = \sum_{ijk}  \rho_{kjij} \bk{a_i | A | a_k} 
+  = \sum_{ik} \sum_j \bk{a_k b_j | \rho | a_i b_j} \bk{a_i | A | a_k}
+  \\
+  &= \sum_{ik} \left( \rho_A \right)_{ki} \bk{a_i | A | a_k} = \sum_{ik} \bk{a_k | \rho_A | a_i} \bk{a_i | A | a_k} 
+  \\
+  &= \sum_k \bk{a_k | \rho_A A | a_k} = \Tr_A\left[ \phb \rho_A A \right]
 \end{align}
-
+dove l'ultima traccia è fatta solo sul sistema $ A $ dato che $ \rho_A A \in \L(\H_A) $. Abbiamo definito l'operatore $ \rho_A $ tramite 
+i suoi elementi di matrice 
+\begin{align}
+  \left( \rho_A \right)_{ki} = \sum_{j} \bk{a_k b_j | \rho | a_i b_j} = \sum_{j} \rho_{kjij} = \sum_{jl} \rho_{kjil} \delta_{jl}
+\end{align}
+si tratta quindi di una sorta di contrazione della matrice densità $ \rho $ sui vettori di base del sottosistema $ \H_B $, per tanto possiamo definire 
+il seguente \textit{superoperatore}, cioè un operatore tale che mappa $ \L(\H') \to \L(\H'') $, detto \textit{traccia parziale} che, dato un operatore 
+$ \rho \in \L(\H_A \otimes \H_B) $ fattorizzato come $ \rho^{(1)} \otimes \rho^{(2)} $, lo trasforma come segue: 
+\begin{align}
+  &\Tr_B : \L(\H_A \otimes \H_B) \to \L(\H_A)
+  \\
+  &\Tr_B\rho = \rho^{(1)} \cdot \Tr \rho^{(2)} = \rho^{(1)} \sum_{j} \bk{ b_j | \rho ^{(2)}| b_j} \eqcolon \rho_A
+\end{align}
+Nel caso particolare che $ \rho $ sia una matrice densità fattorizzabile allora la traccia parziale manda $ \Tr_B : \S(\H_A \otimes \H_B) \to \S(\H_A) $ 
+ottenendo $ \rho_A = \rho^{(1)} $ dato che $ \Tr \rho^{(2)} = 1 $, in questo modo possiamo ricostruire lo stato composto come 
+\begin{align}
+  \rho = \rho_A \otimes \rho_B.
+\end{align}
+Nella realtà questo è altamente improbabile perché una matrice densità generica non è fattorizzabile in due parti $ \rho^{(1)} \otimes \rho^{(2)} $ 
+ma è scritta in termini della base come 
+\begin{align}
+  \rho = \sum_{ijkl} \rho_{ijkl} \; \k{a_i} \b{a_k} \otimes \k{b_j} \b{b_l}
+\end{align}
 
 
 
