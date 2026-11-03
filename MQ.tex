@@ -1135,15 +1135,21 @@ e la disguaglianza per tale $ \omega_{\text{min}} $ vale
 \begin{align}
   \Tr\left[ \rho A_s^2 \right] + \frac{\left( \phb \Tr\left[ \rho C \right] \right)^2}{2 \Tr\left[ \rho B_s^2 \right]} 
   + \frac{\left(\phb \Tr\left[ \rho C \right] \right)^2}{4 \Tr\left[ \rho B_s^2 \right]} \geq 0 
-  \implies \Tr\left[ \rho A_s^2 \right] \Tr\left[ \rho B_s^2 \right] \geq \frac{\left( \Tr\left[ \rho C \right] \right)^2}4
+  \implies \Tr\left[ \rho A_s^2 \right] \Tr\left[ \rho B_s^2 \right] \geq \frac{\left\{ \phb\Tr\left( \rho [A,B] \right) \right\}^2}4
 \end{align}
 che riscritta per le varianze e per le deviazioni standard è
 \begin{align}
-  \Delta_A^2 \, \Delta_B^2 \geq \frac{\sc{C}^2}4 \implies \Delta_A \, \Delta_B \geq \frac{\abs{\sc{C}}}2.
+  \Delta_A^2 \, \Delta_B^2 \geq \frac{\sca{[A,B]}^2}4 \implies \Delta_A \, \Delta_B \geq \frac{\abs{\sca{[A,B]}}}2.
 \end{align}
-Tale risultato esprime come due distribuzioni statistiche relative a due osservabili che non commutano (e con $ \sc{C} \neq 0 $) siano affette 
+Tale risultato esprime come due distribuzioni statistiche relative a due osservabili che non commutano (e con $ \abs{\sca{[A,B]}} \neq 0 $) siano affette 
 da un principio di incertezza sulla dispersione delle distribuzioni nello stesso stato. Questo principio non si manifesta sulle singole misure ma 
-soltanto sulle distribuzioni statistiche.
+soltanto sulle distribuzioni statistiche. 
+% È bene ribadire che le varianze sono medie effettuate sempre sullo stesso stato infatti il tutto è più chiaro 
+% se esplicitiamo con la traccia:
+% \begin{align}
+%   \left\{ \Tr(\rho A_s^2) \right\}\left\{ \Tr(\rho B_s^2) \right\} = \sca{A_s^2}_\rho \sca{B_s^2}_\rho \geq \frac{\sca{[A,B]}^2_\rho}4 
+%   = \frac{\left\{\phb \Tr\left( \rho [A,B] \right) \right\}^2}4.
+% \end{align}
 
 Per gli operatori posizione e impulso il commutatore vale $ [Q_\alpha, P_\beta] = i \hbar \delta_{\alpha \beta} $ quindi la disuguaglianza per 
 la stessa componente di impulso e posizione vale 
@@ -1476,9 +1482,107 @@ ottenendo $ \rho_A = \rho^{(1)} $ dato che $ \Tr \rho^{(2)} = 1 $, in questo mod
 Nella realtà questo è altamente improbabile perché una matrice densità generica non è fattorizzabile in due parti $ \rho^{(1)} \otimes \rho^{(2)} $ 
 ma è scritta in termini della base come 
 \begin{align}
-  \rho = \sum_{ijkl} \rho_{ijkl} \; \k{a_i} \b{a_k} \otimes \k{b_j} \b{b_l}
+  \rho = \sum_{ijkl} \rho_{ijkl} \; \k{a_i} \b{a_k} \otimes \k{b_j} \b{b_l}.
+\end{align}
+Una relazione utile fra le tracce parziali di due sistemi è che la loro composizione dà la traccia totale:
+\begin{align}
+  \Tr = \Tr_A \circ \Tr_B.
 \end{align}
 
+Abbiamo visto come misurare un solo sistema di due ci dà informazioni solo sulla matrice densità ridotta di quel sistema, dunque l'informazione passa da 
+essere codificata all'interno di uno stato globale $ \rho $ a uno ridotto $ \rho_A $. La domanda ora è se dati $ \rho_A $ e $ \rho_B $ siamo in grado 
+di ricostruire lo stato globale. Questo è sempre vero per due sistemi indipendenti, ma per sistemi entangled no, o meglio ci sono infiniti sistemi 
+che le cui tracce parziali sono $ \rho_A,\rho_B $, ma con correlazioni completamente diverse, infatti una volta effettuata una misura su uno dei due 
+sottosistemi si perde la \textit{coerenza quantomeccanica}. Con il seguente risultato mostriamo come a una matrice densità ridotta corrispondono infinite 
+matrici densità.
+
+\begin{theorem}[  ]
+  Dato $ \rho_A \in \S(\H_A) $ allora esiste un sistema $ B $ tale che $ \k{\psi_{AB}} \in \S(\H_A \otimes \H_B) $ con 
+  $ \rho_A = \Tr_B \left[ \phb\k{\psi_{AB}} \b{\psi_{AB}} \right] $.
+\end{theorem}
+\begin{proof}
+  Scegliamo la base $ \{a_j\} $ che diagonalizza $ \rho_A $, per cui $ \rho_A = \sum_j \lambda_j \k{a_j} \b{a_j} $ con $ \lambda_j $ autovalore 
+  relativo all'autovettore $ \k{a_j} $. 
+  Prendo il sistema $ B $ isodimensionale a $ A $ quindi $ \dim \H_A = \dim \H_B = d $ e sia $ \{\k{b_j}\} $ un \textit{c.o.s}
+  (\textit{complete ortonormal system}) per $ \H_B $. Costruisco lo stato 
+  \begin{align}
+  \k{\psi_{AB}} = \sum_{j} \sqrt{\lambda_j} \k{a_j, b_j}
+  \end{align}
+  da cui segue che la matrice densità $ \rho = \k{\psi_{AB}} \b{\psi_{AB}} $ si scrive 
+  \begin{align}
+    \rho = \sum_{jk} \sqrt{\lambda_j \lambda_k} \k{a_j,b_j} \b{a_k, b_k}
+  \end{align}
+  e ne calcoliamo la traccia rispetto al sistema $ B $:
+  \begin{align}
+    \Tr_B\left[ \phb \sum_{jk} \sqrt{\lambda_j \lambda_k} \k{a_j,b_j} \b{a_k, b_k} \right] 
+    = \sum_{jk}\sqrt{\lambda_j \lambda_k} \k{a_j} \b{a_k} \delta_{jk} = \sum_{j} \lambda_j \k{a_j} \b{a_j} = \rho_A
+  \end{align}
+  ma le basi possibili di $ B $ sono infinite, e il risultato che abbiamo ottenuto era indipendente dalla base scelta, per tanto per ogni matrice densità 
+  ridotta $ \rho_A $ esistono infiniti stati $ \k{\psi_{AB}} $.
+\end{proof}
+
+Serve definire un prodotto scalare fra operatori in modo da poter definire il concetto di operatori ortogonali, tale prodotto è detto 
+\textit{prodotto scalare di Hilbert-Schmidt} ed è definito come 
+\begin{align}
+  \sc{\sc{A | B}} = \Tr\left[ A^\dag B \right].
+\end{align}
+Notiamo che è lineare nella seconda componente e antilineare nella prima, è definito positivo perché 
+\begin{align}
+  \sc{\sc{A|A}} = \Tr\left[ A^\dag A \right] \geq 0
+\end{align}
+perché $ A^\dag A \geq 0 $, e vale $ 0 $ se $ A^\dag A $ ha tutti gli autovalori nulli cioè $ A $ è l'operatore nullo. 
+
+Secondo questo prodotto le matrici di pauli sono ortogonali, tuttavia non sono normalizzate infatti 
+\begin{align}
+  \sc{\sc{\sigma_i|\sigma_i}} = \Tr \left[ \sigma_i^\dag \sigma_i \right] = \Tr I = \dim \H = 2
+\end{align}
+dove abbiamo usato che il quadrato delle matrici di Pauli è l'identità. Per formare una base di $ \L(\H) $ manca un elemento dato che lo spazio degli 
+operatori $ \H_2 $ ha dimensione $ 4 $, e si nota che l'identità è indipendente dal set $ \{\sigma_x, \sigma_y, \sigma_z\} $ per cui la denotiamo con 
+$ \sigma_0 = I $ e così otteniamo il set ortogonale (non ortonormale):
+\begin{align}
+  \sigma = \{\sigma_0, \sigma_1, \sigma_2, \sigma_3\}.
+\end{align}
+
+Uno stato qualsiasi si scrive come combinazione delle $ \sigma $ dunque la sua matrice rispetto a una base di $ \H_2 $ deve necessariamente essere 
+\begin{align}
+  \rho = 
+  \begin{pmatrix}
+    p_0 & \gamma \\
+    \gamma^* & 1 - p_0
+  \end{pmatrix}
+\end{align}
+dove abbiamo indicato con $ p_0 $ la probabilità che sia nello stato $ \k{0} $, infatti deve essere $ 0 \leq p_0 \leq 1 $ anche perché la traccia deve 
+essere $ 1 $ e $ \rho \geq 0 $. Per questi motivi abbiamo scritto che $ \bk{1 | \rho | 1} = 1 - p_0 $, mentre $ \gamma = \bk{0 | \rho | 1} \in \C $ 
+ha solo il vincolo che $ \abs{\gamma} < 1 $. In realtà impoenendo la positività si ottiene che $ \abs{\gamma} \leq \sqrt{p_0 p_1} = \sqrt{p_0 (1 - p_0)} $ 
+che ha massimo in $ p_0 = p_1 = \frac12 $ e vale proprio $ \abs{\gamma} = \frac12 $ e lo raggiunge solo per uno stato puro.
+
+Adesso rappresentiamo uno stato generico $ \rho $ tramite la base delle matrici di Pauli, per questo possiamo scrive che 
+\begin{align}
+  \rho = \sum_{j = 0}^3 \alpha_j \sigma_j.
+\end{align}
+Imponendo il vincolo della traccia troviamo che 
+\begin{align}
+  1 = \Tr \rho = \sum_{j = 0}^3 \alpha_j \Tr \sigma_j = 2 \alpha_0  \implies \alpha_0 = \frac12
+\end{align}
+e quindi indicando con $ \vec{\alpha} = (\alpha_1, \alpha_2, \alpha_3) $ e $ \vec{\sigma} = (\sigma_1, \sigma_2, \sigma_3) $ possiamo scrivere
+\begin{align}
+  \rho = \frac{I}2 + \vec{\alpha} \cdot \vec{\sigma}
+\end{align}
+mentre per il fatto che $ \rho^\dag = \rho $ abbiamo che $ \alpha_j = \alpha_j^* $. Riscaliamo con $ \vec{\alpha} = \frac{\vec{r}}2 $ 
+tale che $ \norm{\vec{r}} \leq 1 $ e quindi 
+\begin{align}
+  \rho = \frac{I + \vec{r} \cdot \vec{\sigma}}2
+\end{align}
+e questo ci permette di rappresentare ogni stato all'interno di una sfera di raggio $ 1 $ tramite il vettore $ \vec{r} $. Tale sfera è detta 
+\textit{sfera di Bloch} e il vettore $ \vec{r} $ \textit{vettore di Bloch}, ed è la rappresentazione geometrica dello spazio degli stati come 
+insieme convesso, infatti la superficie della sfera di Bloch rappresenta gli stati che non possono essere espressi come combinazione convessa di 
+altri elementi al bordo tranne sé stessi, infatti sono gli stati puri. All'interno troviamo gli stati misti e lo stato più misto di tutti ovvero 
+il centro $ \vec{r} = 0 $ è proprio $ \rho = I/2 $. Due stati ortogonali come $ \k{0}, \k{1} $ o $ \k{+}, \k{-} $ sono descritti da vettori opposti 
+(e non ortogonali nel senso euclideo) sulla sfera di Bloch, per tanto concludiamo che due stati sono esattamente distinguibili (cioè esiste un 
+test in grado di discriminare con certezza fra uno o l'altro) se i loro vettori di Bloch $ \vec{r_1}, \vec{r_2} $ sono opposti ovvero 
+$ \vec{r_1} = - \vec{r_2}$.
+\input
+{build/figure/sfera_di_Bloch}
 
 
 
