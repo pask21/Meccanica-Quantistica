@@ -395,8 +395,8 @@ allora la trasformazione $ \tau_3 = \tau_2 \tau_1 $ porta a
 e scambiando $ \tau_1 $ con $ \tau_2 $ si ottiene una trasformazione differente, quindi le trasformazioni di Galileo formano un gruppo non commutativo. 
 Dato che le leggi fisiche sono invarianti per questo tipo di trasformazioni, nella sezione precedente avevamo mostrato che per il teorema di Wigner deve 
 esistere un operatore unitario $ U(\tau) $ che codifica tali trasformazioni. Dato che $ \tau_2 \tau_1 $ e $ \tau_3 $ descrivono la stessa trasformazione 
-allora $ U(\tau_2\tau_1)\k{\psi} $ e $ U(\tau_3) $ devono descrivere lo stesso stato, tutta via non devono per forza coincidere ma possono differire di una 
-fase $ \omega $ che può dipendere da $ \tau_2, \tau_1 $, cioè
+allora $ U(\tau_2\tau_1)\k{\psi} $ e $ U(\tau_3)\k{\psi} $ devono descrivere lo stesso stato, tutta via non devono per forza coincidere ma possono 
+differire di una fase $ \omega $ che può dipendere da $ \tau_2, \tau_1 $, cioè
 \begin{align}
   U(\tau_2\tau_1)\k{\psi} = e^{i\omega(\tau_2,\tau_1)} U(\tau_3) \k{\psi}.
 \end{align}
@@ -781,29 +781,98 @@ Tramite il generatore dell'evoluzione temporale $ H $ avevamo ricavato che per u
 \end{align}
 e una soluzione con condizione iniziale $ \k{\psi(t_0)} $ è 
 \begin{align}
-  \k{\psi(t)} = U(t, t_0) \k{\psi(t_0)}.
+  \k{\psi(t)} = U(t) \k{\psi(t_0)}.
 \end{align}
-Adesso consideriamo il caso in cui il sistema non sia più invariante sotto trasformazioni temporali, quindi la trasformazione temporale $ U(t,t_0) $ non è 
+Adesso consideriamo il caso in cui il sistema non sia più invariante sotto traslazioni temporali, quindi la trasformazione temporale $ U $ non dipenderà
+più soltando dalla distanza temporale $ t - t_0 $ fra stato iniziale e stato finale, ma da entrambi quindi $ U(t,t_0) $, e per tanto non è 
 più una trasformazione di Galileo. Tuttavia rispetta comunque la proprietà di composizione $ U(t_2, t_1)U(t_1,t_0) = U(t_2,t_0) $ 
 inoltre dato che l'evoluzione temporale deve conservare le probabilità e il tempo è un parametro continuo, per il teorema di Wigner $ U(t,t_0) $ è 
-unitario. Il generatore $ H(t) $ è definito come 
-\begin{align}
+unitario. 
+Il generatore $ H(t) $ è definito come 
+\begin{align} \label{eq: hamiltoniana dipendente dal tempo come derivata dell'evolutore temporale}
   H(t) \coloneq i \hbar \der{}{s}U(s,t)_{s = t}
 \end{align}
 per tanto derivando la legge di composizione si ottiene che anche $ U(t,t_0) $ rispetta l'equazione differenziale
 \begin{align} \label{eq: relazione fra H e U}
   \der{}{t} U(t,t_0) = -\frac{i}{\hbar} H(t) U(t,t_0) 
 \end{align}
-con la condizione iniziale $ U(t_0,t_0) = 1 $. Inoltre dato che 
+con la condizione iniziale $ U(t_0,t_0) = 1 $. Il fatto che $ H(t) $ sia dipendente dal tempo dovrebbe far sospettare che qualcosa non torni, infatti 
+se la meccanica quantistica è una teoria universale, allora non esistono i sistemi classici e l'universo siccome è un sistema chiuso ha una hamiltoniana 
+costante. Secondo questo ragionamento, una hamiltoniana dipendente dal tempo può emergere solo come approssimazione semi-classica, cioè un sistema 
+quantistico insieme a un sistema classico pilotato dall'esterno, che inglobiamo nella dinamica come funzione del tempo all'interno dell'hamiltoniana.
+Un esempio di questo tipo di sistemi è un qubit più un laser, e l'hamiltoniana si scrive come 
 \begin{align}
-  0 = \der{}{t} (U^\dag U) = \frac{i}{\hbar} ( U^\dag H^\dag U - U^\dag H U)
+  H(t) = \sum_l g_l(t) \, \Omega_l
 \end{align}
-da cui segue che $ H(t) $ è hermitiano. Per $ H $ indipendente dal tempo, l'operatore $ U $ si scrive come 
+cioè una combinazione di operatori $ \Omega_l $ tramite dei parametri di controllo $ g_l(t) $. 
+Dunque è questo il nostro ambiente di lavoro, tuttavia vedremo più avanti che questo modo di ragionare non è sempre valido.
+
+Mostriamo che l'unitarietà di $ U(t,t_0) $ implica ancora che $ H(t) $ è hermitiano:
+\begin{align}
+  0 = \der{}{t} (U^\dag U) = \frac{i}{\hbar} ( U^\dag H^\dag U - U^\dag H U) \implies H^\dag(t) = H(t).
+\end{align}
+Per $ H $ indipendente dal tempo, l'operatore $ U $ si scrive come 
 \begin{align}
   U(t,t_0) = e^{ - i (t - t_0) \frac{H}{\hbar}} 
 \end{align}
 mentre per $ H(t) $ generico non è sempre possibile trovare una soluzione all'equazione differenziale \eqref{eq: relazione fra H e U} in forma chiusa.
-Consideriamo lo stato puro $ \rho(t) = \k{\psi(t)} \b{\psi(t)} $ e scriviamolo in termini dell'evoluzione temporale:
+La soluzione si può esprime come \textit{serie di Dyson}, che definita nel modo seguente: fissiamo $ t_0 = 0 $ per semplicità,
+\begin{align}
+  U(t, 0) = I + \sum_{n = 1}^\infty \left( \frac{-i}\hbar \right)^n \int_0^t dt_1 \int_0^{t_1} dt_2 \dots \int_0^{t_{n-1}} dt_n H(t_1) \dots H(t_n)
+\end{align}
+con $ t \geq t_1 \geq \dots \geq t_n \geq 0 $. L'identità è stata portata fuori perché sarebbe stata il primo termine ($ n = 0 $) della serie, 
+mentre gli integrali innestati si possono vedere grazie al vincolo $ t_{i} \geq t_{i+1} $ come il volume di un tetraedro multidimensionale.
+Mostriamo che questa formula effettivamente risolve l'equazione \eqref{eq: relazione fra H e U}: derivando si ottiene 
+\begin{align}
+  \der{U(t,0)}{t} 
+  &= \sum_{n = 1}^\infty -\frac{i}\hbar \,H(t) \left( \frac{-i}\hbar \right)^{n-1} \int_0^{t} dt_2 \dots \int_0^{t_{n-1}} dt_n H(t_2) \dots H(t_n) 
+  \\
+  &= -\frac{i}\hbar H(t) \sum_{m = 0}^\infty \left( \frac{-i}\hbar \right)^m \int_0^{t} dt_1 \dots \int_0^{t_{m}} dt_{m+1} H(t_1) \dots H(t_{m+1}) 
+  \\
+  &= -\frac{i}\hbar H(t) \,U(t,0)
+\end{align}
+e quindi è effettivamente una soluzione. La serie di Dyson può essere riscritta tramite un superoperatore (operatore che agisce su operatori) 
+detto \textit{time ordered}, indicato con $ \mathcal{T} $ è definito come 
+\begin{align}
+  \mathcal{T}(A(t_1), B(t_2)) = 
+  \begin{cases}
+    A(t_1) B(t_2) \quad &\text{se} \; t_1 \geq t_2
+    \\
+    B(t_2) A(t_1) \quad &\text{se} \; t_2 > t_1
+  \end{cases}
+\end{align}
+e quindi l'evolutore temporale diventa
+\begin{align}
+  U(t,0) = I + \sum_{n=1}^\infty \frac1{n!} \left( \frac{-i}\hbar \right)^n \mathcal{T} \left\{ \left( \int_0^t dt' H(t') \right)^n \right\}
+  = \mathcal{T} \exp\left( -\frac{i}\hbar \int_0^t H(t')\,dt' \right).
+\end{align}
+Il fattore $ n! $ è necessario per eliminare i conteggi extra degli integrali in più dovuti al time ordered.
+
+Il problema inverso, cioè data $ U(t,0) $ ricostruire $ H(t) $ è quello che abbiamo fatto definendo l'hamiltoniana come derivata dell'evolutore temporale 
+nella \eqref{eq: hamiltoniana dipendente dal tempo come derivata dell'evolutore temporale}, tuttavia quella derivata non è banale e per 
+$ U(t,0) = \exp\left( -i/\hbar \Omega(t,0) \right) $ la soluzione è data da 
+\begin{align}
+  H(t) = \int_0^1 dy \left( U^\dag(t,0) \right)^y \dot{\Omega}(t,0) \left( U^\dag(t,0) \right)^y.
+\end{align}
+
+\begin{example}
+  Nel caso in cui $ H(t) = H $ costante allora per trovare $ U(t,0) $ tramite serie di Dyson basta notare che
+  \begin{align}
+    \int_0^t H dt' = Ht
+  \end{align}
+  dunque il time ordered non svolge alcuno scambio e otteniamo $ U(t,0) = e^{-i H t /\hbar} $ come ci aspettavamo. Un altro caso immediato è quando 
+  l'hamiltoniana commuta con sé stessa a tutti i tempi, cioè
+  \begin{align}
+    [H(t), H(t')] = 0 \quad \forall\, t,t'
+  \end{align}
+  e quindi anche in questo caso il time ordered non ha alcun effetto portando a 
+  \begin{align}
+    U(t,0) = \exp\left( -\frac{i}\hbar \int_0^t H(t') \, dt' \right).
+  \end{align}
+  In casi diversi da questi trattare la serie di Dyson è tutt'altro che banale.
+\end{example}
+
+Adesso consideriamo lo stato puro $ \rho(t) = \k{\psi(t)} \b{\psi(t)} $ e scriviamolo in termini dell'evoluzione temporale:
 \begin{align}
   \rho(t) = \k{\psi(t)} \b{\psi(t)} = U(t,t_0)\k{\psi(t_0)} \b{\psi(t)} U^\dag(t,t_0) = U(t,t_0) \rho(t_0) U^\dag(t,t_0) 
 \end{align}
@@ -1583,6 +1652,156 @@ test in grado di discriminare con certezza fra uno o l'altro) se i loro vettori 
 $ \vec{r_1} = - \vec{r_2}$.
 \input
 {build/figure/sfera_di_Bloch}
+
+\chapter{Momento angolare}
+
+Studiando il gruppo di Galileo avevamo ricavato le regole di commutazione fra i generatori delle rotazioni $ J_\alpha $, che qui riportiamo:
+\begin{align}
+  [J_\alpha, J_\beta] = i\hbar \,\eps_{\alpha \beta \gamma} J_\gamma.
+\end{align}
+Le rotazioni di angolo $ \theta $ attorno agli assi cartesiani dello spazio vettoriale $ \R^3 $ sono rappresentate in forma matriciale da
+\begin{align}
+  R_1=
+  \begin{pmatrix}
+    1 & 0 & 0 \\
+    0 & \cos \theta & -\sin \theta \\
+    0 & \sin \theta & \cos \theta
+  \end{pmatrix}
+  \quad
+  R_2=
+  \begin{pmatrix}
+    \cos \theta & 0 & -\sin \theta \\
+    0 & 1 & 0 \\
+    \sin \theta & 0 & \cos \theta
+  \end{pmatrix}
+  \quad
+  R_3=
+  \begin{pmatrix}
+    \cos \theta & -\sin \theta & 0 \\
+    \sin \theta & \cos \theta & 0 \\
+    0 & 0 & 1 
+  \end{pmatrix}
+\end{align}
+e per definizione di generatore abbiamo che una rotazione attorno all'asse $ \alpha $-esimo si scrive come 
+\begin{align}
+  R_\alpha(\theta) = e^{- i \theta J_\alpha /\hbar} = I - \frac{i}\hbar \theta J_\alpha + O(\theta^2).
+\end{align}
+Per tanto sviluppando al prim'ordine le matrici di rotazione otteniamo che i generatori delle rotazioni sono rappresentati dalle seguenti matrici:
+\begin{align}
+  J_x = 
+  \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & 0 & -i \\
+    0 & i & 0 
+  \end{pmatrix},
+  \quad
+  J_y = 
+  \begin{pmatrix}
+    0 & 0 & i \\
+    0 & 0 & 0 \\
+    -i & 0 & 0 
+  \end{pmatrix},
+  \quad
+  J_z = 
+  \begin{pmatrix}
+    0 & -i & 0 \\
+    i & 0 & 0 \\
+    0 & 0 & 0 
+  \end{pmatrix}.
+\end{align}
+Tuttavia il nostro spazio degli stati non è $ \R^3 $ ma uno spazio di Hilbert $ \H $ generico, il quale conserva soltanto l'algebra dei commutatori ma 
+non la loro rappresentazione. Questo significa che non basta semplicemente diagonalizzare queste matrici per trovare autovettori e autovalori dato che 
+la loro rappresentazione in $ \H $ sarà diversa, ma solo che è mantenutà la proprietà $ [J_\alpha, J_\beta] = i \eps_{\alpha \beta \gamma} J_\gamma $.
+Infatti da queste sole relazioni di commutazione è possibile ricavare autovalori e autovettori dei generatori delle rotazioni in uno spazio di Hilbert 
+generico $ \H $.
+
+Consideriamo l'operatore $ J^2 = J_x^2 + J_y^2 + J_z^2 $, è facile vedere che commuta con ognuno dei $ J_\alpha $ infatti 
+\begin{align}
+  [J^2, J_\alpha] = \sum_\beta J_\beta[J_\beta, J_\alpha] + [J_\beta,J_\alpha] J_\beta 
+  = \sum_\beta i  \eps_{\beta \alpha \gamma} J_\beta J_\gamma + i \eps_{\beta \alpha \gamma} J_\gamma J_\beta = 0
+\end{align}
+data l'antisimmetria negli indici $ \beta, \gamma $. Per tanto $ J^2 $ e $ J_\alpha $ devono possedere un set comune di autovettori, che indicheremo con 
+$ \k{\beta , m} $ in modo che 
+\begin{align}
+  J^2 \k{\beta, m} = \hbar^2 \beta \k{\beta,m}, \quad J_\alpha \k{\beta, m} = \hbar m \k{\beta,m}
+\end{align}
+dove abbiamo inserito $ \hbar^2, \hbar $ per avere gli autovalori $ \beta,m $ adimensionali (il momento angolare e $ \hbar $ hanno la stessa dimensione 
+infatti $ \si{\meter^2 / \second } = \si{\joule \second} $). Mostriamo che fra $ \beta $ e $ m $ vale la relazione 
+\begin{align}
+  \beta \geq m^2,
+\end{align}
+per farlo basta considerare che gli operatori $ J_\alpha^2 $ sono semipositivi dato che 
+\begin{align}
+  \bk{\beta,m | J_\alpha J_\alpha | \beta,m} = (\b{\beta,m} J_\alpha^\dag ) (J_\alpha \k{\beta,m}) = \norm{J_\alpha \k{\beta,m}}^2 \geq 0
+\end{align}
+e quindi otteniamo che 
+\begin{align}
+  \bk{\beta,m | J^2 | \beta,m} = \beta = \bk{\beta,m | J_x^2 + J_y^2 + J_z^2 | \beta,m} \geq \bk{\beta,m | J_z^2 | \beta,m} = m^2
+\end{align}
+dove notiamo che non avremmo potuto scrivere che $ \beta \not \geq 3m^2 $ dato che la base $ \k{\beta,m} $ diagonalizza uno solo dei $ J_\alpha $ 
+alla volta, che in questo caso abbiamo scelto essere $ J_z $. Per essere più puliti con la notazione avremmo dovuto scrivere $ \k{\beta,m_\alpha} $ a 
+seconda di quale operatore consideriamo. Come ultimo ingrediente definiamo gli operatori $ J_\pm $:
+\begin{align}
+  J_\pm = J_x \pm iJ_y
+\end{align}
+che rispettano le seguenti relazioni di commutazione 
+\begin{align}
+  [J_z, J_\pm] = \pm \hbar J_\pm \quad [J_+, J_-] = 2\hbar J_z.
+\end{align}
+Grazie a questi possiamo calcolare 
+\begin{align}
+  J_z J_+ \k{\beta, m} = ([J_z, J_+] + J_+ J_z) \k{\beta,m} = \hbar (m + 1) J_+ \k{\beta,m}
+\end{align}
+e quindi $ J_+ \k{\beta, m} $ è autovettore per $ J_z $ con autovalore $ \hbar(m+1) $, oppure è il vettore nullo $ J_+\k{\beta,m} = 0 $. Per tanto 
+per $ \beta $ fissato deve esistere un $ m $ massimo affinché venga rispettata $ \beta \geq m^2 $, indichiamo questo massimo con $ j $ e deve essere che
+\begin{align}
+  J_+ \k{\beta, m_\text{max}} = J_+ \k{\beta, j} = 0
+\end{align}
+perché se così non fosse allora $ J_zJ_+\k{\beta,j} = \hbar (j + 1)\k{\beta, j} $ superando il limite massimo di $ m $.
+Se prendiamo invece 
+\begin{align}
+  J_-J_+ = J_x^2 + J_y^2 + i[J_x, J_y] = J^2 - J_z^2 - \hbar J_z
+\end{align}
+ma allora abbiamo che 
+\begin{align}
+  0 = J_- J_+ \k{\beta, j} &= \hbar^2(\beta - j^2 - j) \k{\beta,m} 
+  \\
+  \implies \beta &= j(j+1).
+\end{align}
+Procediamo allo stesso modo per 
+\begin{align}
+  J_z J_- \k{\beta, m} = ([J_z, J_-] + J_- J_z) \k{\beta,m} = \hbar (m - 1) J_- \k{\beta,m}
+\end{align}
+e quindi anche in questo caso o $ J_-\k{\beta,m} $ è autovettore per $ J_z $ con autovalore $ \hbar(m - 1) $ oppure $ J_-\k{\beta,m} = 0 $. Sempre 
+per la condizione $ m^2 \leq \beta $ stavolta deve esistere un minimo valore di $ m $ che indichiamo con $ k $ in modo tale che
+\begin{align}
+  J_- \k{\beta, m_\text{min}} = J_- \k{\beta, k} = 0
+\end{align}
+e quindi otteniamo 
+\begin{align}
+  0 = J_+ J_- \k{\beta,k} &= (J^2 - J_z^2 + \hbar J_z) \k{\beta,k} = \hbar^2 (\beta - k^2 + k)
+  \\
+  \implies \beta &= -k(-k + 1) \implies k = -j.
+\end{align}
+Per definizione di $ j = m_\text{max} $ e di $ k $ abbiamo che $ -j \leq m \leq j $, ma i passi che vanno fatti per scendere da $ j $ a $ -j $ tramite 
+l'operatore $ J_- $ devono essere un numero intero, questo perché sotto $ -j $ non ci sono autovettori e la scala di discesa è vincolata da 
+$ j \to j - 1 $. Per tanto abbiamo che il numero di passi $ n \in \mathbb{N} $ è tale che 
+\begin{align}
+  j - n = -j \implies 2j = n \in \mathbb{N} \implies j \in \left\{0,\frac12, 1, \frac32, 2, \dots\right\}
+\end{align}
+ovvero $ j $ deve essere semi-intero. Ne segue che $ m $ assume i semi-interi compresi fra $ -j $ e $ j $:
+\begin{align}
+  j &= 0\quad m = 0
+  \\
+  j &= \frac12 \quad m = -\frac12,0,\frac12
+  \\
+  j &= 1\quad m = -1, -\frac12, 0, \frac12, 1
+  \\
+  j &= \frac32 \quad m = -\frac32, -1, -\frac12, 0, \frac12, 1, \frac32
+  \\
+  \vdots
+\end{align}
+Per ogni valore di $ j $ ci sono $ 2j + 1 $ possibili valori di $ m $.
 
 
 
