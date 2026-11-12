@@ -775,6 +775,7 @@ $ [\v{S}, E_0] = 0 $, e l'unico caso possibile è che $ E_0 \propto \v{S\cdot S}
 $ M \to M/\hbar, \v{P} \to \v{P}/\hbar, \v{J} \to \v{J}/\hbar, H \to H/\hbar, \v{G} \to \v{G}/\hbar $. In questo modo possiamo davvero identificare $ M $ 
 con la massa e il resto delle quantità come il loro analogo classico.
  
+\subsection{Serie di Dyson}
 Tramite il generatore dell'evoluzione temporale $ H $ avevamo ricavato che per uno stato puro valeva 
 \begin{align}
   \frac{d}{dt} \k{\psi(t)} = - \frac{i}{\hbar} H \k{\psi(t)}
@@ -844,7 +845,7 @@ detto \textit{time ordered}, indicato con $ \mathcal{T} $ è definito come
 e quindi l'evolutore temporale diventa
 \begin{align}
   U(t,0) = I + \sum_{n=1}^\infty \frac1{n!} \left( \frac{-i}\hbar \right)^n \mathcal{T} \left\{ \left( \int_0^t dt' H(t') \right)^n \right\}
-  = \mathcal{T} \exp\left( -\frac{i}\hbar \int_0^t H(t')\,dt' \right).
+  \eqcolon \Texp\left( -\frac{i}\hbar \int_0^t H(t')\,dt' \right).
 \end{align}
 Il fattore $ n! $ è necessario per eliminare i conteggi extra degli integrali in più dovuti al time ordered.
 
@@ -871,6 +872,8 @@ $ U(t,0) = \exp\left( -i/\hbar \Omega(t,0) \right) $ la soluzione è data da
   \end{align}
   In casi diversi da questi trattare la serie di Dyson è tutt'altro che banale.
 \end{example}
+
+\subsection{Rappresentazioni di Schrödinger e di Heisenberg}
 
 Adesso consideriamo lo stato puro $ \rho(t) = \k{\psi(t)} \b{\psi(t)} $ e scriviamolo in termini dell'evoluzione temporale:
 \begin{align}
@@ -932,6 +935,81 @@ ma dato che $ \k{\psi(t)} = U(t,t_0) \k{\psi_0} $ allora
   \sc{R} = \bk{\psi_0 | U^\dag R U | \psi_0} = \bk{\psi_0 | R_H(t) | \psi_0}
 \end{align}
 e quindi l'interpretazione di Schrödinger e di Heisenberg sono equivalenti. Lo stesso vale per la derivata dell'osservabile $ \dot{\sc{R}} $.
+
+\subsection{Rappresentazione d'interazione}
+
+In alternativa alle rappresentazioni di Schrödinger e di Heisenberg esiste un terzo modo di rappresentare l'evoluzione temporale: la rappresentazione 
+d'interazione (talvolta chiamata di Dirac). Il presupposto è quello di avere una hamiltoniana che si divida in due termini, uno che sappiamo trattare 
+che magari si risolve esattamente e uno che invece è difficile da trattare: 
+\begin{align}
+  H = H_0 + V_{\text{int}}
+\end{align} 
+dove abbiamo usato questa notazione come se fosse il caso di un sistema a molte particelle con $ H_0 $ l'hamiltoniana di singola particella e 
+$ V_{\text{int}} $ il potenziale d'interazione. Tuttavia questa premessa è applicabile anche ad altri casi come una particella in un potenziale 
+non risolvibile esattamente, ma in prossimita del minimo è sviluppabile come termine quadratico e quindi 
+\begin{align}
+  H = T + V_{\text{quad}} + \Delta V
+\end{align}
+dove $ \Delta V = V - V_{\text{quad}} $ e quindi il $ V_{\text{int}} = \Delta V $ e $ H_0 = T + V_{\text{quad}} $.
+
+L'evoluzione temporale $ U(t,0) = \exp\left[ - \frac{i}\hbar (H_0 + V_{\text{int}}) t \right] $ (nel seguito ometteremo sempre il secondo parametro 
+per semplicità di notazione) si può separare in due termini solo se $ [H_0 , V] = 0 $ ottenendo $ U(t) = U_0(t) U_{\text{int}}(t) $. Definiamo 
+lo stato evoluto mediante la sola $ V_{\text{int}} $ come 
+\begin{align}
+  \k{\psi_I (t)} = U^\dag_0(t) \k{\psi(t)} = U^\dag_0(t) U(t) \k{\psi(0)}, \quad \text{con}\; U_0^\dag(t) = e^{i H_0 t/\hbar}.
+\end{align}
+In un certo senso stiamo togliendo la parte dovuta a $ H_0 $ dallo stato evoluto $ \k{\psi(t)} $ mediante l'hamiltoniana totale. Derivando rispetto 
+al tempo si ha 
+\begin{gather}
+  \der{\k{\psi_I(t)}}{t} = \frac{i}\hbar H_0 U_0^\dag(t) \k{\psi(t)} - \frac{i}\hbar U_0^\dag (H_0 + V_{\text{int}}) \k{\psi(t)}
+  = -\frac{i}\hbar U_0^\dag V_{\text{int}} \k{\psi(t)} 
+  \\
+  = -\frac{i}\hbar U_0^\dag V_{\text{int}} U_0 \k{\psi_I(t)} 
+\end{gather}
+dove abbiamo invertito la relazione per ottenere $ \k{\psi_I} $ da $ \k{\psi} $. Abbiamo ottenuto un potenziale dipendente dal tempo infatti 
+\begin{align}
+  V_{\text{int}}(t) &\coloneq U_0^\dag(t) V_{\text{int}} U_0(t)
+  \\
+  i \hbar\der{\k{\psi_I(t)}}{t} &= V_{\text{int}}(t) \k{\psi_I(t)}.
+\end{align}
+A questo punto possiamo trattarla come una hamiltoniana \textit{time-dipendent} e dunque usare la serie di Dyson per scrivere 
+\begin{align}
+  \k{\psi_I(t)} &= \Texp\left[ -\frac{i}\hbar \int_0^t V_{\text{int}}(t')\,dt' \right] \k{\psi_I(0)}
+  \\
+  U(t) &= U_0(t) \Texp\left[ -\frac{i}\hbar \int_0^t V_{\text{int}}(t')\,dt' \right],
+\end{align}
+dove lo stato $ \k{\psi_I(0)} $ per la nostra trattazione è proprio $ \k{\psi(0)} $. In questa rappresentazione i valori d'aspettazione si ottengono 
+come 
+\begin{align}
+  \sc{A}_\rho &= \Tr\left[ \rho A(t) \right] = \Tr\left[ \rho U^\dag(t) A U(t) \right] 
+  = \Tr\left[ \rho\, U_{\text{int}}^\dag \,U_0^\dag A U_0\, U_{\text{int}} \right]
+  \\
+  &= \Tr\left[ \rho\, U_{\text{int}}^\dag \, A_{H_0}(t) \, U_{\text{int}} \right]
+  = \Tr\left[  U_{\text{int}} \,\rho\, U_{\text{int}}^\dag \, A_{H_0}(t) \right]
+  = \Tr\left[  \rho_I(t) \, A_{H_0}(t) \right]
+  \\
+  &\text{con} \quad A_{H_0} = U_0^\dag(t) \, A \, U_0(t) \quad \text{e} \quad \rho_I(t) = U_{\text{int}}(t) \,\rho\, U_{\text{int}}^\dag(t)
+\end{align}
+ovvero l'evoluzione temporale non è codificata solo nello stato o solo nell'osservabile (come in Heisenberg e Schrödinger) ma in entrambi:
+nello stato è contenuta l'informazione dell'evoluzione secondo il potenziale d'interazione $ V_{\text{int}} $, mentre nell'osservabile quella 
+del termine $ H_0 $. 
+
+Questo approccio ci apre la strada allo sviluppo perturbartivo: se il termine d'interazione è abbastanza piccolo, possiamo troncare la serie di Dyson per 
+ottenere un'approssimazione del potenziale. Sia $ \norm{V_{\text{int}}}  = \eps $ una qualche norma operatoriale del potenziale d'interazione 
+(ricordiamo che in dimensione finita tutte le norme sono equivalenti) allora abbiamo
+\begin{align}
+  \norm{\int_0^t V_{\text{int}}(t') \,dt'} \leq \int_0^t \norm{V_{\text{int}}(t')} \,dt' = \eps t
+\end{align}
+pertanto la serie di Dyson è maggiorata da 
+\begin{align}
+  \norm{\int_0^t dt_1 \ldots \int_0^{t_{n-1}} dt_n V_{\text{int}}(t_1) \ldots V_{\text{int}}(t_n)} \leq \int_0^t dt_1 \ldots \int_0^{t_{n-1}} \eps^n
+  = \frac{\eps^n \, t^n}{n!}
+\end{align}
+e dunque il parametro di sviluppo è $ \eps t \ll 1 $, con un tempo caratteristico $ T_c = \frac1\eps $. L'evoluzione troncata si scrive come 
+\begin{align}
+  U(t) \un{\simeq}{(\eps t)^n} \ldots
+\end{align}
+tuttavia il prezzo da pagare è l'unitarietà della trasformazione.
 
 \section{Simmetrie e leggi di conservazione}
 D'ora in poi chiameremo il generatore dell'evoluzione temporale $ H $ come \textit{operatore hamiltoniano}, in analogia con il caso classico.
