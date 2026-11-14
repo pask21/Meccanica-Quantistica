@@ -12,9 +12,9 @@
 
 \chapter{Prerequisiti matematici}
 Dato un sistema ortonormale $ \{\k{\psi_n}\} $, la traccia di un operatore $ A $ è definita come 
-\begin{align}
+\begin{align*}
   \Tr A = \sum_{n} \b{\psi_n} A \k{\psi_n}
-\end{align}
+\end{align*}
 ed è indipendente dal sistema ortonormale scelto. Tale definizione nasce dal caso finito e si può estendere senza troppi problemi anche al caso infinito, 
 tuttavia in alcuni casi dovremo preoccuparci se la somma diverge o meno.
 
@@ -28,9 +28,9 @@ tuttavia in alcuni casi dovremo preoccuparci se la somma diverge o meno.
 \begin{postulate}[ 2 ]
   A ogni stato corrisponde un unico \textit{operatore di stato}. Il valor medio di una variabile dinamica $\mathbf{R}$, rappresentata dall'operatore $ R $, 
   nell'ensemble virtuale di eventi risultanti da una procedura di preparazione per lo stato, rappresentato dall'operatore $ \rho $, vale 
-  \begin{align}
+  \begin{align*}
     \sca{\mathbf{R}} = \frac{\Tr(\rho R)}{\Tr \rho}.
-  \end{align}
+  \end{align*}
 \end{postulate}
 
 Secondo l'interpretazione statistica, la teoria non predice il singolo esito ma le distribuzioni statistiche per una serie di preparazioni identiche. 
@@ -58,9 +58,9 @@ possiamo quindi riformulare il secondo postulato con il seguente.
 Dove l'unicità è dovuta al fatto che dicevamo sopra cioè che se due preparazioni danno le stesse statistiche allora sono lo stesso stato. A questo punto 
 possiamo scambiare i ruoli e consideriamo come operatore di stato $ \rho = \k{\psi} \b{\psi} $ con $ \k{\psi} $ di norma unitaria, 
 il quale rispetta le tre condizioni del postulato 2a. Per un operatore $ R $ associato a un osservabile $ \mathbf{R} $ abbiamo che 
-\begin{align}
+\begin{align*}
   \sca{\mathbf{R}} = \Tr(\rho R) = \sum_{n} \bk{\phi_n|\psi} \b{\psi} R \k{\phi_n} = \b{\psi} R \k{\psi}
-\end{align}
+\end{align*}
 che deve essere reale per ogni $ \k{\psi} $ e quindi si ottiene che $ R = R^\dagger $. In questo modo possiamo ridefinire anche il postulato 1 con il 
 seguente.
 \begin{postulate}[ 1a ]
@@ -68,15 +68,15 @@ seguente.
 \end{postulate}
 
 Dato che l'operatore di stato $ \rho $ è autoaggiunto per il teorema spettrale possiamo rappresentarlo come 
-\begin{align}
+\begin{align*}
   \rho = \sum_n \rho_n \k{\psi_n} \b{\psi_n}
-\end{align}
+\end{align*}
 con $ \k{\psi_n} $ la base degli autovettori e $ \rho_n $ i suoi autovalori (assunti discreti) che sono reali. Da questa rappresentazione deduciamo che 
 $ 1 = \Tr \rho = \sum_n \rho_n $, sono anche tutti non negativi dato che $ \b{\psi} \rho \k{\psi} \geq 0 $ per ogni $ \k{\psi} $. Combinando queste 
 proprietà si ottiene che 
-\begin{align}
+\begin{align*}
   0 \leq \rho_n \leq 1
-\end{align}
+\end{align*}
 e l'insieme di tutti gli operatori con queste caratteristiche forma un \textit{insieme convesso}, cioè che preso un insieme di operatori 
 $ \{\rho^{(i)}\} $ con tali proprietà allora anche $ \rho = \sum_{i} a_i \rho^{(i)} $ rispetta tali proprietà, a patto che $ \sum_i a_i = 1 $ e 
 $ 0 \leq a_i \leq 1 $.
@@ -85,28 +85,28 @@ $ 0 \leq a_i \leq 1 $.
 
 \begin{definition}[  ]
   Uno \textit{stato puro} è uno stato con un operatore di stato $ \rho $ della forma 
-  \begin{align}
+  \begin{align*}
     \rho = \k{\psi} \b{\psi} 
-  \end{align}
+  \end{align*}
   dove $ \k{\psi} $ ha norma unitaria ed è detto \textit{vettore di stato}.
 \end{definition}
 
 In uno stato puro il valor medio di un osservabile $ \mathbf{R} $ è 
-\begin{align}
+\begin{align*}
   \mathbf{R} = \Tr\left( \k{\psi} \b{\psi} R \right) = \b{\psi} R \k{\psi}
-\end{align}
+\end{align*}
 e il vettore di stato non è unico infatti per ogni $ \alpha \in \R $ si ha che tutti i vettori di stato $ e^{i\alpha} \k{\psi} $ danno lo stesso stato 
 puro. Uno stato puro è quindi il proiettore sul vettore di stato (a meno di una fase) e quindi una caratterizzazione equivalente è che 
-\begin{align}
+\begin{align*}
   \rho^2 = \rho
-\end{align}
+\end{align*}
 che è necessaria per la definizione di stato puro ed è anche sufficiente perché gli autovalori $ \rho_n $ devono soddisfare $ \rho_n^2 = \rho_n $ quindi 
 possono essere solo $ 0,1 $. Per le caratteristiche degli operatori di stato deve essere che la somma degli autovalori è $ 1 $ e quindi l'unica possibilità 
 che $ \rho_\psi = 1 $ e tutti gli altri $ 0 $, con rappresentazione spettrale $ \rho = \sum_n \rho_n \k{\psi_n} \b{\psi_n} = \k{\psi} \b{\psi} $. 
 Una terza condizione equivalente è che 
-\begin{align}
+\begin{align*}
   \Tr \left( \rho^2 \right) = 1
-\end{align}
+\end{align*}
 che è necessaria per quello che abbiamo appena detto, per la sufficienza dato che $ 0 \leq \rho_n \leq 1 $ si ha $ \rho_n^2 \leq \rho_n $ ma allora 
 $ \Tr(\rho^2) \leq \Tr(\rho) = 1 $, abbiamo l'uguaglianza se $ \rho_n^2 = \rho_n $ e quindi è equivalente alla seconda caratterizzazione. Un'ulteriore 
 condizione è data dal seguente teorema.
@@ -122,28 +122,28 @@ uno stato non puro.
 Gli stati puri sono una rappresentazione matematica degli operatori di proiezione, infatti un proiettore è definito con la seguente.
 \begin{definition}[ Proiettore ]
   Un operatore $ \Pi\in \L(\H)$ è un proiettore se è autoaggiunto e idempotente, cioè 
-  \begin{align}
+  \begin{align*}
     \Pi^2 = \Pi, \quad \Pi = \Pi^\dag.
-  \end{align}
+  \end{align*}
 \end{definition}
 Gli autovalori possibili sono $ 0 $ e $ 1 $, di conseguenza si definisce il supporto di un proiettore 
 come l'insieme degli autovettori relativi all'autovalore $ 1 $, mentre il kernel come l'insieme degli autovettori relativi a $ 0 $, quindi 
-\begin{align}
+\begin{align*}
   \supp \Pi = \left\{ \phb \k{e_j} : \Pi \k{e_j} = \k{e_j}\right\}, \quad \Ker \Pi = \left\{ \phb \k{e_j} : \Pi \k{e_j} = 0 \right\}.
-\end{align}
+\end{align*}
 Ne segue che lo spazio di Hilbert si decompone in somma diretta del supporto e del kernel di un proiettore: 
-\begin{align}
+\begin{align*}
   \H = \supp \Pi \oplus \Ker \Pi.
-\end{align}
+\end{align*}
 Il rango di un proiettore è la dimensione del suo supporto $ \rank \Pi = \dim (\supp \Pi) $. Diamo anche la definizione di proiettori ortogonali, cioè 
 se la loro composizione è nulla $ \Pi_1 \Pi_2 = 0 $, e quella di proiettori ortonormali:
-\begin{align}
+\begin{align*}
   \Pi_k \Pi_l = \delta_{kl} \Pi_k.
-\end{align}
+\end{align*}
 In questo modo un set di proiettori ortonormali tali che la somma dei ranghi è uguale alla dimensione dello spazio di Hilbert è anche completo cioè 
-\begin{align}
+\begin{align*}
   \sum_{k} \Pi_k = I.
-\end{align}
+\end{align*}
 
 
 
@@ -151,82 +151,82 @@ In questo modo un set di proiettori ortonormali tali che la somma dei ranghi è 
 
 Vogliamo ottenere la distribuzione dei valori dell'osservabile $ \mathbf{R} $ sull'ensemble, per farlo sfruttiamo una funzione ausiliaria $ F(\mathbf{R}) $ 
 con l'operatore associato $ F(R) $ costruito come
-\begin{align}
+\begin{align*}
   F(R) = \sum_{n} F(r_n) \k{\psi_n} \b{\psi_n}
-\end{align}
+\end{align*}
 in modo che gli autovettori siano conservati. Sia $ g(r)dr $ la probabilità che $ \mathbf{R} $ sia fra $ r $ e $ r + dr $, allora scriveremo che 
-\begin{align}
+\begin{align*}
   \sca{\mathbf{R}} &= \int_{-\infty}^{+\infty} r \, g(r) \,dr
   \\
   \sca{F(\mathbf{R})} &= \int_{-\infty}^{+\infty} F(r) \,g(r) \,dr
-\end{align}
+\end{align*}
 ma per il postulato 2 vale che $ \sca{F(\mathbf{R})} = \Tr(\rho F(R)) $ quindi scegliendo una opportuna $ F(R) $ possiamo ottenere la densità di 
 probabilità $ g(r) $. 
 
 \textbf{Spettro discreto}: sia $ R $ un operatore autoaggiunto con spettro discreto, possiamo rappresentarlo con i suoi autovalori $ r_n $ e in un sistema 
 di autovettori ortonormali $ \k{r_n} $ come 
-\begin{align}
+\begin{align*}
   R = \sum_n r_n \k{r_n} \b{r_n}.
-\end{align}
+\end{align*}
 Come funzione ausiliaria usiamo $ F(\mathbf{R}) = \theta(r - \mathbf{R}) $ e otteniamo 
-\begin{align}
+\begin{align*}
   \sca{\theta(r - \mathbf{R})} = \int_{-\infty}^{r} g(r') \,dr' = \Prob (\mathbf{R} < r \vert \rho)
-\end{align}
+\end{align*}
 mentre per il postulato 2 si ha che
-\begin{align}
+\begin{align*}
   \sca{\theta(r - \mathbf{R})} = \Tr\left[ \rho \,\theta(r - R) \right] = \Tr \left[ \rho \sum_n \theta(r - r_n) \k{r_n} \b{r_n} \right] 
   = \sum_n \b{r_n} \rho \k{r_n} \theta(r - r_n)
-\end{align}
+\end{align*}
 dove abbiamo usato che il sistema $ \k{r_n} $ è ortonormale. Combinando le due espressioni si ottiene che 
-\begin{align}
+\begin{align*}
   g(r) &= \der{}{r} \Prob (\mathbf{R} < r \vert \rho) = \der{}{r} \sca{\theta(r - \mathbf{R})} = \der{}{r} \sum_n \b{r_n} \rho \k{r_n} \theta(r - r_n)
   \\
   &= \sum_n \b{r_n} \rho \k{r_n} \der{}{r} \theta(r - r_n) = \sum_n \b{r_n} \rho \k{r_n} \delta(r - r_n) 
-\end{align}
+\end{align*}
 dove si nota chiaramente che la densità di probabilità è $ 0 $ se $ r $ non è un autovalore, consistente con il postulato 1. Calcoliamo quindi la 
 probabilità che $ \mathbf{R} $ assuma il valore $ r $ nello stato $ \rho $:
-\begin{align}
+\begin{align*}
   \Prob(\mathbf{R} = r \vert \rho) &= \lim_{\eps \to 0} \left\{\Prob(\mathbf{R} < r + \eps \vert \rho) - \Prob(\mathbf{R} < r - \eps \vert \rho) \right\}
   \\
   &= \int_{r-\eps}^{r + \eps} g(r')\,dr' = \sum_n \b{r_n} \rho \k{r_n} \delta_{r,r_n}
-\end{align}
+\end{align*}
 dove $ \delta_{r,r_n} $ è la delta di Kronecker. Nel caso di uno stato puro $ \rho = \k{\psi} \b{\psi} $ e autovalori non degeneri la probabilità diventa 
-\begin{align}
+\begin{align*}
   \Prob(\mathbf{R} = r_n \vert \rho) = \bk{r_n|\psi} \bk{\psi|r_n} = \abs{\bk{r_n|\psi}}^2.
-\end{align}
+\end{align*}
 Se $ \mathbf{R} $ assume l'autovalore non degenere $ r_0 $ con probabilità $ 1 $ allora deve valere che $ \b{r_0} \rho \k{r_0} = 1 $, 
 ma per un qualsiasi stato vale che 
-\begin{align}
+\begin{align*}
   1 \geq \Tr\left( \rho^2 \right) = \sum_{m} \b{r_m} \rho^2 \k{r_m} = \sum_{n,m} \b{r_m} \rho \k{r_n} \b{r_n} \rho \k{r_m} 
   = \sum_{n,m} \abs{\b{r_m} \rho \k{r_n}}^2
-\end{align}
+\end{align*}
 e tale somma è saturata dal termine $ \b{r_0} \rho \k{r_0} = 1 $ quindi $ \b{r_m} \rho \k{r_n} = 0 $ per ogni $ (m,n) \neq (0,0) $, ma allora l'unico stato 
 in cui $ \mathbf{R} $ assume $ r_0 $ è lo stato puro $ \rho = \k{r_0} \b{r_0} $. Uno stato di questo tipo è detto \textit{autostato} 
 dell'osservabile $ \mathbf{R} $.
 
 \textbf{Spettro continuo}: sia $ Q $ un operatore autoaggiunto associato all'osservabile $ \mathbf{Q} $ con spettro solo continuo, possiamo quindi 
 rappresentarlo come 
-\begin{align}
+\begin{align*}
   Q = \int q \k{q} \b{q} \,dq
-\end{align}
+\end{align*}
 dove i suoi autovettori $ \k{q} $ soddisfano la relazione di completezza $ \int \k{q} \b{q} \,dq = 1 $ e la relazione di ortogonalità 
 $ \bk{q'|q''} = \delta(q' - q'') $. Come per lo spettro discreto abbiamo che per $ F(\mathbf{Q}) = \theta(q - \mathbf{Q}) $ si ottiene 
-\begin{align}
+\begin{align*}
   \sca{\theta(r - \mathbf{Q})} = \int_{-\infty}^{r} g(q') \,dq' = \Prob (\mathbf{Q} < q \vert \rho)
-\end{align}
+\end{align*}
 che è la probabilità che l'osservabile $ \mathbf{Q} $ sia minore di $ q $ nello stato $ \rho $. Tuttavia per il secondo postulato ora abbiamo 
-\begin{align}
+\begin{align*}
   \sca{\theta(r - \mathbf{Q})} = \Tr \left[ \rho \, \theta(q - Q) \right] = \Tr\left[ \rho \int_{-\infty}^{q} q'\k{q'} \b{q'} \,dq' \right]
   = \int_{-\infty}^{q} \b{q'}\rho \k{q'}\,dq'
-\end{align}
+\end{align*}
 e quindi la densità di probabilità $ g(q) $ vale 
-\begin{align}
+\begin{align*}
   g(q) = \der{}{q} \Prob(\mathbf{Q} < q | \rho) = \b{q} \rho \k{q}
-\end{align}
+\end{align*}
 che nel caso di uno stato puro $ \rho = \k{\psi} \b{\psi} $ diventa
-\begin{align}
+\begin{align*}
   g(q) = \bk{q | \psi} \bk{\psi | q} = \abs{\bk{q | \psi}}^2.
-\end{align}
+\end{align*}
 
 \section{Matrici densità}
 
@@ -251,34 +251,34 @@ che $ 0 \leq p_j \leq 1 $ e $ \sum_j p_j = 1 $, quindi come se fosse uno stato "
 $ E_1 = \{p_j; \k{\psi_j} \in \H\} $ e $ E_2 = \{q_j; \k{\varphi_j} \in \H\} $ che hanno la stessa media 
 $ \rho = \sum_{j} p_j \k{\psi_j} \b{\psi_j} = \sum_{j} q_j \k{\varphi_j} \b{\varphi_j} $, non sono distinguibili tramite misure. Lo stato $ \rho $ che 
 abbiamo ottenuto è detto \textit{matrice densità}, e mantiene ancora alcune proprietà degli stati puri ad esempio 
-\begin{align}
+\begin{align*}
   \rho^\dag = \rho \quad \Tr \rho = \sum_j p_j = 1, \quad \rho \geq 0,
-\end{align}
+\end{align*}
 tuttavia non vale in generale che $ \rho^2 = \rho $, infatti se valesse allora $ \rho $ sarebbe ancora un proiettore e quindi è il caso in cui 
 $ p_j = 1 $ per una certa $ j $ e tutte le altre probabilità sono nulle perciò $ \rho = \k{\psi_j} \b{\psi_j} $. Definitamo lo spazio degli operatori di 
 stato $ \S(\H) $ come 
-\begin{align}
+\begin{align*}
   \S(\H) = \left\{ \rho \in \L(\H) : \Tr \rho = 1, \rho \geq 0 \right\}
-\end{align}
+\end{align*}
 dove non è necessario richiedere l'hermiticità perché è una conseguenza della linearità e della semipositività. Lo spazio $ \S(\H) $ non è uno spazio 
 vettoriale, questo perché basterebbe moltiplicare per uno scalare per uscire dalle condizioni, tuttavia è chiuso per combinazione convessa.
 
 In generale vale che $ \rho^2 \leq \rho $ inteso nel senso della media su un vettore cioè $ \bk{\psi | \rho^2 | \psi} \leq \bk{\psi | \rho | \psi} $ e 
 questo si vede facilmente diagonalizzando e considerando gli autovalori che essendo $ 0 \leq \lambda_j \leq 1 $ allora $ \lambda_j^2 \leq \lambda_j $. 
 Questo significa che possiamo prendere la traccia $ \Tr \rho^2 $ come una sorta di "misura di purezza", infatti 
-\begin{align}
+\begin{align*}
   \Tr \rho^2 \leq 1, \, = \text{ solo se } \rho \text{ è puro}
-\end{align}
+\end{align*}
 e questa traccia è limitata anche inferiormente dalla dimensione dello spazio di Hilbert $ d $ infatti vale 
-\begin{align}
+\begin{align*}
   \frac1d \leq \Tr \rho^2 \leq 1
-\end{align}
+\end{align*}
 dove per $ d \to \infty $ si ottiene $ 0 $ come limite inferiore. Questa disuguaglianza ha un significato fisico preciso: se lo stato puro indica 
 la certezza nel determinare un particolare stato (ovvero che se esiste una misura con esiti possibili o $ 0 $ o $ 1 $) allora per $ \Tr \rho^2 = 1/d $ 
 indica lo stato di ignoranza massima in cui tutti i test sono equiprobabili con risultato $ 1/d $. In questo caso $ rho $ vale 
-\begin{align}
+\begin{align*}
   \rho = \sum_j \frac1d \k{\psi_j} \b{\psi_j} = \frac{I}d
-\end{align}
+\end{align*}
 e quindi lo stato identico è quello più misto possibile.
 
 \section{Probabilità condizionata}
@@ -288,23 +288,23 @@ $ \{\Pi_k\}_{k = 1, \dots, d'} $. Quello che mostreremo è come cambia la descri
 sull'apparato sperimentale, cosa che non è una novità della meccanica quantistica ma solo probabilità condizionata. 
 Supponiamo che la sorgente reale produca un ensemble di stati $ E = \{p_j ; \k{\psi_j}\} $ e che $ \rho $ ne sia la media, perciò se viene prodotto lo 
 stato $ \k{\psi_j} $ e la macchina fa la misura ottenendo l'esito $ k $-esimo, allora lo stato finale è 
-\begin{align}
+\begin{align*}
   \k{\psi_j} \xlongrightarrow[k]{} \frac{\Pi_k \k{\psi_j}}{\sqrt{P(k|\psi_j)}} 
   = \frac{\Pi_k \k{\psi_j}}{\sqrt{\bk{\psi_j | \Pi_k | \psi_j}}} = \k{\psi_{jk}}
-\end{align}
+\end{align*}
 
 Livello A: supponiamo di non conoscere l'esito della misura, allora lo stato finale del sistema è descritto dall'ensemble 
 $ E'= \{p_j P(k|\psi_j); \k{\psi_{jk}}\} $ e quindi la matrice densità che lo descrive è
-\begin{align}
+\begin{align*}
   \rho' = \sum_{j,k} p_j P(k | \psi_j) \cdot \frac{\Pi_k \k{\psi_j} \b{\psi_j} \Pi_k }{P(k|\psi_j)} 
   = \sum_k \Pi_k \left( \sum_j p_j \k{\psi_j} \b{\psi_j} \right) \Pi_k = \sum_k \Pi_k \rho \Pi_k.
-\end{align}
+\end{align*}
 
 Livello B: conosciamo l'esito $ k $ della misura, allora lo stato finale è descritto dall'ensemble $ E'' = \{p_j; \k{\psi_{jk}}\} $ descritto dalla 
 matrice densità 
-\begin{align}
+\begin{align*}
   \rho'' = \sum_j p_j \k{\psi_{jk}} \b{\psi_{jk}} = \sum_j p_j \frac{\Pi_k \k{\psi_j} \b{\psi_j} \Pi_k }{P(k|\psi_j)}.
-\end{align}
+\end{align*}
 
 \chapter{Cinematica e dinamica}
 
@@ -320,153 +320,153 @@ di probabilità $ \abs{ \bk{\phi | \psi}}^2 $, e le trasformazioni che hanno que
 \end{theorem}
 
 Nel caso che $ U $ sia unitario mostriamo che preserva effettivamente il prodotto scalare (non solo il suo modulo):
-\begin{align}
+\begin{align*}
   \bk{\phi' | \psi'} = \bk{U \phi | U \psi} = (\b{\phi} U^\dagger) \, (\k{U |\psi}) = \bk{\phi | U^\dagger U | \psi} = \bk{\phi | \psi}
-\end{align}
+\end{align*}
 dato che $ U^\dagger U = I $. Mentre se $ U $ è antiunitario, cioè antilineare e unitario, la mappa $\psi \mapsto \bk{\phi | U \psi}$ 
 è antilineare in $ \psi $ perché 
-\begin{align}
+\begin{align*}
   \bk{\phi | U(\alpha\, \psi)} = \alpha^* \bk{\phi | U\psi}
-\end{align}
+\end{align*}
 e quindi non è un funzionale lineare su $ \H $, perciò dobbiamo definire l'applicazione di $ U $ a $ \b{\phi} $ come 
-\begin{align}
+\begin{align*}
   (\b{\phi} U) \k{\psi} \coloneq \bk{\phi | U\psi }^*
-\end{align}
+\end{align*}
 che è un elemento del duale $ \H^* $. Dunque abbiamo che 
-\begin{align}
+\begin{align*}
   \bk{U \phi | U \psi} = (\b{\phi} U^\dagger) (U \k{\psi}) = {\bk{\phi | U^\dagger U | \psi}}^* = \bk{\phi |\psi}^*.
-\end{align}
+\end{align*}
 Gli operatori antilineari possono descrivere trasformazioni discrete ma non trasformazioni continue, questo perché una trasformazione $ U(l) $ 
 con $ l $ parametro continuo può essere vista come una combinazione di altre trasformazioni ad esempio $ U(l) = U(l/2) U(l/2) $ e il prodotto 
 di due operatori antilineari è lineare perché si coniuga due volte, quindi a prescindere dal carattere di $ U(l/2) $ si ha che $ U(l) $ è lineare.
 
 Nel trasformare gli operatori si devono conservare gli autovalori e gli autovettori così da avere gli stessi valori possibili delle misure, infatti 
 abbiamo
-\begin{align}
+\begin{align*}
   A'\k{\phi'_n} = a_n \k{\phi'_n} 
-\end{align}
+\end{align*}
 e usando che $ \k{\phi'_n} = U \k{\phi_n} $ si ha
-\begin{align}
+\begin{align*}
   A' U \k{\phi_n } = a_n U\k{\phi_n} \implies U^{-1} A' U \k{\phi_n} = a_n \k{\phi_n}.
-\end{align}
+\end{align*}
 A questo punto per concludere che $ A = U^{-1} A' U $ ci basta osservare che $ (A - U^{-1} A' U )\k{\phi_n} = 0 $ vale per ogni vettore 
 del set completo $ \{\k{\phi_n}\} $ e quindi vale per ogni vettore. Invertendo si ottiene  
-\begin{align}
+\begin{align*}
   A = U A' U^{-1}.
-\end{align}
+\end{align*}
 
 Consideriamo una famiglia di operatori unitari $ U(s) $ che dipendono dal parametro continuo $ s $ tali che $ U(0) = I $ e $ U(s_1 + s_2) = U(s_1) U(s_2) $.
 Per la continuità di $ s $ possiamo sviluppare attorno a $ s = 0 $ ottenendo
-\begin{align}
+\begin{align*}
   U(s) = I + \frac{dU}{ds}(s = 0) \, s + O(s^2)
-\end{align}
+\end{align*}
 e imponiamo la condizione di unitarietà moltiplicando per l'aggiunto 
-\begin{align}
+\begin{align*}
   U U^\dag = I + s \left[ \frac{dU}{ds} + \frac{dU^\dag}{ds} \right] \Bigg\vert_{s = 0} + O(s^2) 
   \implies \frac{dU}{ds} \Bigg\vert_{s = 0} = - \frac{dU^\dag}{ds} \Bigg\vert_{s = 0}
-\end{align}
+\end{align*}
 che è risolta con un operatore autoaggiunto $ K $ tale che 
-\begin{align}
+\begin{align*}
   \frac{dU}{ds} \Bigg\vert_{s = 0} = i K, \quad K = K^\dag.
-\end{align}
+\end{align*}
 L'operatore $ K $ è detto \textit{generatore} della famiglia e dato che è indipendente da $ s $ ogni trasformazione finita può essere scritta in termini di 
 $ K $: consideriamo $ U(s_1 + s_2) = U(s_1) U(s_2) $ e derivando per $ s_2 $ si ha
-\begin{align}
+\begin{align*}
   \der{}{s_2} U(s_1 + s_2) \Bigg\vert_{s_2 = 0} = U(s_1) \frac{dU}{ds_2}\Bigg\vert_{s_2 = 0} = U(s_1) iK \implies U(s_1) = e^{iKs_1}
-\end{align}
+\end{align*}
 dove per risolvere l'equazione era necessaria la condizione iniziale $ U(0) = I $.
 
 \section{Gruppo di Galileo}
 
 In ambito non relativistico le trasformazioni di spazio e tempo sono descritte dalle trasformazioni di Galileo:
-\begin{align}
+\begin{align*}
   \v{x}' &= R \v{x} + \v{v} t + \v{a}
   \\
   t' &= t + s
-\end{align}
+\end{align*}
 dove $ R $ è una rotazione, $ \v{v} $ è la velocità, $ \v{a} $ è una traslazione spaziale e $ s $ una traslazione temporale. Due trasformazioni di questo 
 tipo non commutano fra loro, infatti siano $ \tau_1(R_1,\v{v}_1, \v{a}_1, s_1) $ e $ \tau_2(R_2,\v{v}_2, \v{a}_2, s_2) $ due trasformazioni di Galileo, 
 allora la trasformazione $ \tau_3 = \tau_2 \tau_1 $ porta a 
-\begin{align}
+\begin{align*}
   \v{x}_3 &= R_2 (R_1 \v{x}_1 + \v{v}_1 t_1 + \v{a}_1) + \v{v}_2 (t_1 + s_1) + \v{a}_2 
   \\
   t_3 &= t_1 + s_1 + s_2
-\end{align}
+\end{align*}
 e scambiando $ \tau_1 $ con $ \tau_2 $ si ottiene una trasformazione differente, quindi le trasformazioni di Galileo formano un gruppo non commutativo. 
 Dato che le leggi fisiche sono invarianti per questo tipo di trasformazioni, nella sezione precedente avevamo mostrato che per il teorema di Wigner deve 
 esistere un operatore unitario $ U(\tau) $ che codifica tali trasformazioni. Dato che $ \tau_2 \tau_1 $ e $ \tau_3 $ descrivono la stessa trasformazione 
 allora $ U(\tau_2\tau_1)\k{\psi} $ e $ U(\tau_3)\k{\psi} $ devono descrivere lo stesso stato, tutta via non devono per forza coincidere ma possono 
 differire di una fase $ \omega $ che può dipendere da $ \tau_2, \tau_1 $, cioè
-\begin{align}
+\begin{align*}
   U(\tau_2\tau_1)\k{\psi} = e^{i\omega(\tau_2,\tau_1)} U(\tau_3) \k{\psi}.
-\end{align}
+\end{align*}
 Il gruppo ha dieci gradi di libertà cioè tre rotazionali, tre per la traslazione spaziale, tre per il boost di velocità e uno per la traslazione temporale, 
 dipende quindi da 10 parametri continui e quindi una trasformazione generica consiste di dieci operatori unitari, che espressi tramite i generatori diventa 
-\begin{align}
+\begin{align*}
   U(\tau) = \sum_{n = 1}^{10} e^{i K_n s_n}
-\end{align}
+\end{align*}
 dove gli $ s_n $ sono i parametri continui e $ K_n $ sono i generatori hermitiani. 
 
 Consideriamo due trasformazioni $ e^{i K_\nu s_\nu} $ e $ e^{iK_\mu s_\mu} $, con lo stesso parametro infinitesimo $ s_\nu = s_\mu = \eps $ e componiamole 
 insieme alle rispettive inverse nel seguente modo:
-\begin{align}
+\begin{align*}
   e^{i K_\mu \eps} e^{i K_\nu \eps} e^{-i K_\mu \eps}e^{-i K_\nu \eps} &= I + \eps^2 (K_\nu K_\mu - K_\mu K_\nu) + O(\eps^3) 
   \\
   &= I + \eps^2 [K_\nu,K_\mu] + O(\eps^3)
-\end{align}
+\end{align*}
 dove notiamo che il commutatore $ [K_\nu, K_\mu] $ misura quanto l'operazione sia diversa dall'identità. Siccome questa composizione deve essere ancora una 
 trasformazione di Galileo a meno di una fase, si deve esprimere come 
-\begin{align}
+\begin{align*}
   e^{i\omega} U = I + i \sum_{n = 1}^{10} s_n K_n + i \omega I
-\end{align}
+\end{align*}
 con gli 11 parametri $ \{\omega, s_n\} $ dell'ordine di $ \eps^2 $, confrontando le due espressioni otteniamo che 
-\begin{align}
+\begin{align*}
   [K_\nu, K_\mu] = i \sum_{\lambda = 1}^{10} c_{\nu \mu}^\lambda \,K_\lambda + i b_{\nu \mu} \,I
-\end{align}
+\end{align*}
 dove i coefficienti $ c_{\nu \mu}^\lambda $ dipendono dalle leggi di composizione di due trasformazioni di Galileo. In seguito calcoleremo le relazioni 
 di commutazione fra i vari generatori del gruppo, che conviene ridefinirli come $ \{-J_{\alpha} , -P_\alpha, G_\alpha, H\} $ con $ \alpha = 1,2,3 $. 
 I coefficienti $ b_{\nu \mu} $ li aggiungeremo successivamente, quindi ogni relazione di commutazione è da intendersi come a meno del coefficiente 
 $ b_{\nu \mu} $.
 
 È chiaro che le traslazioni spaziali commutano fra loro e con la traslazione temporale, con cui commutano anche le rotazioni quindi
-\begin{align}
+\begin{align*}
   [P_\alpha, P_\beta] &= O
   \\
   [P_\alpha, H] &= O
   \\
   [J_\alpha, H] &= O.
-\end{align}
+\end{align*}
 Commutano anche le traslazioni spaziali con i boost e i boost fra loro:
-\begin{align}
+\begin{align*}
   [P_\alpha, G_\beta] &= O
   \\
   [G_\alpha, G_\beta] &= O.
-\end{align}
+\end{align*}
 Le rotazioni lungo un asse commutano con i boost e le traslazioni lungo quell'asse quindi 
-\begin{align}
+\begin{align*}
   [J_\alpha, P_\alpha ] &= O
   \\
   [J_\alpha, G_\alpha ] &= O.
-\end{align}
+\end{align*}
 Per quanto riguarda il commutatore di un boost con una traslazione temporale calcoliamo il quadrivettore risultante da 
 $ e^{i\eps H} e^{i \eps G_1} e^{-i\eps H} e^{-i\eps G_1} $:
-\begin{align}
+\begin{align*}
   (x_1, t) \to (x_1 - \eps t , t) \to (x_1 - \eps t, t - \eps) \to (x_1 - \eps t + \eps (t - \eps),  t - \eps) \to (x_1 - \eps^2, t )
-\end{align} 
+\end{align*} 
 dove le componenti $ x_2, x_3 $ sono state omesse perché costanti. Abbiamo ottenuto quindi una traslazione in $ x_1 $ di $ -\eps^2 $, siccome 
 le relazioni di commutazione erano tutte a meno di un multiplo dell'identità possiamo scrivere che 
-\begin{align}
+\begin{align*}
   [G_\alpha, H] = i P_\alpha
-\end{align}
+\end{align*}
 e notiamo che i segni con cui avevamo definito i generatori infinitesimi erano proprio per semplificare i segni di queste relazioni. 
 Allo stesso modo quindi tramite calcolo esplicito si ottengono gli ultimi commutatori:
-\begin{align}
+\begin{align*}
   [J_\alpha, J_\beta] &= i \eps_{\alpha \beta \gamma} J_\gamma
   \\
   [J_\alpha, G_\beta] &= i \eps_{\alpha \beta \gamma} G_\gamma
   \\
   [J_\alpha, P_\beta] &= i \eps_{\alpha \beta \gamma} P_\gamma
-\end{align}
+\end{align*}
 
 Adesso che abbiamo trovato tutti i coefficienti $ c_{\nu \mu}^\lambda $ possiamo occuparci dei $ b_{\nu \mu} $ cioè del multiplo dell'identità che avevamo 
 tralasciato in ogni commutatore. Per farlo usiamo due fatti:
@@ -474,112 +474,112 @@ tralasciato in ogni commutatore. Per farlo usiamo due fatti:
   \item tutti i commutatori sono antisimmetrici cioè $ [K_\alpha, K_\beta] = - [K_\beta, K_\alpha ] $, che implica inoltre che ogni generatore commuta con 
   sé stesso;
   \item vale l'identità di Jacobi e cioè 
-  \begin{align}
+  \begin{align*}
     [[A,B], C] + [[B,C],A] + [[C, B],A] = 0.
-  \end{align}
+  \end{align*}
 \end{enumerate}
 Osserviamo che un multiplo dell'identità all'interno di un commutatore sparisce perché
-\begin{align}
+\begin{align*}
   [A + c I, B] = [A, B] + c [I, B] = [A, B]
-\end{align}
+\end{align*}
 dato che ogni operatore commuta con l'identità. Sia $ X $ un generatore fra $ P, G $, usando l'identità di Jacobi calcoliamo 
-\begin{align}
+\begin{align*}
   (\pm i)[X_\alpha, X_\gamma] = [[J_\beta, X_\gamma], X_\beta] &= [[X_\beta, X_\gamma], J_\beta] + [[J_\beta, X_\beta], X_\gamma]
   \\
   &= [O, J_\beta] + [O, X_\gamma] = O
-\end{align} 
+\end{align*} 
 dove abbiamo usato le regole di commutazione con le rotazioni per esprime $ X_\alpha $. Quindi abbiamo ottenuto che due generatori dello stesso tipo 
 $ P, G $ con indice diverso commutano fra loro con fase nulla. Valutiamo ora 
-\begin{align}
+\begin{align*}
   (\pm i)[P_\alpha, H] = [[J_\beta, P_\gamma], H] &= [[H, P_\gamma], J_\beta] + [[J_\beta, H], P_\gamma]
   \\
   &= [O, J_\beta] + [O, P_\gamma] = O
-\end{align}
+\end{align*}
 e allo stesso modo 
-\begin{align}
+\begin{align*}
   (\pm i)[J_\alpha, H] = [[J_\beta, J_\gamma], H] &= [[H, J_\gamma], J_\beta] + [[J_\beta, H], J_\gamma]
   \\
   &= [O, J_\beta] + [O, J_\gamma] = O.
-\end{align}
+\end{align*}
 Per quanto riguarda il commutatore fra due rotazioni imponiamo l'antisimmetria:
-\begin{align}
+\begin{align*}
   [J_\alpha, J_\beta] = i \eps_{\alpha \beta \gamma} J_\gamma + i b_{\alpha \beta} I = -[J_\beta, J_\alpha]
-\end{align}
+\end{align*}
 che per essere rispettata deve valere $ b_{\alpha \beta} = - b_{\beta \alpha} $, quindi la matrice $ 3\times3 $ costituita dai $ b_{\alpha \beta} $ 
 deve essere antisimmetrica, quindi con $ 3 $ gradi di libertà. Per questo motivo possiamo esprimerla tramite 
 $ b_{\alpha \beta} = \eps_{\alpha \beta \gamma} b_\gamma $, il commutatore diventa 
-\begin{align}
+\begin{align*}
   [J_\alpha, J_\beta] = i \eps_{\alpha \beta \gamma} (J_\gamma + b_\gamma I)
-\end{align}
+\end{align*}
 e a questo punto possiamo ridefinire i generatori delle rotazioni come $ J_i = J_i + b_i I $, in modo da non cambiare il membro di sinistra 
 e ottenere 
-\begin{align}
+\begin{align*}
   [J_\alpha, J_\beta] = i \eps_{\alpha \beta \gamma} J_\gamma.
-\end{align}
+\end{align*}
 La sostituzione che abbiamo fatto equivale nella trasformazione finita a 
 $ U(R_\alpha) = e^{- i \theta J_\alpha} \to e^{-i b_\alpha \theta} e^{- i \theta J_\alpha} $ che cambia lo stato $ \k{\psi} $ soltanto di una fase e quindi 
 è perfettamente lecita. 
 Consideriamo il commutatore 
-\begin{align}
+\begin{align*}
   [[J_1, J_2], G_3] &= [[G_3, J_2], J_1]  + [[J_1, G_3], J_2]
   \\
   i[J_3, G_3] &= -i [G_1, J_1] -i [G_2, J_2]
   \\
   [J_3, G_3] &= +[J_1, G_1] +[J_2, G_2]
-\end{align}
+\end{align*}
 che è una equazione del tipo $ X_3 = X_1 + X_2 $, ma dato che possiamo permutare ciclicamente gli assi valgono anche le equazioni $ X_2 = X_3 + X_1 $ e 
 $ X_1 = X_2 + X_3 $, e la soluzione al sistema è banale, quindi 
-\begin{align}
+\begin{align*}
   [J_\alpha, G_\alpha] = O.
-\end{align}
+\end{align*}
 Per due indici generici scriviamo 
-\begin{align}
+\begin{align*}
   [[J_3, J_1], G_3] &= [[G_3, J_1], J_3]  + [[J_3, G_3], J_1]
   \\
   i[J_2, G_3] &= i[G_2, J_3] + [O, J_1] = i[G_2, J_3]
-\end{align}
+\end{align*}
 e quindi vale l'antisimmetria cioè
-\begin{align}
+\begin{align*}
   [J_\alpha, G_\beta] = - [J_\beta,G_\alpha]
-\end{align}
+\end{align*}
 ma allora proprio come abbiamo fatto prima, i coefficienti $ b_{\alpha \beta} $ sono antisimmetrici e ridefinendo $ G_\alpha + b_\alpha I \to G_\alpha $ 
 si ha
-\begin{align}
+\begin{align*}
   [J_\alpha, G_\beta] = i \eps_{\alpha \beta \gamma} G_\gamma.
-\end{align}
+\end{align*}
 Con gli stessi passaggi si ottiene anche che 
-\begin{align}
+\begin{align*}
   [J_\alpha, P_\beta] = i \eps_{\alpha \beta \gamma} P_\gamma, 
-\end{align}
+\end{align*}
 che possiamo usare per calcolare il commutatore fra $ G_\alpha $ e $ H $:
-\begin{align}
+\begin{align*}
   [[J_1, G_2], H] &= [[H, G_2], J_1] + [[J_1, H], G_2]
   \\
   i[G_3, H] &= -i[P_2, J_1] + O 
   \\
   &= - P_3 
-\end{align}
+\end{align*}
 e quindi 
-\begin{align}
+\begin{align*}
   [G_\alpha, H] = i P_\alpha.
-\end{align}
+\end{align*}
 Infine rimangono i commutatori fra $ G $ e $ P $ che calcoliamo come 
-\begin{align}
+\begin{align*}
   [[J_1, G_2], P_1] &= [[P_1, G_2], J_1] + [[J_1, P_1], G_2]
   \\
   i[G_3, P_1] &= O + O 
-\end{align}
+\end{align*}
 e quindi $ [G_\alpha, P_\beta] = O $ per $ \alpha \neq \beta $, mentre 
-\begin{align}
+\begin{align*}
   [[J_1, G_2], P_3] &= [[P_3, G_2], J_1] + [[J_1, P_3], G_2]
   \\
   i[G_3, P_3] &= O -i [P_2, G_2]
-\end{align}
+\end{align*}
 dove abbiamo usato il risultato appena ricavato del commutatore fra $ G_\alpha, P_\beta $. Notiamo che abbiamo trovato un commutatore il cui multiplo 
 dell'identità non è nullo e non può essere ridefinito, indichiamo tale quantità con $ M \coloneq [G_\alpha, P_\alpha] $ e così il commutatore vale 
-\begin{align}
+\begin{align*}
   [G_\alpha, P_\alpha] = i \delta_{\alpha \beta} M I
-\end{align}
+\end{align*}
 dove $ M $ è reale perché deriva dalla fase. Di seguito riportiamo tutte le relazioni di commutazione che abbiamo ricavato.
 \begin{table}[h]
   \centering
@@ -596,150 +596,150 @@ dove $ M $ è reale perché deriva dalla fase. Di seguito riportiamo tutte le re
 La dinamica di una particella libera è invariante sotto trasformazioni di Galileo e questo è sufficiente per determinare gli operatori associati alle 
 quantità dinamiche. Dato che lo spazio è continuo, l'operatore posizione deve avere uno spettro continuo e quindi $ \mathbf{Q} = (Q_1, Q_2, Q_3) $ 
 è definito come 
-\begin{align}
+\begin{align*}
   Q_\alpha \k{\v{x}} = x_\alpha \k{\v{x}}.
-\end{align}
+\end{align*}
 Notiamo che le 3 componenti dell'operatore posizione commutano fra loro e infatti hanno un set di autovettori comune. Per quanto riguarda 
 l'operatore velocità lo definiamo come 
-\begin{align}
+\begin{align*}
   \sca{\v{V}} = \frac{d}{dt} \sca{\v{Q}}
-\end{align}
+\end{align*}
 per ogni stato, cioè il suo valore d'aspettazione è la derivata del valore d'aspettazione dell'operatore posizione. Consideriamo uno stato 
 puro dipendente dal tempo $ \k{\psi(t)} $, allora il valore d'aspettazione $ \sc{\v{V}} $ vale 
-\begin{align}
+\begin{align*}
   \bk{\psi(t) | \v{V} | \psi(t)} &= \frac{d}{dt} \bk{\psi(t) | \v{Q} | \psi(t)} 
   \\
   &= \left\{\frac{d}{dt} \b{\psi(t)}\right\} \v{Q} \k{\psi(t)} + \b{\psi(t)} \v{Q} \left\{\frac{d}{dt} \k{\psi(t)}\right\}.
-\end{align}
+\end{align*}
 Per andare oltre dobbiamo sapere come evolve nel tempo uno stato $ \k{\psi(t)} $, per farlo usiamo il generatore dell'evoluzione temporale $ H $:
 per una traslazione nel tempo $ t \to t' = t + s $ si ha
-\begin{align}
+\begin{align*}
   \k{\psi(t)} \to e^{i H s} \k{\psi(t)} = \k{\psi(t - s)}
-\end{align}
+\end{align*}
 che per $ s = t $ diventa $  \k{\psi(t)} = e^{ -i H t} \k{\psi(0)} $ che rispetta 
-\begin{align}
+\begin{align*}
   \frac{d}{dt} \k{\psi(t)} = - i H \k{\psi(t)}.
-\end{align}
+\end{align*}
 Applicandola al valore di aspettazione $ \sc{\v{V}} $ otteniamo
-\begin{align}
+\begin{align*}
   \bk{\psi(t) | \v{V} | \psi(t)} = i\b{\psi(t)} H^\dag \v{Q} \k{\psi(t)} - i \b{\psi(t)} \v{Q} H\k{\psi(t)} = i \bk{\psi(t) | [H, \v{Q}] |\psi(t)}
-\end{align}
+\end{align*}
 dove abbiamo usato che $ H $ è autoaggiunto, quindi possiamo definire l'operatore velocità come 
-\begin{align}
+\begin{align*}
   \v{V} = i [H, \v{Q}].
-\end{align}
+\end{align*}
 
 La traslazione $ \v{x} \to  \v{x}' = \v{x} + \v{a} $ si esprime come 
-\begin{align}
+\begin{align*}
   \k{\v{x}} \to \k{\v{x}'} = e^{-i \v{a} \cdot \v{P} } \k{\v{x}} = \k{\v{x} + \v{a}}
-\end{align}
+\end{align*}
 e l'operatore posizione trasformato sta al vettore trasformato come l'operatore originale sta al vettore originale, per questo 
-\begin{align}
+\begin{align*}
   \v{Q'} = e^{-i \v{a \cdot P}} \v{Q} e^{i \v{a \cdot P}} = \v{Q} - i [\v{a \cdot P}, \v{Q}] + O(a^2)
-\end{align}
+\end{align*}
 dove abbiamo sviluppato al primo ordine in $ a $. Inoltre vale che 
-\begin{align}
+\begin{align*}
   Q'_\alpha \k{\v{x+a}} = Q'_\alpha \k{\v{x'}} = x_\alpha \k{\v{x'}} = x_\alpha \k{\v{x + a}}
-\end{align}
+\end{align*}
 e quindi si ottiene la relazione 
-\begin{align}
+\begin{align*}
   \v{Q'} = \v{Q} - \v{a}I.
-\end{align}
+\end{align*}
 Confrontandola con lo sviluppo al prim'ordine si ottiene la relazione di commutazione $ i[a_\alpha P_\alpha, Q_\alpha] = a_\alpha I $, che si 
 generalizza in 
-\begin{align}
+\begin{align*}
   [Q_\alpha, P_\beta] = i\delta_{\alpha \beta} I.
-\end{align}
+\end{align*}
 
 Una rotazione di un angolo $ \theta $ infinitesimo $ \v{x} \to \v{x'} = \v{x} + \theta\vers{n} \times \v{x} $, lo stato trasforma come 
-\begin{align}
+\begin{align*}
   \k{\v{x}} \to \k{\v{x}}' = e^{-i \theta \vers{n} \cdot \v{J}}\k{\v{x}} = \k{\v{x'}}
-\end{align}
+\end{align*}
 mentre l'operatore posizione trasformato vale 
-\begin{align}
+\begin{align*}
   Q_\alpha \to Q'_\alpha = e^{- i \theta \vers{n} \cdot \v{J}} Q_\alpha e^{ i \theta \vers{n} \cdot \v{J}} 
   = Q_\alpha - i \theta[ \vers{n} \cdot \v{J}, Q_\alpha] + O(\theta^2).
-\end{align}
+\end{align*}
 Applicando l'operatore posizione allo stato trasformato otteniamo 
-\begin{align}
+\begin{align*}
   Q_\alpha \k{\v{x'}} = x'_\alpha \k{\v{x'}} = (\v{x} + \theta\vers{n} \times \v{x})_\alpha \k{\v{x'}} 
   = (\v{Q'} + \theta \vers{n} \times \v{Q'})_\alpha \k{\v{x'}}
-\end{align}
+\end{align*}
 che diventa un uguaglianza fra operatori dato che $ \k{\v{x'}} = \k{\v{x}}' $ forma un set completo. Confrontando con lo sviluppo al prim'ordine si ottiene 
-\begin{align}
+\begin{align*}
   [ \vers{n} \cdot \v{J}, Q_\alpha] = -i (\vers{n} \times \v{Q})_\alpha
-\end{align}
+\end{align*}
 che può essere riscritta facendo il prodotto scalare con un versore $ \vers{u} $ cioè 
 $ [ \vers{n} \cdot \v{J}, \vers{u} \cdot \v{Q}] = i (\vers{n} \times \vers{u}) \cdot \v{Q} $ che diventa 
-\begin{align}
+\begin{align*}
   [J_\alpha, Q_\beta] = i \eps_{\alpha \beta \gamma} Q_\gamma
-\end{align}
+\end{align*}
 e notiamo che da questa relazione deriva che $ \v{Q} $ è un 3-vettore, proprio perché trasforma in questo modo.
 Per quanto riguarda il generatore $ \v{G} $, trasla le velocità come $ \v{P} $ trasla le coordinate. Per un boost istantaneo a $ t = 0 $ i due sistemi 
 di riferimento coincidono e quindi la posizione è la stessa, per questo 
-\begin{align}
+\begin{align*}
   [G_\alpha, Q_\beta] = 0.
-\end{align}
+\end{align*}
 L'operatore velocità trasformato si scrive come 
-\begin{align}
+\begin{align*}
   \v{V} \to \v{V'} = e^{i \v{v} \cdot \v{G}} \v{V} e^{-i \v{v} \cdot \v{G}} = \v{V} + i[\v{v\cdot G}, \v{V}] +O(v^2)
-\end{align}
+\end{align*}
 e dall'analogia con l'operatore posizione abbiamo anche che
-\begin{align}
+\begin{align*}
   \v{V'} = \v{V} -\v{v} I
-\end{align}
+\end{align*}
 perciò la relazione di commutazione vale 
-\begin{align}
+\begin{align*}
   [G_\alpha, V_\beta] = i \delta_{\alpha \beta} I.
-\end{align}
+\end{align*}
 
 \textbf{Particella libera senza gradi di libertà interni}.
 In questo caso il set di operatori $ \{\v{Q}, \v{P}\} $ forma un set irriducibile e autoaggiunto pertanto possiamo applicare il lemma di Schur e quindi 
 ogni operatore che commuta con il set deve essere un multiplo dell'identità. Consideriamo l'operatore $ \v{G} - M\v{Q} $, commuta sia 
 con $ \v{Q} $ che con $ \v{V} $ e quindi deve essere un multiplo dell'identità. In componenti si ha
-\begin{align}
+\begin{align*}
   G_\alpha = M Q_\alpha + c_\alpha I
-\end{align}
+\end{align*}
 ma per le relazioni di commutazione fra $ \v{G}, \v{Q} $ e $ \v{J} $ segue che $ c_\alpha = 0 $, perché $ \v{G} - M\v{Q} $ deve essere un 3-vettore 
 mentre l'identità commuta con $ \v{J} $ e quindi è uno scalare. Dunque per una particella senza gradi di libertà interni vale 
-\begin{align}
+\begin{align*}
   G_\alpha = M Q_\alpha.
-\end{align}
+\end{align*}
 Consideriamo adesso l'operatore $ \v{Q \times P} $, tramite calcolo diretto si verifica che soddisfa le relazioni di commutazione per $ \v{J} $ con gli 
 altri generatori e con $ \v{Q} $, inoltre l'operatore $ \v{J} - \v{Q\times P} $ commuta sia con $ \v{Q} $ che con $ \v{P} $ per tanto per il lemma di 
 Schur si ha che 
-\begin{align}
+\begin{align*}
   J_\alpha = (\v{Q\times P})_\alpha + c_\alpha I
-\end{align}
+\end{align*}
 ma allo stesso modo di prima deve essere che $ c_\alpha = 0 $ dato che $ \v{J} $ e $ \v{Q\times P} $ sono 3-vettori, e quindi 
-\begin{align}
+\begin{align*}
   \v{J} = \v{Q\times P}.
-\end{align}
+\end{align*}
 Per trovare l'operatore $ H $ in termini di dell'operatore posizione usiamo la relazione ricavata per $ \v{G} $ e quindi 
-\begin{align}
+\begin{align*}
   [Q_\alpha, H] = \frac{i}{M} P_\alpha,
-\end{align}
+\end{align*}
 mostriamo che una soluzione è $ H = \v{P\cdot P}/2M $:
-\begin{align}
+\begin{align*}
   \frac{1}{2M}[Q_\alpha,\v{P\cdot P} ] = \frac1{2M} \sum_\beta \left\{ \vphantom{\int} [Q_\alpha, P_\beta] P_\beta + P_\beta [Q_\alpha, P_\beta] \right\} 
   = \frac1{2M} \sum_\beta \left\{ \vphantom{\int} 2 i\delta_{\alpha \beta} P_\beta  \right\} = \frac{i}{M} P_\alpha.
-\end{align}
+\end{align*}
 Nella soluzione trovata i commutatori non vedono i multipli dell'identità per tanto una soluzione più generale è 
-\begin{align}
+\begin{align*}
   H = \frac{\v{P\cdot P}}{2M} + E_0
-\end{align}
+\end{align*}
 dove $ E_0 \propto I $. Con questo risultato possiamo trovare anche l'operatore $ \v{V} $ usando 
-\begin{align}
+\begin{align*}
   \v{V} = i[H, \v{Q}] = \frac{\v{P}}{M}
-\end{align}
+\end{align*}
 e quindi abbiamo ottenuto tutti i generatori in termini degli operatori $ \v{Q} $ e $ \v{V} $ cioè 
-\begin{align}
+\begin{align*}
   \v{P} &= M \v{V}
   \\
   H &= \frac{M \v{V\cdot V}}{2} + E_0
   \\
   \v{J} &= \v{Q} \times M \v{V}.
-\end{align}
+\end{align*}
 Se $ M $ fosse la massa della particella, in analogia con il caso classico potremmo identificare con $ \v{P} $ il momento, con $ H $ l'energia e 
 con $ \v{J} $ il momento angolare, tuttavia $ M $ non è identificata e non si può trovare un valore senza degli esperimenti, quindi possiamo soltanto 
 dire che $ M $ sta alla massa come $ \v{P} $ sta al momento, $ H $ all'energia e $ \v{J} $ al momento angolare. Più avanti mostreremo 
@@ -749,19 +749,19 @@ come $ M^{-1} = \hbar $ ovvero la costante di Planck $ h $ divisa per $ 2\pi $.
 libertà del centro di massa. Il set di operatori $ \{\v{Q}, \v{P}\} $ non è più irriducibile perché potrebbe esserci un operatore che è funzione del 
 grado di libertà interno e che commuta con entrambi. Chiamiamo \textit{Spin} tale grado di libertà interno e lo definiamo come un contributo al 
 momento angolare così il generatore delle rotazioni diventa 
-\begin{align}
+\begin{align*}
   \v{J} = \v{Q\times P} + \v{S}
-\end{align}
+\end{align*}
 con $ [\v{Q}, \v{S}] = [\v{P}, \v{S}] = 0 $. Affinché $ \v{J} $ generi ancora le rotazioni, deve soddisfare le sue relazioni di commutazione cioè 
 $ [J_\alpha, J_\beta] = i \eps_{\alpha \beta \gamma} J_\gamma $, dato che $ \v{Q \times P} $ le soddisfa già deve valere che 
-\begin{align}
+\begin{align*}
   [S_\alpha, S_\beta] = i \eps_{\alpha \beta \gamma} S_\gamma.
-\end{align}
+\end{align*}
 Mostriamo che $ \v{S} $ è un 3-vettore facendo il commutatore con $ \v{J} $:
-\begin{align}
+\begin{align*}
   [J_\alpha, S_\beta] = [(\v{Q\times P})_\alpha,S_\beta] + [S_\alpha, S_\beta] 
   = [\eps_{\alpha \beta \gamma} Q_\beta P_\gamma , S_\beta] + i \eps_{\alpha \beta \gamma} S_\gamma = i\eps_{\alpha \beta \gamma}S_\gamma
-\end{align}
+\end{align*}
 e quindi trasforma sotto rotazioni proprio come un 3-vettore. Per quanto riguarda l'operatore $ \v{G} - M\v{Q} $ risolve ancora le relazioni di 
 commutazione con $ \v{Q} $ e $ \v{P} $, tuttavia potrebbe essere una funzione di $ \v{S} $, ma l'unico 3-vettore funzione di $ \v{S} $ è 
 un multiplo di $ \v{S} $ stesso, dato che $ \v{S \times S} = i\v{S} $. Per tanto $ \v{G} = M\v{Q} + c\v{S} $, ma per le relazioni di commutazione 
@@ -778,13 +778,13 @@ con la massa e il resto delle quantità come il loro analogo classico, inoltre d
  
 \subsection{Serie di Dyson}
 Tramite il generatore dell'evoluzione temporale $ H $ avevamo ricavato che per uno stato puro valeva 
-\begin{align}
+\begin{align*}
   \frac{d}{dt} \k{\psi(t)} = - \frac{i}{\hbar} H \k{\psi(t)}
-\end{align}
+\end{align*}
 e una soluzione con condizione iniziale $ \k{\psi(t_0)} $ è 
-\begin{align}
+\begin{align*}
   \k{\psi(t)} = U(t) \k{\psi(t_0)}.
-\end{align}
+\end{align*}
 Adesso consideriamo il caso in cui il sistema non sia più invariante sotto traslazioni temporali, quindi la trasformazione temporale $ U $ non dipenderà
 più soltando dalla distanza temporale $ t - t_0 $ fra stato iniziale e stato finale, ma da entrambi quindi $ U(t,t_0) $, e per tanto non è 
 più una trasformazione di Galileo. Tuttavia rispetta comunque la proprietà di composizione $ U(t_2, t_1)U(t_1,t_0) = U(t_2,t_0) $ 
@@ -803,87 +803,87 @@ se la meccanica quantistica è una teoria universale, allora non esistono i sist
 costante. Secondo questo ragionamento, una hamiltoniana dipendente dal tempo può emergere solo come approssimazione semi-classica, cioè un sistema 
 quantistico insieme a un sistema classico pilotato dall'esterno, che inglobiamo nella dinamica come funzione del tempo all'interno dell'hamiltoniana.
 Un esempio di questo tipo di sistemi è un qubit più un laser, e l'hamiltoniana si scrive come 
-\begin{align}
+\begin{align*}
   H(t) = \sum_l g_l(t) \, \Omega_l
-\end{align}
+\end{align*}
 cioè una combinazione di operatori $ \Omega_l $ tramite dei parametri di controllo $ g_l(t) $. 
 Dunque è questo il nostro ambiente di lavoro, tuttavia vedremo più avanti che questo modo di ragionare non è sempre valido.
 
 Mostriamo che l'unitarietà di $ U(t,t_0) $ implica ancora che $ H(t) $ è hermitiano:
-\begin{align}
+\begin{align*}
   0 = \der{}{t} (U^\dag U) = \frac{i}{\hbar} ( U^\dag H^\dag U - U^\dag H U) \implies H^\dag(t) = H(t).
-\end{align}
+\end{align*}
 Per $ H $ indipendente dal tempo, l'operatore $ U $ si scrive come 
-\begin{align}
+\begin{align*}
   U(t,t_0) = e^{ - i (t - t_0) \frac{H}{\hbar}} 
-\end{align}
+\end{align*}
 mentre per $ H(t) $ generico non è sempre possibile trovare una soluzione all'equazione differenziale \eqref{eq: relazione fra H e U} in forma chiusa.
 La soluzione si può esprime come \textit{serie di Dyson}, che definita nel modo seguente: fissiamo $ t_0 = 0 $ per semplicità,
-\begin{align}
+\begin{align*}
   U(t, 0) = I + \sum_{n = 1}^\infty \left( \frac{-i}\hbar \right)^n \int_0^t dt_1 \int_0^{t_1} dt_2 \dots \int_0^{t_{n-1}} dt_n H(t_1) \dots H(t_n)
-\end{align}
+\end{align*}
 con $ t \geq t_1 \geq \dots \geq t_n \geq 0 $. L'identità è stata portata fuori perché sarebbe stata il primo termine ($ n = 0 $) della serie, 
 mentre gli integrali innestati si possono vedere grazie al vincolo $ t_{i} \geq t_{i+1} $ come il volume di un tetraedro multidimensionale.
 Mostriamo che questa formula effettivamente risolve l'equazione \eqref{eq: relazione fra H e U}: derivando si ottiene 
-\begin{align}
+\begin{align*}
   \der{U(t,0)}{t} 
   &= \sum_{n = 1}^\infty -\frac{i}\hbar \,H(t) \left( \frac{-i}\hbar \right)^{n-1} \int_0^{t} dt_2 \dots \int_0^{t_{n-1}} dt_n H(t_2) \dots H(t_n) 
   \\
   &= -\frac{i}\hbar H(t) \sum_{m = 0}^\infty \left( \frac{-i}\hbar \right)^m \int_0^{t} dt_1 \dots \int_0^{t_{m}} dt_{m+1} H(t_1) \dots H(t_{m+1}) 
   \\
   &= -\frac{i}\hbar H(t) \,U(t,0)
-\end{align}
+\end{align*}
 e quindi è effettivamente una soluzione. La serie di Dyson può essere riscritta tramite un superoperatore (operatore che agisce su operatori) 
 detto \textit{time ordered}, indicato con $ \mathcal{T} $ è definito come 
-\begin{align}
+\begin{align*}
   \mathcal{T}(A(t_1), B(t_2)) = 
   \begin{cases}
     A(t_1) B(t_2) \quad &\text{se} \; t_1 \geq t_2
     \\
     B(t_2) A(t_1) \quad &\text{se} \; t_2 > t_1
   \end{cases}
-\end{align}
+\end{align*}
 e quindi l'evolutore temporale diventa
-\begin{align}
+\begin{align*}
   U(t,0) = I + \sum_{n=1}^\infty \frac1{n!} \left( \frac{-i}\hbar \right)^n \mathcal{T} \left\{ \left( \int_0^t dt' H(t') \right)^n \right\}
   \eqcolon \Texp\left( -\frac{i}\hbar \int_0^t H(t')\,dt' \right).
-\end{align}
+\end{align*}
 Il fattore $ n! $ è necessario per eliminare i conteggi extra degli integrali in più dovuti al time ordered.
 
 Il problema inverso, cioè data $ U(t,0) $ ricostruire $ H(t) $ è quello che abbiamo fatto definendo l'hamiltoniana come derivata dell'evolutore temporale 
 nella \eqref{eq: hamiltoniana dipendente dal tempo come derivata dell'evolutore temporale}, tuttavia quella derivata non è banale e per 
 $ U(t,0) = \exp\left( -i/\hbar \Omega(t,0) \right) $ la soluzione è data da 
-\begin{align}
+\begin{align*}
   H(t) = \int_0^1 dy \left( U^\dag(t,0) \right)^y \dot{\Omega}(t,0) \left( U^\dag(t,0) \right)^y.
-\end{align}
+\end{align*}
 
 \begin{example}
   Nel caso in cui $ H(t) = H $ costante allora per trovare $ U(t,0) $ tramite serie di Dyson basta notare che
-  \begin{align}
+  \begin{align*}
     \int_0^t H dt' = Ht
-  \end{align}
+  \end{align*}
   dunque il time ordered non svolge alcuno scambio e otteniamo $ U(t,0) = e^{-i H t /\hbar} $ come ci aspettavamo. Un altro caso immediato è quando 
   l'hamiltoniana commuta con sé stessa a tutti i tempi, cioè
-  \begin{align}
+  \begin{align*}
     [H(t), H(t')] = 0 \quad \forall\, t,t'
-  \end{align}
+  \end{align*}
   e quindi anche in questo caso il time ordered non ha alcun effetto portando a 
-  \begin{align}
+  \begin{align*}
     U(t,0) = \exp\left( -\frac{i}\hbar \int_0^t H(t') \, dt' \right).
-  \end{align}
+  \end{align*}
   In casi diversi da questi trattare la serie di Dyson è tutt'altro che banale.
 \end{example}
 
 \subsection{Rappresentazioni di Schrödinger e di Heisenberg}
 
 Adesso consideriamo lo stato puro $ \rho(t) = \k{\psi(t)} \b{\psi(t)} $ e scriviamolo in termini dell'evoluzione temporale:
-\begin{align}
+\begin{align*}
   \rho(t) = \k{\psi(t)} \b{\psi(t)} = U(t,t_0)\k{\psi(t_0)} \b{\psi(t)} U^\dag(t,t_0) = U(t,t_0) \rho(t_0) U^\dag(t,t_0) 
-\end{align}
+\end{align*}
 che derivata porta a 
-\begin{align}
+\begin{align*}
   \frac{d\rho(t)}{dt} = -\frac{i}{\hbar} [H(t), \rho(t)]
-\end{align}
+\end{align*}
 e queste relazioni sono in generale valide anche per stati non puri. Il valor medio di un osservabile $ R $ nello stato $ \rho(t) $ vale 
 \begin{align}
   \sc{R} = \Tr \left[ \rho(t) R \right] &= \Tr\left[ U(t,t_0) \rho(t_0) U^\dag(t,t_0) R  \right] \label{eq: media di un osservabile Schrödinger}
@@ -893,28 +893,28 @@ e queste relazioni sono in generale valide anche per stati non puri. Il valor me
 dove abbiamo usato l'invarianza della traccia sotto permutazione ciclica. Notiamo che da queste due scritture nascono due interpretazioni diverse:
 il primo approccio cioè la \eqref{eq: media di un osservabile Schrödinger} è quello di Schrödinger dove l'evoluzione temporale è codificata 
 nell'operatore di stato dipendente dal tempo. Le equazioni del moto per l'operatore di stato e per il vettore di stato sono rispettivamente:
-\begin{align}
+\begin{align*}
   \frac{d\rho(t)}{dt} = -\frac{i}{\hbar} [H(t), \rho(t)], \qquad \frac{d}{dt} \k{\psi(t)} = - \frac{i}\hbar H(t) \k{\psi(t)}.
-\end{align}
+\end{align*}
 Il secondo approccio è quello di Heisenberg che codifica l'evoluzione temporale nell'operatore associato all'osservabile, infatti nella 
 \eqref{eq: media di un osservabile Schrödinger} condensa gli ultimi tre termini in 
-\begin{align}
+\begin{align*}
   R_H (t) = U^\dag(t,t_0) R U(t,t_0)
-\end{align}
+\end{align*}
 che è detto \textit{operatore di Heisenberg} (corrispondente all'operatore di Schrödinger) in modo che la media si interpreti come 
-\begin{align}
+\begin{align*}
   \sc{R} = \Tr\left[ \vphantom{a^b}\rho_0 R_H(t) \right].
-\end{align}
+\end{align*}
 Derivando si ottiene 
-\begin{align}
+\begin{align*}
   \frac{d R_H(t)}{dt} &= \frac{i}\hbar \left( U^\dag H R U - U^\dag R H U \right) + U^\dag \der{R}{t}\, U 
   \\
   &= \frac{i}\hbar [H_H, R_H] + \left( \der{R}{t} \right)_H
-\end{align}
+\end{align*}
 che è detta \textit{equazione del moto di Heisenberg}, dove abbiamo definito $ H_H $ e $ (\partial_t R)_H $ come 
-\begin{align}
+\begin{align*}
   H_H = U^\dag H U,\qquad \left( \der{U}{t} \right)_H =  U^\dag \der{R}{t} \, U 
-\end{align}
+\end{align*}
 dove l'ultimo termine è nullo nel caso $ R $ non dipenda esplicitamente dal tempo.
 
 Calcoliamo la derivata rispetto al tempo del valore di aspettazione di un osservabile $ R $: per Schrödinger si ha
@@ -924,17 +924,17 @@ Calcoliamo la derivata rispetto al tempo del valore di aspettazione di un osserv
   = \Tr\left[ \frac{i}\hbar \rho[H, R] + \rho \der{R}{t} \right]
 \end{gather}
 dove abbiamo usato l'invarianza della traccia sotto permutazione ciclica. Per quanto riguarda Heisenberg si ottiene
-\begin{align}
+\begin{align*}
   \frac{d \sc{R}}{dt} = \Tr\left[ \rho_0 \der{R_H}{t} \right] = \Tr \left[ \frac{i}\hbar \rho_0[H_H, R_H] + \rho_0\left( \der{R}{t} \right)_H \right].
-\end{align}
+\end{align*}
 Nel caso di uno stato puro, con $ \k{\psi_0} $ il vettore di stato al tempo $ t_0 $, il valore d'aspettazione per Schrödinger si scrive
-\begin{align}
+\begin{align*}
   \sc{R} = \bk{\psi(t) | R | \psi(t) }
-\end{align}
+\end{align*}
 ma dato che $ \k{\psi(t)} = U(t,t_0) \k{\psi_0} $ allora 
-\begin{align}
+\begin{align*}
   \sc{R} = \bk{\psi_0 | U^\dag R U | \psi_0} = \bk{\psi_0 | R_H(t) | \psi_0}
-\end{align}
+\end{align*}
 e quindi l'interpretazione di Schrödinger e di Heisenberg sono equivalenti. Lo stesso vale per la derivata dell'osservabile $ \dot{\sc{R}} $.
 
 \subsection{Rappresentazione d'interazione}
@@ -942,23 +942,23 @@ e quindi l'interpretazione di Schrödinger e di Heisenberg sono equivalenti. Lo 
 In alternativa alle rappresentazioni di Schrödinger e di Heisenberg esiste un terzo modo di rappresentare l'evoluzione temporale: la rappresentazione 
 d'interazione (talvolta chiamata di Dirac). Il presupposto è quello di avere una hamiltoniana che si divida in due termini, uno che sappiamo trattare 
 che magari si risolve esattamente e uno che invece è difficile da trattare: 
-\begin{align}
+\begin{align*}
   H = H_0 + V_{\text{int}}
-\end{align} 
+\end{align*} 
 dove abbiamo usato questa notazione come se fosse il caso di un sistema a molte particelle con $ H_0 $ l'hamiltoniana di singola particella e 
 $ V_{\text{int}} $ il potenziale d'interazione. Tuttavia questa premessa è applicabile anche ad altri casi come una particella in un potenziale 
 non risolvibile esattamente, ma in prossimita del minimo è sviluppabile come termine quadratico e quindi 
-\begin{align}
+\begin{align*}
   H = T + V_{\text{quad}} + \Delta V
-\end{align}
+\end{align*}
 dove $ \Delta V = V - V_{\text{quad}} $ e quindi il $ V_{\text{int}} = \Delta V $ e $ H_0 = T + V_{\text{quad}} $.
 
 L'evoluzione temporale $ U(t,0) = \exp\left[ - \frac{i}\hbar (H_0 + V_{\text{int}}) t \right] $ (nel seguito ometteremo sempre il secondo parametro 
 per semplicità di notazione) si può separare in due termini solo se $ [H_0 , V] = 0 $ ottenendo $ U(t) = U_0(t) U_{\text{int}}(t) $. Definiamo 
 lo stato evoluto mediante la sola $ V_{\text{int}} $ come 
-\begin{align}
+\begin{align*}
   \k{\psi_I (t)} = U^\dag_0(t) \k{\psi(t)} = U^\dag_0(t) U(t) \k{\psi(0)}, \quad \text{con}\; U_0^\dag(t) = e^{i H_0 t/\hbar}.
-\end{align}
+\end{align*}
 In un certo senso stiamo togliendo la parte dovuta a $ H_0 $ dallo stato evoluto $ \k{\psi(t)} $ mediante l'hamiltoniana totale. Derivando rispetto 
 al tempo si ha 
 \begin{gather}
@@ -968,20 +968,20 @@ al tempo si ha
   = -\frac{i}\hbar U_0^\dag V_{\text{int}} U_0 \k{\psi_I(t)} 
 \end{gather}
 dove abbiamo invertito la relazione per ottenere $ \k{\psi_I} $ da $ \k{\psi} $. Abbiamo ottenuto un potenziale dipendente dal tempo infatti 
-\begin{align}
+\begin{align*}
   V_{\text{int}}(t) &\coloneq U_0^\dag(t) V_{\text{int}} U_0(t)
   \\
   i \hbar\der{\k{\psi_I(t)}}{t} &= V_{\text{int}}(t) \k{\psi_I(t)}.
-\end{align}
+\end{align*}
 A questo punto possiamo trattarla come una hamiltoniana \textit{time-dipendent} e dunque usare la serie di Dyson per scrivere 
-\begin{align}
+\begin{align*}
   \k{\psi_I(t)} &= \Texp\left[ -\frac{i}\hbar \int_0^t V_{\text{int}}(t')\,dt' \right] \k{\psi_I(0)}
   \\
   U(t) &= U_0(t) \Texp\left[ -\frac{i}\hbar \int_0^t V_{\text{int}}(t')\,dt' \right],
-\end{align}
+\end{align*}
 dove lo stato $ \k{\psi_I(0)} $ per la nostra trattazione è proprio $ \k{\psi(0)} $. In questa rappresentazione i valori d'aspettazione si ottengono 
 come 
-\begin{align}
+\begin{align*}
   \sc{A}_\rho &= \Tr\left[ \rho A(t) \right] = \Tr\left[ \rho U^\dag(t) A U(t) \right] 
   = \Tr\left[ \rho\, U_{\text{int}}^\dag \,U_0^\dag A U_0\, U_{\text{int}} \right]
   \\
@@ -990,7 +990,7 @@ come
   = \Tr\left[  \rho_I(t) \, A_{H_0}(t) \right]
   \\
   &\text{con} \quad A_{H_0} = U_0^\dag(t) \, A \, U_0(t) \quad \text{e} \quad \rho_I(t) = U_{\text{int}}(t) \,\rho\, U_{\text{int}}^\dag(t)
-\end{align}
+\end{align*}
 ovvero l'evoluzione temporale non è codificata solo nello stato o solo nell'osservabile (come in Heisenberg e Schrödinger) ma in entrambi:
 nello stato è contenuta l'informazione dell'evoluzione secondo il potenziale d'interazione $ V_{\text{int}} $, mentre nell'osservabile quella 
 del termine $ H_0 $. 
@@ -998,99 +998,99 @@ del termine $ H_0 $.
 Questo approccio ci apre la strada allo sviluppo perturbartivo: se il termine d'interazione è abbastanza piccolo, possiamo troncare la serie di Dyson per 
 ottenere un'approssimazione del potenziale. Sia $ \norm{V_{\text{int}}}  = \eps $ una qualche norma operatoriale del potenziale d'interazione 
 (ricordiamo che in dimensione finita tutte le norme sono equivalenti) allora abbiamo
-\begin{align}
+\begin{align*}
   \norm{\int_0^t V_{\text{int}}(t') \,dt'} \leq \int_0^t \norm{V_{\text{int}}(t')} \,dt' = \eps t
-\end{align}
+\end{align*}
 pertanto la serie di Dyson è maggiorata da 
-\begin{align}
+\begin{align*}
   \norm{\int_0^t dt_1 \ldots \int_0^{t_{n-1}} dt_n V_{\text{int}}(t_1) \ldots V_{\text{int}}(t_n)} \leq \int_0^t dt_1 \ldots \int_0^{t_{n-1}} \eps^n
   = \frac{\eps^n \, t^n}{n!}
-\end{align}
+\end{align*}
 e dunque il parametro di sviluppo è $ \eps t \ll 1 $, con un tempo caratteristico $ T_c = \frac1\eps $. L'evoluzione troncata si scrive come 
-\begin{align}
+\begin{align*}
   U(t) \un{\simeq}{(\eps t)^n} \ldots
-\end{align}
+\end{align*}
 tuttavia il prezzo da pagare è l'unitarietà della trasformazione.
 
 \section{Simmetrie e leggi di conservazione}
 Consideriamo una trasformazione unitaria di un gruppo a parametro continuo $ U(s) = e^{i s K} $ dove $ K $ è il generatore hermitiano, se l'hamiltoniana 
 è invariante sotto tale trasformazione cioè 
-\begin{align}
+\begin{align*}
   U(s) H U^{-1}(s) = H
-\end{align}
+\end{align*}
 allora tale trasformazione è una simmetria del sistema. Data l'unitarietà di $ U(s) $, tale è equivalente a $ [H, U(s)] = 0 $, che sviluppando al primo 
 ordine si ottiene 
-\begin{align}
+\begin{align*}
   [H, K] = 0.
-\end{align}
+\end{align*}
 Se un osservabile indipendente dal tempo commuta con l'hamiltoniana allora il suo valore d'aspettazione è una costante del moto perché
-\begin{align}
+\begin{align*}
   \frac{d\sc{K}}{dt} = \frac{i}\hbar \sc{[H, K]} = 0, 
-\end{align}
+\end{align*}
 inoltre la sua distribuzione di probabilità è indipendente dal tempo. Ad esempio se $ H $ è invariante per traslazioni spaziali allora il momento è una 
 costante del moto.
 
 Consideriamo $ H $ indipendente dal tempo, sia lo stato iniziale di un sistema $ \k{\psi(0)} = \k{E_n} $ un autovettore dell'hamiltoniana, cioè 
 $ H\k{E_n} = E_n \k{E_n} $, allora la soluzione all'equazione del moto è 
-\begin{align}
+\begin{align*}
   \k{\psi(t)} = e^{-i E_n t/\hbar} \k{E_n}.
-\end{align}
+\end{align*}
 Pertanto uno stato che al tempo $ t = 0 $ si scrive come combinazione degli autovettori dell'hamiltoniana, cioè 
-\begin{align}
+\begin{align*}
   \k{\psi(0)} = \sum_n a_n \k{E_n}
-\end{align}
+\end{align*}
 allora la soluzione all'equazione di Schrödinger diventa una combinazione lineare delle soluzioni per ogni autostato:
-\begin{align}
+\begin{align*}
   \k{\psi(t)} = \sum_n a_n e^{- i E_n t /\hbar} \k{E_n}.
-\end{align}
+\end{align*}
 Questo significa che per un qualsiasi osservabile vale che 
-\begin{align}
+\begin{align*}
   \sc{R} = \bk{\psi(t) | R | \psi(t)} = \bk{ E_n | R | E_n}
-\end{align}
+\end{align*}
 ed è indipendente dal tempo. Tali stati autovettori dell'operatore hamiltoniano sono detti \textit{stati stazionari}.
 
 \section{Fase di Berry}
 Consideriamo una hamiltoniana dipendente dal tempo nella sua forma diagonale 
-\begin{align}
+\begin{align*}
   H(t) = \sum_{n = 1}^N \eps_n(t) \, \Pi_n(t), \quad \text{con} \quad \Pi_n(t) = \sum_{k = 1}^{d_n} \k{e_{nk}(t)} \b{e_{nk}(t)} 
-\end{align}
+\end{align*}
 dove abbiamo scritto i proiettori $ \Pi_n(t) $ in modo da comprendere le degenarazioni. Lo spazio di Hilbert si scrive come somma diretta degli autospazi
 dell'hamiltoniana cioè
-\begin{align}
+\begin{align*}
   \H = \bigoplus_{n = 1}^N \H_n
-\end{align}
+\end{align*}
 dove notiamo che gli autospazi non dipendono dal tempo, infatti lavoriamo nell'ipotesi che durante l'evoluzione temporale non si possano fondere autospazi 
 diversi, che equivale a richiedere che gli autovalori $ \eps_n(t) $ non si intersechino nel tempo. Uno stato $ \k{\psi(t)} $ si scrive come 
-\begin{align}
+\begin{align*}
   \k{\psi(t)} = \sum_{n,k} a_{nk}(t) \k{e_{nk}(t)} e^{-i \phi_n(t)}, \qquad \phi_n(t) = \frac1\hbar \int_{t_0}^t \eps_n(t') \, dt'
-\end{align}
+\end{align*}
 dove le $ \phi_n(t) $ sono dette \textit{fasi dinamiche}, che generalizzano il caso di $ H $ costante, mentre i coefficienti $ a_{nk} $ si ottengono 
 tramite proiezione sull'autovettore corrispondente:
-\begin{align}
+\begin{align*}
   a_{nk}(t) = \bk{e_{nk} | \psi(t)} e^{i\phi_n(t)}.
-\end{align}
+\end{align*}
 Adesso sviluppiamo l'equazione di Schrödinger per lo stato $ \k{\psi(t)} $ in modo da ottenere una equazione differenziale per gli $ a_{nk} $:
-\begin{align}
+\begin{align*}
   i\hbar \dot{\k{\psi}} &= i\hbar \sum_{nk} \dot{a_{nk}} \k{e_{nk}} e^{-i \phi_n} + a_{nk} \dot{\k{e_{nk}}} e^{-i \phi_n} 
   - \frac{i}\hbar \eps_n a_{nk} \k{e_{nk}} e^{-i \phi_n}
   \\
   &= H \k{\psi} = \sum_{nk} \eps_n a_{nk} \k{e_{nk}} e^{-i \phi_n}
-\end{align}
+\end{align*}
 dove abbiamo omesso tutte le dipendente dal tempo. Notiamo che il termine dell'hamiltoniana elimina il termine ottenuto derivando le fasi dinamiche, 
 quindi rimane
-\begin{align}
+\begin{align*}
   \sum_{nk} \dot{a_{nk}} \k{e_{nk}} e^{-i \phi_n} + a_{nk} \dot{\k{e_{nk}}} e^{-i \phi_n} = 0
-\end{align}
+\end{align*}
 e appliando il bra $ \b{e_{n'k'}} $ e coniugando si ottiene
-\begin{align}
+\begin{align*}
   \dot{a_{n'k'}} e^{-i \phi_{n'}} = - \sum_{nk} a_{nk} \bk{e_{n'k'} | \dot{e_{nk}}} e^{-i\phi_n} 
   = \sum_{nk} a_{nk} \bk{\dot{e_{n'k'}} | {e_{nk}}} e^{-i\phi_n} = \bk{\dot{e_{n'k'}} | \psi}
-\end{align}
+\end{align*}
 dove abbiamo usato la proprietà $  \bk{e_{n'k'} | \dot{e_{nk}}} = - \bk{\dot{e_{n'k'}} | {e_{nk}}} $ che si ottiene derivando la condizione di 
 ortonormalità. L'equazione differenziale per i coefficienti si riscrive come 
-\begin{align}
+\begin{align*}
   \frac{d a_{pq}}{dt} = \sum_{nk} a_{nk} \bk{\dot{e_{pq}} | {e_{nk}}} e^{-i(\phi_n - \phi_p)}.
-\end{align}
+\end{align*}
 
 \chapter{Rappresentazione in coordinate}
 
@@ -1103,9 +1103,9 @@ $ \H $ o dire che ne sono una sua rappresentazione in coordinate è equivalente.
 
 L'azione di un operatore $ A $ sulla funzione $ \psi(\v{x}) $ è definita come $ A \psi(\v{x}) = \bk{\v{x} | A | \psi} $, ad esempio l'operatore posizione 
 agisce come $ Q_\alpha \psi(\v{x}) = x_\alpha \psi(\v{x}) $ con $ \alpha = 1,2,3 $. L'azione dell'operatore momento era definita come 
-\begin{align}
+\begin{align*}
   e^{- i \v{a\cdot P} /\hbar } \k{\v{x}} = \k{\v{x + a}}
-\end{align}
+\end{align*}
 ma allora rappresentando in coordinate si ha 
 \begin{gather}
   \bk{\v{x + a} | \psi} = \b{\v{x}} e^{i\v{a\cdot P} /\hbar } \k{\psi} = \b{\v{x}}\left(  I + \frac{i}\hbar \v{a\cdot P} + O(a^2)\right) \k{\psi} 
@@ -1113,67 +1113,67 @@ ma allora rappresentando in coordinate si ha
   = \psi(\v{x}) + \frac{i}\hbar \v{a\cdot P} \, \psi(\v{x}) + O(a^2).
 \end{gather}
 Se confrontiamo questa espressione con lo sviluppo in Taylor della funzione $ \psi(\v{x}) $ cioè 
-\begin{align}
+\begin{align*}
   \psi(\v{x + a}) =  \psi(\v{x}) + \v{a} \cdot \nabla \psi(\v{x}) + O(a^2)
-\end{align}
+\end{align*}
 si ottiene che l'operatore momento corrisponde a 
-\begin{align}
+\begin{align*}
   \v{P} = - i \hbar \nabla, \qquad P_\alpha = -i \hbar \der{}{x_\alpha}
-\end{align}
+\end{align*}
 dove l'ultima espressione è nel caso di coordinate cartesiane. In questo modo l'operatore cinetico (cioè l'hamiltoniana in assenza di potenziali) 
 si scrive come 
-\begin{align}
+\begin{align*}
   H = \frac{ \v{P \cdot P}}{2M} = - \frac{\hbar^2}{2M} \nabla^2.
-\end{align}
+\end{align*}
 Nel caso di un potenziale esterno $ W(\v{x}) $ l'operatore hamiltoniano diventa $ H = -\hbar^2 \nabla^2/2M + W(\v{x}) $, e così possiamo scrivere 
 l'equazione del moto per un vettore di stato $ \k{\Psi(t)} $ rappresentato in coordinate: 
-\begin{align}
+\begin{align*}
   \left[ -\frac{\hbar^2}{2M} \nabla^2 + W(\v{x}) \right] \Psi(\v{x}, t) = i \hbar \der{}{t}\Psi(\v{x}, t) 
-\end{align}
+\end{align*}
 che è nota come \textit{equazione d'onda di Schrödinger}. Il fatto che sia una equazione d'onda è fuorviante per l'interpretazione di $ \Psi(\v{x}, t) $:
 numerosi esperimenti hanno mostrato che $ \Psi(\v{x}, t) $ non è una onda "fisica", cioè non si propaga nello spazio tridimensionale. Bensì 
 l'interpretazione corretta è che sia una onda di probabilità con valore puramente statistico, dove la distribuzione è data da 
-\begin{align}
+\begin{align*}
   \abs{\bk{\v{x} | \psi(t)}}^2 = \abs{ \Psi(\v{x}, t)}^2.
-\end{align}
+\end{align*}
 Per un sistema composto da $ N $ particelle, la base di coordinate sono gli autovettori comuni dei rispettivi operatori posizione 
 $ \v{Q}^{(1)}, \dots, \v{Q}^{(N)} $, cioè $ \k{\v{x}^{(1)}, \dots, \v{x}^{(N)}} = \k{\v{x}^{(1)}} \otimes \dots \otimes \k{\v{x}^{(N)}} $ dove il simbolo 
 $ \otimes $ indica il prodotto di Kronocker, definito come $ A\otimes B \k{a,b} = A\k{a} \otimes B \k{b} $. Il vettore di stato del sistema si scrive come 
-\begin{align}
+\begin{align*}
   \bk{\v{x}^{(1)}, \dots, \v{x}^{(N)} | \Psi} = \Psi(\v{x}^{(1)}, \dots, \v{x}^{(N)})
-\end{align}
+\end{align*}
 e l'equazione del moto deve comprendere oltre ai potenziali delle signole particelle anche i potenziali di interazione quindi l'equazione di Schrödinger 
 diventa 
-\begin{align}
+\begin{align*}
   \left[ \sum_{n = 1}^N -\frac{\hbar^2}{2M_n} \nabla_n^2 + W(\v{x}^{(n)}) + V(\v{x}^{(1)}, \dots, \v{x}^{(N)}) \right] 
   \Psi(\v{x}^{(1)}, \dots, \v{x}^{(N)}) = i \hbar \der{}{t} \Psi(\v{x}^{(1)}, \dots, \v{x}^{(N)}).
-\end{align}
+\end{align*}
 
 \section{Trasformazioni di Galileo dell'equazione di Schrödinger}
 
 La densità di probabilità deve essere mantenuta costante passando da un sistema di riferimento a un altro, questo per garantire che non ci siano 
 osservatori privilegiati. La regola di Born quindi ci impone che 
-\begin{align}
+\begin{align*}
   \abs{\Psi(\v{x}, t)}^2 = \abs{\Psi'(\v{x}', t')}^2
-\end{align}
+\end{align*}
 e quindi le due funzioni d'onda possono differire al massimo di una fase cioè 
-\begin{align}
+\begin{align*}
   \Psi(\v{x}, t) = e^{if} \Psi'(\v{x}', t')
-\end{align}
+\end{align*}
 con $ f $ una funzione reale delle coordinate. Gli operatori differenziali in un sistema di riferimento $ F' $, ottenuto tramite boost lungo l'asse $ x $ 
 dal sistema $ F $, diventano 
-\begin{align}
+\begin{align*}
   \der{}{x'} = \der{}{x}, \qquad \der{}{t'} = \der{}{t} + v \der{}{x}
-\end{align}
+\end{align*}
 e così possiamo riscrivere l'equazione di Schrödinger del sistema $ F' $ 
-\begin{align}
+\begin{align*}
   -\frac{\hbar^2}{2M} \der[2]{}{x'} \Psi'(x', t') + W'(x',t') \Psi'(x', t') = i \hbar \der{}{t'} \Psi'(x', t')
-\end{align}
+\end{align*}
 in termini del sistema $ F $:
-\begin{align}
+\begin{align*}
   -\frac{\hbar^2}{2M} \der[2]{}{x} \left( e^{i f} \Psi(x, t) \right) + W(x,t) \left( e^{i f}\Psi(x, t) \right) 
   = i \hbar \left[ \der{}{t} + v \der{}{x} \right] \left( e^{i f} \Psi(x, t) \right).
-\end{align}
+\end{align*}
 Questa equazione è equivalente a quella di Schrödinger nel sistema $ F $ solo se i termini contenenti la fase $ f $ si annullano, questo significa che la 
 fase deve rispettare le seguenti condizioni:
 \begin{gather}
@@ -1184,62 +1184,62 @@ fase deve rispettare le seguenti condizioni:
   \frac{\hbar}{2M} \left( \der{f}{x} \right)^2 - v \der{f}{x} - \der{f}{t} = 0.
 \end{gather}
 La soluzione a questo sistema è unica a meno di una costante ed è data da 
-\begin{align}
+\begin{align*}
   f(x, t) = \frac{Mvx - \frac12 Mv^2 t}\hbar
-\end{align}
+\end{align*}
 
 
 \section{Flusso di probabilità}
 
 Per una singola particella, la probabilità che si trovi all'interno di una regione $ \Omega $ è data da 
-\begin{align}
+\begin{align*}
   \Prob( \v{Q} \in \Omega | \Psi(t)) = \int_\Omega \abs{\Psi(\v{x}, t)}^2 \, d^3x
-\end{align}
+\end{align*}
 possiamo quindi calcolare come varia nel tempo questa probabilità a volume fissato. L'equazione di Scrödinger ci dà 
 $ \partial_t \Psi = i \hbar \nabla^2 \Psi /2M $ e quindi 
-\begin{align}
+\begin{align*}
   \der{}{t} \int_\Omega \Psi^* \Psi \, d^3x &= \int_\Omega \Psi^* \der{\Psi}{t} + \Psi \der{\Psi^*}{t} \, d^3x 
   = \frac{i\hbar}{2M} \int_\Omega \Psi^* \nabla^2 \Psi - \Psi \nabla^2 \Psi \, d^3x 
   \\
   &= \frac{i\hbar}{2M} \int_\Omega \nabla \cdot \left( \Psi^* \nabla \Psi - \Psi \nabla \Psi \right) \, d^3x 
-\end{align}
+\end{align*}
 dove abbiamo riconosciuto la divergenza del campo vettoriale 
-\begin{align}
+\begin{align*}
   -\frac{i\hbar}{2M} \left( \Psi^* \nabla \Psi - \Psi \nabla \Psi \right) \eqcolon \v{J}(\v{x}, t).
-\end{align}
+\end{align*}
 Siccome le uguaglianze sono valide per un $ \Omega $ arbitrario, allora necessariamente devono essere uguali gli integrandi per cui 
-\begin{align}
+\begin{align*}
   \der{}{t} \abs{\Psi}^2 + \nabla\cdot\mathbf{ J } = 0
-\end{align}
+\end{align*}
 dove notiamo la forma di una equazione di continuità fra la densità di probabilità e quello che possiamo definire come il 
 \textit{vettore del flusso di probabilità}, e tramite il teorema della divergenza si ottiene 
-\begin{align}
+\begin{align*}
   \der{}{t} \int_\Omega \abs{\Psi}^2 \, d^3x = - \oint_{\partial \Omega} \v{J} \cdot d\v{S}.
-\end{align}
+\end{align*}
 Il flusso di probabilità si può esprimere in termini dell'operatore velocità che per una particella libera ricordiamo che è legato all'impulso come 
 $ \v{V} = \v{P}/M  = - i \hbar \nabla/M $, allora si ha che 
-\begin{align}
+\begin{align*}
   \v{J} = -\frac{i\hbar}{2M} \left( \Psi^* \nabla \Psi - \Psi \nabla \Psi \right) = \frac\hbar{M}\text{Im}(\Psi^* \nabla \Psi) 
   = \text{Im}( i \Psi^* \v{V} \Psi) = \text{Re}(\Psi^* \v{V} \Psi).
-\end{align}
+\end{align*}
 
 
 \section{Autofunzioni dell'hamiltoniana}
 
 Consideriamo il caso di una particella libera, vogliamo trovare gli stati per cui vale $ H\k{\Psi} = E \k{\Psi} $ con $ E $ autovalore relativo allo stato 
 $ \k{\Psi} $. Rappresentando in coordinate l'equazione agli autovettori diventa 
-\begin{align}
+\begin{align*}
   -\frac{\hbar^2}{2M} \nabla^2 \Psi(\v{x}) = E \Psi(\v{x})
-\end{align}
+\end{align*}
 si tratta quindi dell'equazione di Helmholtz per l'operatore 
-\begin{align}
+\begin{align*}
   \left[ \nabla^2 + \frac{2 E M}{\hbar^2} \right] \Psi(\v{x}) = 0.
-\end{align}
+\end{align*}
 In base a quale sistema di coordinate scegliamo, per separazione delle variabili si ottengono diverse famiglie di soluzioni particolari. In coordinate 
 cartesiane un set di soluzioni è costituito da 
-\begin{align}
+\begin{align*}
   \Psi_\v{k} = e^{i \v{k \cdot x}} \quad \textnormal{con}\; \v{k}^2 = \frac{2 E M}{\hbar^2} 
-\end{align}
+\end{align*}
 mentre in coordinate sferiche le soluzioni sono scrivibili in termini delle armoniche sferiche $ Y_{l}^{m}(\theta, \varphi) $. Entrambe queste soluzioni 
 non sono a quadrato sommabile, infatti se proviamo a imporre la condizione di normalizzazione della probabilità $ \int\abs{\Psi}^2 d^3 x = 1 $ tale 
 integrale diverge. Questo dimostra l'utilità dello spazio $ \Omega^\times $.
@@ -1249,221 +1249,221 @@ integrale diverge. Questo dimostra l'utilità dello spazio $ \Omega^\times $.
 Nella precedente sezione abbiamo usato la rappresntazione in coordinate tramite gli autovettori dell'operatore posizione, vogliamo ora usare la 
 rappresentazione tramite autovettori dell'operatore impulso, quindi $ P_\alpha \k{\v{p}} = p_\alpha\k{\v{p}} $. Dato che lo spettro è continuo la 
 condizione di ortonormalità degli autovettori si scrive 
-\begin{align}
+\begin{align*}
   \bk{\v{p} | \v{p'}} = \delta(\v{p - p'})
-\end{align}
+\end{align*}
 dove si nota che sono autovettori generalizzati di norma infinita. Per trovare la relazione che lega gli autovettori dell'operatore posizione con quelli 
 dell'operatore impulso calcoliamo $ \bk{\v{x} | \v{p}} $ tramite la rappresentazione $ \v{P} = -i \hbar \nabla $:
-\begin{align}
+\begin{align*}
   -i \hbar \nabla \bk{\v{x}|\v{p}} = -i \hbar \bk{\v{x} | \nabla |\v{p}} = \bk{\v{x} | \v{P} | \v{p}} = \v{p} \bk{\v{x} | \v{p}}
-\end{align}
+\end{align*}
 che ha come soluzione 
-\begin{align}
+\begin{align*}
   \bk{\v{x | p}} = C e^{i \v{p \cdot x}/\hbar}
-\end{align}
+\end{align*}
 con $ C $ una costante che dipende dall'autovalore $ \v{p} $. Per determinarla imponiamo la condizione di ortonormalità ($ \v{p} = \hbar \v{k}$):
-\begin{align}
+\begin{align*}
   \delta(\v{p - p'}) &= \bk{\v{p|p'}} = \int \bk{\v{p | x}} \bk{\v{x | p'}} \,d^3x = C^*(\v{p}) C(\v{p'}) \int e^{i (\v{p' - p})\cdot \v{x} /\hbar}\,d^3x 
   \\
   &= C^*(\v{k}) C(\v{k'}) \F^{-1}\left[ 1 \right]_{\left(\v{k' - k} \right)} = C^*(\v{k}) C(\v{k'}) (2\pi)^3 \delta(\v{k' - k})
-\end{align}
+\end{align*}
 dove $ \F^{-1} $ è la trasformata di Fourier. Concludiamo quindi che $ C = (2 \pi \hbar)^{-3/2} $ e quindi 
-\begin{align}
+\begin{align*}
   \bk{\v{x | \hbar k}} = (2 \pi \hbar)^{-3/2} e^{i \v{k \cdot x}}.
-\end{align}
+\end{align*}
 Grazie a questo risultato possiamo scrivere la rappresentazione in coordinate rispetto all'impulso uno stato $ \k{\Psi} $:
-\begin{align}
+\begin{align*}
   \bk{\v{p} | \Psi} &= \int \bk{\v{p} | \v{x}} \bk{\v{x} | \Psi} \,d^3x = (2 \pi \hbar)^{-3/2} \int e^{ - i \v{k \cdot x}} \Psi(\v{x}) \,d^3x 
   \\
   &= \hbar^{-3/2} \F[\Psi](\v{k}) = \hbar^{-3/2} \Phi(\v{k})
-\end{align}
+\end{align*}
 dove $ \Phi(\v{k}) $ è la trasformata di Fourier della funzione $ \Psi(\v{x}) $. In questa rappresentazione l'operatore impulso è per definizione 
 diagonale, mentre l'operatore posizione diventa 
-\begin{align}
+\begin{align*}
   \bk{\v{p} | Q_\alpha |\Psi} &=  \bk{\v{p} | x_\alpha \Psi} =  (2 \pi \hbar)^{-3/2} \int e^{ - i \v{k \cdot x}} x_\alpha \Psi(\v{x}) \,d^3x
   \\
   &= \hbar^{-3/2} \F\left[ x_\alpha \Psi(\v{x}) \right](\v{k}) = \hbar^{-3/2}\, i \der{\Phi(\v{k})}{k_\alpha} = i \der{}{k_\alpha} \bk{\v{p} | \Psi}
-\end{align}
+\end{align*}
 pertanto possiamo scrivere che 
-\begin{align}
+\begin{align*}
   Q_\alpha = i \der{}{k_\alpha} = i \hbar \der{}{p_\alpha}.
-\end{align}
+\end{align*}
 
 \section{Principio di indeterminazione}
 
 Vogliamo studiare la varianza delle distribuzioni di probabilità associate agli osservabili, che è definita come 
-\begin{align}
+\begin{align*}
   \Delta_A^2 = \sca{ (A - \sc{A})^2 } = \sca{ A^2 - 2A \sc{A} + \sc{A}^2 } = \sc{A^2} - \sc{A}^2.
-\end{align}
+\end{align*}
 Definendo l'operatore $ A_s = A - \sc{A} $ allora la varianza dell'osservabile $ A $ nello stato $ \rho $ si esprime come 
-\begin{align}
+\begin{align*}
   \Delta_A^2 = \Tr\left[ \rho A_s^2\right] = \bk{\psi | A_s^2 |\psi}
-\end{align}
+\end{align*}
 dove l'ultima uguaglianza si ha solo per uno stato puro $ \rho = \k{\psi} \b{\psi} $. Per qualsiasi operatore vale la proprietà 
-\begin{align}
+\begin{align*}
   \Tr\left[ \rho T T^\dag \right] \geq 0
-\end{align}
+\end{align*}
 e si mostra sfruttando che $ TT^\dag $ è semipositivo perché
-\begin{align}
+\begin{align*}
   \bk{\psi | TT^\dag | \psi} = \norm{T^\dag \psi}^2 \geq 0
-\end{align}
+\end{align*}
 e quindi nella base degli autovettori di $ \rho $ si ha
-\begin{align}
+\begin{align*}
   \Tr\left[ \rho TT^\dag \right] = \sum_{n} \bk{n | \rho TT^\dag | n} = \sum_n \lambda_n \bk{n | TT^\dag | n}  \geq 0
-\end{align}
+\end{align*}
 dove $ \lambda_n $ sono gli autovalori di $ \rho $, reali e positivi perché hermitiano e positivo. 
 Siano $ A $ e $ B $ due osservabili che non commutano, cioè 
-\begin{align}
+\begin{align*}
   [A,B] = i C
-\end{align}
+\end{align*}
 dove la $ i $ serve per avere che $ C = C^\dag $ (perché $ A $ e $ B $ sono hermitiani), vogliamo sapere quali sono le implicazioni di questa proprietà 
 sulle varianze delle due distribuzioni associate. Consideriamo $ T = A_s + i \omega B_s $ e $ T^\dag = A_s - i\omega B_s $ dove $ \omega $ è un parametro 
 reale, allora la disuguaglianza precedente diventa 
-\begin{align}
+\begin{align*}
   \Tr\left[ \rho TT^\dag \right] &= \Tr\left[ \rho (A_s^2 - i\omega A_s B_s + i \omega B_s A_s + \omega^2 B_s^2) \right] 
   \\
   &= \Tr\left[ \rho A_s^2 \right] - i \omega \Tr \left\{ \phb\rho [A_s,B_s] \right\} + \omega^2 \Tr\left[ \rho B_s^2 \right] \geq 0
-\end{align}
+\end{align*}
 e per ottenere la forma più forte di questa disuguaglianza minimizziamo $ \omega $ nella forma quadratica che abbiamo ottenuto. Dato che 
 $ [A_s, B_s] = [A, B] = i C $ il minimo si ha per 
-\begin{align}
+\begin{align*}
   \omega_{\text{min}} = -\frac{\Tr\left[\phb \rho C \right]}{2\Tr\left[\phb  \rho B_s^2 \right]}
-\end{align}
+\end{align*}
 e la disguaglianza per tale $ \omega_{\text{min}} $ vale 
-\begin{align}
+\begin{align*}
   \Tr\left[ \rho A_s^2 \right] + \frac{\left( \phb \Tr\left[ \rho C \right] \right)^2}{2 \Tr\left[ \rho B_s^2 \right]} 
   + \frac{\left(\phb \Tr\left[ \rho C \right] \right)^2}{4 \Tr\left[ \rho B_s^2 \right]} \geq 0 
   \implies \Tr\left[ \rho A_s^2 \right] \Tr\left[ \rho B_s^2 \right] \geq \frac{\left\{ \phb\Tr\left( \rho [A,B] \right) \right\}^2}4
-\end{align}
+\end{align*}
 che riscritta per le varianze e per le deviazioni standard è
-\begin{align}
+\begin{align*}
   \Delta_A^2 \, \Delta_B^2 \geq \frac{\sca{[A,B]}^2}4 \implies \Delta_A \, \Delta_B \geq \frac{\abs{\sca{[A,B]}}}2.
-\end{align}
+\end{align*}
 Tale risultato esprime come due distribuzioni statistiche relative a due osservabili che non commutano (e con $ \abs{\sca{[A,B]}} \neq 0 $) siano affette 
 da un principio di incertezza sulla dispersione delle distribuzioni nello stesso stato. Questo principio non si manifesta sulle singole misure ma 
 soltanto sulle distribuzioni statistiche. 
 % È bene ribadire che le varianze sono medie effettuate sempre sullo stesso stato infatti il tutto è più chiaro 
 % se esplicitiamo con la traccia:
-% \begin{align}
+% \begin{align*}
 %   \left\{ \Tr(\rho A_s^2) \right\}\left\{ \Tr(\rho B_s^2) \right\} = \sca{A_s^2}_\rho \sca{B_s^2}_\rho \geq \frac{\sca{[A,B]}^2_\rho}4 
 %   = \frac{\left\{\phb \Tr\left( \rho [A,B] \right) \right\}^2}4.
-% \end{align}
+% \end{align*}
 
 Per gli operatori posizione e impulso il commutatore vale $ [Q_\alpha, P_\beta] = i \hbar \delta_{\alpha \beta} $ quindi la disuguaglianza per 
 la stessa componente di impulso e posizione vale 
-\begin{align}
+\begin{align*}
   \Delta_Q \, \Delta_P \geq \frac\hbar2
-\end{align}
+\end{align*}
 nota come \textit{principio di indeterminazione di Heisenberg}. 
 
 Un altro commutatore non nullo è quello fra le componenti del momento angolare cioè $ [J_\alpha, J_\beta] = i \hbar \eps_{\alpha \beta \gamma} J_\gamma $, 
 e quindi le deviazioni standard delle distribuzioni di due componenti diverse del momento angolare rispettano 
-\begin{align}
+\begin{align*}
   \Delta_{J_\alpha} \, \Delta_{J_\beta} \geq \frac\hbar2 \abs{\sc{J_\gamma}}
-\end{align}
+\end{align*}
 e lo stesso vale per le componenti dello Spin. Per quanto riguarda quest'ultimo, è il motivo per cui l'esperimento di Stern-Gerlach fornisce 
 i risulati controintuitivi che abbiamo discusso.
 
 \chapter{Oscillatore armonico}
 
 L'oscillatore armonico presenta un operatore hamiltoniano formato dal termine cinetico e da un potenziale quadratico, cioè
-\begin{align}
+\begin{align*}
   H = \frac{P^2}{2M} + \frac{M\omega^2}2 Q^2
-\end{align}
+\end{align*}
 dove $ P $ è l'operatore momento e $ Q $ l'operatore posizione.
 
 \section{Soluzione algebrica}
 
 Riscriviamo l'operatore hamiltoniano con degli operatori adimensionali $ p $ e $ q $ definiti come 
-\begin{align}
+\begin{align*}
   q = \sqrt{\frac{M\omega}\hbar} \, Q, \qquad p = \sqrt{\frac1{M\hbar\omega}} \, P
-\end{align}
+\end{align*}
 i quali soddisfano $ [q, p] = [Q, P/\hbar] = i $, e l'hamiltoniana diventa
-\begin{align}
+\begin{align*}
   H = \frac{\hbar \omega}2 \left( p^2 + q^2 \right).
-\end{align}
+\end{align*}
 Inolte definiamo anche un operatore $ a $ e il suo aggiunto $ a^\dag $ in modo che 
-\begin{align}
+\begin{align*}
   a = \frac{q + ip}{\sqrt2}, \qquad a^\dag = \frac{q - ip}{\sqrt2}
-\end{align}
+\end{align*}
 che grazie alla relazione di commutazione $ [Q, P ] = i \hbar $ (per il caso unidimensionale) si ha  
-\begin{align}
+\begin{align*}
   [a, a^\dag] = 1
-\end{align}
+\end{align*}
 e in termini di questi operatori $ H $ diventa 
-\begin{align}
+\begin{align*}
   H = \frac{\hbar \omega}2 \left( aa^\dag + a^\dag a \right) = {\hbar \omega} \left( aa^\dag -\frac12 \right) 
   = {\hbar \omega} \left( a^\dag a + \frac12 \right).
-\end{align}
+\end{align*}
 Con l'hamiltoniana in questa forma, il problema di trovare gli autovalori di $ H $ si riduce a studiare l'operatore hermitiano 
-\begin{align}
+\begin{align*}
   N = a^\dag a,
-\end{align}
+\end{align*}
 notiamo inoltre che $ N $ deve condividere lo spettro $ H $ anche perché $ [H, N] = 0 $. Per trovare gli autovettori $ \k{\nu} $ di $ N $ calcoliamo 
 prima le relazioni di commutazione $ [N,a] $ e $ [N, a^\dag] $, tramite la formula 
-\begin{align}
+\begin{align*}
   [AB,C] = A[B,C] + [A,C] B
-\end{align}
+\end{align*}
 si ha che 
-\begin{align}
+\begin{align*}
   [N, a] &= [a^\dag, a] a = - a
   \\
   [N, a^\dag] &= a^\dag [a, a^\dag] = a^\dag.
-\end{align}
+\end{align*}
 Rislolviamo quindi $ N\k{\nu} = \nu \k{\nu} $ con $ \bk{\nu | \nu} \neq 0 $:
-\begin{align}
+\begin{align*}
   Na\k{\nu} = \left( a N - a \right) \k{\nu} = (\nu - 1) a\k{\nu}
-\end{align}
+\end{align*}
 per tanto $ a\k{\nu} $ è autovettore di $ N $ con autovalore $ \nu - 1 $. La norma quadra di tale autovettore vale 
-\begin{align}
+\begin{align*}
   (a\k{\nu}, a\k{\nu}) = \bk{\nu | a^\dag a| \nu} = \bk{\nu | N | \nu} = \nu \bk{\nu |\nu} \geq 0
-\end{align}
+\end{align*}
 e dato che deve essere semipositiva allora gli autovalori rispettano $ \nu \geq 0 $. Iterando l'operatore $ a $ si ottiene una sequenza di autevettori 
 con autovalori $ \nu - 1, \nu - 2, \dots $ che termina necessariamente con $ \nu = 0 $ dato che $ a \k{0} = 0 $. Lo stesso procedimento ma con 
 l'operatore $ a^\dag $ porta a 
-\begin{align}
+\begin{align*}
   N a^\dag \k{\nu} = \left( a^\dag N + a^\dag \right) \k{\nu} = \left( \nu + 1 \right) a^\dag \k{\nu}
-\end{align}
+\end{align*}
 e quindi $ a^\dag \k{\nu} $ è autovettore di $ N $ con autovalore $ \nu + 1 $, inoltre $ a^\dag\k{\nu} $ non può essere il vettore nullo perché la sua norma 
 quadra vale 
-\begin{align}
+\begin{align*}
   (a^\dag \k{\nu}, a^\dag \k{\nu}) = \bk{\nu | a a^\dag | \nu} = \bk{\nu | aa^\dag + a^\dag a - a^\dag a| \nu } = \bk{\nu | N + 1 | \nu}= (\nu + 1) \bk{\nu | \nu}
-\end{align}
+\end{align*}
 e dato che $ \nu \geq 0 $ non si può annullare, per ciò anche $ \k{\nu} \neq 0 $.
 
 Grazie ai due operatori $ a, a^\dag $ abbiamo trovato che lo spettro di $ N $ e quindi anche di $ H $ è discreto con autovalori 
-\begin{align}
+\begin{align*}
   \nu \in \mathbb{N} \cup \{0\} = \mathbb{N}_0
-\end{align}
+\end{align*}
 che ridefiniamo quindi con $ \nu = n $. Il vettore $ a^\dag \k{n} $ è proporzionale all'autovettore $ \k{n + 1} $ dato che corrisponde all'autovalore 
 $ n+1 $ perciò possiamo scrivere $ a^\dag \k{n} = C_n \k{n+1} $ e per determinare $ C_n $ ci basta considerare la norma:
-\begin{align}
+\begin{align*}
   \abs{C_n}^2 \bk{n+1|n+1} = \bk{n | a a^\dag | n } = n+1
-\end{align}
+\end{align*}
 e quindi $ \abs{C_n} = \sqrt{n+1} $. Dato che la fase degli autovettori di $ N $ è arbitraria possiamo sceglierla in modo che $ C_n $ sia reale pertanto 
-\begin{align}
+\begin{align*}
   a^\dag \k{n} = \sqrt{n+1}\, \k{n+1} \implies \k{n} = \frac1{\sqrt{n!}} (a^\dag)^n \k{0}.
-\end{align}
+\end{align*}
 Possiamo calcolare gli elementi di matrice di entrambi gli operatori e cioè 
-\begin{align}
+\begin{align*}
   \bk{n' | a^\dag | n} = \sqrt{n+1}\, \bk{n' | n+1} = \sqrt{n+1} \,\delta_{n', n+1}
-\end{align}
+\end{align*}
 mentre per $ a $ possiamo trasporre gli elementi di $ a^\dag $ ovvero 
-\begin{align}
+\begin{align*}
   \bk{n' | a | n} = \sqrt{n' + 1} \, \bk{n | n' + 1} = \sqrt{n' + 1} \, \delta_{n, n'+1} = \sqrt{n} \, \delta_{n - 1, n'}
-\end{align}
+\end{align*}
 da cui segue che l'azione di $ a $ su un autovettore $ \k{n} $ vale 
-\begin{align}
+\begin{align*}
   a \k{n} = \sqrt{n} \, \k{n - 1} \quad n \neq 0, \qquad a\k{0} = 0.
-\end{align}
+\end{align*}
 Di conseguenza l'operatore $ N $ agisce come 
-\begin{align}
+\begin{align*}
   N \k{n} = a^\dag a\k{n} =  \sqrt{n} \, a^\dag\k{n - 1} = n \k{n}, \qquad N \k{0} = 0
-\end{align}
+\end{align*}
 e quindi possiamo scrivere gli autovalori dell'hamiltoniana dell'oscillatore armonico cioè
-\begin{align}
+\begin{align*}
   H \k{n} = {\hbar \omega} \left( N + \frac12 \right)\k{n} = {\hbar \omega} \left( n + \frac12 \right) \k{n} \eqcolon E_n \k{n}
-\end{align}
+\end{align*}
 con $ n = 0, 1, 2, \dots $. Da ciò che abbiamo ricavato traiamo varie conclusioni. Lo spettro dell'energia e quindi i valori 
 possibili delle misure sono discreti ed equispaziati di $ \hbar \omega $, da cui deriva la tesi dei \textit{quanti} di energia. 
 Il valore minimo dell'energia non è $ 0 $, come previsto dalla teoria classica in caso di punto materiale fermo nell'origine, ma è $ {\hbar \omega}/2 $.
@@ -1472,36 +1472,36 @@ Il valore minimo dell'energia non è $ 0 $, come previsto dalla teoria classica 
 \section{Soluzione analitica}
 
 Nella rappresentazione in coordinate rispetto alla posizione l'equazione $ H\k{\psi} = E \k{\psi} $ diventa 
-\begin{align}
+\begin{align*}
   -\frac{\hbar^2}{2M} \frac{d^2 \psi(x)}{dx^2} + \frac{M \omega^2}2 x^2 \psi(x) = E \psi(x).
-\end{align}
+\end{align*}
 Per trattare questa equazione differenziale definiamo la coordinata e l'autovalore adimensionale $ q, \lambda $:
-\begin{align}
+\begin{align*}
   q = \sqrt{\frac{M\omega}{\hbar}} \,x, \qquad \lambda = \frac{2E}{\hbar \omega}
-\end{align}
+\end{align*}
 dove notiamo che l'unica lunghezza costruibile con le grandezze in gioco è $ x_0 = \sqrt{\hbar/M\omega} $ perciò $ q = x/x_0 $ era l'unica scelta 
 possibile. Indicando con $ \psi(x) = u (q) $ l'equazione agli autovalori diventa 
-\begin{align}
+\begin{align*}
   \frac{d^2 u}{dq^2} + \left( \lambda - q^2 \right) u = 0
-\end{align}
+\end{align*}
 e osserviamo che asintoticamente per $ \lambda - q^2 \sim q^2 $ si ottiene come soluzione gli esponenziali $ e^{q^2 /2} $ e $ e^{-q^2 /2} $, tuttavia la 
 prima soluzione diverge e quindi non appartiene allo spazio di Hilbert esteso. Questa osservazione ci motiva a cercare soluzioni della forma 
-\begin{align}
+\begin{align*}
   u(q) = H(q) e^{-{q^2}/2}
-\end{align}
+\end{align*}
 dato che asintoticamente dobbiamo avere il comportanto di una gaussiana. Fattorizzando nell'equazione la gaussiana si ottiene un'equazione per $ H(q) $:
-\begin{align}
+\begin{align*}
   H'' - 2 q H' + \left( \lambda - 1 \right) H = 0
-\end{align}
+\end{align*}
 che è nota come \textit{equazione di Hermite}. Questa equazione differenziale è a coefficienti regolari infatti $ -2q $ è un monomio e $ \lambda - 1 $ 
 è una costante, per tanto la soluzione è una funzione intera (analitica su tutto $ \C $) e quindi esprimibile come serie di potenze:
-\begin{align}
+\begin{align*}
   H(q) = \sum_{n = 0}^\infty a_n q^n.
-\end{align}
+\end{align*}
 Inserendo la serie di potenze nell'equazione di Hermite si ottiene 
-\begin{align}
+\begin{align*}
   2 a_2 + (\lambda - 1)a_0 + \sum_{n = 1}^\infty q^n \left[ \phb a_{n+2} (n+2)(n+1) - 2 a_n n + (\lambda -1)a_n  \right]  = 0
-\end{align}
+\end{align*}
 e richiedendo che sia nulla per ogni potenza $ q^n $ si ottiene la relazione fra i coefficienti 
 \begin{align} \label{eq: ricorsiva per coefficienti dei polinomi di Hermite}
   a_{n+2} = \frac{2n + 1 - \lambda}{(n+2) (n+1)} a_n \quad \text{con} \; n \geq 0.
@@ -1509,37 +1509,37 @@ e richiedendo che sia nulla per ogni potenza $ q^n $ si ottiene la relazione fra
 La serie risultante da questi coefficienti è convergente come si può vedere dal rapporto $ a_{n+2}/a_{n} \to \frac2n < 1 $ tuttavia questa soluzione è 
 asintoticamente un esponenziale del tipo $ e^{q^2} $ che era proprio la soluzione che avevamo già scartato. Quindi l'unico modo per avere una soluzione 
 che non diverga è che la serie termini quindi avere 
-\begin{align}
+\begin{align*}
   \lambda = 2N + 1
-\end{align}
+\end{align*}
 per un qualche $ N \in \mathbb{N}_0 $, ma questo termina soltanto i coefficienti della stessa parità di $ N $, questo perché la relazione fra 
 i coefficienti lega $ a_{n+2} $ ad $ a_n $ per cui si ottiene due catene indipendenti per i termini pari che iniziano con $ a_0 $ e per quelli 
 dispari che iniziano con $ a_1 $. Quindi scegliendo per $ N $ pari dobbiamo scegliere $ a_1 = 0 $, mentre per $ N $ dispari si sceglie $ a_0 = 0 $ e 
 così $ H_N(q) $ è un polinomio di grado finito $ N $. Avendo trovato i possibili valori di $ \lambda $ allora abbiamo anche gli autovalori dell'energia:
-\begin{align}
+\begin{align*}
   E_N = \hbar\omega \,\frac{\lambda(N)}2 = \hbar \omega \left( N + \frac12 \right) \quad \text{con} \; N \in \mathbb{N}_0
-\end{align}
+\end{align*}
 che sono proprio quelli che avevamo trovato nella soluzione algebrica.
 
 Abbiamo mostrato quindi che l'insieme dei polinomi che risolvono l'equazione ricorsiva \eqref{eq: ricorsiva per coefficienti dei polinomi di Hermite} 
 hanno un solo parametro libero, che seleziona la catena con la parità di $ N $, sostituendo $ \lambda = 2N +1 $ nell'equazione di Hermite otteniamo 
-\begin{align}
+\begin{align*}
   H'' - 2qH' + 2N H = 0.
-\end{align}
+\end{align*}
 Le soluzioni a questa equazione sono date dai \textit{polinomi di Hermite} (nella catena della parità di $ N $) e dato che possono differire per una 
 costante si sceglie il termine $ a_N = 2^N $, che porta alla forma chiusa 
-\begin{align}
+\begin{align*}
   H_N(q) = N!\sum_{k = 0}^{\lfloor N/2 \rfloor} \frac{ (-1)^k (2q)^{N - 2k} }{k! (N - 2k)!}.
-\end{align}
+\end{align*}
 Esiste una forma più comoda che permette di ricavarsi il polinomio di Hermite $ N $-esimo ed è tramite la funzione generatrice $ G(q, s) $:
-\begin{align}
+\begin{align*}
   G(q,s) = e^{(-s^2 + 2sq)} = \sum_{N = 0}^\infty \frac{H_N(q)}{N!} s^N
-\end{align}
+\end{align*}
 ovvero i polinomi di Hermite sono i coefficienti dello sviluppo in Taylor di $ G(q,s) $ in $ s = 0 $, per tanto si ottengono come 
-\begin{align}
+\begin{align*}
   H_N(q) = \frac{d^N}{ds^N} \left. \phB G(q,s) \right|_{s=0} = e^{q^2} \frac{d^N}{ds^N}  \left. e^{- (s - q)^2} \right|_{s=0}.
   % = (-1)^N e^{q^2}  \frac{d^N}{dq^N}  \left. e^{}
-\end{align}
+\end{align*}
 
 \chapter{Sistemi interagenti}
 
@@ -1548,30 +1548,30 @@ ovvero i polinomi di Hermite sono i coefficienti dello sviluppo in Taylor di $ G
 Vogliamo studiare come si può descrivere un sistema composto da due (o più) sottosistemi $ A $ e $ B $. Ciascuno dei due sistemi avrà il proprio spazio 
 di Hilbert con i proprio operatori quindi $ \{\H_A, A_i\} $ e $ \{\H_B, B_i\} $. Lo spazio prodotto si indica con $ \H = \H_A \otimes \H_B $ 
 di dimensione $ d_A d_B $ e prese due basi $ \k{a_i} $ per $ \H_A $ e $ \k{b_i} $ per $ \H_B $ allora la base composta per $ \H $ è data da 
-\begin{align}
+\begin{align*}
   \{\k{a_i} \otimes \k{b_j}\}_{i,j} = \{\k{a_i} \k{b_j}\}_{i,j} = \{\k{a_i,b_j}\}_{i,j}.
-\end{align}
+\end{align*}
 Gli argomenti dell'operazione $ \otimes $ sono posizionali, cioè se lo spazio prodotto è inidicato con $ \H_A \otimes \H_B $ allora il vettore a sinistra 
 sarà sempre un elemento di $ \H_A $ e il vettore a destra di $ \H_B $. Gli operatori agiscono ognuno sul suo spazio di Hilbert 
 cioè $ A \otimes B \k{a,b} = A \k{a} \otimes B \k{b} $ mentre il prodotto scalare si estende come 
-\begin{align}
+\begin{align*}
   \left( \phb \b{\alpha} \otimes \b{\beta} \right) \left( \phb \k{\gamma} \otimes \k{\delta} \right) = \bk{\alpha | \gamma} \cdot \bk{\beta | \delta},
-\end{align}
+\end{align*}
 e infine il prodotto esterno diventa 
-\begin{align}
+\begin{align*}
   \k{\alpha, \beta} \b{\gamma, \delta} = \k{\alpha} \b{\gamma} \otimes \k{\beta} \b{\delta}
-\end{align}
+\end{align*}
 
 Presi due stati $ \k{\psi} = \sum_i \alpha_i \k{a_i} $ e $ \k{\phi} = \sum_i \beta_i \k{b_i} $ allora lo stato del sistema composto è 
-\begin{align}
+\begin{align*}
   \k{\psi,\phi} = \k{\psi} \otimes \k{\phi} = \sum_{i=1}^{d_A} \sum_{j = 1}^{d_B} \alpha_i\beta_j \k{a_i} \otimes \k{b_j}.
-\end{align}
+\end{align*}
 Ordiniamo la base composta come segue
-\begin{align}
+\begin{align*}
   \{\k{a_1b_1}, \k{a_1,b_2}, \dots , \k{a_1b_{d_B}}, \k{a_2b_1}, \dots, \k{a_{d_A}b_{d_B}}\},
-\end{align}
+\end{align*}
 in questo modo la matrice formata dai coefficienti $ \alpha_i \beta_j $ si scrive 
-\begin{align}
+\begin{align*}
   \gamma = 
   \begin{pmatrix}
     \alpha_1 (\beta_1 & \beta_2 & \dots & \beta_{d_B}) \\
@@ -1579,30 +1579,30 @@ in questo modo la matrice formata dai coefficienti $ \alpha_i \beta_j $ si scriv
      & & \vdots & & \\
     \alpha_{d_A} (\beta_1 & \beta_2 & \dots & \beta_{d_B}) 
   \end{pmatrix}
-\end{align}
+\end{align*}
 che ha $ \rank (\gamma) = 1 $ dato che le righe (e le colonne) sono tutte multiple della prima. Dato che il rango è invariante cambio di base, 
 questa è una condizione necessaria affinché uno stato di $ \H $ sia fattorizzabile come prodotto di due stati $ \k{\psi} \otimes \k{\phi} $ di 
 $ \H_A $ e $ \H_B $. È anche sufficiente infatti presa una matrice di rango $ 1 $ allora per mosse di Gauss (che equivalgono a un cambio base) 
 si può ottenere una matrice con una sola riga di elementi $ c_{i_0 1}, \dots, c_{i_0 d_B} $, per cui esiste un 
 $ \alpha $ tale che $ c_{ij} = \alpha_{i_0} \beta_j $, 
 imponendo per le righe nulle $ \alpha_i = 0 $ otteniamo $ c_{ij} = \alpha_i \beta_j $ e quindi 
-\begin{align}
+\begin{align*}
   \k{\psi_{AB}} &= \sum_{i=1}^{d_A} \sum_{j = 1}^{d_B} c_{ij} \k{a_i} \otimes \k{b_j} 
   = \sum_{i=1}^{d_A} \sum_{j = 1}^{d_B} \alpha_i \beta_j \k{a_i} \otimes \k{b_j} 
   \\
   &= \left( \sum_{i=1}^{d_A} \alpha_i \k{a_i} \right) \otimes \left( \sum_{j = 1}^{d_B} \beta_j \k{b_j} \right) = \k{\psi} \otimes \k{\phi}.
-\end{align}
+\end{align*}
 Per tanto possiamo riassumere quanto detto nella seguente:
-\begin{align}
+\begin{align*}
   \k{\psi_{AB}} \; \text{è fattorizzabile} \iff c_{ij} \; \text{ha rango 1}.
-\end{align}
+\end{align*}
 \begin{example}
   Consideriamo due Qbit con la base composta $ \{\k{00}, \k{01}, \k{10}, \k{11}\} $, e gli stati
-  \begin{align}
+  \begin{align*}
     \k{\psi_1} = \frac{\k{01} + \k{11}}{\sqrt{2}}, \qquad \k{\psi_2} = \frac{\k{00} + \k{11}}{\sqrt{2}}.
-  \end{align}
+  \end{align*}
   Le due matrici associate sono 
-  \begin{align}
+  \begin{align*}
     M_{\psi_1} = \frac1{\sqrt{2}}
     \begin{pmatrix}
       0 & 1 \\
@@ -1613,11 +1613,11 @@ Per tanto possiamo riassumere quanto detto nella seguente:
       1 & 0 \\
       0 & 1 
     \end{pmatrix}
-  \end{align}
+  \end{align*}
   dalle quali riconosciamo subito che $ \k{\psi_2} $ non è fattorizzabile, mentre $ \k{\psi_1} $ sì infatti 
-  \begin{align}
+  \begin{align*}
     \k{\psi_1} = \frac{(\k{0} + \k{1}) \otimes \k{1}}{\sqrt{2}}.
-  \end{align}
+  \end{align*}
 \end{example}
 
 Diremo che uno stato nello spazio composto $ \H = \H_A \otimes \H_B $ è \textit{entangled} se non è fattorizzabile in un prodotto di uno stato in $ \H_A $ 
@@ -1628,25 +1628,25 @@ e di uno stato in $ \H_B $, ovvero $ \rank c \geq 2 $.
 In un sistema composto da due sottosistemi $ \H_A \otimes \H_B $ deve essere possibile eseguire una misura soltanto su uno dei due, questo anche se 
 lo stato è entangled. Fare una misura solo sul sottosistema $ \H_A $ significa applicare l'operatore $ A \otimes I_B $ questo perché se lo stato è 
 fattorizzabile allora 
-\begin{align}
+\begin{align*}
   \left(\phb A \otimes I_B \right) \left(\phb \k{a} \otimes \k{b} \right) = A\k{a} \otimes \k{b}.
-\end{align}
+\end{align*}
 
 Richiamiamo la definizione di matrice densità: dato un ensemble di stati $ E = \{p_i; \k{\psi_i}\} $ allora il valore di aspettazione di un osservabile è 
-\begin{align}
+\begin{align*}
   \sc{O} = \sum_i p_i \bk{\psi_i | O | \psi_i} = \sum_i p_i \Tr \left[ \k{\psi_i} \b{\psi} O \right] 
   = \Tr \left[ \phb \textstyle \sum_i p_i \k{\psi_i} \b{\psi_i} O\right] = \Tr \left[ \rho O \right]
-\end{align}
+\end{align*}
 con $ \rho \in \S(\H) $. Consideriamo uno stato $ \k{\psi} \in \H_A \otimes \H_B $ scritto rispetto alla base 
-\begin{align}
+\begin{align*}
   \k{\psi} = \sum_{ij} c_{ij} \k{a_i b_j} \implies \b{\psi} = \sum_{ij} c_{ij}^* \b{a_i b_j}
-\end{align}
+\end{align*}
 allora la matrice densità associata $ \rho = \k{\psi} \b{\psi} $ si scrive nella base composta come 
-\begin{align}
+\begin{align*}
   \rho = \sum_{ijkl} c_{kl} c_{ij}^* \k{a_k b_l} \b{a_i b_j} = \sum_{ijkl} \rho_{ijkl} \k{a_k b_l} \b{a_i b_j} = 
-\end{align}
+\end{align*}
 Calcoliamo il valore d'aspettazione di un osservabile $ O = A \otimes I_B $ che consiste in una misura sul sistema $ A $ senza eseguire nulla su $ B $:
-\begin{align}
+\begin{align*}
   \bk{\psi | O | \psi} &= \left( \sum_{ij} c_{ij}^* \b{a_i b_j} \right) \left( \sum_{kl}c_{kl} A \otimes I_B \k{a_k b_l} \right) 
   \\
   &= \left( \sum_{ij} c_{ij}^* \b{a_i b_j} \right) \left( \sum_{k l} c_{kl} A \k{a_k} \otimes \k{b_l} \right) 
@@ -1658,34 +1658,34 @@ Calcoliamo il valore d'aspettazione di un osservabile $ O = A \otimes I_B $ che 
   &= \sum_{ik} \left( \rho_A \right)_{ki} \bk{a_i | A | a_k} = \sum_{ik} \bk{a_k | \rho_A | a_i} \bk{a_i | A | a_k} 
   \\
   &= \sum_k \bk{a_k | \rho_A A | a_k} = \Tr_A\left[ \phb \rho_A A \right]
-\end{align}
+\end{align*}
 dove l'ultima traccia è fatta solo sul sistema $ A $ dato che $ \rho_A A \in \L(\H_A) $. Abbiamo definito l'operatore $ \rho_A $ tramite 
 i suoi elementi di matrice 
-\begin{align}
+\begin{align*}
   \left( \rho_A \right)_{ki} = \sum_{j} \bk{a_k b_j | \rho | a_i b_j} = \sum_{j} \rho_{kjij} = \sum_{jl} \rho_{kjil} \delta_{jl}
-\end{align}
+\end{align*}
 si tratta quindi di una sorta di contrazione della matrice densità $ \rho $ sui vettori di base del sottosistema $ \H_B $, per tanto possiamo definire 
 il seguente \textit{superoperatore}, cioè un operatore tale che mappa $ \L(\H') \to \L(\H'') $, detto \textit{traccia parziale} che, dato un operatore 
 $ \rho \in \L(\H_A \otimes \H_B) $ fattorizzato come $ \rho^{(1)} \otimes \rho^{(2)} $, lo trasforma come segue: 
-\begin{align}
+\begin{align*}
   &\Tr_B : \L(\H_A \otimes \H_B) \to \L(\H_A)
   \\
   &\Tr_B\rho = \rho^{(1)} \cdot \Tr \rho^{(2)} = \rho^{(1)} \sum_{j} \bk{ b_j | \rho ^{(2)}| b_j} \eqcolon \rho_A
-\end{align}
+\end{align*}
 Nel caso particolare che $ \rho $ sia una matrice densità fattorizzabile allora la traccia parziale manda $ \Tr_B : \S(\H_A \otimes \H_B) \to \S(\H_A) $ 
 ottenendo $ \rho_A = \rho^{(1)} $ dato che $ \Tr \rho^{(2)} = 1 $, in questo modo possiamo ricostruire lo stato composto come 
-\begin{align}
+\begin{align*}
   \rho = \rho_A \otimes \rho_B.
-\end{align}
+\end{align*}
 Nella realtà questo è altamente improbabile perché una matrice densità generica non è fattorizzabile in due parti $ \rho^{(1)} \otimes \rho^{(2)} $ 
 ma è scritta in termini della base come 
-\begin{align}
+\begin{align*}
   \rho = \sum_{ijkl} \rho_{ijkl} \; \k{a_i} \b{a_k} \otimes \k{b_j} \b{b_l}.
-\end{align}
+\end{align*}
 Una relazione utile fra le tracce parziali di due sistemi è che la loro composizione dà la traccia totale:
-\begin{align}
+\begin{align*}
   \Tr = \Tr_A \circ \Tr_B.
-\end{align}
+\end{align*}
 
 Abbiamo visto come misurare un solo sistema di due ci dà informazioni solo sulla matrice densità ridotta di quel sistema, dunque l'informazione passa da 
 essere codificata all'interno di uno stato globale $ \rho $ a uno ridotto $ \rho_A $. La domanda ora è se dati $ \rho_A $ e $ \rho_B $ siamo in grado 
@@ -1703,74 +1703,74 @@ matrici densità.
   relativo all'autovettore $ \k{a_j} $. 
   Prendo il sistema $ B $ isodimensionale a $ A $ quindi $ \dim \H_A = \dim \H_B = d $ e sia $ \{\k{b_j}\} $ un \textit{c.o.s}
   (\textit{complete ortonormal system}) per $ \H_B $. Costruisco lo stato 
-  \begin{align}
+  \begin{align*}
   \k{\psi_{AB}} = \sum_{j} \sqrt{\lambda_j} \k{a_j, b_j}
-  \end{align}
+  \end{align*}
   da cui segue che la matrice densità $ \rho = \k{\psi_{AB}} \b{\psi_{AB}} $ si scrive 
-  \begin{align}
+  \begin{align*}
     \rho = \sum_{jk} \sqrt{\lambda_j \lambda_k} \k{a_j,b_j} \b{a_k, b_k}
-  \end{align}
+  \end{align*}
   e ne calcoliamo la traccia rispetto al sistema $ B $:
-  \begin{align}
+  \begin{align*}
     \Tr_B\left[ \phb \sum_{jk} \sqrt{\lambda_j \lambda_k} \k{a_j,b_j} \b{a_k, b_k} \right] 
     = \sum_{jk}\sqrt{\lambda_j \lambda_k} \k{a_j} \b{a_k} \delta_{jk} = \sum_{j} \lambda_j \k{a_j} \b{a_j} = \rho_A
-  \end{align}
+  \end{align*}
   ma le basi possibili di $ B $ sono infinite, e il risultato che abbiamo ottenuto era indipendente dalla base scelta, per tanto per ogni matrice densità 
   ridotta $ \rho_A $ esistono infiniti stati $ \k{\psi_{AB}} $.
 \end{proof}
 
 Serve definire un prodotto scalare fra operatori in modo da poter definire il concetto di operatori ortogonali, tale prodotto è detto 
 \textit{prodotto scalare di Hilbert-Schmidt} ed è definito come 
-\begin{align}
+\begin{align*}
   \sc{\sc{A | B}} = \Tr\left[ A^\dag B \right].
-\end{align}
+\end{align*}
 Notiamo che è lineare nella seconda componente e antilineare nella prima, è definito positivo perché 
-\begin{align}
+\begin{align*}
   \sc{\sc{A|A}} = \Tr\left[ A^\dag A \right] \geq 0
-\end{align}
+\end{align*}
 perché $ A^\dag A \geq 0 $, e vale $ 0 $ se $ A^\dag A $ ha tutti gli autovalori nulli cioè $ A $ è l'operatore nullo. 
 
 Secondo questo prodotto le matrici di pauli sono ortogonali, tuttavia non sono normalizzate infatti 
-\begin{align}
+\begin{align*}
   \sc{\sc{\sigma_i|\sigma_i}} = \Tr \left[ \sigma_i^\dag \sigma_i \right] = \Tr I = \dim \H = 2
-\end{align}
+\end{align*}
 dove abbiamo usato che il quadrato delle matrici di Pauli è l'identità. Per formare una base di $ \L(\H) $ manca un elemento dato che lo spazio degli 
 operatori $ \H_2 $ ha dimensione $ 4 $, e si nota che l'identità è indipendente dal set $ \{\sigma_x, \sigma_y, \sigma_z\} $ per cui la denotiamo con 
 $ \sigma_0 = I $ e così otteniamo il set ortogonale (non ortonormale):
-\begin{align}
+\begin{align*}
   \sigma = \{\sigma_0, \sigma_1, \sigma_2, \sigma_3\}.
-\end{align}
+\end{align*}
 
 Uno stato qualsiasi si scrive come combinazione delle $ \sigma $ dunque la sua matrice rispetto a una base di $ \H_2 $ deve necessariamente essere 
-\begin{align}
+\begin{align*}
   \rho = 
   \begin{pmatrix}
     p_0 & \gamma \\
     \gamma^* & 1 - p_0
   \end{pmatrix}
-\end{align}
+\end{align*}
 dove abbiamo indicato con $ p_0 $ la probabilità che sia nello stato $ \k{0} $, infatti deve essere $ 0 \leq p_0 \leq 1 $ anche perché la traccia deve 
 essere $ 1 $ e $ \rho \geq 0 $. Per questi motivi abbiamo scritto che $ \bk{1 | \rho | 1} = 1 - p_0 $, mentre $ \gamma = \bk{0 | \rho | 1} \in \C $ 
 ha solo il vincolo che $ \abs{\gamma} < 1 $. In realtà impoenendo la positività si ottiene che $ \abs{\gamma} \leq \sqrt{p_0 p_1} = \sqrt{p_0 (1 - p_0)} $ 
 che ha massimo in $ p_0 = p_1 = \frac12 $ e vale proprio $ \abs{\gamma} = \frac12 $ e lo raggiunge solo per uno stato puro.
 
 Adesso rappresentiamo uno stato generico $ \rho $ tramite la base delle matrici di Pauli, per questo possiamo scrive che 
-\begin{align}
+\begin{align*}
   \rho = \sum_{j = 0}^3 \alpha_j \sigma_j.
-\end{align}
+\end{align*}
 Imponendo il vincolo della traccia troviamo che 
-\begin{align}
+\begin{align*}
   1 = \Tr \rho = \sum_{j = 0}^3 \alpha_j \Tr \sigma_j = 2 \alpha_0  \implies \alpha_0 = \frac12
-\end{align}
+\end{align*}
 e quindi indicando con $ \vec{\alpha} = (\alpha_1, \alpha_2, \alpha_3) $ e $ \vec{\sigma} = (\sigma_1, \sigma_2, \sigma_3) $ possiamo scrivere
-\begin{align}
+\begin{align*}
   \rho = \frac{I}2 + \vec{\alpha} \cdot \vec{\sigma}
-\end{align}
+\end{align*}
 mentre per il fatto che $ \rho^\dag = \rho $ abbiamo che $ \alpha_j = \alpha_j^* $. Riscaliamo con $ \vec{\alpha} = \frac{\vec{r}}2 $ 
 tale che $ \norm{\vec{r}} \leq 1 $ e quindi 
-\begin{align}
+\begin{align*}
   \rho = \frac{I + \vec{r} \cdot \vec{\sigma}}2
-\end{align}
+\end{align*}
 e questo ci permette di rappresentare ogni stato all'interno di una sfera di raggio $ 1 $ tramite il vettore $ \vec{r} $. Tale sfera è detta 
 \textit{sfera di Bloch} e il vettore $ \vec{r} $ \textit{vettore di Bloch}, ed è la rappresentazione geometrica dello spazio degli stati come 
 insieme convesso, infatti la superficie della sfera di Bloch rappresenta gli stati che non possono essere espressi come combinazione convessa di 
@@ -1785,11 +1785,11 @@ $ \vec{r_1} = - \vec{r_2}$.
 \chapter{Momento angolare}
 
 Studiando il gruppo di Galileo avevamo ricavato le regole di commutazione fra i generatori delle rotazioni $ J_\alpha $, che qui riportiamo:
-\begin{align}
+\begin{align*}
   [J_\alpha, J_\beta] = i\hbar \,\eps_{\alpha \beta \gamma} J_\gamma.
-\end{align}
+\end{align*}
 Le rotazioni di angolo $ \theta $ attorno agli assi cartesiani dello spazio vettoriale $ \R^3 $ sono rappresentate in forma matriciale da
-\begin{align}
+\begin{align*}
   R_1=
   \begin{pmatrix}
     1 & 0 & 0 \\
@@ -1810,13 +1810,14 @@ Le rotazioni di angolo $ \theta $ attorno agli assi cartesiani dello spazio vett
     \sin \theta & \cos \theta & 0 \\
     0 & 0 & 1 
   \end{pmatrix}
-\end{align}
+\end{align*}
 e per definizione di generatore abbiamo che una rotazione attorno all'asse $ \alpha $-esimo si scrive come 
-\begin{align}
+\begin{align*}
   R_\alpha(\theta) = e^{- i \theta J_\alpha /\hbar} = I - \frac{i}\hbar \theta J_\alpha + O(\theta^2).
-\end{align}
-Per tanto sviluppando al prim'ordine le matrici di rotazione otteniamo che i generatori delle rotazioni sono rappresentati dalle seguenti matrici:
-\begin{align}
+\end{align*}
+Per tanto sviluppando al prim'ordine le matrici di rotazione otteniamo che i generatori delle rotazioni sono rappresentati dalle seguenti matrici
+(a meno di $ \hbar $):
+\begin{align*}
   J_x = 
   \begin{pmatrix}
     0 & 0 & 0 \\
@@ -1837,102 +1838,104 @@ Per tanto sviluppando al prim'ordine le matrici di rotazione otteniamo che i gen
     i & 0 & 0 \\
     0 & 0 & 0 
   \end{pmatrix}.
-\end{align}
+\end{align*}
 Tuttavia il nostro spazio degli stati non è $ \R^3 $ ma uno spazio di Hilbert $ \H $ generico, il quale conserva soltanto l'algebra dei commutatori ma 
 non la loro rappresentazione. Questo significa che non basta semplicemente diagonalizzare queste matrici per trovare autovettori e autovalori dato che 
-la loro rappresentazione in $ \H $ sarà diversa, ma solo che è mantenutà la proprietà $ [J_\alpha, J_\beta] = i \eps_{\alpha \beta \gamma} J_\gamma $.
+la loro rappresentazione in $ \H $ sarà diversa, ma solo che è mantenutà la proprietà $ [J_\alpha, J_\beta] = i\hbar\eps_{\alpha \beta \gamma} J_\gamma $.
 Infatti da queste sole relazioni di commutazione è possibile ricavare autovalori e autovettori dei generatori delle rotazioni in uno spazio di Hilbert 
 generico $ \H $.
 
+\section{Autovalori e autovettori}
+
 Consideriamo l'operatore $ J^2 = J_x^2 + J_y^2 + J_z^2 $, è facile vedere che commuta con ognuno dei $ J_\alpha $ infatti 
-\begin{align}
+\begin{align*}
   [J^2, J_\alpha] = \sum_\beta J_\beta[J_\beta, J_\alpha] + [J_\beta,J_\alpha] J_\beta 
   = \sum_\beta i  \eps_{\beta \alpha \gamma} J_\beta J_\gamma + i \eps_{\beta \alpha \gamma} J_\gamma J_\beta = 0
-\end{align}
+\end{align*}
 data l'antisimmetria negli indici $ \beta, \gamma $. Per tanto $ J^2 $ e $ J_\alpha $ devono possedere un set comune di autovettori, che indicheremo con 
 $ \k{\beta , m} $ in modo che 
-\begin{align}
+\begin{align*}
   J^2 \k{\beta, m} = \hbar^2 \beta \k{\beta,m}, \quad J_\alpha \k{\beta, m} = \hbar m \k{\beta,m}
-\end{align}
+\end{align*}
 dove abbiamo inserito $ \hbar^2, \hbar $ per avere gli autovalori $ \beta,m $ adimensionali (il momento angolare e $ \hbar $ hanno la stessa dimensione 
-infatti $ \si{\meter^2 / \second } = \si{\joule \second} $). Mostriamo che fra $ \beta $ e $ m $ vale la relazione 
-\begin{align}
+infatti $ \si{Kg \, \meter^2 / \second } = \si{\joule \second} $). Mostriamo che fra $ \beta $ e $ m $ vale la relazione 
+\begin{align*}
   \beta \geq m^2,
-\end{align}
+\end{align*}
 per farlo basta considerare che gli operatori $ J_\alpha^2 $ sono semipositivi dato che 
-\begin{align}
+\begin{align*}
   \bk{\beta,m | J_\alpha J_\alpha | \beta,m} = (\b{\beta,m} J_\alpha^\dag ) (J_\alpha \k{\beta,m}) = \norm{J_\alpha \k{\beta,m}}^2 \geq 0
-\end{align}
+\end{align*}
 e quindi otteniamo che 
-\begin{align}
+\begin{align*}
   \bk{\beta,m | J^2 | \beta,m} = \beta = \bk{\beta,m | J_x^2 + J_y^2 + J_z^2 | \beta,m} \geq \bk{\beta,m | J_z^2 | \beta,m} = m^2
-\end{align}
+\end{align*}
 dove notiamo che non avremmo potuto scrivere che $ \beta \not \geq 3m^2 $ dato che la base $ \k{\beta,m} $ diagonalizza uno solo dei $ J_\alpha $ 
 alla volta, che in questo caso abbiamo scelto essere $ J_z $. Per essere più puliti con la notazione avremmo dovuto scrivere $ \k{\beta,m_\alpha} $ a 
 seconda di quale operatore consideriamo. Come ultimo ingrediente definiamo gli operatori $ J_\pm $:
-\begin{align}
+\begin{align*}
   J_\pm = J_x \pm iJ_y
-\end{align}
+\end{align*}
 che rispettano le seguenti relazioni di commutazione 
-\begin{align}
+\begin{align*}
   [J_z, J_\pm] = \pm \hbar J_\pm \quad [J_+, J_-] = 2\hbar J_z.
-\end{align}
+\end{align*}
 Grazie a questi possiamo calcolare 
-\begin{align}
+\begin{align*}
   J_z J_+ \k{\beta, m} = ([J_z, J_+] + J_+ J_z) \k{\beta,m} = \hbar (m + 1) J_+ \k{\beta,m}
-\end{align}
+\end{align*}
 e quindi $ J_+ \k{\beta, m} $ è autovettore per $ J_z $ con autovalore $ \hbar(m+1) $, oppure è il vettore nullo $ J_+\k{\beta,m} = 0 $. Per tanto 
 per $ \beta $ fissato deve esistere un $ m $ massimo affinché venga rispettata $ \beta \geq m^2 $, indichiamo questo massimo con $ j $ e deve essere che
-\begin{align}
+\begin{align*}
   J_+ \k{\beta, m_\text{max}} = J_+ \k{\beta, j} = 0
-\end{align}
-perché se così non fosse allora $ J_zJ_+\k{\beta,j} = \hbar (j + 1)\k{\beta, j} $ superando il limite massimo di $ m $.
+\end{align*}
+perché se così non fosse allora $ J_zJ_+\k{\beta,j} = \hbar (j + 1) J_+\k{\beta, j} $ superando il limite massimo di $ m $.
 Se prendiamo invece 
-\begin{align}
+\begin{align*}
   J_-J_+ = J_x^2 + J_y^2 + i[J_x, J_y] = J^2 - J_z^2 - \hbar J_z
-\end{align}
+\end{align*}
 ma allora abbiamo che 
-\begin{align}
-  0 = J_- J_+ \k{\beta, j} &= \hbar^2(\beta - j^2 - j) \k{\beta,m} 
+\begin{align*}
+  0 = J_- J_+ \k{\beta, j} &= \hbar^2(\beta - j^2 - j) \k{\beta,j} 
   \\
   \implies \beta &= j(j+1).
-\end{align}
+\end{align*}
 Procediamo allo stesso modo per 
-\begin{align}
+\begin{align*}
   J_z J_- \k{\beta, m} = ([J_z, J_-] + J_- J_z) \k{\beta,m} = \hbar (m - 1) J_- \k{\beta,m}
-\end{align}
+\end{align*}
 e quindi anche in questo caso o $ J_-\k{\beta,m} $ è autovettore per $ J_z $ con autovalore $ \hbar(m - 1) $ oppure $ J_-\k{\beta,m} = 0 $. Sempre 
 per la condizione $ m^2 \leq \beta $ stavolta deve esistere un minimo valore di $ m $ che indichiamo con $ k $ in modo tale che
-\begin{align}
+\begin{align*}
   J_- \k{\beta, m_\text{min}} = J_- \k{\beta, k} = 0
-\end{align}
+\end{align*}
 e quindi otteniamo 
-\begin{align}
+\begin{align*}
   0 = J_+ J_- \k{\beta,k} &= (J^2 - J_z^2 + \hbar J_z) \k{\beta,k} = \hbar^2 (\beta - k^2 + k)
   \\
   \implies \beta &= -k(-k + 1) \implies k = -j.
-\end{align}
+\end{align*}
 Per definizione di $ j = m_\text{max} $ e di $ k $ abbiamo che $ -j \leq m \leq j $, ma i passi che vanno fatti per scendere da $ j $ a $ -j $ tramite 
 l'operatore $ J_- $ devono essere un numero intero, questo perché sotto $ -j $ non ci sono autovettori e la scala di discesa è vincolata da 
 $ j \to j - 1 $. Per tanto abbiamo che il numero di passi $ n \in \mathbb{N} $ è tale che 
-\begin{align}
+\begin{align*}
   j - n = -j \implies 2j = n \in \mathbb{N} \implies j \in \left\{0,\frac12, 1, \frac32, 2, \dots\right\}
-\end{align}
+\end{align*}
 ovvero $ j $ deve essere semi-intero. Ne segue che $ m $ assume i semi-interi compresi fra $ -j $ e $ j $:
-\begin{align}
+\begin{align*}
   j &= 0\quad m = 0
   \\
-  j &= \frac12 \quad m = -\frac12,0,\frac12
+  j &= 1/2 \quad m = -1/2,1/2
   \\
-  j &= 1\quad m = -1, -\frac12, 0, \frac12, 1
+  j &= 1\quad \;m = -1, 0, 1
   \\
-  j &= \frac32 \quad m = -\frac32, -1, -\frac12, 0, \frac12, 1, \frac32
+  j &= 3/2 \quad m = -3/2, -1/2, 1/2, 3/2
   \\
   \vdots
-\end{align}
+\end{align*}
 Per ogni valore di $ j $ ci sono $ 2j + 1 $ possibili valori di $ m $.
 
-
+\eqref{fig:sfera-bloch}
 
 
 
