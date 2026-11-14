@@ -773,7 +773,8 @@ $ [\v{S}, E_0] = 0 $, e l'unico caso possibile è che $ E_0 \propto \v{S\cdot S}
 \section{Equazioni del moto}
 È conveniente ridefinire tutti i generatori che abbiamo definito dividendo per $ \hbar $, cioè 
 $ M \to M/\hbar, \v{P} \to \v{P}/\hbar, \v{J} \to \v{J}/\hbar, H \to H/\hbar, \v{G} \to \v{G}/\hbar $. In questo modo possiamo davvero identificare $ M $ 
-con la massa e il resto delle quantità come il loro analogo classico.
+con la massa e il resto delle quantità come il loro analogo classico, inoltre d'ora in poi chiameremo il generatore dell'evoluzione temporale $ H $ come 
+\textit{operatore hamiltoniano}, sempre in analogia con il caso classico.
  
 \subsection{Serie di Dyson}
 Tramite il generatore dell'evoluzione temporale $ H $ avevamo ricavato che per uno stato puro valeva 
@@ -1012,7 +1013,6 @@ e dunque il parametro di sviluppo è $ \eps t \ll 1 $, con un tempo caratteristi
 tuttavia il prezzo da pagare è l'unitarietà della trasformazione.
 
 \section{Simmetrie e leggi di conservazione}
-D'ora in poi chiameremo il generatore dell'evoluzione temporale $ H $ come \textit{operatore hamiltoniano}, in analogia con il caso classico.
 Consideriamo una trasformazione unitaria di un gruppo a parametro continuo $ U(s) = e^{i s K} $ dove $ K $ è il generatore hermitiano, se l'hamiltoniana 
 è invariante sotto tale trasformazione cioè 
 \begin{align}
@@ -1035,11 +1035,62 @@ $ H\k{E_n} = E_n \k{E_n} $, allora la soluzione all'equazione del moto è
 \begin{align}
   \k{\psi(t)} = e^{-i E_n t/\hbar} \k{E_n}.
 \end{align}
+Pertanto uno stato che al tempo $ t = 0 $ si scrive come combinazione degli autovettori dell'hamiltoniana, cioè 
+\begin{align}
+  \k{\psi(0)} = \sum_n a_n \k{E_n}
+\end{align}
+allora la soluzione all'equazione di Schrödinger diventa una combinazione lineare delle soluzioni per ogni autostato:
+\begin{align}
+  \k{\psi(t)} = \sum_n a_n e^{- i E_n t /\hbar} \k{E_n}.
+\end{align}
 Questo significa che per un qualsiasi osservabile vale che 
 \begin{align}
   \sc{R} = \bk{\psi(t) | R | \psi(t)} = \bk{ E_n | R | E_n}
 \end{align}
 ed è indipendente dal tempo. Tali stati autovettori dell'operatore hamiltoniano sono detti \textit{stati stazionari}.
+
+\section{Fase di Berry}
+Consideriamo una hamiltoniana dipendente dal tempo nella sua forma diagonale 
+\begin{align}
+  H(t) = \sum_{n = 1}^N \eps_n(t) \, \Pi_n(t), \quad \text{con} \quad \Pi_n(t) = \sum_{k = 1}^{d_n} \k{e_{nk}(t)} \b{e_{nk}(t)} 
+\end{align}
+dove abbiamo scritto i proiettori $ \Pi_n(t) $ in modo da comprendere le degenarazioni. Lo spazio di Hilbert si scrive come somma diretta degli autospazi
+dell'hamiltoniana cioè
+\begin{align}
+  \H = \bigoplus_{n = 1}^N \H_n
+\end{align}
+dove notiamo che gli autospazi non dipendono dal tempo, infatti lavoriamo nell'ipotesi che durante l'evoluzione temporale non si possano fondere autospazi 
+diversi, che equivale a richiedere che gli autovalori $ \eps_n(t) $ non si intersechino nel tempo. Uno stato $ \k{\psi(t)} $ si scrive come 
+\begin{align}
+  \k{\psi(t)} = \sum_{n,k} a_{nk}(t) \k{e_{nk}(t)} e^{-i \phi_n(t)}, \qquad \phi_n(t) = \frac1\hbar \int_{t_0}^t \eps_n(t') \, dt'
+\end{align}
+dove le $ \phi_n(t) $ sono dette \textit{fasi dinamiche}, che generalizzano il caso di $ H $ costante, mentre i coefficienti $ a_{nk} $ si ottengono 
+tramite proiezione sull'autovettore corrispondente:
+\begin{align}
+  a_{nk}(t) = \bk{e_{nk} | \psi(t)} e^{i\phi_n(t)}.
+\end{align}
+Adesso sviluppiamo l'equazione di Schrödinger per lo stato $ \k{\psi(t)} $ in modo da ottenere una equazione differenziale per gli $ a_{nk} $:
+\begin{align}
+  i\hbar \dot{\k{\psi}} &= i\hbar \sum_{nk} \dot{a_{nk}} \k{e_{nk}} e^{-i \phi_n} + a_{nk} \dot{\k{e_{nk}}} e^{-i \phi_n} 
+  - \frac{i}\hbar \eps_n a_{nk} \k{e_{nk}} e^{-i \phi_n}
+  \\
+  &= H \k{\psi} = \sum_{nk} \eps_n a_{nk} \k{e_{nk}} e^{-i \phi_n}
+\end{align}
+dove abbiamo omesso tutte le dipendente dal tempo. Notiamo che il termine dell'hamiltoniana elimina il termine ottenuto derivando le fasi dinamiche, 
+quindi rimane
+\begin{align}
+  \sum_{nk} \dot{a_{nk}} \k{e_{nk}} e^{-i \phi_n} + a_{nk} \dot{\k{e_{nk}}} e^{-i \phi_n} = 0
+\end{align}
+e appliando il bra $ \b{e_{n'k'}} $ e coniugando si ottiene
+\begin{align}
+  \dot{a_{n'k'}} e^{-i \phi_{n'}} = - \sum_{nk} a_{nk} \bk{e_{n'k'} | \dot{e_{nk}}} e^{-i\phi_n} 
+  = \sum_{nk} a_{nk} \bk{\dot{e_{n'k'}} | {e_{nk}}} e^{-i\phi_n} = \bk{\dot{e_{n'k'}} | \psi}
+\end{align}
+dove abbiamo usato la proprietà $  \bk{e_{n'k'} | \dot{e_{nk}}} = - \bk{\dot{e_{n'k'}} | {e_{nk}}} $ che si ottiene derivando la condizione di 
+ortonormalità. L'equazione differenziale per i coefficienti si riscrive come 
+\begin{align}
+  \frac{d a_{pq}}{dt} = \sum_{nk} a_{nk} \bk{\dot{e_{pq}} | {e_{nk}}} e^{-i(\phi_n - \phi_p)}.
+\end{align}
 
 \chapter{Rappresentazione in coordinate}
 
