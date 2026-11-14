@@ -1933,9 +1933,80 @@ ovvero $ j $ deve essere semi-intero. Ne segue che $ m $ assume i semi-interi co
   \\
   \vdots
 \end{align*}
-Per ogni valore di $ j $ ci sono $ 2j + 1 $ possibili valori di $ m $.
+Per ogni valore di $ j $ ci sono $ 2j + 1 $ possibili valori di $ m $. D'ora in poi indicheremo la base non più con $ \k{\beta, m} $ ma con $ \k{j,m} $ 
+dove adesso $ J^2\k{j, m} = \hbar^2 j(j+1) \k{j, m} $.
 
-\eqref{fig:sfera-bloch}
+Per quanto riguarda $ J_\pm $ abbiamo già ottenuto che 
+\begin{align*}
+  J_z J_\pm \k{j, m} = \hbar (m \pm 1) J_\pm \k{j, m}
+\end{align*}
+e dato che ogni autovettore ha autovalore distinto, $ J_\pm $ fa "salire" o "scendere" da un'autovettore all'altro cioè
+\begin{align*}
+  J_+ \k{j, m} = C \k{j, m + 1}, \qquad J_- \k{j, m} = C^* \k{j, m - 1}
+\end{align*}
+dove il coniugio è dovuto al fatto che $ J_- = J_+^\dag $. Inoltre la costante dipende in generale da $ j,m $ pertanto la indicheremo con $ C_{jm} $, 
+e per trovarne il valore basta applicare l'ortonormalità della base:
+\begin{align*}
+  \abs{C_{jm}}^2 &= \bk{j, m + 1 | j, m+1} = \bk{j , m | J_+^\dag J_+ | j, m} = \bk{j , m | J_- J_+ | j, m} 
+  \\
+  &= \hbar^2 \left[ j(j+1) - m(m+1) \right].
+\end{align*}
+Per quanto riguarda la fase degli $ C_{jm} $ possiamo sceglierla in modo che siano reali positivi, questo perché gli elementi di base sono tutti definiti 
+a meno di una base, per tanto ridefinendoli otteniamo che 
+\begin{align*}
+  C_{jm} = \hbar \sqrt{j(j+1) - m(m+1)} .
+\end{align*}
+A questo punto abbiamo tutti gli ingredienti per scrivere gli elementi di matrice delle componenti di $ \vec{J} $. Grazie ai coeffiecienti $ C_{jm} $ 
+sappiamo che la matrice di $ J_+ $ è (a meno di un $ \hbar $)
+% Elementi di matrice <j',m'|J_+|j,m> in unita' di \hbar
+\begin{align*}
+\newcommand{\bordL}[1]{\multicolumn{1}{|c}{#1}}
+\newcommand{\bordR}[1]{\multicolumn{1}{c|}{#1}}
+\newcommand{\bordLR}[1]{\multicolumn{1}{|c|}{#1}}
+\renewcommand{\arraystretch}{1.6}
+\setlength{\arraycolsep}{7pt}
+\begin{array}{rrcccccccccc}
+  & j=
+  & \multicolumn{1}{c}{0\rlap{;}} & \multicolumn{2}{c}{\frac12\rlap{;}} & \multicolumn{3}{c}{1\rlap{;}} & \multicolumn{4}{c}{\frac32} \\
+  & m=
+  & \multicolumn{1}{c}{0\rlap{;}} & \frac12\rlap{,} & -\frac12\rlap{;} & 1\rlap{,} & 0\rlap{,} & -1\rlap{;} & \frac32\rlap{,} & \frac12\rlap{,} & -\frac12\rlap{,} & -\frac32 \\
+  \cline{3-12}
+  j'=0,\ m'= & 0
+  & \bordLR{0} \\
+  \cline{3-5}
+  j'=\frac12,\ m'= & \frac12
+  & \bordLR{} & 0 & \bordR{1} \\
+  & -\frac12
+  & \bordLR{} & 0 & \bordR{0} \\
+  \cline{4-8}
+  j'=1,\ m'= & 1
+  & \bordL{} & & \bordR{} & 0 & \sqrt{2} & \bordR{0} \\
+  & 0
+  & \bordL{} & & \bordR{} & 0 & 0 & \bordR{\sqrt{2}} \\
+  & -1
+  & \bordL{} & & \bordR{} & 0 & 0 & \bordR{0} \\
+  \cline{6-12}
+  j'=\frac32,\ m'= & \frac32
+  & \bordL{} & & & & & \bordR{} & 0 & \sqrt{3} & 0 & \bordR{0} \\
+  & \frac12
+  & \bordL{} & & & & & \bordR{} & 0 & 0 & \sqrt{4} & \bordR{0} \\
+  & -\frac12
+  & \bordL{} & & & & & \bordR{} & 0 & 0 & 0 & \bordR{\sqrt{3}} \\
+  & -\frac32
+  & \bordL{} & & & & & \bordR{} & 0 & 0 & 0 & \bordR{0} \\
+  \cline{9-12}
+\end{array}
+\end{align*}
+La matrice di $ J_- $ si ottiene facendone soltanto la trasposta (dato che le $ C_{jm} $ sono tutte reali), di conseguenza possiamo ottenere $ J_x, J_y $ 
+grazie alle definizioni di $ J_\pm $ cioè
+\begin{align*}
+  J_x = \frac{J_+ + J_-}2 \quad, \quad J_y = \frac{J_+ - J_-}2.
+\end{align*}
+Infine $ J_z $ per come abbiamo definito la base è diagonale e abbiamo
+\begin{align*}
+  \bk{j', m' | J_z | j,m} = \hbar\, m \,\delta_{jj'} \delta_{m m'}.
+\end{align*}
+
 
 
 
