@@ -2002,10 +2002,93 @@ grazie alle definizioni di $ J_\pm $ cioè
 \begin{align*}
   J_x = \frac{J_+ + J_-}2 \quad, \quad J_y = \frac{J_+ - J_-}2.
 \end{align*}
-Infine $ J_z $ per come abbiamo definito la base è diagonale e abbiamo
+Infine $ J_z $ e $ J^2 $, per come abbiamo definito la base, sono già diagonali e abbiamo
 \begin{align*}
-  \bk{j', m' | J_z | j,m} = \hbar\, m \,\delta_{jj'} \delta_{m m'}.
+  \bk{j', m' | J_z | j,m} = \hbar\, m \,\delta_{jj'} \delta_{m m'} \quad , \quad \bk{j', m' | J^2 | j,m} = \hbar\, j (j+1) \,\delta_{jj'} \delta_{m m'}.
 \end{align*}
+Riportiamo di seguito le matrici di $ J_x $ e $ J_y $.
+\begin{center}
+\resizebox{\linewidth}{!}{$
+\newcommand{\bordL}[1]{\multicolumn{1}{|c}{#1}}
+\newcommand{\bordR}[1]{\multicolumn{1}{c|}{#1}}
+\newcommand{\bordLR}[1]{\multicolumn{1}{|c|}{#1}}
+\renewcommand{\arraystretch}{1.9}
+\setlength{\arraycolsep}{3pt}
+\begin{array}{rr*{10}{w{c}{1.6em}}cr*{10}{w{c}{2.2em}}}
+  & & \multicolumn{10}{c}{J_x/\hbar} & \hspace{2.5em} & & \multicolumn{10}{c}{J_y/\hbar} \\
+  & m= & 0\rlap{;} & \frac12\rlap{,} & -\frac12\rlap{;} & 1\rlap{,} & 0\rlap{,} & -1\rlap{;} & \frac32\rlap{,} & \frac12\rlap{,} & -\frac12\rlap{,} & -\frac32 & & m= & 0\rlap{;} & \frac12\rlap{,} & -\frac12\rlap{;} & 1\rlap{,} & 0\rlap{,} & -1\rlap{;} & \frac32\rlap{,} & \frac12\rlap{,} & -\frac12\rlap{,} & -\frac32 \\
+  \cline{3-12} \cline{15-24}
+  j'=0,\ m'= & 0
+    & \bordLR{0} &  &  &  &  &  &  &  &  & 
+    & & 0
+    & \bordLR{0} \\
+  \cline{3-5} \cline{15-17}
+  j'=\frac12,\ m'= & \frac12
+    & \bordLR{} & 0 & \bordR{\frac12} &  &  &  &  &  &  & 
+    & & \frac12
+    & \bordLR{} & 0 & \bordR{-\frac{i}{2}} \\
+   & -\frac12
+    & \bordLR{} & \frac12 & \bordR{0} &  &  &  &  &  &  & 
+    & & -\frac12
+    & \bordLR{} & \frac{i}{2} & \bordR{0} \\
+  \cline{4-8} \cline{16-20}
+  j'=1,\ m'= & 1
+    & \bordL{} &  & \bordR{} & 0 & \frac{\sqrt{2}}{2} & \bordR{0} &  &  &  & 
+    & & 1
+    & \bordL{} &  & \bordR{} & 0 & -\frac{i\sqrt{2}}{2} & \bordR{0} \\
+   & 0
+    & \bordL{} &  & \bordR{} & \frac{\sqrt{2}}{2} & 0 & \bordR{\frac{\sqrt{2}}{2}} &  &  &  & 
+    & & 0
+    & \bordL{} &  & \bordR{} & \frac{i\sqrt{2}}{2} & 0 & \bordR{-\frac{i\sqrt{2}}{2}} \\
+   & -1
+    & \bordL{} &  & \bordR{} & 0 & \frac{\sqrt{2}}{2} & \bordR{0} &  &  &  & 
+    & & -1
+    & \bordL{} &  & \bordR{} & 0 & \frac{i\sqrt{2}}{2} & \bordR{0} \\
+  \cline{6-12} \cline{18-24}
+  j'=\frac32,\ m'= & \frac32
+    & \bordL{} &  &  &  &  & \bordR{} & 0 & \frac{\sqrt{3}}{2} & 0 & \bordR{0}
+    & & \frac32
+    & \bordL{} &  &  &  &  & \bordR{} & 0 & -\frac{i\sqrt{3}}{2} & 0 & \bordR{0} \\
+   & \frac12
+    & \bordL{} &  &  &  &  & \bordR{} & \frac{\sqrt{3}}{2} & 0 & \frac{\sqrt{4}}{2} & \bordR{0}
+    & & \frac12
+    & \bordL{} &  &  &  &  & \bordR{} & \frac{i\sqrt{3}}{2} & 0 & -\frac{i\sqrt{4}}{2} & \bordR{0} \\
+   & -\frac12
+    & \bordL{} &  &  &  &  & \bordR{} & 0 & \frac{\sqrt{4}}{2} & 0 & \bordR{\frac{\sqrt{3}}{2}}
+    & & -\frac12
+    & \bordL{} &  &  &  &  & \bordR{} & 0 & \frac{i\sqrt{4}}{2} & 0 & \bordR{-\frac{i\sqrt{3}}{2}} \\
+   & -\frac32
+    & \bordL{} &  &  &  &  & \bordR{} & 0 & 0 & \frac{\sqrt{3}}{2} & \bordR{0}
+    & & -\frac32
+    & \bordL{} &  &  &  &  & \bordR{} & 0 & 0 & \frac{i\sqrt{3}}{2} & \bordR{0} \\
+  \cline{9-12} \cline{21-24}
+\end{array}
+$}
+\end{center}
+
+\begin{example}[ Caso $ j = 1/2 $ ]
+  Dalle matrici di $ J_x, J_y, J_z $ otteniamo le sottomatrici corrispondenti a $ j = \frac12 $ (quindi $ m = -\frac12, \frac12 $) che sono 
+  \begin{align*}
+    J_x = \frac\hbar2
+    \begin{pmatrix}
+      0 & 1 \\
+      1 & 0
+    \end{pmatrix}
+    , \quad J_y = \frac\hbar2 
+    \begin{pmatrix}
+      0 & -i \\
+      i & 0
+    \end{pmatrix}
+    ,\quad J_z = \frac\hbar2
+    \begin{pmatrix} 
+      1 & 0 \\
+      0 & -1
+    \end{pmatrix}
+    \implies \quad J_\alpha = \frac\hbar2 \sigma_\alpha
+  \end{align*}
+  dove abbiamo riconosciuto le matrici di Pauli $ \sigma_\alpha $. 
+\end{example}
+
 
 
 
