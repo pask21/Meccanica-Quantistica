@@ -2170,14 +2170,20 @@ rimane soltanto da imporre la normalizzazione che porta alle cosiddette \textit{
   Y_\l^m(\theta,\varphi) = (-1)^m\sqrt{\frac{2\l+1}{4\pi}\,\frac{(\l-m)!}{(\l+m)!}}\;P_\l^m(\cos\theta)\,e^{im\varphi}, 
   \qquad Y_\l^{-m} = (-1)^m\,\big(Y_\l^m\big)^*
 \end{align*}
-dove la seconda è la proprietà di coniugio che ci permette di calcolare le armoniche per $ m < 0 $. La normalizzazione è da intendersi in coordinate 
-sferiche percui dobbiamo integrare sull'angolo solido
+dove la seconda è la proprietà di coniugio che ci permette di calcolare le armoniche per $ m < 0 $. 
+Le armoniche sono ortonormali, in particolare la normalizzazione è da intendersi in coordinate sferiche per cui dobbiamo integrare sull'angolo solido
 \begin{align*}
   \int_{\Omega} {Y_\l^m}^* Y_{\l'}^{m'} \, d\Omega
   = \int_0^{2\pi}\!\!\int_0^\pi {Y_\l^m}^*(\theta , \phi) Y_{\l'}^{m'}(\theta, \phi) \,\sin\theta \, d\theta\, d\phi 
-  = \delta_{ll'} \delta_{mm'}
+  = \delta_{ll'} \delta_{mm'}\;.
 \end{align*}
-
+Le armoniche sferiche formano un set ortonormale completo per le funzioni a quadrato sommabile sulla sfera, cioè lo spazio $ L^2(S^2) $, per tanto 
+aggiungendo la parte radiale possiamo esprimere ogni funzione in $ L^2(\R^3) $ come 
+\begin{align*}
+  \psi(r, \theta, \phi) = \sum_{\l = 0}^{\infty} \sum_{m = -\l}^\l R_{\l m}(r) Y_\l^m(\theta, \phi) 
+  \quad \text{con} \quad R_{\l m}(r) = \int_\Omega {Y_\l^m}^* \, \psi \,d\Omega
+\end{align*}
+dove la parte radiale si ottiene tramite prodotto scalare (dello spazio $ L^2(S^2) $) con l'armonica corrispondente.
 
 
 
