@@ -2089,6 +2089,95 @@ $}
   dove abbiamo riconosciuto le matrici di Pauli $ \sigma_\alpha $. 
 \end{example}
 
+\section{Momento angolare orbitale}
+
+Consideriamo il caso in cui il momento angolare sia solo quello orbitale, quindi $ \v{S} = 0 $ e perciò 
+\begin{align*}
+  \v{J} = \v{Q} \times \v{P} \eqcolon \v{L}.
+\end{align*}
+Nella rappresentazione delle coordinate abbiamo che l'operatore momento è $ -i \hbar \nabla $ e quindi in coordinate cartesiane vale
+\begin{align*}
+  \v{L} = -i \hbar \v{x} \times \nabla \implies L_\alpha = -i \hbar \,\eps_{\alpha \beta \gamma} x_\beta \der{}{x_\gamma}
+\end{align*}
+tuttavia conviene passare alle coordinate sferiche poiché sono più visibili le simmetrie dovute al momento angolare. Il gradiente in coordinate sferiche 
+è 
+\begin{align*}
+  \nabla = \vers{r} \der{}{r} + \vers{\theta} \frac1r \der{}{\theta} + \vers{\phi} \frac1{r \sin \theta} \der{}{\phi} 
+\end{align*}
+e quindi svolgendo il prodotto vettore abbiamo
+\begin{align*}
+  \v{L} = -i \hbar\, \v{r} \times \nabla = -i\hbar \,\left( \vers{\phi} \der{}{\theta} - \vers{\theta} \frac1{\sin \theta} \der{}{\phi} \right)
+\end{align*}
+dal quale ricaviamo $ L_z $
+\begin{align*}
+  L_z = \v{L} \cdot \vers{z} = \v{L} \cdot \left(  \cos \theta \vers{r} - \sin \theta \vers{\theta} \right) = -i\hbar \, \der{}{\phi}.
+\end{align*}
+Per quanto riguarda $ L^2 $ dobbiamo tenere conton che i versori $ \vers{\theta} , \vers{\phi} $ non sono costanti ma vengono trasformati in modo 
+non banale dall'operatore $ \v{L} $ stesso, riportiamo qui il risultato:
+\begin{align*}
+  \frac{L^2}{\hbar^2} \eqcolon l^2 = \frac1{\sin \theta} \der{}{\theta} \left( \sin\theta \der{}{\theta} \right) + \frac1{\sin^2\theta} \der[2]{}{\phi}.
+\end{align*}
+Dato il cambio di coordinate la funzione d'onda si ottiene come 
+\begin{align*}
+  \bk{\v{x} | \psi} = \psi(\v{x}) \to \bk{r, \theta, \phi | \psi } = \psi(r, \theta, \phi) 
+\end{align*}
+tuttavia possiamo separare la variabile $ r $ dato che non è interessata dagli operatori del momento angolare, quindi 
+\begin{align*}
+  \psi(r,\theta, \phi) = R (r) Y(\theta, \phi).
+\end{align*}
+Le due equazioni da risolvere sono quelle per gli autovettori di $ L_z  $ e $ L^2 $ 
+\begin{align*}
+  L_z Y(\theta, \phi) &= \hbar m \, Y(\theta, \phi)
+  \\
+  L^2 Y(\theta, \phi) &= \hbar \ell(\ell + 1) \, Y(\theta, \phi) 
+\end{align*}
+e sostituendo la forma che abbiamo trovato per $ L_z $ si ha
+\begin{align*}
+  - i \hbar \der{}{\phi} Y(\theta, \phi) = \hbar m \, Y(\theta, \phi) \implies Y(\theta, \phi) = \Theta(\theta) e^{im \phi}
+\end{align*}
+cioè le variabili si separano, e sostituendo nella seconda equazione otteniamo 
+\begin{gather*}
+  e^{im\phi} \frac1{\sin \theta} \der{}{\theta}\left(\sin\theta \der{}{\theta} \right)\Theta(\theta)-\frac{m^2}{\sin^2\theta}\Theta(\theta)e^{im\phi} 
+  = \l (\l + 1) \Theta(\theta)e^{im\phi}\; ,
+  \\
+  \sin\theta \der{}{\theta}\left(\sin\theta \der{}{\theta} \right)\Theta(\theta)- \left[ m^2 - \l (\l + 1) \sin^2 \theta \right] \Theta(\theta) = 0
+\end{gather*}
+dove abbiamo fattorizzato la dipendenza da $ \phi $. Quella che abbiamo ottenuto è riconducibile all'equazione di Legendre, infatti con 
+il cambio di variabile $ \cos \theta = \xi $ si ottiene 
+\begin{align*}
+  \frac{d}{d\xi}\!\left[(1-\xi^2)\frac{d\Theta}{d\xi}\right] + \left[\ell(\ell+1) - \frac{m^2}{1-\xi^2}\right]\Theta = 0, \qquad \xi\in[-1,1]
+\end{align*}
+ovvero la forma standard dell'equazione di Legendre. Le soluzioni di questa equazione per $ m = 0 $ si ottengono sviluppando in serie di potenze, che 
+porta a una formula ricorsiva per i coefficienti dello sviluppo, tali soluzioni sono i \textit{polinomi di Legendre} $ P_\l $, ottenibili 
+in maniera più rapida dalla \textit{formula di Rodriguez}:
+\begin{align*}
+  P_\l(\xi) = \frac1{2^\l \l!} \frac{d^\l}{d\xi^\l} \left( \xi^2 - 1 \right)^\l.
+\end{align*}
+Per $ m \neq 0 $ le soluzioni sono invece i \textit{polinomi di Legendre generalizzati} $ P_\l^m $ che si ottengono dai primi mediante la seguente 
+relazione ($ m \geq 0 $) 
+\begin{align*}
+  P_\l^m(\xi) = \left( 1 - \xi^2 \right)^{m/2} \frac{d^m}{d\xi^m} P_\l(\xi).
+\end{align*}
+La parte dipendente da $ \phi $ abbiamo trovato essere $ e^{im\phi} $, imponendo la periodicità di $ 2\pi $ si ottiene che $ m $ deve assumere solo valori 
+interi $ m \in \mathbb{Z} $ e dunque questo limita anche i valori possibili di $ \l $ che deve quindi essere $ \l \in \mathbb{N} $. 
+
+Mettendo insieme i risultati ottenuti abbiamo 
+\begin{align*}
+  Y_\l^m(\theta , \phi) \propto P_\l^m(\cos\theta) e^{im\phi} \;,
+\end{align*}
+rimane soltanto da imporre la normalizzazione che porta alle cosiddette \textit{armoniche sferiche}:
+\begin{align*}
+  Y_\l^m(\theta,\varphi) = (-1)^m\sqrt{\frac{2\l+1}{4\pi}\,\frac{(\l-m)!}{(\l+m)!}}\;P_\l^m(\cos\theta)\,e^{im\varphi}, 
+  \qquad Y_\l^{-m} = (-1)^m\,\big(Y_\l^m\big)^*
+\end{align*}
+dove la seconda è la proprietà di coniugio che ci permette di calcolare le armoniche per $ m < 0 $. La normalizzazione è da intendersi in coordinate 
+sferiche percui dobbiamo integrare sull'angolo solido
+\begin{align*}
+  \int_{\Omega} {Y_\l^m}^* Y_{\l'}^{m'} \, d\Omega
+  = \int_0^{2\pi}\!\!\int_0^\pi {Y_\l^m}^*(\theta , \phi) Y_{\l'}^{m'}(\theta, \phi) \,\sin\theta \, d\theta\, d\phi 
+  = \delta_{ll'} \delta_{mm'}
+\end{align*}
+
 
 
 
