@@ -255,12 +255,12 @@ abbiamo ottenuto è detto \textit{matrice densità}, e mantiene ancora alcune pr
   \rho^\dag = \rho \quad \Tr \rho = \sum_j p_j = 1, \quad \rho \geq 0,
 \end{align*}
 tuttavia non vale in generale che $ \rho^2 = \rho $, infatti se valesse allora $ \rho $ sarebbe ancora un proiettore e quindi è il caso in cui 
-$ p_j = 1 $ per una certa $ j $ e tutte le altre probabilità sono nulle perciò $ \rho = \k{\psi_j} \b{\psi_j} $. Definitamo lo spazio degli operatori di 
+$ p_j = 1 $ per una certa $ j $ e tutte le altre probabilità sono nulle perciò $ \rho = \k{\psi_j} \b{\psi_j} $. Definiamo lo spazio degli operatori di 
 stato $ \S(\H) $ come 
 \begin{align*}
   \S(\H) = \left\{ \rho \in \L(\H) : \Tr \rho = 1, \rho \geq 0 \right\}
 \end{align*}
-dove non è necessario richiedere l'hermiticità perché è una conseguenza della linearità e della semipositività. Lo spazio $ \S(\H) $ non è uno spazio 
+dove non è necessario richiedere l'hermiticità perché è una conseguenza della linearità e della semi positività. Lo spazio $ \S(\H) $ non è uno spazio 
 vettoriale, questo perché basterebbe moltiplicare per uno scalare per uscire dalle condizioni, tuttavia è chiuso per combinazione convessa.
 
 In generale vale che $ \rho^2 \leq \rho $ inteso nel senso della media su un vettore cioè $ \bk{\psi | \rho^2 | \psi} \leq \bk{\psi | \rho | \psi} $ e 
@@ -786,7 +786,7 @@ e una soluzione con condizione iniziale $ \k{\psi(t_0)} $ è
   \k{\psi(t)} = U(t) \k{\psi(t_0)}.
 \end{align*}
 Adesso consideriamo il caso in cui il sistema non sia più invariante sotto traslazioni temporali, quindi la trasformazione temporale $ U $ non dipenderà
-più soltando dalla distanza temporale $ t - t_0 $ fra stato iniziale e stato finale, ma da entrambi quindi $ U(t,t_0) $, e per tanto non è 
+più soltanto dalla distanza temporale $ t - t_0 $ fra stato iniziale e stato finale, ma da entrambi quindi $ U(t,t_0) $, e per tanto non è 
 più una trasformazione di Galileo. Tuttavia rispetta comunque la proprietà di composizione $ U(t_2, t_1)U(t_1,t_0) = U(t_2,t_0) $ 
 inoltre dato che l'evoluzione temporale deve conservare le probabilità e il tempo è un parametro continuo, per il teorema di Wigner $ U(t,t_0) $ è 
 unitario. 
@@ -947,7 +947,7 @@ che magari si risolve esattamente e uno che invece è difficile da trattare:
 \end{align*} 
 dove abbiamo usato questa notazione come se fosse il caso di un sistema a molte particelle con $ H_0 $ l'hamiltoniana di singola particella e 
 $ V_{\text{int}} $ il potenziale d'interazione. Tuttavia questa premessa è applicabile anche ad altri casi come una particella in un potenziale 
-non risolvibile esattamente, ma in prossimita del minimo è sviluppabile come termine quadratico e quindi 
+non risolvibile esattamente, ma in prossimità del minimo è sviluppabile come termine quadratico e quindi 
 \begin{align*}
   H = T + V_{\text{quad}} + \Delta V
 \end{align*}
@@ -995,7 +995,7 @@ ovvero l'evoluzione temporale non è codificata solo nello stato o solo nell'oss
 nello stato è contenuta l'informazione dell'evoluzione secondo il potenziale d'interazione $ V_{\text{int}} $, mentre nell'osservabile quella 
 del termine $ H_0 $. 
 
-Questo approccio ci apre la strada allo sviluppo perturbartivo: se il termine d'interazione è abbastanza piccolo, possiamo troncare la serie di Dyson per 
+Questo approccio ci apre la strada allo sviluppo perturbativo: se il termine d'interazione è abbastanza piccolo, possiamo troncare la serie di Dyson per 
 ottenere un'approssimazione del potenziale. Sia $ \norm{V_{\text{int}}}  = \eps $ una qualche norma operatoriale del potenziale d'interazione 
 (ricordiamo che in dimensione finita tutte le norme sono equivalenti) allora abbiamo
 \begin{align*}
@@ -1054,7 +1054,7 @@ Consideriamo una hamiltoniana dipendente dal tempo nella sua forma diagonale
 \begin{align*}
   H(t) = \sum_{n = 1}^N \eps_n(t) \, \Pi_n(t), \quad \text{con} \quad \Pi_n(t) = \sum_{k = 1}^{d_n} \k{e_{nk}(t)} \b{e_{nk}(t)} 
 \end{align*}
-dove abbiamo scritto i proiettori $ \Pi_n(t) $ in modo da comprendere le degenarazioni. Lo spazio di Hilbert si scrive come somma diretta degli autospazi
+dove abbiamo scritto i proiettori $ \Pi_n(t) $ in modo da comprendere le degenerazioni. Lo spazio di Hilbert si scrive come somma diretta degli autospazi
 dell'hamiltoniana cioè
 \begin{align*}
   \H = \bigoplus_{n = 1}^N \H_n
@@ -1081,7 +1081,7 @@ quindi rimane
 \begin{align*}
   \sum_{nk} \dot{a_{nk}} \k{e_{nk}} e^{-i \phi_n} + a_{nk} \dot{\k{e_{nk}}} e^{-i \phi_n} = 0
 \end{align*}
-e appliando il bra $ \b{e_{n'k'}} $ e coniugando si ottiene
+e applicando il bra $ \b{e_{n'k'}} $ e coniugando si ottiene
 \begin{align*}
   \dot{a_{n'k'}} e^{-i \phi_{n'}} = - \sum_{nk} a_{nk} \bk{e_{n'k'} | \dot{e_{nk}}} e^{-i\phi_n} 
   = \sum_{nk} a_{nk} \bk{\dot{e_{n'k'}} | {e_{nk}}} e^{-i\phi_n} = \bk{\dot{e_{n'k'}} | \psi}
@@ -1142,7 +1142,7 @@ $ \otimes $ indica il prodotto di Kronocker, definito come $ A\otimes B \k{a,b} 
 \begin{align*}
   \bk{\v{x}^{(1)}, \dots, \v{x}^{(N)} | \Psi} = \Psi(\v{x}^{(1)}, \dots, \v{x}^{(N)})
 \end{align*}
-e l'equazione del moto deve comprendere oltre ai potenziali delle signole particelle anche i potenziali di interazione quindi l'equazione di Schrödinger 
+e l'equazione del moto deve comprendere oltre ai potenziali delle singole particelle anche i potenziali di interazione quindi l'equazione di Schrödinger 
 diventa 
 \begin{align*}
   \left[ \sum_{n = 1}^N -\frac{\hbar^2}{2M_n} \nabla_n^2 + W(\v{x}^{(n)}) + V(\v{x}^{(1)}, \dots, \v{x}^{(N)}) \right] 
@@ -1195,7 +1195,7 @@ Per una singola particella, la probabilità che si trovi all'interno di una regi
 \begin{align*}
   \Prob( \v{Q} \in \Omega | \Psi(t)) = \int_\Omega \abs{\Psi(\v{x}, t)}^2 \, d^3x
 \end{align*}
-possiamo quindi calcolare come varia nel tempo questa probabilità a volume fissato. L'equazione di Scrödinger ci dà 
+possiamo quindi calcolare come varia nel tempo questa probabilità a volume fissato. L'equazione di Schrödinger ci dà 
 $ \partial_t \Psi = i \hbar \nabla^2 \Psi /2M $ e quindi 
 \begin{align*}
   \der{}{t} \int_\Omega \Psi^* \Psi \, d^3x &= \int_\Omega \Psi^* \der{\Psi}{t} + \Psi \der{\Psi^*}{t} \, d^3x 
@@ -1246,7 +1246,7 @@ integrale diverge. Questo dimostra l'utilità dello spazio $ \Omega^\times $.
 
 \section{Autofunzioni dell'impulso}
 
-Nella precedente sezione abbiamo usato la rappresntazione in coordinate tramite gli autovettori dell'operatore posizione, vogliamo ora usare la 
+Nella precedente sezione abbiamo usato la rappresentazione in coordinate tramite gli autovettori dell'operatore posizione, vogliamo ora usare la 
 rappresentazione tramite autovettori dell'operatore impulso, quindi $ P_\alpha \k{\v{p}} = p_\alpha\k{\v{p}} $. Dato che lo spettro è continuo la 
 condizione di ortonormalità degli autovettori si scrive 
 \begin{align*}
@@ -1303,7 +1303,7 @@ dove l'ultima uguaglianza si ha solo per uno stato puro $ \rho = \k{\psi} \b{\ps
 \begin{align*}
   \Tr\left[ \rho T T^\dag \right] \geq 0
 \end{align*}
-e si mostra sfruttando che $ TT^\dag $ è semipositivo perché
+e si mostra sfruttando che $ TT^\dag $ è semi positivo perché
 \begin{align*}
   \bk{\psi | TT^\dag | \psi} = \norm{T^\dag \psi}^2 \geq 0
 \end{align*}
@@ -1329,7 +1329,7 @@ $ [A_s, B_s] = [A, B] = i C $ il minimo si ha per
 \begin{align*}
   \omega_{\text{min}} = -\frac{\Tr\left[\phb \rho C \right]}{2\Tr\left[\phb  \rho B_s^2 \right]}
 \end{align*}
-e la disguaglianza per tale $ \omega_{\text{min}} $ vale 
+e la disuguaglianza per tale $ \omega_{\text{min}} $ vale 
 \begin{align*}
   \Tr\left[ \rho A_s^2 \right] + \frac{\left( \phb \Tr\left[ \rho C \right] \right)^2}{2 \Tr\left[ \rho B_s^2 \right]} 
   + \frac{\left(\phb \Tr\left[ \rho C \right] \right)^2}{4 \Tr\left[ \rho B_s^2 \right]} \geq 0 
@@ -1362,7 +1362,7 @@ e quindi le deviazioni standard delle distribuzioni di due componenti diverse de
   \Delta_{J_\alpha} \, \Delta_{J_\beta} \geq \frac\hbar2 \abs{\sc{J_\gamma}}
 \end{align*}
 e lo stesso vale per le componenti dello Spin. Per quanto riguarda quest'ultimo, è il motivo per cui l'esperimento di Stern-Gerlach fornisce 
-i risulati controintuitivi che abbiamo discusso.
+i risultati contro intuitivi che abbiamo discusso.
 
 \chapter{Oscillatore armonico}
 
@@ -1382,7 +1382,7 @@ i quali soddisfano $ [q, p] = [Q, P/\hbar] = i $, e l'hamiltoniana diventa
 \begin{align*}
   H = \frac{\hbar \omega}2 \left( p^2 + q^2 \right).
 \end{align*}
-Inolte definiamo anche un operatore $ a $ e il suo aggiunto $ a^\dag $ in modo che 
+Inoltre definiamo anche un operatore $ a $ e il suo aggiunto $ a^\dag $ in modo che 
 \begin{align*}
   a = \frac{q + ip}{\sqrt2}, \qquad a^\dag = \frac{q - ip}{\sqrt2}
 \end{align*}
@@ -1410,7 +1410,7 @@ si ha che
   \\
   [N, a^\dag] &= a^\dag [a, a^\dag] = a^\dag.
 \end{align*}
-Rislolviamo quindi $ N\k{\nu} = \nu \k{\nu} $ con $ \bk{\nu | \nu} \neq 0 $:
+Risolviamo quindi $ N\k{\nu} = \nu \k{\nu} $ con $ \bk{\nu | \nu} \neq 0 $:
 \begin{align*}
   Na\k{\nu} = \left( a N - a \right) \k{\nu} = (\nu - 1) a\k{\nu}
 \end{align*}
@@ -1418,7 +1418,7 @@ per tanto $ a\k{\nu} $ è autovettore di $ N $ con autovalore $ \nu - 1 $. La no
 \begin{align*}
   (a\k{\nu}, a\k{\nu}) = \bk{\nu | a^\dag a| \nu} = \bk{\nu | N | \nu} = \nu \bk{\nu |\nu} \geq 0
 \end{align*}
-e dato che deve essere semipositiva allora gli autovalori rispettano $ \nu \geq 0 $. Iterando l'operatore $ a $ si ottiene una sequenza di autevettori 
+e dato che deve essere semi positiva allora gli autovalori rispettano $ \nu \geq 0 $. Iterando l'operatore $ a $ si ottiene una sequenza di autovettori 
 con autovalori $ \nu - 1, \nu - 2, \dots $ che termina necessariamente con $ \nu = 0 $ dato che $ a \k{0} = 0 $. Lo stesso procedimento ma con 
 l'operatore $ a^\dag $ porta a 
 \begin{align*}
@@ -1465,7 +1465,7 @@ e quindi possiamo scrivere gli autovalori dell'hamiltoniana dell'oscillatore arm
   H \k{n} = {\hbar \omega} \left( N + \frac12 \right)\k{n} = {\hbar \omega} \left( n + \frac12 \right) \k{n} \eqcolon E_n \k{n}
 \end{align*}
 con $ n = 0, 1, 2, \dots $. Da ciò che abbiamo ricavato traiamo varie conclusioni. Lo spettro dell'energia e quindi i valori 
-possibili delle misure sono discreti ed equispaziati di $ \hbar \omega $, da cui deriva la tesi dei \textit{quanti} di energia. 
+possibili delle misure sono discreti ed equi spaziati di $ \hbar \omega $, da cui deriva la tesi dei \textit{quanti} di energia. 
 Il valore minimo dell'energia non è $ 0 $, come previsto dalla teoria classica in caso di punto materiale fermo nell'origine, ma è $ {\hbar \omega}/2 $.
 
 
@@ -1489,7 +1489,7 @@ prima soluzione diverge e quindi non appartiene allo spazio di Hilbert esteso. Q
 \begin{align*}
   u(q) = H(q) e^{-{q^2}/2}
 \end{align*}
-dato che asintoticamente dobbiamo avere il comportanto di una gaussiana. Fattorizzando nell'equazione la gaussiana si ottiene un'equazione per $ H(q) $:
+dato che asintoticamente dobbiamo avere il comportando di una gaussiana. Fattorizzando nell'equazione la gaussiana si ottiene un'equazione per $ H(q) $:
 \begin{align*}
   H'' - 2 q H' + \left( \lambda - 1 \right) H = 0
 \end{align*}
@@ -1551,7 +1551,7 @@ di dimensione $ d_A d_B $ e prese due basi $ \k{a_i} $ per $ \H_A $ e $ \k{b_i} 
 \begin{align*}
   \{\k{a_i} \otimes \k{b_j}\}_{i,j} = \{\k{a_i} \k{b_j}\}_{i,j} = \{\k{a_i,b_j}\}_{i,j}.
 \end{align*}
-Gli argomenti dell'operazione $ \otimes $ sono posizionali, cioè se lo spazio prodotto è inidicato con $ \H_A \otimes \H_B $ allora il vettore a sinistra 
+Gli argomenti dell'operazione $ \otimes $ sono posizionali, cioè se lo spazio prodotto è indicato con $ \H_A \otimes \H_B $ allora il vettore a sinistra 
 sarà sempre un elemento di $ \H_A $ e il vettore a destra di $ \H_B $. Gli operatori agiscono ognuno sul suo spazio di Hilbert 
 cioè $ A \otimes B \k{a,b} = A \k{a} \otimes B \k{b} $ mentre il prodotto scalare si estende come 
 \begin{align*}
@@ -1597,7 +1597,7 @@ Per tanto possiamo riassumere quanto detto nella seguente:
   \k{\psi_{AB}} \; \text{è fattorizzabile} \iff c_{ij} \; \text{ha rango 1}.
 \end{align*}
 \begin{example}
-  Consideriamo due Qbit con la base composta $ \{\k{00}, \k{01}, \k{10}, \k{11}\} $, e gli stati
+  Consideriamo due Qubit con la base composta $ \{\k{00}, \k{01}, \k{10}, \k{11}\} $, e gli stati
   \begin{align*}
     \k{\psi_1} = \frac{\k{01} + \k{11}}{\sqrt{2}}, \qquad \k{\psi_2} = \frac{\k{00} + \k{11}}{\sqrt{2}}.
   \end{align*}
@@ -1730,7 +1730,7 @@ Notiamo che è lineare nella seconda componente e antilineare nella prima, è de
 \end{align*}
 perché $ A^\dag A \geq 0 $, e vale $ 0 $ se $ A^\dag A $ ha tutti gli autovalori nulli cioè $ A $ è l'operatore nullo. 
 
-Secondo questo prodotto le matrici di pauli sono ortogonali, tuttavia non sono normalizzate infatti 
+Secondo questo prodotto le matrici di Pauli sono ortogonali, tuttavia non sono normalizzate infatti 
 \begin{align*}
   \sc{\sc{\sigma_i|\sigma_i}} = \Tr \left[ \sigma_i^\dag \sigma_i \right] = \Tr I = \dim \H = 2
 \end{align*}
@@ -1751,7 +1751,7 @@ Uno stato qualsiasi si scrive come combinazione delle $ \sigma $ dunque la sua m
 \end{align*}
 dove abbiamo indicato con $ p_0 $ la probabilità che sia nello stato $ \k{0} $, infatti deve essere $ 0 \leq p_0 \leq 1 $ anche perché la traccia deve 
 essere $ 1 $ e $ \rho \geq 0 $. Per questi motivi abbiamo scritto che $ \bk{1 | \rho | 1} = 1 - p_0 $, mentre $ \gamma = \bk{0 | \rho | 1} \in \C $ 
-ha solo il vincolo che $ \abs{\gamma} < 1 $. In realtà impoenendo la positività si ottiene che $ \abs{\gamma} \leq \sqrt{p_0 p_1} = \sqrt{p_0 (1 - p_0)} $ 
+ha solo il vincolo che $ \abs{\gamma} < 1 $. In realtà imponendo la positività si ottiene che $ \abs{\gamma} \leq \sqrt{p_0 p_1} = \sqrt{p_0 (1 - p_0)} $ 
 che ha massimo in $ p_0 = p_1 = \frac12 $ e vale proprio $ \abs{\gamma} = \frac12 $ e lo raggiunge solo per uno stato puro.
 
 Adesso rappresentiamo uno stato generico $ \rho $ tramite la base delle matrici di Pauli, per questo possiamo scrive che 
@@ -1779,8 +1779,7 @@ il centro $ \vec{r} = 0 $ è proprio $ \rho = I/2 $. Due stati ortogonali come $
 (e non ortogonali nel senso euclideo) sulla sfera di Bloch, per tanto concludiamo che due stati sono esattamente distinguibili (cioè esiste un 
 test in grado di discriminare con certezza fra uno o l'altro) se i loro vettori di Bloch $ \vec{r_1}, \vec{r_2} $ sono opposti ovvero 
 $ \vec{r_1} = - \vec{r_2}$.
-\input
-{build/figure/sfera_di_Bloch}
+\input{build/figure/sfera_di_Bloch}
 
 \chapter{Momento angolare}
 
@@ -1862,7 +1861,7 @@ infatti $ \si{Kg \, \meter^2 / \second } = \si{\joule \second} $). Mostriamo che
 \begin{align*}
   \beta \geq m^2,
 \end{align*}
-per farlo basta considerare che gli operatori $ J_\alpha^2 $ sono semipositivi dato che 
+per farlo basta considerare che gli operatori $ J_\alpha^2 $ sono semi positivi dato che 
 \begin{align*}
   \bk{\beta,m | J_\alpha J_\alpha | \beta,m} = (\b{\beta,m} J_\alpha^\dag ) (J_\alpha \k{\beta,m}) = \norm{J_\alpha \k{\beta,m}}^2 \geq 0
 \end{align*}
@@ -1956,7 +1955,7 @@ a meno di una base, per tanto ridefinendoli otteniamo che
 \begin{align*}
   C_{jm} = \hbar \sqrt{j(j+1) - m(m+1)} .
 \end{align*}
-A questo punto abbiamo tutti gli ingredienti per scrivere gli elementi di matrice delle componenti di $ \vec{J} $. Grazie ai coeffiecienti $ C_{jm} $ 
+A questo punto abbiamo tutti gli ingredienti per scrivere gli elementi di matrice delle componenti di $ \vec{J} $. Grazie ai coefficienti $ C_{jm} $ 
 sappiamo che la matrice di $ J_+ $ è (a meno di un $ \hbar $)
 % Elementi di matrice <j',m'|J_+|j,m> in unita' di \hbar
 \begin{align*}
@@ -2112,7 +2111,7 @@ dal quale ricaviamo $ L_z $
 \begin{align*}
   L_z = \v{L} \cdot \vers{z} = \v{L} \cdot \left(  \cos \theta \vers{r} - \sin \theta \vers{\theta} \right) = -i\hbar \, \der{}{\phi}.
 \end{align*}
-Per quanto riguarda $ L^2 $ dobbiamo tenere conton che i versori $ \vers{\theta} , \vers{\phi} $ non sono costanti ma vengono trasformati in modo 
+Per quanto riguarda $ L^2 $ dobbiamo tenere conto che i versori $ \vers{\theta} , \vers{\phi} $ non sono costanti ma vengono trasformati in modo 
 non banale dall'operatore $ \v{L} $ stesso, riportiamo qui il risultato:
 \begin{align*}
   \frac{L^2}{\hbar^2} \eqcolon l^2 = \frac1{\sin \theta} \der{}{\theta} \left( \sin\theta \der{}{\theta} \right) + \frac1{\sin^2\theta} \der[2]{}{\phi}.
@@ -2184,6 +2183,41 @@ aggiungendo la parte radiale possiamo esprimere ogni funzione in $ L^2(\R^3) $ c
   \quad \text{con} \quad R_{\l m}(r) = \int_\Omega {Y_\l^m}^* \, \psi \,d\Omega
 \end{align*}
 dove la parte radiale si ottiene tramite prodotto scalare (dello spazio $ L^2(S^2) $) con l'armonica corrispondente.
+
+\chapter{Potenziale radiale}
+
+In questa sezione tratteremo alcuni problemi a potenziale centrale come l'atomo di Idrogeno e l'oscillatore armonico tridimensionale.
+L'hamiltoniana di una particella di massa $ m $ in tre dimensioni nella rappresentazione delle coordinate è data da
+\begin{align*}
+  H = \frac{\v{P}^2}{2m} + W(\abs{\v{Q}}) = - \frac{\hbar^2}{2m} \nabla^2 + W(\abs{\v{x}})
+\end{align*}
+tuttavia per sfruttare il la simmetria sferica del potenziale centrale è conveniente lavorare in coordinate sferiche, dunque abbiamo 
+\begin{align*}
+  H &= - \frac{\hbar^2}{2m} \left[ \frac1{r^2} \der{}{r} \left( r^2 \der{}r \right) 
+  + \frac1{r^2 \sin\theta} \der{}{\theta} \left( \sin\theta \der{}{\theta} \right) 
+  + \frac1{\left( r \sin\theta \right)^2} \der[2]{}{\varphi}\right]  + W(r)
+  \\
+  &= - \frac{\hbar^2}{2m} \frac1{r^2} \der{}{r} \left( r^2 \der{}r \right) + \frac{L^2(\theta, \varphi)}{2m\,r^2} + W(r)
+\end{align*}
+dove abbiamo riconosciuto l'operatore $ L^2(\theta, \varphi) $. Proprio per questo è utile scrivere la soluzione in termini delle armoniche sferiche, 
+infatti imponendo la forma 
+\begin{align*}
+  \psi(r,\theta, \varphi) = \frac{u(r)}{r} Y_\l^m(\theta, \varphi)
+\end{align*}
+si ottiene la seguente equazione per gli stati stazionari:
+\begin{align*}
+  - \frac{\hbar^2}{2m} \frac{d^2}{dr^2} u(r) + \left[ \frac{\hbar^2}{2m} \frac{l(l+1)}{r^2} + W(r)\right] u(r) = E u(r).
+\end{align*}
+Questa equazione ricorda quella per una particella in un problema unidimensionale, tuttavia in questo caso dobbiamo anche imporre la condizione al 
+contorno di 
+\begin{align*}
+  u(0) = 0
+\end{align*}
+al fine di evitare un andamento come $ r^{-1} $ e quindi una singolarità nell'origine.
+
+
+\section{Atomo d'Idrogeno}
+
 
 
 
