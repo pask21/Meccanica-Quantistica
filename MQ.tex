@@ -2218,6 +2218,45 @@ al fine di evitare un andamento come $ r^{-1} $ e quindi una singolarità nell'o
 
 \section{Atomo d'Idrogeno}
 
+Tratteremo l'atomo d'idrogeno come un sistema a due corpi per poi passare al sistema del centro di massa e quindi ridurlo a un problema di 
+singola particella con massa ridotta in campo centrale. L'hamiltoniana totale è 
+\begin{align*}
+  H = \frac{\v{P}_e^2}{2m_e} + \frac{\v{P}_p^2}{2m_p} - \frac{e^2}{\abs{\v{Q}_e - \v{Q}_p}}\;,
+\end{align*}
+tramite il cambio di coordinate 
+\begin{align*}
+  \v{Q}_{\text{cm}} &= \frac{m_e \v{Q}_e + m_p \v{Q}_p}{m_e + m_p} 
+  \\
+  \v{Q}_{r} &= \v{Q}_e - \v{Q}_p
+\end{align*}
+e di momenti
+\begin{align*}
+  \v{P}_{\text{cm}} &= \v{P}_e + \v{P}_p
+  \\
+  \v{P}_{r} &= \frac{m_p \v{P}_e - m_e \v{P}_p}{m_e + m_p} 
+\end{align*}
+otteniamo la seguente hamiltoniana:
+\begin{align*}
+  H = \frac{\v{P}^2_{\text{cm}}}{2 M} + \frac{\v{P}^2_r}{2 \mu} - \frac{e^2}{\abs{\v{Q}_r}}
+\end{align*}
+dove $ M = m_e + m_p $ e $ \mu = m_e m_p /M $. Notiamo che il cambio di variabili che abbiamo fatto ha portato una "vera" hamiltoniana, cioè che conserva 
+le equazioni di Hamilton, questo perché è una trasformazione canonica dato che conserva le relazioni di commutazione:
+\begin{align*}
+  [ Z _\alpha, Z_\beta] = i\hbar\, \Gamma_{\alpha \beta} 
+\end{align*}
+con $ \Gamma $ la matrice simplettica. Il centro di massa fa un moto libero perciò con un cambio di sistema di riferimento possiamo ottenere 
+la seguente hamiltoniana
+\begin{align*}
+  H = \frac{\v{P}^2}{2\mu} - \frac{e^2}{\abs{\v{Q}}}\;.
+\end{align*}
+Per risolvere in coordinate sferiche con $ \psi(r,\theta, \varphi) = R(r) Y_\l^m (\theta,\varphi) $ (è più conveniente non evidenziare il fattore $ 1/r $ 
+come fatto precedentemente) l'equazione che si ottiene per $ R(r) $ è
+\begin{align*}
+  -\frac{\hbar^2}{2\mu\, r^2} \der{}{r} r^2 \der{}{r} R + \frac{\hbar^2\,\l (\l+1)}{2\mu r^2} R - \frac{e^2}{r} R = E R 
+\end{align*}
+dove noi siamo interessati agli stati legati per cui cerchiamo per $ E < 0 $. 
+
+
 
 
 
