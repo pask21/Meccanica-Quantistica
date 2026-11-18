@@ -46,7 +46,7 @@ Possiamo imporre alcuni vincoli sulla media $ \sca{\mathbf{R}} $ in modo da rica
   \item \textbf{Hermiticità}: consideriamo un osservabile a cui è associato un operatore $ P_u = \k{u} \b{u} $ che rappresenta un proiettore 
   su un vettore $ \k{u} $ di norma 1. Dato che la media di una variabile dinamica deve essere reale (perché assume solo valori 
   reali) allora lo deve essere anche $ \Tr (\rho P_u) = \sum_n \b{\psi_n} \rho \k{u} \bk{u|\psi_n} = \b{u} \rho \k{u} $, e siccome deve valere per ogni 
-  $ \k{u} $ allora si ha che $ \rho = \rho^\dagger $ per il lemma \ref{lem:}.
+  $ \k{u} $ allora si ha che $ \rho = \rho^\dagger $. % per il lemma \ref{lem:}
   \item \textbf{Positività}: considerando ancora i proiettori, gli autovalori possibili sono $ 0 $ e $ 1 $, per tanto la media dell'osservabile 
   deve essere positiva e quindi $ 0 \leq \sca{\mathbf{R}} = \b{u} \rho \k{u} $. Siccome deve valere per ogni $ \k{u} $ allora $ \rho \geq 0 $.
 \end{enumerate}
@@ -2255,8 +2255,69 @@ come fatto precedentemente) l'equazione che si ottiene per $ R(r) $ è
   -\frac{\hbar^2}{2\mu\, r^2} \der{}{r} r^2 \der{}{r} R + \frac{\hbar^2\,\l (\l+1)}{2\mu r^2} R - \frac{e^2}{r} R = E R 
 \end{align*}
 dove noi siamo interessati agli stati legati per cui cerchiamo per $ E < 0 $. 
+Adesso vogliamo scrivere questa equazione in unità naturali per cui 
+definiamo le seguenti grandezze:
+\begin{align*}
+  r_B &= \frac{\hbar}{\mu c \alpha} \simeq \SI{0.5}{\angstrom} \quad E_R = \frac12 \mu c^2 \alpha^2  \simeq \SI{13.6}{eV} 
+  \\
+  p_B &= \mu c \alpha =  \frac\hbar{r_B} \quad T_B = \frac\hbar{E_B} \simeq \SI{e-17}{s}
+\end{align*}
+fra cui il \textit{raggio di Bohr} $ r_B $ e la \textit{costante energetica di Rydberg} $ E_R $. La costante adimensionale $ \alpha $ è la 
+\textit{costante di struttura fine}, che vale lo stesso in tutti i sistemi di unità di misura cioè $ \alpha \simeq 1/137 $, tuttavia è definita in 
+modo diverso:
+\begin{align*}
+  \text{cgs} \quad \alpha &= \frac{e^2}{\hbar c}
+  \\
+  \text{SI} \quad \alpha &= \frac{e^2}{4 \pi \eps_0 \hbar c}
+\end{align*}
+dunque noi useremo la prima definizione. 
 
+L'equazione per $ R(r) $ si riscrive con 
+le quantità adimensionali $ \ol{r} = r /r_B, \ol{E} = E/E_R $ come
+\begin{align*}
+  \left[ \frac{1}{\ol{r}^2} \der{}{\ol{r}} \ol{r}^2 \der{}{\ol{r}} 
+  - \frac{\l (\l + 1)}{\ol{r}^2} + \ol{E} + \frac{2}{\ol{r}} \right] R(\ol{r}) = 0\;.
+\end{align*}
+Con anche $ n = \frac1{\sqrt{-\ol{E}}}, \rho = \frac{2\ol{r}}{n} $ si ottiene la forma standard 
+\begin{align*}
+  \left[ \frac{1}{\rho^2} \der{}{\rho} \rho^2 \der{}{\rho}
+  + \frac{n}\rho - \frac{\l (\l + 1)}{\rho^2}  - \frac14 \right] R(\rho) = 0
+\end{align*}
+dove il termine $ 1/4 $ è tutto ciò che rimane dell'autovalore $ E $ dopo la riscrittura in quantità adimensionali.
+Per risolvere questa equazione cerchiamo delle soluzioni nella forma 
+\begin{align*}
+  R(\rho) = \rho^k e^{\pm \rho /2} L(\rho)  = \rho^k e^{\pm \rho /2} \sum_{\nu} a_\nu \rho^\nu
+\end{align*}
+dove $ L(\rho) $ è una serie di potenze. Abbiamo scelto questo ansatz perché per $ \rho \to \infty $ i termini proporzionali a $ \rho^{-1}, \rho^{-2} $ 
+possono essere trascurati rispetto a $ 1/4 $ e quindi la soluzione è del tipo $ \rho^k e^{\pm\rho/2} $, di cui solo l'esponenziale decrescente è una 
+soluzione fisica, e per tenere il vincolo che si annulli per $ \rho = 0 $ abbiamo inserito la serie di potenze $ L(\rho) $. In particolare è possibile 
+mostrare che per garantire questa condizione deve necessariamente essere $ k = \l $. L'equazione per $ L(\rho) $ vale 
+\begin{align*}
+  \rho L''(\rho) + \left[ 2(\l + 1) - \rho \right] L'(\rho) + \left( n - \l -1 \right) L(\rho) = 0
+\end{align*}
+che si traduce nella seguente relazione ricorsiva fra i coefficienti $ a_\nu $:
+\begin{align*}
+  a_{\nu + 1} = \frac{\nu + \l + 1 - n}{(\nu + 1) (\nu + 2 \l + 2)} a_\nu \;.
+\end{align*}
+Allo stesso modo per l'equazione di Legendre, notiamo che se la serie non terminasse allora avrebbe un andamento di $ 1/\nu $ che non convergerebbe, 
+per cui deve necessariamente terminare, e per farlo imponiamo 
+\begin{align*}
+  n = n' + \l + 1 \quad \text{con} \quad n' \in \mathbb{N},
+\end{align*}
+ma allora questo implica che 
+\begin{align*}
+  n \in \mathbb{N}  \quad \text{e anche che} \quad  n \geq \l + 1 \;.
+\end{align*}
+Riprendendo la definizione di $ n $ e di $ E_R $ abbiamo gli autovalori dell'energia in funzione di $ n $, infatti 
+\begin{align*}
+  \ol{E} = -\frac1{n^2} = \frac{E}{E_R} \implies E_n = - \frac{\mu c^2 \alpha^2}{2n^2} = -\frac{\mu e^4}{2 \hbar^2 n^2} \quad \text{(cgs)}.
+\end{align*}
 
+% \begin{align*}
+%   E_n = - \frac{\mu e^4}{2 \hbar^2 n^2} 
+
+%   E_n = - \frac{\mu \alpha^2 c^2}{2n^2}
+% \end{align*}
 
 
 
