@@ -2244,8 +2244,7 @@ le equazioni di Hamilton, questo perché è una trasformazione canonica dato che
 \begin{align*}
   [ Z _\alpha, Z_\beta] = i\hbar\, \Gamma_{\alpha \beta} 
 \end{align*}
-con $ \Gamma $ la matrice simplettica. Il centro di massa fa un moto libero perciò con un cambio di sistema di riferimento possiamo ottenere 
-la seguente hamiltoniana
+con $ \Gamma $ la matrice simplettica. Il centro di massa fa un moto libero perciò dobbiamo studiare solo il moto relativo, con la seguente hamiltoniana:
 \begin{align*}
   H = \frac{\v{P}^2}{2\mu} - \frac{e^2}{\abs{\v{Q}}}\;.
 \end{align*}
@@ -2290,11 +2289,11 @@ Per risolvere questa equazione cerchiamo delle soluzioni nella forma
 \end{align*}
 dove $ L(\rho) $ è una serie di potenze. Abbiamo scelto questo ansatz perché per $ \rho \to \infty $ i termini proporzionali a $ \rho^{-1}, \rho^{-2} $ 
 possono essere trascurati rispetto a $ 1/4 $ e quindi la soluzione è del tipo $ \rho^k e^{\pm\rho/2} $, di cui solo l'esponenziale decrescente è una 
-soluzione fisica, e per tenere il vincolo che si annulli per $ \rho = 0 $ abbiamo inserito la serie di potenze $ L(\rho) $. In particolare è possibile 
+soluzione fisica, e per tenere il vincolo che si annulli per $ \rho = 0 $ basta chiedere la regolarità di $ R $. In particolare è possibile 
 mostrare che per garantire questa condizione deve necessariamente essere $ k = \l $. L'equazione per $ L(\rho) $ vale 
-\begin{align*}
+\begin{align} \label{eq: equazione per le autofunzioni L dell'atomo di idrogeno}
   \rho L''(\rho) + \left[ 2(\l + 1) - \rho \right] L'(\rho) + \left( n - \l -1 \right) L(\rho) = 0
-\end{align*}
+\end{align}
 che si traduce nella seguente relazione ricorsiva fra i coefficienti $ a_\nu $:
 \begin{align*}
   a_{\nu + 1} = \frac{\nu + \l + 1 - n}{(\nu + 1) (\nu + 2 \l + 2)} a_\nu \;.
@@ -2302,7 +2301,7 @@ che si traduce nella seguente relazione ricorsiva fra i coefficienti $ a_\nu $:
 Allo stesso modo per l'equazione di Legendre, notiamo che se la serie non terminasse allora avrebbe un andamento di $ 1/\nu $ che non convergerebbe, 
 per cui deve necessariamente terminare, e per farlo imponiamo 
 \begin{align*}
-  n = n' + \l + 1 \quad \text{con} \quad n' \in \mathbb{N},
+  n = n' + \l + 1 \quad \text{con} \quad n' \in \mathbb{N}_0,
 \end{align*}
 ma allora questo implica che 
 \begin{align*}
@@ -2312,14 +2311,35 @@ Riprendendo la definizione di $ n $ e di $ E_R $ abbiamo gli autovalori dell'ene
 \begin{align*}
   \ol{E} = -\frac1{n^2} = \frac{E}{E_R} \implies E_n = - \frac{\mu c^2 \alpha^2}{2n^2} = -\frac{\mu e^4}{2 \hbar^2 n^2} \quad \text{(cgs)}.
 \end{align*}
+Abbiamo quindi ottenuto che l'atomo d'idrogeno ha spettro discreto, e il numero naturale $ n $ è noto come \textit{numero quantico principale} dello 
+stato. La degenerazione dello stato a energia fissata sono il numero di stati linearmente indipendenti con la stessa energia, dato che l'energia è 
+fissata da $ n $ che si ottiene da $ n' $ e $ \l $, per contarli basta scorrere gli i vari valori di $ \l $ e contare le degenerazioni dovute a $ m $
+che sono $ 2\l +1 $. I valori di $ \l  $ vanno da $ 0 $ a $ n - 1 $ (quando $ \l = n - 1 $ si ha $ n' $ = 0) e sommandoli tutti otteniamo 
+\begin{align*}
+  \sum_{\l = 0}^{n - 1} (2\l + 1) = n^2 \;.
+\end{align*}
 
-% \begin{align*}
-%   E_n = - \frac{\mu e^4}{2 \hbar^2 n^2} 
-
-%   E_n = - \frac{\mu \alpha^2 c^2}{2n^2}
-% \end{align*}
-
-
+Le autofunzioni $ L(\rho) $ descritte dai coefficienti $ a_\nu $ hanno grado $ n' = n - \l - 1 $ e sono i cosiddetti 
+\textit{polinomi di Laguerre generalizzati}: i polinomi di Laguerre $ L_{n'}(\rho) $ sono ottenibili con la formula 
+\begin{align*}
+  L_{n'}(\rho) = e^\rho \frac{d^{n'}}{d\rho^{n'}} \left( \rho^{n'} e^{-\rho} \right)
+\end{align*}
+mentre i polinomi di Laguerre generalizzati $ L_{n'}^s(\rho) $ si ricavano dai primi come 
+\begin{align*}
+  L_{n'}^s(\rho) = \frac{d^s}{d\rho^s} L_{n'}(\rho)
+\end{align*}
+e nel nostro caso $ s = 2\l + 1 $ (si ottiene comparando l'equazione \ref{eq: equazione per le autofunzioni L dell'atomo di idrogeno} con 
+l'equazione che i polinomi di Laguerre generalizzati risolvono). Abbiamo dunque risolvo il problema e possiamo scrivere la funzione d'onda per 
+l'atomo di idrogeno:
+\begin{align*}
+  \psi_{n\l m}(r, \theta, \varphi) = - \sqrt{ \frac{4 (n - \l -1)!}{(n r_B)^3 n \, [(n+1)!]^3}}
+  \; \rho^\l\, L_{n+\l}^{2\l + 1}(\rho)\, e^{- \rho/2}\, Y_\l^m(\theta,\varphi)
+\end{align*}
+dove $ \rho = \alpha r = 2r / n r_B $, e il coefficiente davanti è dovuto alla normalizzazione. 
+Lo stato fondamentale $ \psi_{100} $ è semplicemente 
+\begin{align*}
+  \psi_{100}(r, \theta, \varphi) = \psi_{100}(r) = \sqrt{\pi r_B^3} \; e^{-r/r_B}\;.
+\end{align*}
 
 
 \end{document}
