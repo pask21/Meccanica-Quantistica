@@ -1076,7 +1076,7 @@ Adesso sviluppiamo l'equazione di Schrödinger per lo stato $ \k{\psi(t)} $ in m
   \\
   &= H \k{\psi} = \sum_{nk} \eps_n a_{nk} \k{e_{nk}} e^{-i \phi_n}
 \end{align*}
-dove abbiamo omesso tutte le dipendente dal tempo. Notiamo che il termine dell'hamiltoniana elimina il termine ottenuto derivando le fasi dinamiche, 
+dove abbiamo omesso tutte le dipendenze dal tempo. Notiamo che il termine dell'hamiltoniana elimina il termine ottenuto derivando le fasi dinamiche, 
 quindi rimane
 \begin{align*}
   \sum_{nk} \dot{a_{nk}} \k{e_{nk}} e^{-i \phi_n} + a_{nk} \dot{\k{e_{nk}}} e^{-i \phi_n} = 0
@@ -1089,8 +1089,88 @@ e applicando il bra $ \b{e_{n'k'}} $ e coniugando si ottiene
 dove abbiamo usato la proprietà $  \bk{e_{n'k'} | \dot{e_{nk}}} = - \bk{\dot{e_{n'k'}} | {e_{nk}}} $ che si ottiene derivando la condizione di 
 ortonormalità. L'equazione differenziale per i coefficienti si riscrive come 
 \begin{align*}
-  \frac{d a_{pq}}{dt} = \sum_{nk} a_{nk} \bk{\dot{e_{pq}} | {e_{nk}}} e^{-i(\phi_n - \phi_p)}.
+  \frac{d}{dt} a_{pq} = \sum_{nk} a_{nk} \bk{\dot{e_{pq}} | {e_{nk}}} e^{-i(\phi_n - \phi_p)}\;.
 \end{align*}
+
+Vogliamo mostrare che una qualsiasi evoluzione temporale $ U(t_0,t) $ (nell'ipotesi dette sopra ) si decompone in tre termini: $ P(t_0,t) $ 
+che assegna le fasi dinamiche agli autospazi, $ R(t_0,t) $ che ruota rigidamente gli autospazi nel tempo, e $ U_C(t_0,t) $ che fa evolvere internamente 
+gli autospazi. Le espressioni per questi tre operatori sono 
+\begin{align*}
+  P(t_0,t) &= \sum_{n}^N e^{i \phi_n (t_0,t)} \, \Pi_n(t) 
+  \\
+  R(t_0,t) &= \sum_{n,k} \k{e_{nk}(t) } \b{e_{nk}(t_0)}
+  \\
+  U_C(t_0,t) &= \Texp\left[ -i \int_{t_0}^t C(t')\,dt' \right]
+\end{align*}
+dove l'operatore $ C(t) $ è anti-hermitiano ($ C^\dag = - C $) e definito come 
+\begin{align*}
+  C(t) &= - \sum_{n,n',k,k'} \bk{e_{n'k'}(t) |\dot{ e_{nk}(t)}} \k{e_{nk}(t_0)} \b{e_{n'k'(t_0)}} \,e^{ i(\phi_n(t) - \phi_{n'}(t))}
+\end{align*}
+Mostriamo che effettivamente l'evoluzione di uno stato può essere descritta da questi operatori,
+\begin{align*}
+  \k{\psi(t)} &= \sum_{nk} e^{i \phi_n} a_{nk}(t) \k{e_{nk}(t)} 
+  \\
+  &= P(t_0,t) \sum_{nk} a_{nk}(t) \k{e_{nk}(t)}
+  \\
+  &=  P(t_0,t) R(t_0,t) \sum_{nk} a_{nk}(t) \k{e_{nk}(t_0)} 
+  \\
+  &= P(t_0,t) R(t_0,t) U_C(t_0,t) \k{\psi(t_0)}
+\end{align*}
+dove l'ultimo passaggio $ \sum_{nk} a_{nk}(t) \k{e_{nk}(t_0)} $ rappresenta lo stato evoluto ma con ancora la base non evoluta, e che evolva con 
+l'operatore $ C(t) $ si mostra con l'equazione di Schrödinger per quello stato. L'operatore $ C(t) $ mescola i termini diagonali con quelli 
+off-diagonal per cui possiamo dividerlo in due parti: $ C(t) = A(t) + B(t) $ dove $ A(t) $ è dato dalla somma con $ n = n' $ mentre $ B(t) $ da 
+$ n \neq n' $, cioè 
+\begin{align*}
+  C(t) = A&(t) + B(t) 
+  \\
+  = - &\sum_{n = n',k,k'} \bk{e_{nk'}(t) |\dot{ e_{nk}(t)}} \k{e_{nk}(t_0)} \b{e_{nk'(t_0)}} 
+  \\
+  - &\sum_{n \neq n',k,k'} \bk{e_{n'k'}(t) |\dot{ e_{nk}(t)}} \k{e_{nk}(t_0)} \b{e_{n'k'(t_0)}} \,e^{ i(\phi_n(t) - \phi_{n'}(t))}
+\end{align*}
+dove notiamo che $ A(t) $ non dipende più dalle fasi dinamiche, mentre $ B(t) $ sì.
+
+La decomposizione che abbiamo ottenuto è valida nelle ipotesi generali che abbiamo richiesto (autovalori che non si intersecano nel tempo), tuttavia 
+possiamo fare una ipotesi ulteriore per ottenere il risultato noto come \textit{fase di Berry}. Prima dobbiamo effettuare un cambio di variabili, 
+cioè esplicitare la dipendenza dai parametri di controllo al posto della dipendenza temporale, infatti l'hamiltoniana time-dipendent può essere espressa 
+come 
+\begin{align*}
+  H(t) \to H(\vec{v}(t))
+\end{align*}
+dove $ \vec{v}(t) $ è il vettore in $ \R^h $ dei parametri di controllo in funzione del tempo. Allo stesso modo possiamo esprimere tutte le quantità 
+dipendenti dal tempo. Per quanto riguarda $ B(t) $, le fasi dinamiche dipendono dalla velocità dei parametri di controllo come 
+\begin{align*}
+  \phi_n(t) \propto \frac1{\DS |\, \dot{\vec{v}}(t) \,| }
+\end{align*}
+per cui variando lentamente i parametri, le fasi iniziano a oscillare sempre più velocemente e così il loro integrale nell'esponenziale 
+$ \mathcal{T} $-ordinato media a $ 0 $. Tuttavia non sappiamo ancora rispetto a cosa devono variare lentamente. In questa ipotesi abbiamo che 
+$ C(t) = A(t) $ e quindi $ U_C(t_0,t) \to U_A(t_0,t) $, inoltre se richiediamo anche che 
+\begin{align*}
+  [A(t), A(t')] = 0 \quad \forall\; t,t'
+\end{align*}
+allora abbiamo che l'esponenziale $ \mathcal{T} $-ordinato diventa un semplice esponenziale $ \exp\left[ \int A(t') \,dt' \right] $ 
+dove 
+\begin{align*}
+  \int_{t_0}^t A(t') \, dt' 
+  &= -\sum_{n,k,k'} \int_{t_0}^t \dot{\vec{v}}(t') \bk{e_{nk'}(t') | \nabla | e_{nk}(t') } \k{e_{nk'}(t_0)} \b{e_{nk}(t_0)}\,dt'
+  \\
+  &= - \sum_{n,k,k'} \int_\Gamma d\vec{v}  \cdot \vec{F}_{nkk'}(\vec{v}) \,\k{e_{nk'}(t_0)} \b{e_{nk}(t_0)}
+\end{align*}
+dove l'integrale in $ t' $ si è trasformato in un integrale di linea con il teorema di Stokes riconoscendo il campo vettoriale 
+$ \vec{F}_{nkk'}(\vec{v}) $. La dipendenza dal tempo è sparita lasciando una quantità puramente geometrica dipendente solo dal percorso nello spazio 
+dei parametri $ \R^h $. Se l'integrale è anche chiuso cioè i parametri di controllo tornano alle condizioni iniziali cioè 
+\begin{align*}
+  \exp \left[ \int_{t_0}^t A(t') \, dt' \right] 
+  = \exp \left[ - \sum_{n,k,k'} \oint_\Gamma d\vec{v}  \cdot \vec{F}_{nkk'}(\vec{v}) \,\k{e_{nk'}(t_0)} \b{e_{nk}(t_0)} \right]
+\end{align*}
+allora abbiamo una trasformazione unitaria che dipende soltanto dalla geometria, ovvero la fase di Berry. È chiamata fase perché quando Berry studiò il 
+problema pose il caso in cui $ \dim \H = 1 $ e in quel caso si ottiene proprio una fase $ e^{i \Phi} $, indipendente dalla dinamica. L'ipotesi fatta 
+di $ \dot{\vec{v}}(t) $ abbastanza piccola è detta \textit{approssimazione adiabatica}, e viene fuori che la quantità con cui confrontarla sono i 
+\textit{gap} spettrali, cioè la distanza minima che fra due autovalori diversi al variare del tempo: 
+\begin{align*}
+  |\, \dot{\vec{v}} (t) \, | \ll \min_{n,n'} \abs{\eps_n(t) - \eps_{n'}(t)} \quad \forall\; t \;.
+\end{align*}
+Notiamo che le dimensioni sono corrette infatti per $ \hbar = 1 $ le energie sono frequenze e la variazione dei parametri è l'inverso di un tempo dato 
+che i parametri sono adimensionali.
 
 \chapter{Rappresentazione in coordinate}
 
